@@ -1,134 +1,163 @@
-'use client'
-
 import Image from 'next/image'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
-import EnquiryForm from '@/components/ui/EnquiryForm'
+import AircraftFilter, { Aircraft } from './AircraftFilter'
+import FlyEnquiryForm from './FlyEnquiryForm'
 
-const aircraft = [
-  { type: 'Turboprop',       range: 'Up to 1,200nm', pax: '6–9',  example: 'Pilatus PC-12' },
-  { type: 'Light Jet',       range: 'Up to 2,000nm', pax: '4–8',  example: 'Cessna Citation CJ3' },
-  { type: 'Midsize Jet',     range: 'Up to 3,500nm', pax: '7–9',  example: 'Hawker 800XP' },
-  { type: 'Heavy Jet',       range: 'Up to 6,000nm', pax: '10–16', example: 'Gulfstream G450' },
-  { type: 'Ultra Long Range', range: 'Global',       pax: '12–19', example: 'Global 7500' },
+const categories = [
+  { name: 'Turboprop', range: 'Up to 4h', seats: '4-8 seats', example: 'Pilatus PC-12, King Air 350', scale: 0.72 },
+  { name: 'Light Jet', range: 'Up to 5h', seats: '5-8 seats', example: 'Phenom 300, Citation CJ4', scale: 0.82 },
+  { name: 'Midsize', range: 'Up to 7h', seats: '7-9 seats', example: 'Hawker 800, Citation XLS+', scale: 0.94 },
+  { name: 'Heavy Jet', range: 'Up to 10h', seats: '10-16 seats', example: 'Gulfstream G450, Challenger 604', scale: 1.05 },
+  { name: 'Ultra Long Range', range: '14h+', seats: '12-19 seats', example: 'Gulfstream G700, Global 7500', scale: 1.18 },
+]
+
+const aircraft: Aircraft[] = [
+  { id: 'pc12', name: 'Pilatus PC-12', category: 'Turboprop', range: '1,800nm', seats: '6-8', route: 'MAN to Ibiza', image: 'https://images.unsplash.com/photo-1517976487492-5750f3195933?w=700&q=85' },
+  { id: 'phenom', name: 'Embraer Phenom 300', category: 'Light Jet', range: '2,010nm', seats: '6-8', route: 'London to Geneva', image: 'https://images.unsplash.com/photo-1530521954074-e64f6810b32d?w=700&q=85' },
+  { id: 'challenger', name: 'Challenger 350', category: 'Midsize', range: '3,200nm', seats: '8-10', route: 'MAN to Dubai', image: 'https://images.unsplash.com/photo-1520437358207-323b43b50729?w=700&q=85' },
+  { id: 'g450', name: 'Gulfstream G450', category: 'Heavy Jet', range: '4,350nm', seats: '12-14', route: 'London to New York', image: 'https://images.unsplash.com/photo-1570710891163-6d3b5c47248b?w=700&q=85' },
+  { id: 'global', name: 'Global 7500', category: 'Ultra Long Range', range: '7,700nm', seats: '14-19', route: 'Farnborough to Singapore', image: 'https://images.unsplash.com/photo-1569629743817-70d8db6c323b?w=700&q=85' },
+  { id: 's76', name: 'Sikorsky S-76', category: 'Helicopter', range: '400nm', seats: '6', route: 'MAN to LHR transfer', image: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=700&q=85' },
+]
+
+const phases = [
+  ['Pre-flight', ['Flight plan and slot coordination', 'VIP FBO terminal access at departure', 'Ground transport to the aircraft steps', 'Catering brief confirmed with cabin crew', 'Security advance if required']],
+  ['In-flight', ['Dedicated cabin crew - your specific brief', 'Bespoke catering and dietary needs', 'Wi-Fi and satellite connectivity', 'Entertainment system configured', 'Sleeping arrangements where applicable']],
+  ['On arrival', ['Expedited customs and immigration', 'Ground transport from the aircraft', 'Hotel or residence pre-arrival confirmation', 'Security handover where required', 'Onward connections arranged']],
+]
+
+const airports = [
+  ['MAN', 'Manchester International', 'Primary hub'],
+  ['LHR', 'London Heathrow', 'Terminal 5 FBO'],
+  ['LCY', 'London City', 'Short-notice'],
+  ['LGW', 'London Gatwick', 'South terminal FBO'],
+  ['LTN', 'London Luton', 'Private terminal'],
+  ['FAB', 'Farnborough', 'Dedicated private terminal'],
+]
+
+const featured = [
+  { name: 'Gulfstream G700.', em: 'The standard.', badge: 'Ultra Long Range · Available Now', body: 'The most advanced business aircraft in its class. 7,500nm range, 19-seat capacity, a full stand-up cabin with four living zones and a private suite at the rear. London to Singapore non-stop. New York to Manchester direct.', specs: ['19 seats', '7,500nm range', 'Full stand-up cabin', 'Private suite'], price: 'From £38,000', cta: 'Request this aircraft', image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=900&q=90' },
+  { name: 'Challenger 350.', em: 'The workhorse.', badge: 'Midsize · Most Requested', body: "OPV's most-requested aircraft. 10-seat capacity, 3,900nm range and a cabin that punches well above its class. Manchester to Dubai with one stop. London to Ibiza non-stop.", specs: ['10 seats', '3,900nm range', 'Lie-flat capable', 'High-speed Wi-Fi'], price: 'From £8,500', cta: 'Request this aircraft', image: 'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=900&q=90', reverse: true },
+  { name: 'Sikorsky S-76.', em: 'No traffic.', badge: 'Helicopter · Transfer & Charter', body: 'Manchester to London in around 90 minutes. Rooftop to rooftop, helipad to aircraft steps. VIP configured interiors, 6-seat capacity and a range that covers any UK transfer without stopping.', specs: ['6 seats', '90min MAN to LHR', 'Rooftop capable', 'Executive fit-out'], price: 'From £4,200', cta: 'Request a helicopter', image: 'https://images.unsplash.com/photo-1517479149777-5f3b1511d5ad?w=900&q=90' },
 ]
 
 const emptyLegs = [
-  { route: 'MAN → LHR', date: '23 Aug', price: 'From £2,400', pax: 8 },
-  { route: 'LHR → MLA', date: '25 Aug', price: 'From £6,200', pax: 12 },
-  { route: 'LGW → DXB', date: '28 Aug', price: 'From £14,800', pax: 14 },
-  { route: 'MAN → BCN', date: '01 Sep', price: 'From £4,400', pax: 8 },
-  { route: 'LHR → GVA', date: '03 Sep', price: 'From £3,800', pax: 9 },
+  ['MAN -> NCE', 'Sep 2026', 'Midsize Jet', 'Up to 8', 'Save ~65%', 'From £4,200'],
+  ['LHR -> DXB', 'Sep 2026', 'Heavy Jet', 'Up to 12', 'Save ~70%', 'From £18,500'],
+  ['GVA -> MAN', 'Oct 2026', 'Light Jet', 'Up to 6', 'Save ~60%', 'From £6,800'],
+  ['MAN -> IBI', 'Oct 2026', 'Turboprop', 'Up to 6', 'Save ~55%', 'From £3,600'],
+  ['LHR -> FCO', 'Oct 2026', 'Midsize Jet', 'Up to 8', 'Save ~60%', 'From £8,100'],
+  ['FAB -> MAD', 'Oct 2026', 'Heavy Jet', 'Up to 14', 'Save ~72%', 'From £14,200'],
+  ['MAN -> MXP', 'Nov 2026', 'Light Jet', 'Up to 7', 'Save ~58%', 'From £5,400'],
+  ['LCY -> DUB', 'Nov 2026', 'Turboprop', 'Up to 8', 'Save ~50%', 'From £2,900'],
+  ['LHR -> JFK', 'Nov 2026', 'Ultra Long Range', 'Up to 16', 'Save ~68%', 'From £42,000'],
+  ['MAN -> BCN', 'Dec 2026', 'Midsize Jet', 'Up to 9', 'Save ~63%', 'From £6,200'],
 ]
 
-const fadeUp = (delay = 0) => ({
-  initial: { opacity: 0, y: 32 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: '-60px' },
-  transition: { duration: 0.65, delay, ease: [0.25, 0.46, 0.45, 0.94] },
-})
+function AircraftIcon({ scale }: { scale: number }) {
+  return <svg className="fly-aircraft-icon" style={{ transform: `scale(${scale})` }} viewBox="0 0 120 48" fill="none" aria-hidden="true"><path d="M8 27h38L70 8h10L66 27h34c7 0 12 3 12 7s-5 7-12 7H66L80 46H69L46 41H18l-8 5H2l7-12-7-12h8l-2 5Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" /><path d="M47 27 34 11h9l25 16M46 41 34 46" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg>
+}
+
+function CheckIcon() {
+  return <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12 4 4L19 6" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg>
+}
 
 export default function FlyPage() {
   return (
     <>
-      <section className="page-hero page-hero-clear-top">
+      <section className="page-hero page-hero-clear-top fly-page-hero">
         <Image src="https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=1800&q=90" alt="Private aviation" fill priority style={{ objectFit: 'cover' }} />
         <div className="page-hero-overlay page-hero-overlay-light" />
         <div className="page-hero-inner">
-          <motion.div {...fadeUp()} className="page-hero-copy page-hero-copy-raised">
-            <span className="eyebrow page-hero-kicker">Fly</span>
-            <h1 className="page-hero-title">
-              Your aircraft.<br /><em style={{ fontStyle: 'italic', color: '#D4EAF6' }}>Your schedule.</em>
-            </h1>
-            <p className="page-hero-body">Turboprop to ultra long range. Arranged from Manchester, Heathrow or your preferred FBO. Catering, ground transport and arrival coordination included.</p>
+          <div className="page-hero-copy page-hero-copy-raised fly-page-hero-copy">
+            <span className="eyebrow page-hero-kicker">Private Aviation</span>
+            <h1 className="page-hero-title">Your runway.<br /><em>Your time.</em></h1>
+            <p className="page-hero-body">Private jets from Manchester, Luton, London City and Farnborough. Helicopter transfers. VIP FBO access. Empty legs monitored daily and the cabin stocked to your brief before you board.</p>
             <div className="page-hero-actions">
-              <Link href="/contact" className="btn-primary">Plan a charter</Link>
+              <a href="#fly-enquiry" className="btn-primary">Request a flight</a>
               <a href="#empty-legs" className="btn-ghost-light">View empty legs</a>
             </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Aircraft types */}
-      <section className="section" style={{ background: 'var(--white)' }}>
-        <div className="container" style={{ maxWidth: 1360, margin: '0 auto', padding: '0 2.5rem' }}>
-          <motion.div {...fadeUp()} style={{ marginBottom: '3rem' }}>
-            <span className="eyebrow">Aircraft categories</span>
-            <h2 className="display-md">Five <em>types. Any range.</em></h2>
-          </motion.div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '1px', background: 'var(--border)' }}>
-            {aircraft.map((a, i) => (
-              <motion.div key={a.type} {...fadeUp(i * 0.06)} style={{ background: 'var(--ice)', padding: '2rem 1.5rem' }}>
-                <span className="eyebrow" style={{ marginBottom: '0.8rem' }}>{a.type}</span>
-                <p className="body-sm" style={{ marginBottom: '0.4rem' }}>{a.example}</p>
-                <p className="label-sm" style={{ marginBottom: '0.3rem' }}>Range: {a.range}</p>
-                <p className="label-sm">Pax: {a.pax}</p>
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>
 
-      {/* What's included */}
-      <section className="section" style={{ background: 'var(--ice)' }}>
-        <div className="container" style={{ maxWidth: 1360, margin: '0 auto', padding: '0 2.5rem' }}>
-          <motion.div {...fadeUp()} style={{ marginBottom: '3rem' }}>
-            <span className="eyebrow">What's included</span>
-            <h2 className="display-md">End to end.<br /><em>Without exception.</em></h2>
-          </motion.div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '4rem' }}>
-            {[
-              { title: 'Pre-flight.', items: ['Aircraft selection and operator briefing', 'FBO coordination', 'Catering specification', 'Ground transport both ends'] },
-              { title: 'In-flight.', items: ['Crew briefed on preferences', 'Catering and beverages', 'Wi-Fi where available', 'Any dietary or comfort requirements'] },
-              { title: 'On arrival.', items: ['Met on the tarmac', 'Baggage direct to vehicle', 'Hotel or property liaison', 'Return charter arrangement if needed'] },
-            ].map((col, i) => (
-              <motion.div key={col.title} {...fadeUp(i * 0.1)} className="process-step">
-                <h3 className="display-sm" style={{ marginBottom: '1.2rem' }}>{col.title}</h3>
-                <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
-                  {col.items.map(item => (
-                    <li key={item} className="body-sm" style={{ display: 'flex', gap: '0.6rem' }}>
-                      <span style={{ color: 'var(--sapphire)', flexShrink: 0 }}>—</span> {item}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
-          </div>
+      <section className="fly-stats">{[['6', 'Departure airports'], ['190+', 'Countries served'], ['90min', 'Response time'], ['24/7', 'Flight operations']].map(([value, label]) => <div key={label}><strong>{value}</strong><span>{label}</span></div>)}</section>
+
+      <section className="fly-section fly-ice">
+        <div className="fly-container">
+          <span className="eyebrow">The fleet</span>
+          <h2 className="display-md">From light to <em>ultra-long range.</em></h2>
+          <p className="body-lg fly-intro">Every aircraft category serves a different need. We match the aircraft to the route, the group size and the occasion - not the other way around.</p>
+          <div className="fly-category-grid">{categories.map(category => <article key={category.name}><AircraftIcon scale={category.scale} /><h3>{category.name}</h3><strong>{category.range}</strong><span>{category.seats}</span><p>{category.example}</p></article>)}</div>
         </div>
       </section>
 
-      {/* Empty legs */}
-      <section id="empty-legs" className="section" style={{ background: 'var(--white)' }}>
-        <div className="container" style={{ maxWidth: 1360, margin: '0 auto', padding: '0 2.5rem' }}>
-          <motion.div {...fadeUp()} style={{ marginBottom: '3rem' }}>
-            <span className="eyebrow">Empty legs</span>
-            <h2 className="display-md">Available <em>flights.</em></h2>
-          </motion.div>
-          <div style={{ border: '1px solid var(--border)' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr 1fr', gap: 0, background: 'var(--ice)', borderBottom: '1px solid var(--border)', padding: '0.8rem 1.5rem' }}>
-              {['Route', 'Date', 'From', 'Pax', ''].map(h => <span key={h} className="label-sm">{h}</span>)}
-            </div>
-            {emptyLegs.map((leg, i) => (
-              <div key={i} style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr 1fr', gap: 0, padding: '1.2rem 1.5rem', borderBottom: i < emptyLegs.length - 1 ? '1px solid var(--border)' : 'none', alignItems: 'center' }}>
-                <span className="body-md" style={{ fontFamily: 'var(--display)', fontSize: '1.1rem' }}>{leg.route}</span>
-                <span className="body-sm">{leg.date}</span>
-                <span className="body-sm">{leg.price}</span>
-                <span className="body-sm">Up to {leg.pax}</span>
-                <Link href="/contact" className="btn-ghost" style={{ padding: '0.45rem 0.9rem', fontSize: '0.62rem' }}>Enquire</Link>
-              </div>
-            ))}
-          </div>
+      <section className="fly-section fly-white" id="fleet">
+        <div className="fly-container">
+          <span className="eyebrow">Aircraft access</span>
+          <h2 className="display-md">Aircraft worth <em>requesting.</em></h2>
+          <AircraftFilter aircraft={aircraft} />
         </div>
       </section>
 
-      {/* Form */}
-      <section className="section" style={{ background: 'var(--ice)', borderTop: '1px solid var(--border)' }}>
-        <div style={{ maxWidth: 760, margin: '0 auto', padding: '0 2.5rem' }}>
-          <motion.div {...fadeUp()} style={{ marginBottom: '3rem' }}>
-            <span className="eyebrow">Flight charter</span>
-            <h2 className="display-md">Plan your <em>charter.</em></h2>
-          </motion.div>
-          <EnquiryForm page="fly" cta="Plan a charter" />
+      <section className="fly-section fly-white">
+        <div className="fly-container">
+          <span className="eyebrow">What's arranged</span>
+          <h2 className="display-md">From brief <em>to boarding.</em></h2>
+          <div className="fly-phase-grid">{phases.map(([title, items]) => <article key={title as string}><div /><h3>{title}</h3>{(items as string[]).map(item => <div className="fly-check-row" key={item}><CheckIcon /><p>{item}</p></div>)}</article>)}</div>
+        </div>
+      </section>
+
+      <section className="fly-section fly-ice">
+        <div className="fly-container">
+          <span className="eyebrow">We operate from</span>
+          <h2 className="display-md">Six airports. <em>One call.</em></h2>
+          <div className="fly-airport-strip">{airports.map(([code, name, note]) => <article key={code}><strong>{code}</strong><span>{name}</span><small>{note}</small></article>)}</div>
+          <p className="fly-airport-note">All departures include VIP FBO access · Name board and meet-and-greet · No queues, no check-in, no security theatre</p>
+        </div>
+      </section>
+
+      <section className="fly-section fly-white">
+        <div className="fly-container">
+          <span className="eyebrow">Featured aircraft</span>
+          <h2 className="display-md">Chosen for <em>the itinerary.</em></h2>
+          <div className="fly-feature-list">{featured.map(item => <article className={`fly-feature-row ${item.reverse ? 'fly-feature-reverse' : ''}`} key={item.name}><div className="fly-feature-image"><Image src={item.image} alt={item.name} fill style={{ objectFit: 'cover' }} /></div><div className="fly-feature-copy"><span className="fly-badge">{item.badge}</span><h3>{item.name} <em>{item.em}</em></h3><p>{item.body}</p><div className="fly-chip-row">{item.specs.map(spec => <span key={spec}>{spec}</span>)}</div><div className="fly-price"><strong>{item.price}</strong><small>Per flight segment. All-inclusive.</small></div><a href="#fly-enquiry" className="btn-primary">{item.cta}</a></div></article>)}</div>
+        </div>
+      </section>
+
+      <section id="empty-legs" className="fly-section fly-ice">
+        <div className="fly-container">
+          <span className="eyebrow">Empty legs</span>
+          <h2 className="display-md">Available now. <em>Priced to move.</em></h2>
+          <p className="body-lg fly-intro">Empty leg flights are repositioning aircraft available at reduced rates. Listed in real time. Enquire immediately as availability changes within hours.</p>
+          <div className="fly-empty-table"><div className="fly-empty-head">{['Route', 'Date', 'Aircraft', 'Seats', 'Est. saving', 'Price', ''].map(h => <span key={h}>{h}</span>)}</div>{emptyLegs.map(row => <div className="fly-empty-row" key={`${row[0]}-${row[1]}`}>{row.map(cell => <span key={cell}>{cell}</span>)}<a href="#fly-enquiry">Enquire</a></div>)}</div>
+          <p className="fly-empty-note">Empty leg availability changes in real time. Prices are estimates - confirm with the team. All flights include FBO access, catering and ground transport.</p>
+        </div>
+      </section>
+
+      <section className="fly-ground fly-white">
+        <div className="fly-ground-copy">
+          <span className="eyebrow">On the ground</span>
+          <h2 className="display-md">The terminal. <em>Without the terminal.</em></h2>
+          <p>Every OPV flight departure uses a dedicated VIP FBO - a private terminal separate from the main airport. No queues, no security theatre, no waiting. You arrive by car, board by foot and are in the air within minutes.</p>
+          <p>On arrival, the same efficiency applies. Expedited customs, ground transport from the aircraft steps and a pre-confirmed handover to the next leg of the arrangement.</p>
+          {['Private FBO terminal at all six airports', 'Dedicated check-in, no shared spaces', 'Car directly to aircraft steps', 'Expedited immigration on arrival', 'Baggage direct to vehicle', 'Full catering and refreshments on board'].map(item => <div className="fly-check-row" key={item}><CheckIcon /><p>{item}</p></div>)}
+        </div>
+        <div className="fly-ground-images">
+          <div><Image src="https://images.unsplash.com/photo-1569154941061-e231b4725ef1?w=900&q=90" alt="Private aircraft at an FBO terminal" fill style={{ objectFit: 'cover' }} /></div>
+          <div><Image src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=900&q=90" alt="Private aircraft cabin prepared for departure" fill style={{ objectFit: 'cover' }} /></div>
+        </div>
+      </section>
+
+      <section id="fly-enquiry" className="fly-section fly-ice">
+        <div className="fly-container fly-enquiry-grid">
+          <div>
+            <span className="eyebrow">Request a flight</span>
+            <h2 className="display-md">Tell us the <em>itinerary.</em></h2>
+            <p className="body-lg">Departure airport, destination, date and passenger count is enough to begin. The team responds with aircraft options and pricing within 90 minutes - often within the hour.</p>
+            {['90-minute response for any route', 'Same-day flights from Manchester possible', 'All-inclusive pricing - no handling surprises'].map(item => <div className="fly-check-row" key={item}><CheckIcon /><p>{item}</p></div>)}
+          </div>
+          <FlyEnquiryForm />
         </div>
       </section>
     </>
