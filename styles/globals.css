@@ -195,15 +195,16 @@ ul, ol { list-style: none; }
   gap: 2rem;
 }
 .nav-luxury-logo {
-  display: inline-flex;
-  align-items: center;
-  width: 178px;
-  height: 58px;
+  font-family: var(--display);
+  font-size: 1.55rem;
+  font-weight: 600;
+  color: #111820;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  transition: color var(--transition);
 }
-.nav-luxury-logo img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
+.nav-luxury-logo:hover {
+  color: #B08D57;
 }
 .nav-luxury-links {
   justify-content: center;

@@ -3,7 +3,6 @@ import '../styles/globals.css'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import ScrollProgress from '@/components/ScrollProgress'
-import Cursor from '@/components/Cursor'
 import SmoothScroll from '@/components/SmoothScroll'
 import ConciergeWidget from '@/components/ConciergeWidget'
 
@@ -26,7 +25,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main>{children}</main>
           <ConciergeWidget />
           <Footer />
-          <Cursor />
         </SmoothScroll>
       </body>
     </html>

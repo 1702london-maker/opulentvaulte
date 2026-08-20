@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -38,7 +37,7 @@ export default function Nav() {
         <div className="nav-luxury-inner">
           {/* Logo */}
           <Link href="/" className="nav-luxury-logo">
-            <Image src="/opv-logo.png" alt="OPV Luxury" width={220} height={80} priority />
+            OPV Luxury
           </Link>
 
           {/* Desktop links */}

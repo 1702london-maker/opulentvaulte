@@ -66,14 +66,14 @@ export default function HomePage() {
           <motion.div className="page-hero-copy" initial={{ opacity: 0, y: 34 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] }}>
             <span className="eyebrow page-hero-kicker">Private concierge for serious requests</span>
             <h1 className="page-hero-title">
-              Multimillion-pound service.<br />One trusted <em>concierge.</em>
+              One call.<br />One world.<br /><em>Everything.</em>
             </h1>
             <p className="page-hero-body">
-              Residences, cars, dining, aviation, yacht charter, security and sourcing, arranged with the discretion expected by principals, families and private offices.
+              OPV is a private concierge platform for residences, cars, dining, aviation, yacht charter, security and sourcing, arranged through one trusted contact.
             </p>
             <div className="page-hero-actions">
               <Link href="/contact" className="btn-primary">Request access</Link>
-              <Link href="/eat" className="btn-ghost-light">Reserve the evening</Link>
+              <Link href="/stays" className="btn-ghost-light">Explore stays</Link>
             </div>
           </motion.div>
         </div>
@@ -94,7 +94,7 @@ export default function HomePage() {
         <div className="container">
           <span className="eyebrow">Eight private desks</span>
           <h2 className="display-lg" style={{ maxWidth: 760, marginBottom: '3rem' }}>
-            Not cartoons. Not bookings.<br /><em>Representation.</em>
+            One private layer for<br /><em>everything you need.</em>
           </h2>
           <div className="home-worlds-grid">
             {worlds.map((world, i) => (
