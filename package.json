@@ -1,0 +1,8 @@
+{
+  "name": "opv",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "node ./scripts/validate-site.mjs"
+  }
+}

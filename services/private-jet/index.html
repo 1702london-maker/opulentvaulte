@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OPV Aviation | Private Jet &amp; Helicopter Charters</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#c9c6c5",
+                        "on-tertiary-container": "#8d8277",
+                        "on-background": "#1a1c1c",
+                        "on-primary-fixed-variant": "#474646",
+                        "on-primary-container": "#858383",
+                        "on-tertiary-fixed-variant": "#4e453c",
+                        "surface-dim": "#dadada",
+                        "surface-tint": "#5f5e5e",
+                        "outline": "#747878",
+                        "primary": "#000000",
+                        "tertiary-fixed": "#eee0d3",
+                        "surface-variant": "#e2e2e2",
+                        "on-tertiary-fixed": "#211a13",
+                        "inverse-on-surface": "#f0f1f1",
+                        "secondary-fixed": "#ffdea5",
+                        "inverse-surface": "#2f3131",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#c9c6c5",
+                        "on-primary-fixed": "#1c1b1b",
+                        "primary-container": "#1c1b1b",
+                        "on-surface": "#1a1c1c",
+                        "on-secondary-fixed": "#261900",
+                        "error": "#ba1a1a",
+                        "surface-container": "#eeeeee",
+                        "primary-fixed": "#e5e2e1",
+                        "on-secondary-fixed-variant": "#5d4201",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#211a13",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#d1c4b8",
+                        "surface-container-low": "#f3f3f4",
+                        "secondary-container": "#fed488",
+                        "secondary-fixed-dim": "#e9c176",
+                        "on-primary": "#ffffff",
+                        "surface-container-highest": "#e2e2e2",
+                        "surface": "#f9f9f9",
+                        "tertiary": "#000000",
+                        "outline-variant": "#c4c7c7",
+                        "on-secondary-container": "#785a1a",
+                        "background": "#f9f9f9",
+                        "surface-bright": "#f9f9f9",
+                        "surface-container-high": "#e8e8e8",
+                        "on-error-container": "#93000a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#444748",
+                        "secondary": "#775a19"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "80px",
+                        "container-max": "1440px",
+                        "unit": "8px",
+                        "section-gap": "120px",
+                        "margin-mobile": "20px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Playfair Display"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "headline-md": ["Playfair Display"],
+                        "display-xl": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+                        "headline-lg-mobile": ["36px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.15em", "fontWeight": "600"}],
+                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                        "display-xl": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            background: rgba(249, 249, 249, 0.8);
+            backdrop-filter: blur(20px);
+        }
+        .hero-gradient {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 50%, rgba(249,249,249,1) 100%);
+        }
+        .border-gold { border-color: #775a19; }
+        .text-gold { color: #775a19; }
+        .bg-gold { background-color: #775a19; }
+        
+        /* Custom Hover Effects */
+        .zoom-hover:hover img {
+            transform: scale(1.05);
+        }
+        .input-focus-gold:focus {
+            border-bottom-color: #775a19;
+            outline: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md">
+<!-- TopNavBar -->
+<nav class="fixed top-0 left-0 w-full z-[100] flex justify-between items-center px-margin-mobile md:px-margin-desktop py-5 bg-white/95 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm transition-all duration-300">
+  <div class="flex items-center gap-10 min-w-0">
+    <a class="font-headline-md text-[34px] md:text-[40px] leading-none font-bold tracking-tighter text-primary whitespace-nowrap" href="/">OPV Luxury</a>
+    <div class="hidden xl:flex items-center gap-7">
+      <a class="font-label-caps text-label-caps text-primary hover:text-secondary transition-colors duration-300" href="/">Home</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="/services/luxury-stays/">Stays</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="/services/car-rentals/">Drive</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="/services/private-dining/">Eat</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="/services/luxury-products/">Shop</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="/services/vip-security/">Security</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="/services/private-jet/">Fly</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="/services/yacht-services/">Yacht</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="/affiliates/">Affiliates</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="/contact/">Contact</a>
+    </div>
+  </div>
+  <div class="flex items-center gap-3 md:gap-5 shrink-0">
+    <a class="hidden 2xl:inline-flex items-center justify-center rounded-full border border-secondary/60 px-5 py-2 font-label-caps text-label-caps text-primary hover:bg-secondary hover:text-on-secondary transition-colors duration-300" href="/services/">Search The Vault</a>
+    <span class="hidden md:inline-flex font-label-caps text-label-caps text-on-surface-variant">£ GBP</span>
+    <span class="hidden md:inline-flex font-label-caps text-label-caps text-on-surface-variant">EN</span>
+    <a class="hidden md:inline-flex items-center justify-center border border-outline-variant px-8 py-3 font-label-caps text-label-caps text-primary hover:border-secondary hover:text-secondary transition-colors duration-300" href="/login/">Sign In</a>
+    <a aria-label="Account" class="material-symbols-outlined text-primary hover:text-secondary transition-colors duration-300" href="/account/dashboard/">person</a>
+  </div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative h-screen w-full flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="A cinematic wide-angle shot of a sleek long-range private jet soaring above a sea of clouds at sunset. The sky is filled with soft gradients of deep blue, warm gold, and ethereal white. The lighting is dramatic and high-contrast, emphasizing the metallic curves of the aircraft. This visual embodies a modern luxury aesthetic, prioritizing a sense of calm confidence and exclusive travel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoVjXnYf_MB_UDEosmhaecT6ZKq4cSoDhjJBAMhEW4YLAiiX8a6XAJ4U_SXVmjYN4RsWY4TZU5ryTvfoyA8S5QW3yt5Wgqe_S_BC2xRHwXGL1dfzyE8zULasswMlrhBUNtKw3dAU_2p3__V7Wn94SOMtX7BZnZu4ahp0We83yf-UTpdzOqn-y6cOdaWRBKXeUGkuRi0NXHT4X6pffkruAyYmtcFcPGVEzgIkx2aoyoVSDh6-_WWdNqM5_Q2Lp-y0xk1pPhPDvOnDEx"/>
+<div class="absolute inset-0 hero-gradient"></div>
+</div>
+<div class="relative z-10 px-margin-desktop max-w-container-max mx-auto w-full">
+<div class="max-w-3xl">
+<span class="font-label-caps text-label-caps text-primary mb-4 block tracking-[0.3em]">OPV AVIATION</span>
+<h1 class="font-display-xl text-display-xl text-primary mb-8 leading-[1.1]">Redefining the Skies.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12 max-w-xl">Bespoke aviation solutions tailored to the world's most discerning travelers. From transcontinental private jets to precision helicopter transfers.</p>
+<div class="flex space-x-6">
+<a class="inline-flex bg-primary text-on-primary px-8 py-4 font-label-caps text-label-caps" href="#fleet">Explore Fleet</a>
+<a class="inline-flex border border-gold text-gold px-8 py-4 font-label-caps text-label-caps hover:bg-gold/5 transition-colors" href="#charter-request">Request Charter</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Private Jet Charter Section -->
+<section class="py-section-gap px-margin-desktop max-w-container-max mx-auto" id="fleet">
+<div class="flex justify-between items-end mb-16">
+<div>
+<span class="font-label-caps text-label-caps text-secondary mb-4 block">PRIVATE JET CHARTER</span>
+<h2 class="font-headline-lg text-headline-lg text-primary">The Art of the Ascent</h2>
+</div>
+<div class="hidden md:block max-w-md text-right">
+<p class="font-body-md text-body-md text-on-surface-variant">Access over 7,000 aircraft worldwide. Our global network ensures the perfect vessel is ready whenever you are.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Light Jet -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] overflow-hidden mb-6 zoom-hover">
+<img class="w-full h-full object-cover transition-transform duration-700" data-alt="A sophisticated light private jet parked on a pristine tarmac during the blue hour. The aircraft's white exterior is accented by subtle gold lines, reflecting the minimalist luxury brand identity. The lighting is cool and professional, creating an atmosphere of efficiency and quiet exclusivity. The setting is a private executive airport terminal, conveying a high-end, tailored travel experience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3grbHDWTCBk7taDQrAE7DvIsBeR6OF1EaQGaOVRCMnwEbkur1pEy4nu9UlVyMT6GR9zTJTkwyAhJGLQjsHzn3G_cBdx-VBQM9ISy_U7--WuhE0FGLDRsnUY-sKdS_4tP1rDfLwTZgbgw9YUhOmAdU_IYpatIRpJVLOcEWQX0Xmph-H5uPQvMW5wO6HzkVNx6kBvbWzHn4o2zjBR1E-_4_eqLlP5FnWzOYFKHM4QaDnYVQulRS3pMFQ585ctLUi4xJOiXvo5mM_Vn4"/>
+</div>
+<span class="font-label-caps text-label-caps text-secondary block mb-2">01. LIGHT JETS</span>
+<h3 class="font-headline-md text-headline-md mb-2">Phenom 300E</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Ideal for short hops and regional business travel.</p>
+</div>
+<!-- Mid-Size Jet -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] overflow-hidden mb-6 zoom-hover">
+<img class="w-full h-full object-cover transition-transform duration-700" data-alt="An interior view of a mid-size private jet cabin, showcasing plush beige leather seating and polished dark wood accents. The lighting is warm and ambient, highlighting the premium craftsmanship and digital breathing room of the space. Large windows offer a view of a serene sky, while a minimalist table holds a single crystal glass, emphasizing a refined, editorial photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJDiQiU412hiOEJjp2o3SJNF61fe71hV-Yq0zXfixCVoU_j4RY1woKzLCzj-925oxdxrOlFBuu063iib6xDCdo0Akapm_oZwhLpcLvhO3aOjfR3QxoiaFw7_Z86Bk6RBiA5o4x8PCAShcCUvmXGW_nqtqbTjaflZvtQGTf99TcYl2kbFJZziLMn7LlQ0s6D7U-OI3j6FDiHTflF6TmjWysNTcNizdIi_CAT3YlkRyXoBZ6WoHh9KxLy461r6zMc02bsNDEGNYQqN_a"/>
+</div>
+<span class="font-label-caps text-label-caps text-secondary block mb-2">02. MID-SIZE</span>
+<h3 class="font-headline-md text-headline-md mb-2">Citation Latitude</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">The perfect balance of range, comfort, and efficiency.</p>
+</div>
+<!-- Heavy Jet -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] overflow-hidden mb-6 zoom-hover">
+<img class="w-full h-full object-cover transition-transform duration-700" data-alt="A powerful heavy jet climbing steeply into a clear blue sky, capturing the raw power and grace of business aviation. The sunlight glints off the wingtips, creating a high-contrast visual that aligns with the modern luxury aesthetic. The composition is dynamic yet balanced, portraying the jet as an architectural masterpiece of the skies. The mood is one of absolute trust and serene power." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWxoEpX8Xg6rnNtALX_k8I_EDYRA39_3x6m4nfyS6XViJthFqUoWkL-DB4x72Bu2FFivaOyAN_MnQH58y1z1p-5yNvTslDGttF3lOpgUq2JnmAfJjCPc2XfHYbthQ5hv-_-jexAQXfF3HaxXTks20LS7-LvuqOrAOe7q4c_hKFDmYBts9hbwW8HzDxHd1Xada-Mkb4wq0A8Pp2Zr3f1JB9ulVIE0cpZ4YkOMRuioqbrQBsAaMb6T9yzNWWxzz6zAwbkJ3gkfUtdY-s"/>
+</div>
+<span class="font-label-caps text-label-caps text-secondary block mb-2">03. HEAVY JETS</span>
+<h3 class="font-headline-md text-headline-md mb-2">Challenger 650</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Spacious transcontinental cabins for up to 12 passengers.</p>
+</div>
+<!-- Long Range -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] overflow-hidden mb-6 zoom-hover">
+<img class="w-full h-full object-cover transition-transform duration-700" data-alt="A long-range Global 7500 private jet silhouetted against a breathtaking dawn sky at a remote alpine airport. The palette is dominated by soft beiges and deep blacks, reflecting a quiet and expensive gallery-like atmosphere. The ground is covered in a light dusting of frost, and the air feels crisp and intentional. This image evokes the feeling of a private, bespoke journey to an exclusive destination." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJmQdPa7R_i3qbTZGL6F_wgtjW4WepchWa4BNfR7xrbc3LnGj4JDLSSoFvwIlbuBBQhdTE7xcFPs7-vNbJsmeZwxb2si-qKm4ZoX52H8mXmvsyx1cODklJ-CpxOCeX0uVLIXx_dmaIzauI4wfNS6psBRMFn7YiWFikkZS2JSh2qoP4Xf0AyEZdG20UtBw7Igmz1HotEdQrIq5ANHXVBk93x9eLdx2huia9DmuSEcV972Oe6B9pWUM5FVp5pRUh8ElUjagA-tY4cpx2"/>
+</div>
+<span class="font-label-caps text-label-caps text-secondary block mb-2">04. LONG RANGE</span>
+<h3 class="font-headline-md text-headline-md mb-2">Global 7500</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Unmatched range and ultra-luxury for global missions.</p>
+</div>
+</div>
+</section>
+<!-- Helicopter Charter Section -->
+<section class="bg-surface-container py-section-gap">
+<div class="px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<div class="lg:col-span-5 mb-12 lg:mb-0">
+<span class="font-label-caps text-label-caps text-secondary mb-4 block">HELICOPTER CHARTERS</span>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-8 leading-tight">Precision in Every Mile.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12">Bypass the city grid. Our helicopter fleet provides seamless transitions between airports, urban centers, and remote resorts.</p>
+<ul class="space-y-6">
+<li class="flex items-center space-x-4 border-b border-outline-variant/30 pb-4">
+<span class="material-symbols-outlined text-primary">airport_shuttle</span>
+<span class="font-body-md text-body-md">Airport Transfers: LHR to Central London in 12 minutes.</span>
+</li>
+<li class="flex items-center space-x-4 border-b border-outline-variant/30 pb-4">
+<span class="material-symbols-outlined text-primary">location_city</span>
+<span class="font-body-md text-body-md">City Hopping: Swift urban travel between global financial hubs.</span>
+</li>
+<li class="flex items-center space-x-4 border-b border-outline-variant/30 pb-4">
+<span class="material-symbols-outlined text-primary">landscape</span>
+<span class="font-body-md text-body-md">Resort Access: Direct landings at exclusive mountain or coastal estates.</span>
+</li>
+</ul>
+</div>
+<div class="lg:col-span-7 grid grid-cols-2 gap-4">
+<div class="pt-12">
+<img class="w-full h-[400px] object-cover" data-alt="A sleek black luxury helicopter hovering above a modern glass skyscraper in a metropolitan city at twilight. The city lights below create a vibrant bokeh effect, while the helicopter remains sharp and detailed in its matte finish. The composition is sophisticated and editorial, emphasizing the intersection of high-technology and elite urban lifestyle." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCV53I2Cxk-wr3uVYVLb_CwKYaTdITsRZUE8nMiX2NAoIguizFDOBvi5j9xLoj5jNV5niV5zGdVbG2pKVzyCsAX-Wo7pQkqfUzERtPHFq0Y3C-m7yWQq9eE-eT0XrcwrBFWQa7LT8kbkdPPIpmCEPjUS1s_qPiZgGHHWJmOxnHNgQHODp57CA6fBu_CiWqnTQiogW2hZeqqv_GVR05rHMTKsVL5f-K14gJWrdfS0ej1MjkZHCOVGS9MkgdQl0fm_sba5__Uh_hpNP2l"/>
+</div>
+<div>
+<img class="w-full h-[400px] object-cover" data-alt="A white luxury helicopter landed on a snowy mountain peak under a clear blue sky. The scene is expansive and serene, with high-key lighting that emphasizes the pure whites and soft beiges of the landscape. The helicopter sits as a centerpiece of modern engineering in a vast, wild setting, embodying the brand's promise of bespoke service in any location." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDU9fHWHHYWaTl_n7THuTG0F5jPzuP4L4nr87wF4jGJGnG57gEbuiP3BgDdfvqnHAuTVvxYkq2jXPiEaULM4aM3QmVTDhmGMA1sOoy0mbLJFi_jr1acsAwzKFfUeR6NJPyTA2a79Cm4wi_2yRu5HhIEGzKS2f-VptsfBmH9rAetVKFlN0eQZxAUihNvaMP55vvjjkC1cnXkYo136hfWj5C85DrJobY_cpjrWp4k5PxGE7Xs7ZpnwqUnJGjw9pm7zAYADSpGRmD11z4k"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Business Aviation & VIP Services -->
+<section class="py-section-gap px-margin-desktop max-w-container-max mx-auto">
+<div class="text-center mb-16">
+<span class="font-label-caps text-label-caps text-secondary mb-4 block">VIP SERVICES</span>
+<h2 class="font-headline-lg text-headline-lg text-primary">Beyond the Cabin</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<div class="text-center p-8 border border-outline-variant/20 hover:border-gold transition-colors group">
+<div class="mb-6">
+<span class="material-symbols-outlined text-5xl text-primary group-hover:scale-110 transition-transform inline-block">concierge</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4">Meet &amp; Greet</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">A personal concierge awaits your arrival at the aircraft steps, handling all formalities with absolute discretion.</p>
+</div>
+<div class="text-center p-8 border border-outline-variant/20 hover:border-gold transition-colors group">
+<div class="mb-6">
+<span class="material-symbols-outlined text-5xl text-primary group-hover:scale-110 transition-transform inline-block">bolt</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4">Fast Track</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Expedited security and immigration protocols designed for travelers where every second is of strategic value.</p>
+</div>
+<div class="text-center p-8 border border-outline-variant/20 hover:border-gold transition-colors group">
+<div class="mb-6">
+<span class="material-symbols-outlined text-5xl text-primary group-hover:scale-110 transition-transform inline-block">weekend</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4">Lounge Access</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Unwind in private FBO lounges featuring Michelin-standard catering and fully equipped boardrooms.</p>
+</div>
+</div>
+</section>
+<!-- Flight Concierge / Bento Grid Layout -->
+<section class="py-section-gap bg-surface">
+<div class="px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter h-auto lg:h-[700px]">
+<div class="lg:col-span-8 h-full bg-primary-container relative overflow-hidden flex items-end p-12">
+<img class="absolute inset-0 w-full h-full object-cover opacity-60" data-alt="A sophisticated private office interior with minimalist black furniture and large windows overlooking a city skyline. The lighting is low-key and moody, focusing on a single gold monogram on a desk. This scene represents the OPV Aviation Flight Concierge service, where precision and luxury meet. The overall atmosphere is one of focused professionalism and high-end bespoke service." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtaxDmbmEXoxHP8qSrXuazjWBGRzmA7PoVpdpy5fRPCTeg2s7E1_jhwcpOpJq2bxfik-57Sz04KvKqoahpGxtEGacGaMpYreBoFW4V29EBaF0yTQnQTBP-1TOe-FScWL3jjLdwGiLCJHkqrSZ3e-plV5ivEst-qUM4VFJcPPLP7ZAEdwmpm74LX4AE29sy4m6NkmFcWFEbrIT1QyFdyZ-HlNF9x8T2b-vxM9nhCKGXjUNA2i2d79-jvIObspTriIIVWyJnsqbXsxiZ"/>
+<div class="relative z-10 max-w-lg">
+<span class="font-label-caps text-label-caps text-inverse-primary mb-4 block">FLIGHT CONCIERGE</span>
+<h2 class="font-headline-lg text-headline-lg text-on-primary mb-6">Unrivaled Personalization</h2>
+<p class="font-body-lg text-body-lg text-on-primary-container">Your dedicated aviation advisor manages every detail—from bespoke in-flight catering by renowned chefs to arranging ground transport at your destination.</p>
+</div>
+</div>
+<div class="lg:col-span-4 h-full flex flex-col gap-gutter">
+<div class="flex-1 bg-surface-container p-10 flex flex-col justify-center">
+<h3 class="font-headline-md text-headline-md mb-4">Empty Legs</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Gain access to our exclusive list of empty leg flights for significant value on one-way journeys.</p>
+<a class="font-label-caps text-label-caps text-primary border-b border-primary w-fit pb-1" href="/">View Schedule</a>
+</div>
+<div class="flex-1 bg-secondary-container p-10 flex flex-col justify-center">
+<h3 class="font-headline-md text-headline-md text-on-secondary-container mb-4">Membership</h3>
+<p class="font-body-md text-body-md text-on-secondary-container opacity-80 mb-6">Join the OPV Circle for guaranteed availability and fixed hourly rates across our fleet.</p>
+<a class="font-label-caps text-label-caps text-on-secondary-container border-b border-on-secondary-container w-fit pb-1" href="/">Learn More</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Request Charter Form -->
+<section class="py-section-gap px-margin-desktop max-w-container-max mx-auto" id="charter-request">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
+<div>
+<span class="font-label-caps text-label-caps text-secondary mb-4 block">CHARTER ENQUIRY</span>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-8">Begin Your Journey</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12">Our specialists are available 24/7 to provide a tailored quote for your specific requirements. Expect a response within 15 minutes.</p>
+<div class="space-y-8">
+<div class="flex items-center space-x-6">
+<div class="w-12 h-12 flex items-center justify-center border border-gold rounded-full">
+<span class="material-symbols-outlined text-gold">call</span>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant">Direct Line</p>
+<p class="font-body-lg text-body-lg font-semibold">+1 (800) OPV-LUXE</p>
+</div>
+</div>
+<div class="flex items-center space-x-6">
+<div class="w-12 h-12 flex items-center justify-center border border-gold rounded-full">
+<span class="material-symbols-outlined text-gold">mail</span>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant">Email</p>
+<p class="font-body-lg text-body-lg font-semibold">charter@opvluxury.com</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface p-12 border border-outline-variant/20 shadow-sm">
+<form class="space-y-8">
+<div class="grid grid-cols-2 gap-8">
+<div class="border-b border-primary/20 pb-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant mb-2 block">Departure</label>
+<input class="w-full bg-transparent border-none p-0 focus:ring-0 font-body-md placeholder:text-outline/50 input-focus-gold" placeholder="City or Airport" type="text"/>
+</div>
+<div class="border-b border-primary/20 pb-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant mb-2 block">Destination</label>
+<input class="w-full bg-transparent border-none p-0 focus:ring-0 font-body-md placeholder:text-outline/50 input-focus-gold" placeholder="City or Airport" type="text"/>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div class="border-b border-primary/20 pb-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant mb-2 block">Date</label>
+<input class="w-full bg-transparent border-none p-0 focus:ring-0 font-body-md text-on-surface-variant input-focus-gold" type="date"/>
+</div>
+<div class="border-b border-primary/20 pb-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant mb-2 block">Passengers</label>
+<select class="w-full bg-transparent border-none p-0 focus:ring-0 font-body-md appearance-none input-focus-gold">
+<option>1-4</option>
+<option>5-8</option>
+<option>9-14</option>
+<option>15+</option>
+</select>
+</div>
+</div>
+<div class="border-b border-primary/20 pb-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant mb-2 block">Aircraft Category</label>
+<select class="w-full bg-transparent border-none p-0 focus:ring-0 font-body-md appearance-none input-focus-gold">
+<option>Private Jet (All Categories)</option>
+<option>Helicopter Charter</option>
+<option>Light Jet</option>
+<option>Mid-Size Jet</option>
+<option>Heavy Jet</option>
+<option>Long Range Jet</option>
+</select>
+</div>
+<div class="border-b border-primary/20 pb-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant mb-2 block">Additional Requirements</label>
+<textarea class="w-full bg-transparent border-none p-0 focus:ring-0 font-body-md placeholder:text-outline/50 resize-none input-focus-gold" placeholder="Catering, ground transport, pets..." rows="2"></textarea>
+</div>
+<button class="w-full bg-primary text-on-primary py-5 font-label-caps text-label-caps tracking-widest hover:opacity-90 transition-opacity" type="submit">REQUEST QUOTE</button>
+</form>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-white border-t border-outline-variant/30 px-margin-mobile md:px-margin-desktop py-16 md:py-20">
+  <div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-14">
+    <div class="space-y-6">
+      <a class="font-headline-md text-headline-sm font-bold tracking-tighter text-primary" href="/">OPV Luxury</a>
+      <p class="font-body-md text-body-md text-on-surface-variant max-w-xs">Bespoke luxury lifestyle access across stays, travel, dining, shopping, protection and private membership.</p>
+    </div>
+    <div>
+      <h4 class="font-label-caps text-label-caps text-primary mb-6">Explore</h4>
+      <ul class="space-y-3 font-body-md text-body-md text-on-surface-variant">
+        <li><a class="hover:text-primary transition-colors" href="/services/luxury-stays/">Luxury Stays</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/services/car-rentals/">Drive</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/services/private-dining/">Eat</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/services/luxury-products/">Shop</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/services/private-jet/">Fly</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/services/yacht-services/">Yacht</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/services/vip-security/">Security</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-label-caps text-label-caps text-primary mb-6">Partners &amp; Affiliates</h4>
+      <ul class="space-y-3 font-body-md text-body-md text-on-surface-variant">
+        <li><a class="hover:text-primary transition-colors" href="/about/">Our Story</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/partners/apply/">Partner Programme</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/affiliates/">Affiliate Programme</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/membership/">Membership</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/faqs/">FAQs</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/contact/">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-label-caps text-label-caps text-primary mb-6">Join The OPV Circle</h4>
+      <p class="font-body-md text-body-md text-on-surface-variant mb-6">Member access and private requests stay one tap away.</p>
+      <div class="flex flex-col gap-3 max-w-[190px]">
+        <a class="flex items-center gap-3 bg-primary text-on-primary px-4 py-2 rounded" href="https://www.apple.com/uk/app-store/" rel="noopener" target="_blank"><span class="material-symbols-outlined">phone_iphone</span><span class="font-label-caps text-label-caps">App Store</span></a>
+        <a class="flex items-center gap-3 bg-primary text-on-primary px-4 py-2 rounded" href="https://play.google.com/store" rel="noopener" target="_blank"><span class="material-symbols-outlined">play_arrow</span><span class="font-label-caps text-label-caps">Google Play</span></a>
+      </div>
+    </div>
+  </div>
+  <div class="max-w-container-max mx-auto pt-6 border-t border-outline-variant/30 flex flex-col lg:flex-row justify-between gap-6 font-label-caps text-label-caps text-on-surface-variant">
+    <p>© 2026 OPULENT VAULT. All rights reserved.</p>
+    <div class="flex flex-wrap gap-5">
+      <a class="hover:text-primary transition-colors" href="/legal/privacy">Privacy</a>
+      <a class="hover:text-primary transition-colors" href="/legal/terms">Terms</a>
+      <a class="hover:text-primary transition-colors" href="/legal/cancellation">Cancellation</a>
+      <a class="hover:text-primary transition-colors" href="/legal/cookies">Cookies</a>
+      <a class="hover:text-primary transition-colors" href="/legal/verification">Verification</a>
+    </div>
+  </div>
+</footer>
+<!-- AI Concierge Widget -->
+<div class="fixed bottom-10 right-10 z-[60]">
+<button class="w-16 h-16 bg-primary text-on-primary shadow-2xl flex items-center justify-center hover:scale-110 transition-transform group relative">
+<div class="absolute inset-0 border border-gold opacity-30"></div>
+<span class="material-symbols-outlined text-3xl">smart_toy</span>
+<div class="absolute -top-12 right-0 bg-surface px-4 py-2 border border-gold shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
+<p class="font-label-caps text-[10px] text-gold">AI Concierge Online</p>
+</div>
+</button>
+</div>
+<script>
+        // Simple micro-interaction for header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-sm');
+            } else {
+                header.classList.remove('shadow-sm');
+            }
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        // Apply to sections
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-1000', 'ease-out', 'opacity-0', 'translate-y-10');
+            observer.observe(section);
+        });
+
+        // Special handling for hero to show immediately
+        document.querySelector('section').classList.remove('opacity-0', 'translate-y-10');
+    </script>
+</body></html>

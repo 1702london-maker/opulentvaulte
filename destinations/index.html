@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OPV LUXURY | Destinations</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "inverse-primary": "#c9c6c5",
+                "on-tertiary-container": "#8d8277",
+                "on-background": "#1a1c1c",
+                "on-primary-fixed-variant": "#474646",
+                "on-primary-container": "#858383",
+                "on-tertiary-fixed-variant": "#4e453c",
+                "surface-dim": "#dadada",
+                "surface-tint": "#5f5e5e",
+                "outline": "#747878",
+                "primary": "#000000",
+                "tertiary-fixed": "#eee0d3",
+                "surface-variant": "#e2e2e2",
+                "on-tertiary-fixed": "#211a13",
+                "inverse-on-surface": "#f0f1f1",
+                "secondary-fixed": "#ffdea5",
+                "inverse-surface": "#2f3131",
+                "on-tertiary": "#ffffff",
+                "primary-fixed-dim": "#c9c6c5",
+                "on-primary-fixed": "#1c1b1b",
+                "primary-container": "#1c1b1b",
+                "on-surface": "#1a1c1c",
+                "on-secondary-fixed": "#261900",
+                "error": "#ba1a1a",
+                "surface-container": "#eeeeee",
+                "primary-fixed": "#e5e2e1",
+                "on-secondary-fixed-variant": "#5d4201",
+                "on-secondary": "#ffffff",
+                "tertiary-container": "#211a13",
+                "error-container": "#ffdad6",
+                "tertiary-fixed-dim": "#d1c4b8",
+                "surface-container-low": "#f3f3f4",
+                "secondary-container": "#fed488",
+                "secondary-fixed-dim": "#e9c176",
+                "on-primary": "#ffffff",
+                "surface-container-highest": "#e2e2e2",
+                "surface": "#f9f9f9",
+                "tertiary": "#000000",
+                "outline-variant": "#c4c7c7",
+                "on-secondary-container": "#785a1a",
+                "background": "#f9f9f9",
+                "surface-bright": "#f9f9f9",
+                "surface-container-high": "#e8e8e8",
+                "on-error-container": "#93000a",
+                "surface-container-lowest": "#ffffff",
+                "on-error": "#ffffff",
+                "on-surface-variant": "#444748",
+                "secondary": "#775a19"
+            },
+            "spacing": {
+                "margin-desktop": "80px",
+                "container-max": "1440px",
+                "unit": "8px",
+                "section-gap": "120px",
+                "margin-mobile": "20px",
+                "gutter": "24px"
+            },
+            "fontFamily": {
+                "headline-lg": ["Playfair Display"],
+                "headline-lg-mobile": ["Playfair Display"],
+                "body-lg": ["Inter"],
+                "body-md": ["Inter"],
+                "label-caps": ["Inter"],
+                "headline-md": ["Playfair Display"],
+                "display-xl": ["Playfair Display"]
+            },
+            "fontSize": {
+                "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+                "headline-lg-mobile": ["36px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400"}],
+                "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.15em", "fontWeight": "600"}],
+                "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                "display-xl": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.6);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
+      .stagger-in > * {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 0.8s ease forwards;
+      }
+      @keyframes fadeInUp {
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .nav-underline-active::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #000000;
+      }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-secondary-fixed selection:text-on-secondary-fixed overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="fixed top-0 z-50 w-full h-20 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 flex items-center justify-between px-margin-desktop max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md tracking-widest text-primary uppercase">OPV LUXURY</div>
+<nav class="hidden md:flex items-center space-x-8">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="/">Stays</a>
+<a class="font-label-caps text-label-caps text-primary border-b-2 border-primary pb-1" href="/">Destinations</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="/">Drive</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="/">Aviation</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="/">Security</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="/">Concierge</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="/">Experiences</a>
+</nav>
+<div class="flex items-center gap-6">
+<button class="hidden lg:block font-label-caps text-label-caps text-secondary uppercase tracking-widest border border-secondary px-6 py-3 hover:bg-secondary hover:text-white transition-all">AI Concierge</button>
+<button class="bg-primary text-on-primary font-label-caps text-label-caps px-8 py-3 uppercase tracking-widest hover:opacity-80 transition-opacity">Book Now</button>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0 scale-105">
+<img class="w-full h-full object-cover filter brightness-75" data-alt="A wide panoramic shot of the Amalfi Coast in Italy during a warm golden hour. The sunlight reflects off the deep blue Mediterranean Sea, illuminating the pastel-colored houses perched precariously on steep cliffs. The atmosphere is one of serene, high-end luxury, with clear skies and a gentle breeze. The overall color palette features warm terracotta tones, vibrant blues, and lush greens, rendered in a sophisticated editorial photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5gKWi4-CCPw3xw_7wde24m1wGLEewxhhJdh83-oD-mSK6oG2UTLxhS8h5aARNtv8-_6CHbUy2rj6jNEKtDnQm05-kPKoSeLrdGXApbWw8GbdkM83s_J45M9ii0OKFIKl5oeXJ-bM67Nd4Orpyvr8YQc7SmAFcW-klsYdtAmNGm7-XiPJRLGYnuG31J3GrlrXWw0ZNYSMTZ5slbUO8FluOMsskB1pu6CzBBCykARjzL55_-fvU1CJwSq6SPMJjpoakOd7KIVzo5IJf"/>
+</div>
+<div class="relative z-10 text-center text-white px-margin-mobile stagger-in">
+<span class="font-label-caps text-label-caps tracking-[0.3em] uppercase block mb-6 opacity-90">Exclusive Voyages</span>
+<h1 class="font-display-xl text-display-xl md:text-[92px] leading-tight mb-8">Your Journey, Curated.</h1>
+<p class="font-body-lg text-body-lg max-w-2xl mx-auto opacity-80 mb-12 font-light">Experience the world's most breathtaking locales through the lens of OPV Luxury. Bespoke itineraries, private access, and unrivaled comfort.</p>
+<div class="flex flex-col sm:flex-row justify-center items-center gap-6">
+<a class="bg-white text-primary font-label-caps text-label-caps px-10 py-4 uppercase tracking-[0.2em] transition-all hover:bg-secondary-fixed" href="#destinations">Discover More</a>
+<a class="text-white border-b border-white font-label-caps text-label-caps py-2 uppercase tracking-[0.2em] hover:text-secondary-fixed hover:border-secondary-fixed transition-all" href="/">Watch the film</a>
+</div>
+</div>
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer">
+<span class="material-symbols-outlined text-white text-3xl">keyboard_double_arrow_down</span>
+</div>
+</section>
+<!-- Interactive Destination Grid -->
+<section class="py-section-gap px-margin-desktop max-w-container-max mx-auto" id="destinations">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+<div class="max-w-xl">
+<span class="font-label-caps text-label-caps text-secondary tracking-widest uppercase block mb-4">The Portfolio</span>
+<h2 class="font-headline-lg text-headline-lg">Global Sancturies</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-6">From the rolling hills of Tuscany to the hidden chateaus of the Loire Valley, explore our signature regions curated for the discerning traveler.</p>
+</div>
+<div class="flex gap-4">
+<button class="p-4 border border-outline-variant hover:border-primary transition-colors">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+<div class="relative">
+<input class="border-b border-primary bg-transparent py-4 pr-12 pl-4 focus:ring-0 focus:outline-none w-64 placeholder:font-label-caps placeholder:text-[10px] uppercase tracking-widest" placeholder="Search Destinations" type="text"/>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2">search</span>
+</div>
+</div>
+</div>
+<!-- Bento-style Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Italy (Large) -->
+<div class="md:col-span-8 group relative overflow-hidden h-[600px] cursor-pointer">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A lush Italian landscape featuring the rolling green hills of Tuscany at sunrise. Mist settles in the valleys, while isolated luxury villas and rows of cypress trees are silhouetted against the soft orange and pink morning sky. The image captures a feeling of quiet exclusivity and timeless elegance, with a high-contrast editorial look and sophisticated lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUkK6fS5qGoHzSsWDf-Cd_cwhTMyPJwWpdkO_9FUVlk3W9dzZgylDrk9h-ROIuVzKd2Ti5R4ryoNxY_V3xaAuJy0H281cdTcIjep8rIFRM3Z1Xdq-sxbTmTfGbrLh84RzHeOWTarZ2KtyI4KDKROqAurgldRV4dIiuJFWSlRIO_yV5L0Yyr_JxfDNlQwZOqQffhxqtFmZIcgpkk_-D4zcMVgKjw7RxaJrFN2XwSgWosEXdFznvEGL3vaokH5KzTd5g7Th1hY7pqf5c"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60"></div>
+<div class="absolute bottom-0 left-0 p-10">
+<span class="font-label-caps text-label-caps text-white/70 block mb-2">Heritage &amp; Romance</span>
+<h3 class="font-headline-md text-headline-md text-white">Italy</h3>
+</div>
+</div>
+<!-- UK (Tall) -->
+<div class="md:col-span-4 group relative overflow-hidden h-[600px] cursor-pointer">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A majestic Scottish Highlands scene with a historic stone castle overlooking a dark, mirror-like loch. The sky is moody and overcast with dramatic clouds, creating a sense of ancient power and refined seclusion. The lighting is soft and atmospheric, highlighting the rugged textures of the stone and the surrounding mist-covered mountains in a palette of deep grays, hunter greens, and cold blues." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwwSJa6wK9BWaHNanQ1haX1YO1gR_f14ockT0ETiUhsB4ZS1OgJNcwoyDQUHKUgZeBiyuOYaiaxxgah_XRg2lsrZotUehNm0auOTPFCcYtUHiDtGzE-WIn70VeASVymUmdTkFqDqxrSsPKqjs1cvX0v4BChR4PaYftTOxV5sr0RsaHqyfQyJOlMHQJ_7zXR9zFaRZYY7x4Dk-M8D2T5nLcf4G5uKS1zcMtfvwd_z8P8HJB-L5OJTCrBtOnW8rUA0ZBCT1XljZ37mZ5"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60"></div>
+<div class="absolute bottom-0 left-0 p-10">
+<span class="font-label-caps text-label-caps text-white/70 block mb-2">Timeless Tradition</span>
+<h3 class="font-headline-md text-headline-md text-white">United Kingdom</h3>
+</div>
+</div>
+<!-- France -->
+<div class="md:col-span-4 group relative overflow-hidden h-[400px] cursor-pointer">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="The elegant architecture of a Parisian boulevard during the blue hour. Wrought iron balconies and ornate Haussmann-style facades are beautifully lit by warm street lamps. The scene is sophisticated and chic, capturing the high-end allure of French urban life. The colors are dominated by soft creams, charcoal grays, and the warm glow of interior lights in a minimalist, luxury aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4VcyGmLGmOP0qA2ygDixzzTPm8zTVqdWVNVSOW4iPwkmNPqbTvplF2TZ0uU1mdY7er7W84shHXUjv__GKMQgSlP4e1U9qpYUItHc0HYwiWj0-omGIwaPD5tLVBQQNt2edq2yLToBDd2prDqqrH7XSuxI_6hFiXaf36shvhUlN6142AUwhQCbb_VC1HUc1DYMTQJ4IAo3dVMTne9S9rM-fn321T_wy6UCxNMeC0eZF_g0dkntcDefpByfgDH7HAToOFW4DpG2cOrlu"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60"></div>
+<div class="absolute bottom-0 left-0 p-10">
+<span class="font-label-caps text-label-caps text-white/70 block mb-2">Art &amp; Gastronomy</span>
+<h3 class="font-headline-md text-headline-md text-white">France</h3>
+</div>
+</div>
+<!-- Spain -->
+<div class="md:col-span-4 group relative overflow-hidden h-[400px] cursor-pointer">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A vibrant shot of a luxury villa in Andalusia, Spain, with whitewashed walls and vibrant purple bougainvillea spilling over a balcony. The bright Mediterranean sun creates strong shadows and highlights the clean, geometric lines of the architecture. The atmosphere is one of vibrant luxury and sun-soaked relaxation, featuring a palette of brilliant whites, deep purples, and terracotta." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxy-nsnz4Za4sGLSSelgGUN_6EvaAo9lkZ-MQNnCEmTLyDGkjQ98z2x4u45IV7fzCd3jNuhdwYBVZTVtdTiB_oMTcMFowwSAM8NW3dwgpAO97EnQ43clxpLCF41U493XA1CxCAjH0UC6-c-a3rroZkB_MQsFvShgHG0lG3YJ95j0n-UgDylar71pkAzFy18uChmMusLgKvpKDyjPPDgs4VqRXv6zpcPFjkss_pUQxlIiJmhDUfiPTq-cVYkRfGP1bLxEbrDs6_TkuI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60"></div>
+<div class="absolute bottom-0 left-0 p-10">
+<span class="font-label-caps text-label-caps text-white/70 block mb-2">Sun &amp; Soul</span>
+<h3 class="font-headline-md text-headline-md text-white">Spain</h3>
+</div>
+</div>
+<!-- Portugal -->
+<div class="md:col-span-4 group relative overflow-hidden h-[400px] cursor-pointer">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A dramatic coastal scene in the Algarve, Portugal, featuring soaring limestone cliffs and secluded turquoise grottoes at sunset. The waves gently lap against the golden sand of a private cove. The lighting is warm and evocative, creating a sense of pristine, untouched nature and high-end coastal living. The color palette includes rich golds, vibrant aquas, and soft peaches." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcvJzMFQtpdNf5p4PIOyRfabtWapY2qbzPXtBdQ4-cDv_LhaSpDBuy5ZVGWa-nVIzWDViVliRvdEv98-MLpUXXOr6YLclFsDWAY8b5uZqpJUo_HOgs8vwudc4NXmwtexmgcdjN0IlTevf8USL7gFZHr9M_4xTUo4bwnz89AjbVvMZO5OMDba4AT4VhFt3DwrheMFKdoi4stdMAfZDdMuQd0xvWwaw61LUPz9iT6B84XdrHOw7uaVeaBrRkriy0KtFgZuaZPiCIJ8gr"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60"></div>
+<div class="absolute bottom-0 left-0 p-10">
+<span class="font-label-caps text-label-caps text-white/70 block mb-2">Coastal Serenity</span>
+<h3 class="font-headline-md text-headline-md text-white">Portugal</h3>
+</div>
+</div>
+</div>
+</section>
+<!-- Recommended Stays & Experiences -->
+<section class="bg-surface-container-low py-section-gap">
+<div class="px-margin-desktop max-w-container-max mx-auto">
+<div class="flex items-center justify-between mb-16">
+<div>
+<h2 class="font-headline-lg text-headline-lg">Signature Stays</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-4">Selected properties that define the OPV standard of living.</p>
+</div>
+<div class="flex gap-4">
+<button class="w-12 h-12 border border-outline-variant flex items-center justify-center hover:bg-primary hover:text-white transition-all"><span class="material-symbols-outlined">west</span></button>
+<button class="w-12 h-12 border border-outline-variant flex items-center justify-center hover:bg-primary hover:text-white transition-all"><span class="material-symbols-outlined">east</span></button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Stay Card 1 -->
+<div class="bg-surface group">
+<div class="aspect-[4/5] overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="An ultra-modern, minimalist hotel room in the French Alps with floor-to-ceiling glass walls looking out onto snow-capped peaks. The interior is decorated in soft whites, light wood, and plush charcoal fabrics, creating a warm, expensive cocoon. The lighting is soft and ambient, emphasizing a high-end luxury ski resort aesthetic with a refined, quiet atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5D6EwX6W4Xdd4oBE9qAiaYlCmsP5W0C75wts6f6HqWueKRLdgxTUPb7mZKNh5xeSmJVI6MiUbIkPxFZHHjG6rDaLnDGqMTCzeSljDJKIryUfnJnOTWYX1x2VZrmW_hN6HBS7LERtYfgrzk4bUExN8QYjYn_oJ3ctiNV8QdgzCRkfhMZDtNSQtlvrAtaog-SHvQRht2BhxlOWApfgPPv7y7JHw2fYoPd4HWik1g_69RcZ9yYDYg8KDTk-_gPnxN1FlDRXNbntaX689"/>
+</div>
+<div class="p-8 border-x border-b border-outline-variant/30">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-caps text-label-caps text-secondary tracking-widest uppercase">France, Courchevel</span>
+<div class="flex items-center text-primary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-caps text-label-caps ml-1">5.0</span>
+</div>
+</div>
+<h4 class="font-headline-md text-headline-md mb-4">The Alpine Zenith</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">A masterpiece of mountain architecture offering private ski-in access and a michelin-starred kitchen.</p>
+<div class="flex justify-between items-center pt-6 border-t border-outline-variant/20">
+<span class="font-label-caps text-label-caps">From €2,400 / Night</span>
+<a class="font-label-caps text-label-caps text-primary border-b border-primary hover:text-secondary transition-colors" href="/">Enquire</a>
+</div>
+</div>
+</div>
+<!-- Stay Card 2 -->
+<div class="bg-surface group">
+<div class="aspect-[4/5] overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A historic Renaissance palazzo in Venice, Italy, converted into an ultra-exclusive boutique hotel. The suite features high ceilings with restored frescoes, dark mahogany furniture, and rich silk drapery in shades of crimson and gold. The window opens onto a quiet canal with a gondola passing by. The lighting is theatrical and warm, evoking a sense of timeless opulence and private luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDb_3BoUQh06lMEPh2wbqPymGNwk1nEXjP3A8vYtswt__TKmujWzs2ZP7-j2Wqm7y-4qXUYHkFlaO6nMmYmMY02d0ZUWIiAvke1-MYzYxipft4eMpHgtYrnM1Aoo1Osiqnt4QHZZsnum8WitIEFN2AOAJ8FXc5F6hdZtQokkqEunKstVlcCr21813S2adryVXQ9i-o4u89a-a9slaWEuyJIkM1oQUJDC_5ETGWF_fa1cCo4f1c3LYwI_8Le4sdSiE1aZAoPsjYM1cHS"/>
+</div>
+<div class="p-8 border-x border-b border-outline-variant/30">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-caps text-label-caps text-secondary tracking-widest uppercase">Italy, Venice</span>
+<div class="flex items-center text-primary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-caps text-label-caps ml-1">4.9</span>
+</div>
+</div>
+<h4 class="font-headline-md text-headline-md mb-4">Palazzo Canaletto</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Restored 16th-century grandeur meets contemporary comfort in the heart of the Floating City.</p>
+<div class="flex justify-between items-center pt-6 border-t border-outline-variant/20">
+<span class="font-label-caps text-label-caps">From €1,850 / Night</span>
+<a class="font-label-caps text-label-caps text-primary border-b border-primary hover:text-secondary transition-colors" href="/">Enquire</a>
+</div>
+</div>
+</div>
+<!-- Stay Card 3 -->
+<div class="bg-surface group">
+<div class="aspect-[4/5] overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A luxury island retreat in Ibiza, Spain, featuring a large infinity pool that blends seamlessly into the Mediterranean Sea. The architecture is minimalist and organic, with smooth white stone and weathered driftwood accents. The sun is setting, casting a warm golden glow over the scene. The aesthetic is chic, calm, and exclusive, with a palette of whites, teals, and soft golds." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFDWJMyyT4S76TmGjapZeOspV_c3yc81uUl5MQTVadeKJtodyJCvyBQ7keoixmkDt2c6XRPstSALL5hML0H4Pk5EApOdKphdc0TH667FjpyLiTYS_e4xXhPMRMLnEnDxRWbsJlo0woGtv6NtMQSKtq21F41zHfi5YMsRVcKequOWADRGq_8kVE3xDNyolryq-XuMt2LxGGXbmZKpqiNSLGr1CSncmo8kw499Vx1MQ2jPwcqaTrfLxaxCugFlnJftRjQPTfxDkmfTnU"/>
+</div>
+<div class="p-8 border-x border-b border-outline-variant/30">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-caps text-label-caps text-secondary tracking-widest uppercase">Spain, Ibiza</span>
+<div class="flex items-center text-primary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-caps text-label-caps ml-1">5.0</span>
+</div>
+</div>
+<h4 class="font-headline-md text-headline-md mb-4">Finca Luminous</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">A private sanctuary of white stone and light, overlooking the azure horizons of the Balearics.</p>
+<div class="flex justify-between items-center pt-6 border-t border-outline-variant/20">
+<span class="font-label-caps text-label-caps">From €3,100 / Night</span>
+<a class="font-label-caps text-label-caps text-primary border-b border-primary hover:text-secondary transition-colors" href="/">Enquire</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Travel Guides / Editorial Section -->
+<section class="py-section-gap px-margin-desktop max-w-container-max mx-auto overflow-hidden">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<div class="lg:col-span-5 stagger-in">
+<span class="font-label-caps text-label-caps text-secondary tracking-widest uppercase block mb-4">Travel Journals</span>
+<h2 class="font-headline-lg text-headline-lg mb-8 leading-tight">Curated Knowledge for the Global Traveler</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12">Our destination specialists spend months on the ground to bring you the "Quiet Luxury" list—places that don't appear in standard guides.</p>
+<ul class="space-y-8">
+<li class="flex items-start gap-6 group cursor-pointer">
+<span class="font-headline-md text-headline-md text-outline-variant group-hover:text-primary transition-colors">01</span>
+<div>
+<h5 class="font-label-caps text-label-caps text-primary mb-2 tracking-widest uppercase">The Hidden Dolomites</h5>
+<p class="font-body-md text-body-md text-on-surface-variant">A guide to the most secluded valleys and private chalets in Northern Italy.</p>
+</div>
+</li>
+<li class="flex items-start gap-6 group cursor-pointer">
+<span class="font-headline-md text-headline-md text-outline-variant group-hover:text-primary transition-colors">02</span>
+<div>
+<h5 class="font-label-caps text-label-caps text-primary mb-2 tracking-widest uppercase">Provence Unveiled</h5>
+<p class="font-body-md text-body-md text-on-surface-variant">Discover private vineyards and antique markets away from the crowds.</p>
+</div>
+</li>
+<li class="flex items-start gap-6 group cursor-pointer">
+<span class="font-headline-md text-headline-md text-outline-variant group-hover:text-primary transition-colors">03</span>
+<div>
+<h5 class="font-label-caps text-label-caps text-primary mb-2 tracking-widest uppercase">The London Club Scene</h5>
+<p class="font-body-md text-body-md text-on-surface-variant">An exclusive peek inside Mayfair's most restricted members' clubs.</p>
+</div>
+</li>
+</ul>
+<button class="mt-16 bg-primary text-on-primary font-label-caps text-label-caps px-12 py-5 uppercase tracking-[0.2em] transition-all hover:opacity-90">View All Guides</button>
+</div>
+<div class="lg:col-span-7 relative">
+<div class="grid grid-cols-2 gap-gutter">
+<div class="pt-24">
+<img class="w-full aspect-[3/4] object-cover mb- gutter" data-alt="A close-up shot of a luxury leather travel journal and a pair of vintage designer sunglasses on a marble café table in Santorini. The background is a blurred view of the blue sea and white architecture. The lighting is bright and summery, with high-key whites and rich brown leather textures, reflecting a lifestyle of high-end travel and refined aesthetic choices." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAO7WRmMZiylXzx2ullfQt7NilaREDqmzQqKN-NDdH8RQEPJXdiKw5B64MVDrn1j0mRxVY_7UKeELZvVrkA8OAOLFjsTonoL1VZP_NuzESxyIruZrHXo_nrV_7BZSoeeI6cYpiIEEm9TwLijqLvaqHhQDAjpmLmoBYMZoUb_CXFyqrnaHPT8f7vCE_LGPc4j3U5QQc9EDcGXoE8xqm2IuhhOaaPo-rKy1SNBagH6kcfoiuDGM6_E3YHmpiRoeo77KkKOmQcDasUI8P3"/>
+</div>
+<div>
+<img class="w-full aspect-[3/5] object-cover" data-alt="A stunning aerial view of a private mountain road winding through the lush green forests of the Pyrenees in France. A sleek black luxury sports car is seen navigating the curves. The lighting is dappled, with sunlight filtering through the trees, creating a dynamic and aspirational scene of high-end travel and adventure. The palette is rich in emerald greens and deep grays." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbZ4KCYrd-gqWyhbmeDWx63yfNYce3qW5dJwv-cb-tajKLCuJ-ICdeobZCR9sjvki-jKkrXVYCqjrQpT5SIwhByG2YKEj55b6OTXZVX7l0uttM2ahfIZ7_c97Xy-zWxmQ2wEJxRGmNVCVGMmmF7_YzO1uIZ3k3YaaBxKpNLd0BI2J5LUpdpKTw3P0AoGPy_YWZLciBqiwB438vtDQQ2VEMRN7DUYaef_u9QwRdmZj9zka1iIxhnxFmMbOiK2gFBwaNiR-1Q_4Pr-hr"/>
+</div>
+</div>
+<!-- Glassmorphic Overlay -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 glass-card p-12 max-w-xs border border-white/40 hidden md:block">
+<h6 class="font-headline-md text-headline-md text-primary mb-4 leading-none">Membership</h6>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Access these guides and more by joining the OPV Circle.</p>
+<a class="font-label-caps text-label-caps text-secondary tracking-widest border-b border-secondary pb-1" href="/">Learn More</a>
+</div>
+</div>
+</div>
+</section>
+<!-- AI Concierge CTA (Fixed Widget) -->
+<div class="fixed bottom-10 right-10 z-[60]">
+<button class="w-16 h-16 rounded-full bg-primary text-white flex items-center justify-center shadow-2xl hover:scale-110 transition-transform group">
+<span class="material-symbols-outlined text-3xl group-hover:rotate-12 transition-transform">action_key</span>
+</button>
+<div class="absolute bottom-full right-0 mb-6 w-80 glass-card border border-outline-variant/30 p-8 shadow-xl opacity-0 translate-y-4 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+<h5 class="font-headline-md text-2xl mb-2">Concierge on Call</h5>
+<p class="font-body-md text-on-surface-variant mb-6">"Hello, I am your OPV assistant. How can I curate your journey today?"</p>
+<div class="space-y-4">
+<button class="w-full py-3 border border-primary font-label-caps text-[10px] uppercase tracking-widest hover:bg-primary hover:text-white transition-colors">Start Conversation</button>
+<button class="w-full py-3 bg-surface-container-highest font-label-caps text-[10px] uppercase tracking-widest">Call My Manager</button>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="bg-white border-t border-outline-variant/30 px-margin-mobile md:px-margin-desktop py-16 md:py-20">
+  <div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-14">
+    <div class="space-y-6">
+      <a class="font-headline-md text-headline-sm font-bold tracking-tighter text-primary" href="/">OPV Luxury</a>
+      <p class="font-body-md text-body-md text-on-surface-variant max-w-xs">Bespoke luxury lifestyle access across stays, travel, dining, shopping, protection and private membership.</p>
+    </div>
+    <div>
+      <h4 class="font-label-caps text-label-caps text-primary mb-6">Explore</h4>
+      <ul class="space-y-3 font-body-md text-body-md text-on-surface-variant">
+        <li><a class="hover:text-primary transition-colors" href="/services/luxury-stays/">Luxury Stays</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/services/car-rentals/">Drive</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/services/private-dining/">Eat</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/services/luxury-products/">Shop</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/services/private-jet/">Fly</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/services/yacht-services/">Yacht</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/services/vip-security/">Security</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-label-caps text-label-caps text-primary mb-6">Partners &amp; Affiliates</h4>
+      <ul class="space-y-3 font-body-md text-body-md text-on-surface-variant">
+        <li><a class="hover:text-primary transition-colors" href="/about/">Our Story</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/partners/apply/">Partner Programme</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/affiliates/">Affiliate Programme</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/membership/">Membership</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/faqs/">FAQs</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/contact/">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-label-caps text-label-caps text-primary mb-6">Join The OPV Circle</h4>
+      <p class="font-body-md text-body-md text-on-surface-variant mb-6">Member access and private requests stay one tap away.</p>
+      <div class="flex flex-col gap-3 max-w-[190px]">
+        <a class="flex items-center gap-3 bg-primary text-on-primary px-4 py-2 rounded" href="https://www.apple.com/uk/app-store/" rel="noopener" target="_blank"><span class="material-symbols-outlined">phone_iphone</span><span class="font-label-caps text-label-caps">App Store</span></a>
+        <a class="flex items-center gap-3 bg-primary text-on-primary px-4 py-2 rounded" href="https://play.google.com/store" rel="noopener" target="_blank"><span class="material-symbols-outlined">play_arrow</span><span class="font-label-caps text-label-caps">Google Play</span></a>
+      </div>
+    </div>
+  </div>
+  <div class="max-w-container-max mx-auto pt-6 border-t border-outline-variant/30 flex flex-col lg:flex-row justify-between gap-6 font-label-caps text-label-caps text-on-surface-variant">
+    <p>© 2026 OPULENT VAULT. All rights reserved.</p>
+    <div class="flex flex-wrap gap-5">
+      <a class="hover:text-primary transition-colors" href="/legal/privacy">Privacy</a>
+      <a class="hover:text-primary transition-colors" href="/legal/terms">Terms</a>
+      <a class="hover:text-primary transition-colors" href="/legal/cancellation">Cancellation</a>
+      <a class="hover:text-primary transition-colors" href="/legal/cookies">Cookies</a>
+      <a class="hover:text-primary transition-colors" href="/legal/verification">Verification</a>
+    </div>
+  </div>
+</footer>
+<!-- Mobile Bottom Navigation -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-surface/90 backdrop-blur-lg border-t border-outline-variant/30 flex justify-around items-center h-20 z-50">
+<button class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-label-caps text-[8px] uppercase tracking-tighter">Explore</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">public</span>
+<span class="font-label-caps text-[8px] uppercase tracking-tighter">Travel</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+<span class="font-label-caps text-[8px] uppercase tracking-tighter">Saved</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-caps text-[8px] uppercase tracking-tighter">Profile</span>
+</button>
+</nav>
+<script>
+        // Simple micro-interaction for hero image zoom on scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroImg = document.querySelector('section img');
+            if (heroImg) {
+                heroImg.style.transform = `scale(${1.05 + scrolled * 0.0001})`;
+            }
+        });
+    </script>
+</body></html>

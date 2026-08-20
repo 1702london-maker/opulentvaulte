@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Affiliate Programme | OPV Luxury</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+        }
+        .border-subtle {
+            border-color: rgba(0, 0, 0, 0.05);
+        }
+        input:focus {
+            outline: none;
+            border-bottom-color: #775a19 !important;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#5f5e5e",
+                        "on-background": "#1a1c1c",
+                        "on-tertiary-fixed-variant": "#4e453c",
+                        "on-tertiary-fixed": "#211a13",
+                        "tertiary-fixed-dim": "#d1c4b8",
+                        "on-tertiary": "#ffffff",
+                        "background": "#f9f9f9",
+                        "surface-container-low": "#f3f3f4",
+                        "surface-container": "#eeeeee",
+                        "tertiary-container": "#211a13",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#e2e2e2",
+                        "surface-container-high": "#e8e8e8",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed": "#1c1b1b",
+                        "primary-fixed-dim": "#c9c6c5",
+                        "primary": "#000000",
+                        "on-primary-fixed-variant": "#474646",
+                        "secondary-fixed-dim": "#e9c176",
+                        "secondary-fixed": "#ffdea5",
+                        "secondary-container": "#fed488",
+                        "on-surface-variant": "#444748",
+                        "outline": "#747878",
+                        "on-surface": "#1a1c1c",
+                        "surface": "#f9f9f9",
+                        "inverse-primary": "#c9c6c5",
+                        "primary-fixed": "#e5e2e1",
+                        "on-primary-container": "#858383",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#5d4201",
+                        "tertiary-fixed": "#eee0d3",
+                        "on-tertiary-container": "#8d8277",
+                        "tertiary": "#000000",
+                        "surface-dim": "#dadada",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#2f3131",
+                        "inverse-on-surface": "#f0f1f1",
+                        "surface-variant": "#e2e2e2",
+                        "on-error": "#ffffff",
+                        "primary-container": "#1c1b1b",
+                        "surface-bright": "#f9f9f9",
+                        "on-secondary-container": "#785a1a",
+                        "secondary": "#775a19",
+                        "on-secondary-fixed": "#261900",
+                        "outline-variant": "#c4c7c7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "20px",
+                        "gutter": "24px",
+                        "margin-desktop": "80px",
+                        "section-gap": "120px",
+                        "container-max": "1440px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Playfair Display"],
+                        "label-caps": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Playfair Display"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "body-lg": ["Inter"],
+                        "display-xl": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+                        "label-caps": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.15em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["36px", { "lineHeight": "1.2", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400" }],
+                        "display-xl": ["72px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600" }]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<!-- TopNavBar -->
+<nav class="fixed top-0 left-0 w-full z-[100] flex justify-between items-center px-margin-mobile md:px-margin-desktop py-5 bg-white/95 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm transition-all duration-300">
+  <div class="flex items-center gap-10 min-w-0">
+    <a class="font-headline-md text-[34px] md:text-[40px] leading-none font-bold tracking-tighter text-primary whitespace-nowrap" href="/">OPV Luxury</a>
+    <div class="hidden xl:flex items-center gap-7">
+      <a class="font-label-caps text-label-caps text-primary hover:text-secondary transition-colors duration-300" href="/">Home</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="/services/luxury-stays/">Stays</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="/services/car-rentals/">Drive</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="/services/private-dining/">Eat</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="/services/luxury-products/">Shop</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="/services/vip-security/">Security</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="/services/private-jet/">Fly</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="/services/yacht-services/">Yacht</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="/affiliates/">Affiliates</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="/contact/">Contact</a>
+    </div>
+  </div>
+  <div class="flex items-center gap-3 md:gap-5 shrink-0">
+    <a class="hidden 2xl:inline-flex items-center justify-center rounded-full border border-secondary/60 px-5 py-2 font-label-caps text-label-caps text-primary hover:bg-secondary hover:text-on-secondary transition-colors duration-300" href="/services/">Search The Vault</a>
+    <span class="hidden md:inline-flex font-label-caps text-label-caps text-on-surface-variant">£ GBP</span>
+    <span class="hidden md:inline-flex font-label-caps text-label-caps text-on-surface-variant">EN</span>
+    <a class="hidden md:inline-flex items-center justify-center border border-outline-variant px-8 py-3 font-label-caps text-label-caps text-primary hover:border-secondary hover:text-secondary transition-colors duration-300" href="/login/">Sign In</a>
+    <a aria-label="Account" class="material-symbols-outlined text-primary hover:text-secondary transition-colors duration-300" href="/account/dashboard/">person</a>
+  </div>
+</nav>
+<main class="pt-20">
+<!-- Rich OPV Hero Section -->
+<section class="relative min-h-screen w-full flex items-center overflow-hidden pt-28 bg-surface">
+  <div class="absolute inset-0 z-0">
+    <img class="w-full h-full object-cover grayscale opacity-55" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcgMbzx3g3SZsd-0IqLQT9qiBGwoVEXb-dK6kU1mbTUF8nunhwJBrM4bVITjCLm1B7HTW67XGlye9ciV-nv9oPPUC0PdcQ2Cme7cDTjUNoY9oN8zRgahorlLM402ghmSNIYmWPx6LZIC5Uh78iFY_9JtOjQ0dsVRwsJkDtUb_45dGkO_eyNzZTj9psRbPoZLcBhNgM9GKcm9v55o70pBVyYBYnfxUfxshw8iRH_SxDcn32gkO-QryZVhtUTd-thpjuMo3pWIKwKVGi" alt="Affiliates by OPV Luxury" />
+    <div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/90 to-surface/20"></div>
+    <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-surface to-transparent"></div>
+  </div>
+  <div class="relative z-10 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-16 items-end">
+    <div class="pb-16 md:pb-24 max-w-4xl">
+      <span class="font-label-caps text-label-caps text-secondary mb-6 block tracking-[0.3em] uppercase">Affiliates</span>
+      <h1 class="font-display-xl text-[56px] md:text-[86px] leading-[0.98] tracking-normal text-primary mb-8">Introduce Exceptional Clients to the OPV Circle.</h1>
+      <p class="font-body-lg text-[20px] leading-[1.7] text-on-surface-variant max-w-3xl mb-10">The OPV affiliate programme is built for trusted introducers, creators and luxury networks who bring qualified clients into a private ecosystem of stays, travel, dining and lifestyle access.</p>
+      <div class="flex flex-wrap gap-4">
+        <a class="inline-flex items-center justify-center bg-primary text-on-primary px-10 py-5 font-label-caps text-label-caps hover:bg-secondary transition-colors" href="#join">Join The Programme</a>
+        <a class="inline-flex items-center justify-center border border-outline-variant px-10 py-5 font-label-caps text-label-caps text-primary hover:border-secondary hover:text-secondary transition-colors" href="/contact/">Speak To Concierge</a>
+      </div>
+    </div>
+    <div class="hidden lg:grid grid-cols-1 gap-4 pb-20">
+      <div class="bg-white/80 backdrop-blur-xl border border-outline-variant/40 p-6 shadow-sm"><span class="font-label-caps text-label-caps text-secondary mb-3 block">01</span><p class="font-body-md text-body-md text-on-surface-variant">Curated referral paths across high-value OPV services</p></div>
+      <div class="bg-white/80 backdrop-blur-xl border border-outline-variant/40 p-6 shadow-sm"><span class="font-label-caps text-label-caps text-secondary mb-3 block">02</span><p class="font-body-md text-body-md text-on-surface-variant">Private reporting, partner support and qualified lead handling</p></div>
+      <div class="bg-white/80 backdrop-blur-xl border border-outline-variant/40 p-6 shadow-sm"><span class="font-label-caps text-label-caps text-secondary mb-3 block">03</span><p class="font-body-md text-body-md text-on-surface-variant">Commission structures built for premium luxury introductions</p></div>
+    </div>
+  </div>
+</section>
+<!-- OPV Service Richness Strip -->
+<section class="px-margin-mobile md:px-margin-desktop py-16 bg-surface border-y border-outline-variant/30">
+  <div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="border-l border-secondary/60 pl-6"><p class="font-label-caps text-label-caps text-primary mb-3">OPV Handles</p><p class="font-body-md text-body-md text-on-surface-variant">Curated referral paths across high-value OPV services</p></div>
+    <div class="border-l border-secondary/60 pl-6"><p class="font-label-caps text-label-caps text-primary mb-3">OPV Handles</p><p class="font-body-md text-body-md text-on-surface-variant">Private reporting, partner support and qualified lead handling</p></div>
+    <div class="border-l border-secondary/60 pl-6"><p class="font-label-caps text-label-caps text-primary mb-3">OPV Handles</p><p class="font-body-md text-body-md text-on-surface-variant">Commission structures built for premium luxury introductions</p></div>
+  </div>
+</section>
+<!-- Programme Overview -->
+<section class="py-section-gap">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="grid grid-cols-12 gap-gutter items-center">
+<div class="col-span-12 md:col-span-5 mb-12 md:mb-0">
+<span class="font-label-caps text-label-caps text-secondary mb-4 block">OVERVIEW</span>
+<h2 class="font-headline-lg text-headline-lg mb-8">Elevating the Art of Referral.</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                            The OPV Circle is more than an affiliate program; it is a curated network of tastemakers, luxury consultants, and digital creators. We provide the tools and the pedigree to help you monetize your influence within the ultra-high-net-worth demographic.
+                        </p>
+<div class="space-y-4">
+<div class="flex items-center space-x-4 border-b border-outline/10 pb-4">
+<span class="material-symbols-outlined text-secondary">verified_user</span>
+<span class="font-body-md">Exclusive brand association</span>
+</div>
+<div class="flex items-center space-x-4 border-b border-outline/10 pb-4">
+<span class="material-symbols-outlined text-secondary">insights</span>
+<span class="font-body-md">Dedicated partner management</span>
+</div>
+<div class="flex items-center space-x-4 border-b border-outline/10 pb-4">
+<span class="material-symbols-outlined text-secondary">diamond</span>
+<span class="font-body-md">Access to VIP assets and content</span>
+</div>
+</div>
+</div>
+<div class="col-span-12 md:col-span-6 md:col-start-7">
+<div class="relative">
+<img class="w-full aspect-[4/5] object-cover" data-alt="A close-up shot of a businessman in a tailored charcoal suit adjusting a luxury watch. The lighting is low and moody, highlighting the texture of the fabric and the glint of the timepiece. The aesthetic is extremely sophisticated and editorial, using a palette of deep blacks and silvers to convey authority and wealth, aligning perfectly with the luxury affiliate theme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD64G6fh7cj5KYz-TTku5yLv7c7HvLIEBdXEBEqAoULMGFHCYdgP0YLxi3LrnM-pU7ImYJPJAS4K9jjKjq0sFQIiA5UeW_PSNB2YtaIyjz4yN6_-7YURGxLNyVB12JvzdQft58MMX434L90YTWqe8TAmBaC2givSOsiJmHuyz-DTgp9u43byMoEKSJ6swrB2QWaZ6xfZP_k7ul1DTULWRvqMFZ5UKjEDXvL2T6QSyGl5Dc_iq6F4BuL_tHCwUW6t0slLnicIrcpR4UU"/>
+<div class="absolute -bottom-8 -left-8 bg-surface-container-lowest p-8 shadow-2xl hidden md:block">
+<p class="font-headline-md text-headline-md leading-none mb-1">12%</p>
+<p class="font-label-caps text-label-caps text-on-surface-variant">AVERAGE COMMISSION</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Benefits Grid -->
+<section class="py-section-gap bg-surface-container-low">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="text-center mb-20">
+<span class="font-label-caps text-label-caps text-secondary mb-4 block">BENEFITS</span>
+<h2 class="font-headline-lg text-headline-lg">Unrivaled Rewards for Quality.</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Benefit 1 -->
+<div class="bg-surface p-12 border border-outline/5 hover:border-secondary/30 transition-colors">
+<div class="w-12 h-12 flex items-center justify-center border border-secondary mb-8">
+<span class="material-symbols-outlined text-secondary">payments</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-6">Competitive Commissions</h3>
+<p class="font-body-md text-on-surface-variant">Earn high-percentage commissions on every luxury stay, flight, and concierge service booked through your unique link.</p>
+</div>
+<!-- Benefit 2 -->
+<div class="bg-surface p-12 border border-outline/5 hover:border-secondary/30 transition-colors">
+<div class="w-12 h-12 flex items-center justify-center border border-secondary mb-8">
+<span class="material-symbols-outlined text-secondary">query_stats</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-6">Real-Time Tracking</h3>
+<p class="font-body-md text-on-surface-variant">Access our proprietary dashboard to monitor clicks, conversions, and earnings with surgical precision and live updates.</p>
+</div>
+<!-- Benefit 3 -->
+<div class="bg-surface p-12 border border-outline/5 hover:border-secondary/30 transition-colors">
+<div class="w-12 h-12 flex items-center justify-center border border-secondary mb-8">
+<span class="material-symbols-outlined text-secondary">calendar_month</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-6">90-Day Cookie Window</h3>
+<p class="font-body-md text-on-surface-variant">Luxury decisions take time. We offer an extended attribution window to ensure you get credited for long-term considerations.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- How It Works (Bento) -->
+<section class="py-section-gap">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="mb-16">
+<span class="font-label-caps text-label-caps text-secondary mb-4 block">WORKFLOW</span>
+<h2 class="font-headline-lg text-headline-lg">Simple. Transparent. Premium.</h2>
+</div>
+<div class="grid grid-cols-12 gap-6">
+<div class="col-span-12 md:col-span-4 bg-primary text-on-primary p-10 flex flex-col justify-between">
+<div>
+<p class="text-4xl font-display-xl mb-4">01</p>
+<h4 class="font-headline-md text-headline-md mb-4">Apply</h4>
+<p class="opacity-70">Complete our brief application form. We review each partner to ensure brand alignment with our luxury standards.</p>
+</div>
+<div class="mt-8">
+<span class="material-symbols-outlined text-4xl">edit_note</span>
+</div>
+</div>
+<div class="col-span-12 md:col-span-8 bg-surface-container p-10 relative overflow-hidden group">
+<div class="relative z-10">
+<p class="text-4xl font-display-xl mb-4 text-primary">02</p>
+<h4 class="font-headline-md text-headline-md mb-4">Promote</h4>
+<p class="text-on-surface-variant max-w-md">Utilize our exclusive range of high-resolution imagery, video assets, and deep links to showcase OPV's services.</p>
+</div>
+<div class="absolute right-0 top-0 bottom-0 w-1/3 hidden md:block">
+<img class="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 transition-all duration-700" data-alt="A macro shot of a sleek smartphone screen displaying an elegant booking interface for a private villa. The background is a blurred image of a turquoise pool and marble terrace. The lighting is bright and summery, conveying a feeling of ease and aspiration. This imagery represents the 'Promote' step for affiliates showing high-end services." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3OvbQg4OuHQ1SVldOTiU0gEljrigSPZJHgPekEkAZRKiYvdElgimbLPZ7hPWQrOnOv_jDQEmWKqTUWLCZ1wHXceg3CeJXaThpOQGlgF4Wdc7PgVLwwjdfhu3zaoawW48im76N3cNScml-vw9cJLkyG3foL9UOrfz_WzW5zIDg86RfbESdMzcK2m7doiFJ-R5bQfPPHRyZ__1SfdAe02XK081UN2C_GPfxtBtvaZmI-EcddXjzNaNyyeArvB0uyrPJ9witmbAVhDhR"/>
+</div>
+</div>
+<div class="col-span-12 md:col-span-8 bg-surface-container p-10">
+<p class="text-4xl font-display-xl mb-4 text-primary">03</p>
+<h4 class="font-headline-md text-headline-md mb-4">Convert</h4>
+<p class="text-on-surface-variant max-w-lg">Our high-touch sales concierge team manages every inquiry, ensuring the highest conversion rates for your high-value referrals.</p>
+</div>
+<div class="col-span-12 md:col-span-4 border-2 border-primary p-10 flex flex-col justify-between">
+<div>
+<p class="text-4xl font-display-xl mb-4">04</p>
+<h4 class="font-headline-md text-headline-md mb-4">Earn</h4>
+<p class="text-on-surface-variant">Receive automated monthly payments via bank transfer or crypto. No minimum payout thresholds for Circle members.</p>
+</div>
+<div class="mt-8 text-primary">
+<span class="material-symbols-outlined text-4xl">account_balance_wallet</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Dashboard Preview (Glassmorphism) -->
+<section class="py-section-gap relative overflow-hidden bg-on-background py-32">
+
+<div class="max-w-container-max mx-auto px-margin-desktop relative z-10">
+<div class="text-center mb-16">
+<span class="font-label-caps text-label-caps text-secondary mb-4 block">THE INTERFACE</span>
+<h2 class="font-headline-lg text-headline-lg text-on-primary">Precision Control.</h2>
+</div>
+<!-- Dashboard Mockup -->
+<div class="glass-panel border border-white/10 p-1 md:p-4 rounded-xl shadow-2xl max-w-5xl mx-auto overflow-hidden">
+<div class="bg-background/90 rounded-lg overflow-hidden flex flex-col md:flex-row h-[500px]">
+<!-- Dashboard Sidebar -->
+<div class="w-full md:w-64 border-r border-subtle p-6 hidden md:block">
+<div class="font-display-xl text-headline-md text-primary mb-12 scale-75 origin-left">OPV</div>
+<nav class="space-y-6">
+<div class="flex items-center space-x-3 text-primary font-bold">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-caps text-label-caps">Analytics</span>
+</div>
+<div class="flex items-center space-x-3 text-on-surface-variant hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">link</span>
+<span class="font-label-caps text-label-caps">Assets</span>
+</div>
+<div class="flex items-center space-x-3 text-on-surface-variant hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-caps text-label-caps">Payouts</span>
+</div>
+</nav>
+</div>
+<!-- Dashboard Main -->
+<div class="flex-1 p-8 overflow-y-auto">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h5 class="font-label-caps text-label-caps text-on-surface-variant mb-2">PARTNER OVERVIEW</h5>
+<p class="font-headline-md text-headline-md">$42,850.00</p>
+</div>
+<div class="text-right">
+<span class="inline-block px-3 py-1 bg-secondary/10 text-secondary font-label-caps text-[10px] tracking-widest">LEVEL: PLATINUM</span>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+<div class="p-4 border border-subtle">
+<p class="font-label-caps text-[10px] text-on-surface-variant mb-1">CLICKS</p>
+<p class="text-xl font-bold">2,401</p>
+</div>
+<div class="p-4 border border-subtle">
+<p class="font-label-caps text-[10px] text-on-surface-variant mb-1">LEADS</p>
+<p class="text-xl font-bold">84</p>
+</div>
+<div class="p-4 border border-subtle">
+<p class="font-label-caps text-[10px] text-on-surface-variant mb-1">CONV.</p>
+<p class="text-xl font-bold">3.5%</p>
+</div>
+<div class="p-4 border border-subtle">
+<p class="font-label-caps text-[10px] text-on-surface-variant mb-1">EARNED</p>
+<p class="text-xl font-bold">$12.4k</p>
+</div>
+</div>
+<div class="w-full h-32 flex items-end justify-between space-x-1">
+<div class="bg-secondary-fixed-dim w-full h-[20%]"></div>
+<div class="bg-secondary-fixed-dim w-full h-[40%]"></div>
+<div class="bg-secondary-fixed-dim w-full h-[35%]"></div>
+<div class="bg-secondary-fixed-dim w-full h-[60%]"></div>
+<div class="bg-secondary w-full h-[90%]"></div>
+<div class="bg-secondary-fixed-dim w-full h-[70%]"></div>
+<div class="bg-secondary-fixed-dim w-full h-[55%]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Form -->
+<section class="py-section-gap" id="join">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="grid grid-cols-12 gap-gutter">
+<div class="col-span-12 md:col-span-4 mb-12 md:mb-0">
+<h2 class="font-headline-lg text-headline-lg mb-8">Apply for Admission.</h2>
+<p class="font-body-md text-on-surface-variant">
+                            Membership to The OPV Circle is by application only. We are looking for partners who mirror our commitment to quality and discretion. Expect a response within 48 business hours.
+                        </p>
+</div>
+<div class="col-span-12 md:col-span-7 md:col-start-6">
+<form class="space-y-10">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+<div class="relative">
+<input class="w-full bg-transparent border-0 border-b border-outline/30 py-4 font-body-md placeholder:text-outline/50 transition-all" id="name" placeholder="Full Name" type="text"/>
+</div>
+<div class="relative">
+<input class="w-full bg-transparent border-0 border-b border-outline/30 py-4 font-body-md placeholder:text-outline/50 transition-all" id="email" placeholder="Professional Email" type="email"/>
+</div>
+</div>
+<div class="relative">
+<input class="w-full bg-transparent border-0 border-b border-outline/30 py-4 font-body-md placeholder:text-outline/50 transition-all" id="website" placeholder="Website / Portfolio URL" type="url"/>
+</div>
+<div class="relative">
+<textarea class="w-full bg-transparent border-0 border-b border-outline/30 py-4 font-body-md placeholder:text-outline/50 transition-all resize-none" id="message" placeholder="How do you intend to promote OPV Luxury?" rows="4"></textarea>
+</div>
+<button class="w-full md:w-auto bg-primary text-on-primary font-label-caps text-label-caps px-16 py-5 hover:opacity-90 transition-all" type="submit">SUBMIT APPLICATION</button>
+</form>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-white border-t border-outline-variant/30 px-margin-mobile md:px-margin-desktop py-16 md:py-20">
+  <div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-14">
+    <div class="space-y-6">
+      <a class="font-headline-md text-headline-sm font-bold tracking-tighter text-primary" href="/">OPV Luxury</a>
+      <p class="font-body-md text-body-md text-on-surface-variant max-w-xs">Bespoke luxury lifestyle access across stays, travel, dining, shopping, protection and private membership.</p>
+    </div>
+    <div>
+      <h4 class="font-label-caps text-label-caps text-primary mb-6">Explore</h4>
+      <ul class="space-y-3 font-body-md text-body-md text-on-surface-variant">
+        <li><a class="hover:text-primary transition-colors" href="/services/luxury-stays/">Luxury Stays</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/services/car-rentals/">Drive</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/services/private-dining/">Eat</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/services/luxury-products/">Shop</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/services/private-jet/">Fly</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/services/yacht-services/">Yacht</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/services/vip-security/">Security</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-label-caps text-label-caps text-primary mb-6">Partners &amp; Affiliates</h4>
+      <ul class="space-y-3 font-body-md text-body-md text-on-surface-variant">
+        <li><a class="hover:text-primary transition-colors" href="/about/">Our Story</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/partners/apply/">Partner Programme</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/affiliates/">Affiliate Programme</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/membership/">Membership</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/faqs/">FAQs</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/contact/">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-label-caps text-label-caps text-primary mb-6">Join The OPV Circle</h4>
+      <p class="font-body-md text-body-md text-on-surface-variant mb-6">Member access and private requests stay one tap away.</p>
+      <div class="flex flex-col gap-3 max-w-[190px]">
+        <a class="flex items-center gap-3 bg-primary text-on-primary px-4 py-2 rounded" href="https://www.apple.com/uk/app-store/" rel="noopener" target="_blank"><span class="material-symbols-outlined">phone_iphone</span><span class="font-label-caps text-label-caps">App Store</span></a>
+        <a class="flex items-center gap-3 bg-primary text-on-primary px-4 py-2 rounded" href="https://play.google.com/store" rel="noopener" target="_blank"><span class="material-symbols-outlined">play_arrow</span><span class="font-label-caps text-label-caps">Google Play</span></a>
+      </div>
+    </div>
+  </div>
+  <div class="max-w-container-max mx-auto pt-6 border-t border-outline-variant/30 flex flex-col lg:flex-row justify-between gap-6 font-label-caps text-label-caps text-on-surface-variant">
+    <p>© 2026 OPULENT VAULT. All rights reserved.</p>
+    <div class="flex flex-wrap gap-5">
+      <a class="hover:text-primary transition-colors" href="/legal/privacy">Privacy</a>
+      <a class="hover:text-primary transition-colors" href="/legal/terms">Terms</a>
+      <a class="hover:text-primary transition-colors" href="/legal/cancellation">Cancellation</a>
+      <a class="hover:text-primary transition-colors" href="/legal/cookies">Cookies</a>
+      <a class="hover:text-primary transition-colors" href="/legal/verification">Verification</a>
+    </div>
+  </div>
+</footer>
+<!-- AI Concierge Widget -->
+<div class="fixed bottom-10 right-10 z-[60]">
+<button class="w-16 h-16 rounded-none bg-primary text-on-primary flex items-center justify-center shadow-2xl group relative overflow-hidden">
+<span class="material-symbols-outlined relative z-10 transition-transform group-hover:rotate-12">diamond</span>
+<div class="absolute inset-0 bg-secondary translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+</button>
+</div>
+<script>
+        // Simple micro-interactions
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form submission effect
+        const form = document.querySelector('form');
+        if(form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const btn = form.querySelector('button');
+                const originalText = btn.innerText;
+                btn.innerText = 'PROCESSING...';
+                btn.disabled = true;
+                btn.style.opacity = '0.5';
+                
+                setTimeout(() => {
+                    btn.innerText = 'APPLICATION RECEIVED';
+                    btn.classList.replace('bg-primary', 'bg-secondary');
+                }, 2000);
+            });
+        }
+    </script>
+</body></html>

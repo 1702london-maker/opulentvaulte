@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head></head><body class="font-body-md text-body-md">```html
+
+
+
+    <meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Private Dining | OPV - The Discerning Guardian</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Hanken+Grotesk:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#dbdad9",
+                        "on-primary-container": "#4a4a4a",
+                        "primary-fixed-dim": "#d4af37",
+                        "on-error-container": "#410002",
+                        "tertiary-container": "#f4f1ea",
+                        "surface-container": "#f5f3f3",
+                        "inverse-surface": "#1e1e1e",
+                        "on-secondary-container": "#241d00",
+                        "secondary-container": "#d4af37",
+                        "surface-container-highest": "#e6e4e3",
+                        "on-secondary-fixed-variant": "#574500",
+                        "secondary": "#d4af37",
+                        "tertiary": "#6b6b6b",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#f2e6c2",
+                        "on-tertiary-fixed": "#1b1c14",
+                        "outline": "#7a7a7a",
+                        "surface-tint": "#d4af37",
+                        "inverse-primary": "#f2e6c2",
+                        "inverse-on-surface": "#fbf9f8",
+                        "surface-container-high": "#ebe9e8",
+                        "surface-container-low": "#f5f3f3",
+                        "on-error": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#212121",
+                        "on-primary-fixed": "#241d00",
+                        "background": "#fbf9f8",
+                        "primary-container": "#fbf9f8",
+                        "outline-variant": "#c4c4c4",
+                        "on-surface-variant": "#4a4a4a",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#1e1e1e",
+                        "on-tertiary-fixed-variant": "#46483d",
+                        "error": "#ba1a1a",
+                        "surface-bright": "#fbf9f8",
+                        "on-primary-fixed-variant": "#574500",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed": "#241a00",
+                        "primary": "#d4af37",
+                        "on-background": "#1e1e1e",
+                        "surface-variant": "#e6e4e3",
+                        "secondary-fixed-dim": "#d4af37",
+                        "surface": "#fbf9f8",
+                        "tertiary-fixed": "#e3e3d5",
+                        "secondary-fixed": "#f2e6c2",
+                        "tertiary-fixed-dim": "#c7c7ba"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "20px",
+                        "section-gap": "120px",
+                        "unit": "8px",
+                        "container-max": "1440px",
+                        "margin-desktop": "80px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Playfair Display"],
+                        "body-md": ["Hanken Grotesk"],
+                        "label-caps": ["Hanken Grotesk"],
+                        "headline-sm": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "body-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .soft-close-transition {
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .verified-badge-anim:hover {
+            transform: rotate(360deg);
+            transition: transform 1s ease-in-out;
+        }
+        body {
+            background-color: #fbf9f8;
+            color: #1e1e1e;
+            overflow-x: hidden;
+        }
+        .luxury-gradient {
+            background: linear-gradient(180deg, rgba(251, 249, 248, 0) 0%, rgba(251, 249, 248, 0.6) 60%, rgba(251, 249, 248, 0.95) 100%);
+        }
+    </style>
+<!-- TopNavBar -->
+<nav class="fixed top-0 left-0 w-full z-[100] flex justify-between items-center px-margin-mobile md:px-margin-desktop py-5 bg-white/95 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm transition-all duration-300">
+  <div class="flex items-center gap-10 min-w-0">
+    <a class="font-headline-md text-[34px] md:text-[40px] leading-none font-bold tracking-tighter text-primary whitespace-nowrap" href="/">OPV Luxury</a>
+    <div class="hidden xl:flex items-center gap-7">
+      <a class="font-label-caps text-label-caps text-primary hover:text-secondary transition-colors duration-300" href="/">Home</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="/services/luxury-stays/">Stays</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="/services/car-rentals/">Drive</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="/services/private-dining/">Eat</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="/services/luxury-products/">Shop</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="/services/vip-security/">Security</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="/services/private-jet/">Fly</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="/services/yacht-services/">Yacht</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="/affiliates/">Affiliates</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="/contact/">Contact</a>
+    </div>
+  </div>
+  <div class="flex items-center gap-3 md:gap-5 shrink-0">
+    <a class="hidden 2xl:inline-flex items-center justify-center rounded-full border border-secondary/60 px-5 py-2 font-label-caps text-label-caps text-primary hover:bg-secondary hover:text-on-secondary transition-colors duration-300" href="/services/">Search The Vault</a>
+    <span class="hidden md:inline-flex font-label-caps text-label-caps text-on-surface-variant">£ GBP</span>
+    <span class="hidden md:inline-flex font-label-caps text-label-caps text-on-surface-variant">EN</span>
+    <a class="hidden md:inline-flex items-center justify-center border border-outline-variant px-8 py-3 font-label-caps text-label-caps text-primary hover:border-secondary hover:text-secondary transition-colors duration-300" href="/login/">Sign In</a>
+    <a aria-label="Account" class="material-symbols-outlined text-primary hover:text-secondary transition-colors duration-300" href="/account/dashboard/">person</a>
+  </div>
+</nav>
+<!-- Rich OPV Hero Section -->
+<section class="relative min-h-screen w-full flex items-center overflow-hidden pt-28 bg-surface">
+  <div class="absolute inset-0 z-0">
+    <img class="w-full h-full object-cover grayscale opacity-55" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPdRpVVbGxNbGOl7b29hwgUBdXb2yrKCahybmPX82Z5fjGFj9_NIYBn7vORy-KibPyKq1Nf-3G8i1kbHic_QuCrYHxVi8zqQ29b5kCfsdUh2-P4kfcRPhBJJs67RLhZM8BCr4m2uLgx6ibDqUAFVhpIw68oJDF74mQ84RAXbyR7t_AEZx1Fhd2XbU-yXl88KofNh5mU2O23dLAJIfP9XBmZHFhQOL9STr6TfRgMHlphPhV-5jNbpexMw" alt="Private Dining by OPV Luxury" />
+    <div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/90 to-surface/20"></div>
+    <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-surface to-transparent"></div>
+  </div>
+  <div class="relative z-10 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-16 items-end">
+    <div class="pb-16 md:pb-24 max-w-4xl">
+      <span class="font-label-caps text-label-caps text-secondary mb-6 block tracking-[0.3em] uppercase">Private Dining</span>
+      <h1 class="font-display-xl text-[56px] md:text-[86px] leading-[0.98] tracking-normal text-primary mb-8">Private Tables, Chefs and Occasions Arranged Around You.</h1>
+      <p class="font-body-lg text-[20px] leading-[1.7] text-on-surface-variant max-w-3xl mb-10">From closed-door chef residences to intimate celebration dinners, OPV plans the table, setting, menu, wine pairing and service detail with the quiet precision expected by members.</p>
+      <div class="flex flex-wrap gap-4">
+        <a class="inline-flex items-center justify-center bg-primary text-on-primary px-10 py-5 font-label-caps text-label-caps hover:bg-secondary transition-colors" href="#request">Plan A Private Dinner</a>
+        <a class="inline-flex items-center justify-center border border-outline-variant px-10 py-5 font-label-caps text-label-caps text-primary hover:border-secondary hover:text-secondary transition-colors" href="/contact/">Speak To Concierge</a>
+      </div>
+    </div>
+    <div class="hidden lg:grid grid-cols-1 gap-4 pb-20">
+      <div class="bg-white/80 backdrop-blur-xl border border-outline-variant/40 p-6 shadow-sm"><span class="font-label-caps text-label-caps text-secondary mb-3 block">01</span><p class="font-body-md text-body-md text-on-surface-variant">Private chefs, sommeliers and discreet service teams</p></div>
+      <div class="bg-white/80 backdrop-blur-xl border border-outline-variant/40 p-6 shadow-sm"><span class="font-label-caps text-label-caps text-secondary mb-3 block">02</span><p class="font-body-md text-body-md text-on-surface-variant">Menus tailored to guests, venue, dietary needs and occasion</p></div>
+      <div class="bg-white/80 backdrop-blur-xl border border-outline-variant/40 p-6 shadow-sm"><span class="font-label-caps text-label-caps text-secondary mb-3 block">03</span><p class="font-body-md text-body-md text-on-surface-variant">Table styling, florals, entertainment and travel coordination</p></div>
+    </div>
+  </div>
+</section>
+<!-- OPV Service Richness Strip -->
+<section class="px-margin-mobile md:px-margin-desktop py-16 bg-surface border-y border-outline-variant/30">
+  <div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="border-l border-secondary/60 pl-6"><p class="font-label-caps text-label-caps text-primary mb-3">OPV Handles</p><p class="font-body-md text-body-md text-on-surface-variant">Private chefs, sommeliers and discreet service teams</p></div>
+    <div class="border-l border-secondary/60 pl-6"><p class="font-label-caps text-label-caps text-primary mb-3">OPV Handles</p><p class="font-body-md text-body-md text-on-surface-variant">Menus tailored to guests, venue, dietary needs and occasion</p></div>
+    <div class="border-l border-secondary/60 pl-6"><p class="font-label-caps text-label-caps text-primary mb-3">OPV Handles</p><p class="font-body-md text-body-md text-on-surface-variant">Table styling, florals, entertainment and travel coordination</p></div>
+  </div>
+</section>
+<!-- Event Listing Grid -->
+<section class="py-section-gap px-margin-desktop bg-surface-container-lowest" id="request">
+<div class="max-w-container-max mx-auto">
+<div class="flex justify-between items-end mb-16 border-b border-outline-variant/30 pb-8">
+<div>
+<span class="font-label-caps text-secondary uppercase tracking-widest mb-2 block">Current Portfolios</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Curated Experiences</h2>
+</div>
+<div class="flex gap-4">
+<button class="p-4 border border-outline-variant/50 hover:border-secondary transition-colors group">
+<span class="material-symbols-outlined text-on-surface group-hover:text-secondary">tune</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+<!-- Card 1 -->
+<div class="group bg-surface border border-outline-variant/20 soft-close-transition hover:-translate-y-2 hover:shadow-lg">
+<div class="aspect-[16/10] overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A candlelit dining setup inside a historic, vaulted stone wine cellar. Long wooden tables are covered with heavy linens and surrounded by high-backed velvet chairs. The lighting is intimate and golden, reflecting off hundreds of vintage wine bottles lining the walls. The scene feels like a secret, multi-generational club meeting, conveying profound authority and heritage." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJQxf_oYyNwoXOGzgLYRGtCrSneHIIHng7ocJCwD0nJyKF4kgpfL5OfXOz92XFlLl-cI-NsUrrCtjqU9Ua9kAS05WPux3lLnZda4OGybHpZvcMWEGQ_tMNFpzWDv69GuUMRRQgOPxuywwW657Jkm2SmBnoofT07jZDOKnSbOX5A3KtX6VDgOxVoWlljpr72Q1G3PV2fZI1cMkNj-ABNt6BHC5w32PjOanuwDz6NveICskqZjNdn70NZw"/>
+<div class="absolute top-4 right-4 bg-surface-bright/90 backdrop-blur-md p-2 flex items-center gap-2 border border-secondary/40">
+<div class="w-8 h-8 rounded-full border border-secondary flex items-center justify-center text-[10px] font-bold text-secondary verified-badge-anim">OPV</div>
+<span class="font-label-caps text-[10px] text-on-surface uppercase">Verified Venue</span>
+</div>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-headline-sm text-on-surface mb-1">The Cellar's Whisper</h3>
+<p class="text-secondary font-label-caps text-xs uppercase tracking-widest">Heritage Estate, Bordeaux</p>
+</div>
+</div>
+<div class="space-y-4 mb-8">
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-sm">restaurant</span>
+<span class="text-sm">Tasting Menu: 12-Course Modern French</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-sm">person</span>
+<span class="text-sm">Chef Julian Vasseur (3 Michelin Stars)</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-sm">groups</span>
+<span class="text-sm">Capacity: Up to 12 Guests</span>
+</div>
+</div>
+<div class="flex justify-between items-center pt-6 border-t border-outline-variant/30">
+<span class="font-display-lg text-headline-sm text-secondary">€1,250 <span class="text-xs font-body-md text-on-surface-variant">/pp</span></span>
+<button class="font-label-caps text-on-surface uppercase tracking-widest border-b border-on-surface hover:text-secondary hover:border-secondary transition-all">Details</button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group bg-surface border border-outline-variant/20 soft-close-transition hover:-translate-y-2 hover:shadow-lg">
+<div class="aspect-[16/10] overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A modern, glass-walled dining room on a high-rise rooftop overlooking a futuristic city skyline at dusk. The sky is a deep indigo, and the city lights sparkle below. The table is minimalist with sharp lines and champagne gold accents. A sleek, contemporary light fixture hangs above, casting a soft, focused glow. The overall mood is high-performance, seamless, and elite." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkwE5HzF3GH93xuRrmuBo9iCDsdDTYbyQf6LY31JQJIfliz2wDVM1DkN8r2BWP7c5iKTTplW-8oRUmUDT987bf7GdyHxYilX4RSMIdNDHEJ_GsxyITiCRgktWb5QN2pT6DxHWD0_qGXT-DTlAePAgJ1-X7s49tIYtZcZhJthkmpf-AnxyHpgCunmYpdUsfRky8RfUQk0ut1DRUr10t9C4vkMWR_9FckJg7mf_qU4mtoW1w091CLsoyYA"/>
+<div class="absolute top-4 right-4 bg-surface-bright/90 backdrop-blur-md p-2 flex items-center gap-2 border border-secondary/40">
+<div class="w-8 h-8 rounded-full border border-secondary flex items-center justify-center text-[10px] font-bold text-secondary verified-badge-anim">OPV</div>
+<span class="font-label-caps text-[10px] text-on-surface uppercase">Verified Chef</span>
+</div>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-headline-sm text-on-surface mb-1">Horizon Omakase</h3>
+<p class="text-secondary font-label-caps text-xs uppercase tracking-widest">Penthouse Suite, Tokyo</p>
+</div>
+</div>
+<div class="space-y-4 mb-8">
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-sm">restaurant</span>
+<span class="text-sm">Cuisine: Edomae-style Omakase</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-sm">person</span>
+<span class="text-sm">Master Chef Kenji Tanaka</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-sm">groups</span>
+<span class="text-sm">Capacity: Up to 6 Guests</span>
+</div>
+</div>
+<div class="flex justify-between items-center pt-6 border-t border-outline-variant/30">
+<span class="font-display-lg text-headline-sm text-secondary">€2,400 <span class="text-xs font-body-md text-on-surface-variant">/pp</span></span>
+<button class="font-label-caps text-on-surface uppercase tracking-widest border-b border-on-surface hover:text-secondary hover:border-secondary transition-all">Details</button>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group bg-surface border border-outline-variant/20 soft-close-transition hover:-translate-y-2 hover:shadow-lg">
+<div class="aspect-[16/10] overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A grand, open-air dining pavilion in a lush, private tropical garden at night. The pavilion is lit by intricate Moroccan lanterns that cast dappled light onto the table. Richly patterned textiles and artisanal pottery decorate the space. The mood is exotic, sensory, and deeply exclusive, maintaining the brand's 'Silent Luxury' feel through superior materials and perfect proportions." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcLp6fgCHR6UduqmpIz_uvKunP9pJ35Im4Pr44NIStZLwR_GCwtyJR0S7r-bCvxXGPNXoe-SY8KQmBMgOtfGONGXIrtYdw_tfhole1Hb9Yr0aa3vpidNzNb7BkxLdTfKT8YlrP565s1lbD_ZNLtb4Scy-SdcUTFLmBsgYDJ7woTgY3NF7RZhdxSC7-UH8tYX4PAm33Nic1M_iFncrLUYn7HzTmdrgBdigIXa8UnzkLdhJ46AMautMfZg"/>
+<div class="absolute top-4 right-4 bg-surface-bright/90 backdrop-blur-md p-2 flex items-center gap-2 border border-secondary/40">
+<div class="w-8 h-8 rounded-full border border-secondary flex items-center justify-center text-[10px] font-bold text-secondary verified-badge-anim">OPV</div>
+<span class="font-label-caps text-[10px] text-on-surface uppercase">Full Service</span>
+</div>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-headline-sm text-on-surface mb-1">Atlas Under Stars</h3>
+<p class="text-secondary font-label-caps text-xs uppercase tracking-widest">Private Palm Grove, Marrakech</p>
+</div>
+</div>
+<div class="space-y-4 mb-8">
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-sm">restaurant</span>
+<span class="text-sm">Theme: Modern Moroccan Fusion</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-sm">person</span>
+<span class="text-sm">Chef Amira Al-Fassi</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-sm">groups</span>
+<span class="text-sm">Capacity: Up to 20 Guests</span>
+</div>
+</div>
+<div class="flex justify-between items-center pt-6 border-t border-outline-variant/30">
+<span class="font-display-lg text-headline-sm text-secondary">€1,800 <span class="text-xs font-body-md text-on-surface-variant">/pp</span></span>
+<button class="font-label-caps text-on-surface uppercase tracking-widest border-b border-on-surface hover:text-secondary hover:border-secondary transition-all">Details</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Detail View & Booking Section -->
+<section class="py-section-gap px-margin-desktop bg-surface">
+<div class="max-w-container-max mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-section-gap">
+<!-- Content Side -->
+<div class="lg:col-span-7">
+<div class="mb-12">
+<span class="font-label-caps text-secondary uppercase tracking-[0.3em] block mb-4">Lead Experience</span>
+<h2 class="font-display-lg text-headline-md lg:text-display-lg text-on-surface mb-8">The Alchemist’s Table</h2>
+<div class="aspect-video w-full bg-surface-container-low mb-10 overflow-hidden shadow-inner">
+<img class="w-full h-full object-cover" data-alt="An intimate, dark dining room featuring a single, backlit table. A chef is presenting a dish that emits a delicate, ethereal smoke. The walls are covered in dark charcoal stone, and the floor is polished obsidian. The only colors are the warm glow of the light and the vibrant colors of the dish. It represents a silent, high-performance tool for demanding users looking for the ultimate culinary experience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQtzyex4KxEvZDD6wCoHJN2RSjKP9kgBqpP6SAa1P6_Hzb-O4B4HtTrUrGZxo8nSDryGnMXa2Sdx1bMhlqneIQiy2WSMcWrXNVSR-zPnz_MJEtYxcX05Oxx9C6lAauhWzd2LnTywKYo5mv5MgQA7VqbyUmJiWIJ-TYYVJNwXy9gZLGx_aVVohoLUByCs533aX5CHlCCxgrCnNX60SrJC9gmBJdDW3uyUXt57Rwtil0fy09WzyX9IdQAA"/>
+</div>
+<div class="space-y-6 text-on-surface-variant font-body-lg">
+<p>Located in a secret subterranean vault in London's Mayfair, The Alchemist’s Table is a sensory exploration of forgotten ingredients. Led by Chef Marcus Thorne, former Executive Chef of The Gilded Spoon, this experience is designed for those who seek the profound over the popular.</p>
+<h4 class="font-headline-sm text-on-surface pt-4">What is Included</h4>
+<ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<li class="flex items-center gap-3"><span class="material-symbols-outlined text-secondary text-sm">check</span> 15-course bespoke menu</li>
+<li class="flex items-center gap-3"><span class="material-symbols-outlined text-secondary text-sm">check</span> Rare vintage wine pairing</li>
+<li class="flex items-center gap-3"><span class="material-symbols-outlined text-secondary text-sm">check</span> Discretion-assured arrival</li>
+<li class="flex items-center gap-3"><span class="material-symbols-outlined text-secondary text-sm">check</span> Personalized commemorative menu</li>
+<li class="flex items-center gap-3"><span class="material-symbols-outlined text-secondary text-sm">check</span> Private valet service</li>
+<li class="flex items-center gap-3"><span class="material-symbols-outlined text-secondary text-sm">check</span> Professional service staff (2:1 ratio)</li>
+</ul>
+</div>
+</div>
+<div class="p-10 border border-secondary/20 bg-surface-container-low flex flex-col md:flex-row gap-8 items-center rounded-sm shadow-sm">
+<div class="w-32 h-32 flex-shrink-0 bg-surface-container overflow-hidden rounded-full border-2 border-secondary/20">
+<img class="w-full h-full object-cover grayscale" data-alt="A professional portrait of a distinguished male chef in his late 40s. He is wearing a custom-tailored navy chef's jacket with his name subtly embroidered. He has a calm, authoritative expression, conveying years of elite experience. The background is a minimalist, high-end professional kitchen with clean lines and soft lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfMPBIcZirMRspnrrKeAPc6IUT4Doya9kW1Ld6jfFuXSi_7YhDK3rgBfJxkZkJpsN5zcGlwGkjP85-Xkc9DnltkEwOAcD31ana4h2I5L6jnNZbwHuFSTIsGWsQBY_TSZFsD5ofvInzAWHk7Db47uFmivD40zpzXTABLhPguWLNZ9HxgSahc1d4VXtGD-aC8K2jZ-3xDNa2AjFJuxFOvOHJQ8DH7BeKNNQWf96pkqJ6n09OGOcnV7ccPQ"/>
+</div>
+<div>
+<h4 class="font-headline-sm text-on-surface mb-2">Chef Marcus Thorne</h4>
+<p class="text-on-surface-variant italic mb-4">"Gastronomy is the quietest form of storytelling. In the vault, we strip away the noise and focus on the soul of the ingredient."</p>
+<p class="text-xs font-label-caps text-secondary uppercase tracking-widest">30+ Years | London - Paris - New York</p>
+</div>
+</div>
+</div>
+<!-- Form Side -->
+<div class="lg:col-span-5">
+<div class="sticky top-32 bg-surface-container-low p-10 border border-outline-variant/50 shadow-sm rounded-sm">
+<h3 class="font-headline-sm text-on-surface mb-8">Booking Request</h3>
+<form class="space-y-8">
+<div class="group">
+<label class="font-label-caps text-secondary uppercase text-[10px] tracking-widest block mb-2 transition-colors group-focus-within:text-secondary">Full Name</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant/70 focus:border-secondary focus:ring-0 text-on-surface placeholder:text-on-surface-variant/30 py-2 transition-all px-0" placeholder="ALEXANDER VANCE" type="text"/>
+</div>
+<div class="group">
+<label class="font-label-caps text-secondary uppercase text-[10px] tracking-widest block mb-2">Membership ID (Optional)</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant/70 focus:border-secondary focus:ring-0 text-on-surface placeholder:text-on-surface-variant/30 py-2 transition-all px-0" placeholder="OPV-XXXX-XXXX" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div class="group">
+<label class="font-label-caps text-secondary uppercase text-[10px] tracking-widest block mb-2">Preferred Date</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant/70 focus:border-secondary focus:ring-0 text-on-surface py-2 transition-all px-0" type="date"/>
+</div>
+<div class="group">
+<label class="font-label-caps text-secondary uppercase text-[10px] tracking-widest block mb-2">Guest Count</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant/70 focus:border-secondary focus:ring-0 text-on-surface placeholder:text-on-surface-variant/30 py-2 transition-all px-0" placeholder="2" type="number"/>
+</div>
+</div>
+<div class="group">
+<label class="font-label-caps text-secondary uppercase text-[10px] tracking-widest block mb-2">Special Requirements / Dietary</label>
+<textarea class="w-full bg-transparent border-0 border-b border-outline-variant/70 focus:border-secondary focus:ring-0 text-on-surface placeholder:text-on-surface-variant/30 py-2 transition-all px-0" rows="3"></textarea>
+</div>
+<button class="w-full bg-secondary text-white font-label-caps font-bold uppercase tracking-[0.2em] py-4 transition-all hover:bg-secondary/90 active:scale-[0.98] shadow-md" type="submit">Request Private Access</button>
+<p class="text-[10px] text-on-surface-variant text-center font-label-caps tracking-widest opacity-60">REQUESTS ARE REVIEWED WITHIN 4 HOURS</p>
+</form>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Verification Trust Section -->
+<section class="py-section-gap px-margin-desktop bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto text-center border-t border-outline-variant/30 pt-20">
+<div class="inline-flex items-center justify-center w-24 h-24 rounded-full border-2 border-secondary mb-10 relative">
+<span class="font-display-lg text-headline-md text-secondary">OPV</span>
+<div class="absolute inset-0 rounded-full border border-secondary/20 scale-125 animate-ping"></div>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-6">The Guardian's Seal</h2>
+<p class="max-w-2xl mx-auto text-on-surface-variant font-body-lg mb-16">The OPV Verified Badge is not a purchase—it is an achievement. It signifies that every host, venue, and menu has been personally vetted by our culinary concierge team for quality, safety, and exclusivity.</p>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter text-left">
+<div class="p-8 border border-outline-variant/30 bg-surface">
+<span class="material-symbols-outlined text-secondary text-3xl mb-4">verified_user</span>
+<h5 class="font-label-caps text-on-surface uppercase mb-3">Identity Vetted</h5>
+<p class="text-sm text-on-surface-variant">Full background checks on all service providers and staff.</p>
+</div>
+<div class="p-8 border border-outline-variant/30 bg-surface">
+<span class="material-symbols-outlined text-secondary text-3xl mb-4">restaurant_menu</span>
+<h5 class="font-label-caps text-on-surface uppercase mb-3">Ingredient Integrity</h5>
+<p class="text-sm text-on-surface-variant">Tracing the provenance of all primary ingredients for ethical sourcing.</p>
+</div>
+<div class="p-8 border border-outline-variant/30 bg-surface">
+<span class="material-symbols-outlined text-secondary text-3xl mb-4">lock</span>
+<h5 class="font-label-caps text-on-surface uppercase mb-3">Absolute Privacy</h5>
+<p class="text-sm text-on-surface-variant">Strict NDA protocols for all service staff and venue management.</p>
+</div>
+<div class="p-8 border border-outline-variant/30 bg-surface">
+<span class="material-symbols-outlined text-secondary text-3xl mb-4">health_and_safety</span>
+<h5 class="font-label-caps text-on-surface uppercase mb-3">Health Protocols</h5>
+<p class="text-sm text-on-surface-variant">Beyond-standard hygiene audits and medical-grade kitchen compliance.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="py-section-gap px-margin-desktop bg-surface">
+<div class="max-w-3xl mx-auto">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-12 text-center">Frequently Requested</h2>
+<div class="space-y-4">
+<!-- FAQ Item 1 -->
+<details class="group bg-surface-container-low border border-outline-variant/30">
+<summary class="flex justify-between items-center p-8 cursor-pointer list-none">
+<span class="font-label-caps text-on-surface uppercase tracking-widest">Can the menu be fully customized?</span>
+<span class="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="px-8 pb-8 text-on-surface-variant">
+                        Absolutely. Once a booking request is initiated, our culinary concierge will facilitate a direct session with the chef to tailor every course to your specific palate and dietary requirements.
+                    </div>
+</details>
+<!-- FAQ Item 2 -->
+<details class="group bg-surface-container-low border border-outline-variant/30">
+<summary class="flex justify-between items-center p-8 cursor-pointer list-none">
+<span class="font-label-caps text-on-surface uppercase tracking-widest">What is the lead time for booking?</span>
+<span class="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="px-8 pb-8 text-on-surface-variant">
+                        For our ultra-exclusive portfolios, we recommend a 3-week lead time. However, for active members, the OPV Concierge can often secure slots with as little as 48 hours notice depending on chef availability.
+                    </div>
+</details>
+<!-- FAQ Item 3 -->
+<details class="group bg-surface-container-low border border-outline-variant/30">
+<summary class="flex justify-between items-center p-8 cursor-pointer list-none">
+<span class="font-label-caps text-on-surface uppercase tracking-widest">Are these venues child-friendly?</span>
+<span class="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="px-8 pb-8 text-on-surface-variant">
+                        Venues vary in their policies. We specify family-friendly environments in the detail view of each listing. Private childcare can also be arranged via OPV Concierge services for any experience.
+                    </div>
+</details>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-white border-t border-outline-variant/30 px-margin-mobile md:px-margin-desktop py-16 md:py-20">
+  <div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-14">
+    <div class="space-y-6">
+      <a class="font-headline-md text-headline-sm font-bold tracking-tighter text-primary" href="/">OPV Luxury</a>
+      <p class="font-body-md text-body-md text-on-surface-variant max-w-xs">Bespoke luxury lifestyle access across stays, travel, dining, shopping, protection and private membership.</p>
+    </div>
+    <div>
+      <h4 class="font-label-caps text-label-caps text-primary mb-6">Explore</h4>
+      <ul class="space-y-3 font-body-md text-body-md text-on-surface-variant">
+        <li><a class="hover:text-primary transition-colors" href="/services/luxury-stays/">Luxury Stays</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/services/car-rentals/">Drive</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/services/private-dining/">Eat</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/services/luxury-products/">Shop</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/services/private-jet/">Fly</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/services/yacht-services/">Yacht</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/services/vip-security/">Security</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-label-caps text-label-caps text-primary mb-6">Partners &amp; Affiliates</h4>
+      <ul class="space-y-3 font-body-md text-body-md text-on-surface-variant">
+        <li><a class="hover:text-primary transition-colors" href="/about/">Our Story</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/partners/apply/">Partner Programme</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/affiliates/">Affiliate Programme</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/membership/">Membership</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/faqs/">FAQs</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/contact/">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-label-caps text-label-caps text-primary mb-6">Join The OPV Circle</h4>
+      <p class="font-body-md text-body-md text-on-surface-variant mb-6">Member access and private requests stay one tap away.</p>
+      <div class="flex flex-col gap-3 max-w-[190px]">
+        <a class="flex items-center gap-3 bg-primary text-on-primary px-4 py-2 rounded" href="https://www.apple.com/uk/app-store/" rel="noopener" target="_blank"><span class="material-symbols-outlined">phone_iphone</span><span class="font-label-caps text-label-caps">App Store</span></a>
+        <a class="flex items-center gap-3 bg-primary text-on-primary px-4 py-2 rounded" href="https://play.google.com/store" rel="noopener" target="_blank"><span class="material-symbols-outlined">play_arrow</span><span class="font-label-caps text-label-caps">Google Play</span></a>
+      </div>
+    </div>
+  </div>
+  <div class="max-w-container-max mx-auto pt-6 border-t border-outline-variant/30 flex flex-col lg:flex-row justify-between gap-6 font-label-caps text-label-caps text-on-surface-variant">
+    <p>© 2026 OPULENT VAULT. All rights reserved.</p>
+    <div class="flex flex-wrap gap-5">
+      <a class="hover:text-primary transition-colors" href="/legal/privacy">Privacy</a>
+      <a class="hover:text-primary transition-colors" href="/legal/terms">Terms</a>
+      <a class="hover:text-primary transition-colors" href="/legal/cancellation">Cancellation</a>
+      <a class="hover:text-primary transition-colors" href="/legal/cookies">Cookies</a>
+      <a class="hover:text-primary transition-colors" href="/legal/verification">Verification</a>
+    </div>
+  </div>
+</footer></body></html>

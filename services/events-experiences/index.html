@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OPV Luxury | Unrivaled Experiences</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:ital,wght@0,500;0,600;1,500&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-tint": "#5f5e5e",
+                      "on-background": "#1a1c1c",
+                      "on-tertiary-fixed-variant": "#4e453c",
+                      "on-tertiary-fixed": "#211a13",
+                      "tertiary-fixed-dim": "#d1c4b8",
+                      "on-tertiary": "#ffffff",
+                      "background": "#f9f9f9",
+                      "surface-container-low": "#f3f3f4",
+                      "surface-container": "#eeeeee",
+                      "tertiary-container": "#211a13",
+                      "on-secondary": "#ffffff",
+                      "surface-container-highest": "#e2e2e2",
+                      "surface-container-high": "#e8e8e8",
+                      "on-error-container": "#93000a",
+                      "error": "#ba1a1a",
+                      "on-primary-fixed": "#1c1b1b",
+                      "primary-fixed-dim": "#c9c6c5",
+                      "primary": "#000000",
+                      "on-primary-fixed-variant": "#474646",
+                      "secondary-fixed-dim": "#e9c176",
+                      "secondary-fixed": "#ffdea5",
+                      "secondary-container": "#fed488",
+                      "on-surface-variant": "#444748",
+                      "outline": "#747878",
+                      "on-surface": "#1a1c1c",
+                      "surface": "#f9f9f9",
+                      "inverse-primary": "#c9c6c5",
+                      "primary-fixed": "#e5e2e1",
+                      "on-primary-container": "#858383",
+                      "error-container": "#ffdad6",
+                      "on-secondary-fixed-variant": "#5d4201",
+                      "tertiary-fixed": "#eee0d3",
+                      "on-tertiary-container": "#8d8277",
+                      "tertiary": "#000000",
+                      "surface-dim": "#dadada",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "inverse-surface": "#2f3131",
+                      "inverse-on-surface": "#f0f1f1",
+                      "surface-variant": "#e2e2e2",
+                      "on-error": "#ffffff",
+                      "primary-container": "#1c1b1b",
+                      "surface-bright": "#f9f9f9",
+                      "on-secondary-container": "#785a1a",
+                      "secondary": "#775a19",
+                      "on-secondary-fixed": "#261900",
+                      "outline-variant": "#c4c7c7"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "20px",
+                      "gutter": "24px",
+                      "margin-desktop": "80px",
+                      "section-gap": "120px",
+                      "container-max": "1440px",
+                      "unit": "8px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Playfair Display"],
+                      "label-caps": ["Inter"],
+                      "body-md": ["Inter"],
+                      "headline-md": ["Playfair Display"],
+                      "headline-lg-mobile": ["Playfair Display"],
+                      "body-lg": ["Inter"],
+                      "display-xl": ["Playfair Display"]
+              },
+              "fontSize": {
+                      "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+                      "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.15em", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                      "headline-lg-mobile": ["36px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400"}],
+                      "display-xl": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .glass-effect {
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            background: rgba(255, 255, 255, 0.6);
+        }
+        .reveal-on-hover .zoom-img {
+            transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        .reveal-on-hover:hover .zoom-img {
+            transform: scale(1.05);
+        }
+        .border-subtle { border-color: rgba(116, 120, 120, 0.1); }
+        .concierge-gradient {
+            background: linear-gradient(135deg, #1a1c1c 0%, #444748 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-background selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<!-- TopNavBar -->
+<nav class="fixed top-0 left-0 w-full z-[100] flex justify-between items-center px-margin-mobile md:px-margin-desktop py-5 bg-white/95 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm transition-all duration-300">
+  <div class="flex items-center gap-10 min-w-0">
+    <a class="font-headline-md text-[34px] md:text-[40px] leading-none font-bold tracking-tighter text-primary whitespace-nowrap" href="/">OPV Luxury</a>
+    <div class="hidden xl:flex items-center gap-7">
+      <a class="font-label-caps text-label-caps text-primary hover:text-secondary transition-colors duration-300" href="/">Home</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="/services/luxury-stays/">Stays</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="/services/car-rentals/">Drive</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="/services/private-dining/">Eat</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="/services/luxury-products/">Shop</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="/services/vip-security/">Security</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="/services/private-jet/">Fly</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="/services/yacht-services/">Yacht</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="/affiliates/">Affiliates</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="/contact/">Contact</a>
+    </div>
+  </div>
+  <div class="flex items-center gap-3 md:gap-5 shrink-0">
+    <a class="hidden 2xl:inline-flex items-center justify-center rounded-full border border-secondary/60 px-5 py-2 font-label-caps text-label-caps text-primary hover:bg-secondary hover:text-on-secondary transition-colors duration-300" href="/services/">Search The Vault</a>
+    <span class="hidden md:inline-flex font-label-caps text-label-caps text-on-surface-variant">£ GBP</span>
+    <span class="hidden md:inline-flex font-label-caps text-label-caps text-on-surface-variant">EN</span>
+    <a class="hidden md:inline-flex items-center justify-center border border-outline-variant px-8 py-3 font-label-caps text-label-caps text-primary hover:border-secondary hover:text-secondary transition-colors duration-300" href="/login/">Sign In</a>
+    <a aria-label="Account" class="material-symbols-outlined text-primary hover:text-secondary transition-colors duration-300" href="/account/dashboard/">person</a>
+  </div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative h-[921px] flex items-center justify-center overflow-hidden">
+
+<div class="relative z-10 text-center px-margin-mobile max-w-4xl">
+<span class="font-label-caps text-label-caps tracking-[0.3em] text-primary/60 mb-6 block">ULTRA-LUXURY CURATION</span>
+<h1 class="font-display-xl text-headline-lg md:text-display-xl text-primary leading-none mb-12">Unrivaled Experiences, Curated for the Discerning.</h1>
+<div class="flex flex-col md:flex-row items-center justify-center gap-6">
+<button class="bg-primary text-on-primary px-10 py-5 font-label-caps text-label-caps hover:bg-secondary-fixed hover:text-on-secondary-fixed transition-all duration-300">Explore Catalog</button>
+<button class="border border-primary text-primary px-10 py-5 font-label-caps text-label-caps hover:bg-primary hover:text-on-primary transition-all duration-300">Book Consult</button>
+</div>
+</div>
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+<span class="material-symbols-outlined text-outline">arrow_downward</span>
+</div>
+</section>
+<!-- Fine Dining Section (Asymmetric Grid) -->
+<section class="py-section-gap px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-12 gap-gutter items-center">
+<div class="col-span-12 md:col-span-5 space-y-8">
+<span class="font-label-caps text-label-caps text-secondary">01 Gastronomy</span>
+<h2 class="font-headline-lg text-headline-lg text-primary">Michelin-Star Excellence, Privately Hosted.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Access the inaccessible. From private tables in the world's most exclusive kitchens to personal dinners prepared by legendary Michelin-star chefs at your estate.</p>
+<ul class="space-y-4 pt-4 border-t border-subtle">
+<li class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">restaurant</span>
+<span class="font-body-md text-body-md">Chef's Table Confidential</span>
+</li>
+<li class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">wine_bar</span>
+<span class="font-body-md text-body-md">Rare Vintage Tastings</span>
+</li>
+</ul>
+</div>
+<div class="col-span-12 md:col-span-7">
+<div class="reveal-on-hover overflow-hidden h-[600px] relative">
+<img class="zoom-img w-full h-full object-cover" data-alt="A high-end minimalist restaurant setting with a single, perfectly lit table featuring fine bone china and crystal glassware. The atmosphere is intimate and dark, with subtle warm spotlights emphasizing a sophisticated, modern luxury aesthetic. The background shows a hint of a high-tech kitchen where a chef is meticulously plating a gourmet dish in a focused, professional environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWD177vuPsx_HFPM5A6XD4peESGpGvBzLLldeezB_BMRlftzdTon3G4mvzqXRHyTutL3mfw5lsJWENVEJ9tRePkQZ175lUazzJhpbXce_RBTSVbab4icovt99o_-PcFYgPeYOkSWhK3ppGvslZ1Wqdw1KSB6rf26g0nFYHJvQo6mfe-9nTtX3tP4BjRERKoO88Q5BGweo1JLb9rtZnzJRyJWCOOCEyQPHyWGlJkuciMA-z5eTAqB8KuypYh-4RLASC1nZzqiywF6uU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Yacht Experiences (Bento Grid) -->
+<section class="py-section-gap bg-surface-container-lowest overflow-hidden">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="mb-20 text-center">
+<h2 class="font-headline-lg text-headline-lg mb-4">Mediterranean Horizons</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">Charter the world's most prestigious vessels. From the Amalfi Coast to the Balearics, our fleet is your private sanctuary on the water.</p>
+</div>
+<div class="grid grid-cols-12 gap-gutter h-[800px] md:h-[600px]">
+<div class="col-span-12 md:col-span-8 relative reveal-on-hover overflow-hidden h-full">
+<img class="zoom-img w-full h-full object-cover" data-alt="A stunning aerial shot of a sleek, ultra-modern superyacht gliding through crystal-clear turquoise waters of the Mediterranean. The sun reflects brilliantly off the water, creating a sparkling, high-contrast visual. The yacht's deck is pristine white, featuring minimalist lounge areas and a private pool. The overall mood is one of absolute exclusivity, freedom, and tranquil luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbaJr9CtX4mAkfUdSimwsEKSJiUcRl_IdZIjIuBJ1B9eriYE0EbU452mo_Xie5k-P4yuR_-bzbSXImEaFXjDXqJrjnyFK3VMGUf9f6KG8iZ6RdA45VdlM5MxAM-CznbxR7eo0-TkqB9zQ2d5-lOsUWyYLhhyRam0E_1gfKw0VSCO-mjmLg1C_RsbEwfhilo3h5YDM4N_F-DCg6LEsbdIhD0yV1kVUXousGKFEpRqwZpsNGKQP9-ap97wY3AwJw-XJsOL1fS3pOke5o"/>
+<div class="absolute bottom-10 left-10 text-on-primary">
+<h3 class="font-headline-md text-headline-md">Superyacht Serenity</h3>
+<span class="font-label-caps text-label-caps mt-2 block border-b border-white/40 w-max pb-1">View Fleet</span>
+</div>
+</div>
+<div class="col-span-12 md:col-span-4 grid grid-rows-2 gap-gutter h-full">
+<div class="relative reveal-on-hover overflow-hidden">
+<img class="zoom-img w-full h-full object-cover" data-alt="A close-up of a luxury yacht's dining area at dusk, with candles flickering in heavy glass holders. The table is set with artisanal linens and polished silverware, overlooking a quiet harbor with twinkling lights in the distance. The lighting is low-key and amber-toned, evoking a warm, romantic, and deeply exclusive atmosphere for private evening celebrations." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGYtwNTc4wOACFE12LlwI9YmSDPqUrbgtCfCraI0w8D7DvBWgajtV7v6NxTX7pkoR60c8G7uYACX9nxYDbU2LWiSfHHVl7Y7KEgS_D_upl6DPIKrOrF-IbICd5mWTg3FjHhVh-lkXRB_w8K6E0xdNmg7xbwIFLHR4CQ4e7_wD3aJah2fhNjsPSP3caZxHfzOC9aMjNwwGfuV4rp1oqpuVNATKDIXSHPxdEmbK2raldklvvJ2hEN2pUlvjGsA7j5SCpFMfOOjfkmtnk"/>
+<div class="absolute inset-0 bg-black/20"></div>
+</div>
+<div class="relative reveal-on-hover overflow-hidden">
+<img class="zoom-img w-full h-full object-cover" data-alt="The interior of a luxury yacht cabin, designed with warm wood paneling, cream-colored silk upholstery, and large portholes showing the ocean horizon. The room is filled with soft, natural light, highlighting a minimalist but expensive design language. The space feels like a high-end private gallery, tranquil and incredibly private, emphasizing the bespoke craftsmanship of the vessel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2nR1y6d6q9UiTqGrixnXLpeDNWhRf-OYbsPoMOXoB9KpeOrsQD-MQYbgldjWDdlZ54MqFKLPrfUFGSUNgTr92VCfs43a3vj5xHv5rnqsKlSraU8nvT6x7qGl-qnXqM0aSfshZSDwlMY0vRSIzkvrgslfjz4-wc534JFvLtwsJmg1pooSd5_fr9HMmv4ufjymUugoP32F7DOIdpU-HCdRXcqr8vnUVNYcKRG6hJAcaDoghd6XCaASr6cHr4VsdpguYoycrmw2cu2_x"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Luxury Tours (Lists & Details) -->
+<section class="py-section-gap px-margin-desktop max-w-container-max mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+<div class="max-w-xl">
+<span class="font-label-caps text-label-caps text-secondary mb-4 block">03 Expeditions</span>
+<h2 class="font-headline-lg text-headline-lg">Beyond the Boundaries of Ordinary.</h2>
+</div>
+<div class="flex gap-4">
+<button class="p-4 border border-outline/20 hover:border-primary transition-colors"><span class="material-symbols-outlined">west</span></button>
+<button class="p-4 border border-outline/20 hover:border-primary transition-colors"><span class="material-symbols-outlined">east</span></button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<!-- Tour 1 -->
+<div class="group cursor-pointer">
+<div class="aspect-[4/5] overflow-hidden mb-6 relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A wide-angle landscape shot of a private helicopter hovering over a majestic, snow-capped mountain range at sunrise. The sky is painted in shades of soft gold and deep violet. The helicopter is sleek and black, contrasting against the bright, high-key white of the peaks. The overall mood is epic, adventurous, and strictly limited to a few select individuals seeking ultimate freedom." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPGED_KDN-Oo086bokCIMNFV_sqI8OVsfduyMrlgYaNOBx0nSoUII1-iEvXhWDb59xgyAY1Uxi_-4e3ID_VXlclyvUZQHglwnj9OeWJeldI9cClUojVzf8zdVyL6I10fqsQe8LL7-V8a06hYoxZkK8nuMsCaIb-AAG81pmV8jmZPdb5Ch2ffcemOXJXBZkby7U7_86YHXuTQLadVf8UNiMsu5b--7pke_Xs-PaXS7_hPjmFzss_1wk-BclQv3rHhQuZb0aWvrFfk-L"/>
+<div class="absolute top-4 left-4">
+<span class="bg-surface/80 backdrop-blur-md px-3 py-1 font-label-caps text-label-caps">PRIVATE AERIAL</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">Alpine Ridge Helicopter Tour</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Unprecedented access to the peaks of the Swiss Alps with private summit picnics.</p>
+<div class="h-px bg-outline/10 w-full group-hover:bg-primary transition-colors duration-500"></div>
+</div>
+<!-- Tour 2 -->
+<div class="group cursor-pointer">
+<div class="aspect-[4/5] overflow-hidden mb-6 relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A dark, atmospheric photograph of an empty, grand museum gallery at night. The only light comes from focused spotlights on ancient statues and Renaissance paintings. The silence is palpable through the image's deep shadows and clean architectural lines. The aesthetic is one of quiet, intellectual luxury and privileged, private access to the world's most guarded cultural treasures." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYGv_g5_8qdHK9mzHLthszDfR6tPouGLjuUfg-wB_-CiB7ylgnN9x3v_EuL19PQyALY8jRxsY7IQl2hXoZ_o20mOiAGxbLBYt3-bJ5NmpsqsGrtkGroAUJGvIxQiB6UggVBcx-Q6-hIvEoDm3jGG5c7DTPbfr78badzUDy1pk4-rAK0FMSiZE-3uRaODx98y1P9p7fYi9icKiqKK_qKsadTnTEBBMofryu6zo9D29AD69lcOacweqBfBGFIlkm-iFKRt8PDRaF5ty_"/>
+<div class="absolute top-4 left-4">
+<span class="bg-surface/80 backdrop-blur-md px-3 py-1 font-label-caps text-label-caps">CULTURAL ACCESS</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">After-Hours Louvre Curatorial</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Explore the world's greatest art in absolute solitude with a leading historian.</p>
+<div class="h-px bg-outline/10 w-full group-hover:bg-primary transition-colors duration-500"></div>
+</div>
+<!-- Tour 3 -->
+<div class="group cursor-pointer">
+<div class="aspect-[4/5] overflow-hidden mb-6 relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A serene, wide-angle shot of a minimalist luxury desert camp under a vast, star-filled night sky. Low-profile fire pits cast a warm orange glow on sandy paths leading to high-end canvas suites. The aesthetic is extremely clean and restrained, combining the raw beauty of nature with the ultimate comforts of a five-star resort, emphasizing quiet luxury and cosmic scale." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBozPnwSDfKfuYt14CwFP3UKmHD1oCOrslhtmC0rYHNB4rDj-PPJomq4MsHcCDAZo-zr5k9nbdvt-8OM1KfUTBuOXibdOeVGdKtJyRmTLDVYejInAWIvctJk_GQJl21Lh197qGAXW_9GNQXZtLIAv9C15BKxWXf3Y_zGAP4648AveFiCMYcidXTbEPFXfvdooYrq4lESf90Fbp49FnZi-6Sz9wtm0QG-F9GXAhcxnHgiDSNC3S-fTY1DmcbVOLdu2PJ8ycmJJMZ8UG_"/>
+<div class="absolute top-4 left-4">
+<span class="bg-surface/80 backdrop-blur-md px-3 py-1 font-label-caps text-label-caps">NATURE RECLAIMED</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">Atacama Stargazing Expedition</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">A journey to the edge of the world with astrophysicists in a luxury desert outpost.</p>
+<div class="h-px bg-outline/10 w-full group-hover:bg-primary transition-colors duration-500"></div>
+</div>
+</div>
+</section>
+<!-- Spa Retreats (Glassmorphism & Depth) -->
+<section class="py-section-gap relative min-h-[800px] flex items-center">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="A panoramic view of a luxury infinity pool at dusk, where the water perfectly merges with a calm ocean. In the foreground, a minimalist spa relaxation area features soft beige stone surfaces and white linen cushions. The lighting is dim and ambient, with a few glowing lanterns creating a tranquil, high-end atmosphere. The overall feeling is one of profound peace, wellness, and refined architectural beauty." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSrTxN6fQgdcKdmWtM6dDmOnLOhOu3iIb1fspfuMntWx3qUpnx63DInYnzxZGOgiDVuqGLy0ASyDyGJRhfweZ-CyTk5kHr3DgPAwdN_4QfLwv5TAgCuW0WKCAG04sxFU_AkgDpddB3JMKWD8s8-B50kbUfLtBglmlxHYNEMFaGkcYX-fZK9ZtBLWmfJddOV5dztwX2uVMxYDemW5nEojRntNujMCzPVUpJVjK9mXyKpg9_JEPgudYxtscqNdXo0_oYdYAooCQDNBLd"/>
+<div class="absolute inset-0 bg-primary/20"></div>
+<div class="relative z-10 max-w-container-max mx-auto px-margin-desktop w-full">
+<div class="max-w-xl glass-effect p-12 md:p-20 border border-white/20">
+<span class="font-label-caps text-label-caps text-primary/60 mb-6 block">04 Restoration</span>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-8 italic">The Art of Stillness.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12">Bespoke wellness retreats in the world's most tranquil locations. Tailored bio-hacking, traditional therapies, and absolute privacy.</p>
+<button class="bg-primary text-on-primary px-10 py-5 font-label-caps text-label-caps hover:bg-secondary-fixed hover:text-on-secondary-fixed transition-all duration-300 w-full md:w-auto">Explore Retreats</button>
+</div>
+</div>
+</section>
+<!-- Booking CTA Section -->
+<section class="py-section-gap px-margin-desktop bg-primary text-on-primary text-center">
+<div class="max-w-3xl mx-auto">
+<h2 class="font-display-xl text-headline-lg md:text-display-xl mb-8">Begin Your Bespoke Journey.</h2>
+<p class="font-body-lg text-body-lg mb-12 opacity-80">Our lifestyle managers are standing by to curate your next unrivaled experience. Every detail, managed to perfection.</p>
+<div class="flex flex-col md:flex-row gap-6 justify-center">
+<input class="bg-transparent border-b border-on-primary/30 py-4 px-2 focus:outline-none focus:border-secondary-fixed text-on-primary font-body-md w-full md:w-80" placeholder="Email Address" type="email"/>
+<button class="bg-on-primary text-primary px-12 py-5 font-label-caps text-label-caps hover:bg-secondary-fixed transition-colors">Request Callback</button>
+</div>
+</div>
+</section>
+</main>
+<!-- AI Concierge Widget -->
+<div class="fixed bottom-8 right-8 z-[100] group">
+<div class="hidden absolute bottom-20 right-0 w-80 md:w-96 glass-effect border border-outline/10 shadow-2xl p-6 transition-all duration-500" id="concierge-chat">
+<div class="flex items-center justify-between mb-6 border-b border-subtle pb-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 concierge-gradient flex items-center justify-center">
+<span class="font-display-xl text-[10px] text-white">OPV</span>
+</div>
+<span class="font-label-caps text-label-caps">AI Concierge</span>
+</div>
+<button class="material-symbols-outlined text-outline" onclick="toggleConcierge()">close</button>
+</div>
+<div class="space-y-4 mb-8 max-h-60 overflow-y-auto pr-2">
+<p class="font-body-md text-body-md bg-surface-container p-4">"Good evening. I can assist with immediate yacht availability or table reservations at The Alchemist. How may I serve you?"</p>
+</div>
+<div class="relative">
+<input class="w-full border-b border-primary py-3 pr-10 focus:outline-none font-body-md" placeholder="Type your request..." type="text"/>
+<span class="material-symbols-outlined absolute right-0 top-1/2 -translate-y-1/2 text-primary cursor-pointer">send</span>
+</div>
+</div>
+<button class="w-16 h-16 concierge-gradient flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-300" onclick="toggleConcierge()">
+<span class="material-symbols-outlined text-white text-3xl">action_key</span>
+</button>
+</div>
+<!-- Footer -->
+<footer class="bg-white border-t border-outline-variant/30 px-margin-mobile md:px-margin-desktop py-16 md:py-20">
+  <div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-14">
+    <div class="space-y-6">
+      <a class="font-headline-md text-headline-sm font-bold tracking-tighter text-primary" href="/">OPV Luxury</a>
+      <p class="font-body-md text-body-md text-on-surface-variant max-w-xs">Bespoke luxury lifestyle access across stays, travel, dining, shopping, protection and private membership.</p>
+    </div>
+    <div>
+      <h4 class="font-label-caps text-label-caps text-primary mb-6">Explore</h4>
+      <ul class="space-y-3 font-body-md text-body-md text-on-surface-variant">
+        <li><a class="hover:text-primary transition-colors" href="/services/luxury-stays/">Luxury Stays</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/services/car-rentals/">Drive</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/services/private-dining/">Eat</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/services/luxury-products/">Shop</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/services/private-jet/">Fly</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/services/yacht-services/">Yacht</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/services/vip-security/">Security</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-label-caps text-label-caps text-primary mb-6">Partners &amp; Affiliates</h4>
+      <ul class="space-y-3 font-body-md text-body-md text-on-surface-variant">
+        <li><a class="hover:text-primary transition-colors" href="/about/">Our Story</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/partners/apply/">Partner Programme</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/affiliates/">Affiliate Programme</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/membership/">Membership</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/faqs/">FAQs</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/contact/">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-label-caps text-label-caps text-primary mb-6">Join The OPV Circle</h4>
+      <p class="font-body-md text-body-md text-on-surface-variant mb-6">Member access and private requests stay one tap away.</p>
+      <div class="flex flex-col gap-3 max-w-[190px]">
+        <a class="flex items-center gap-3 bg-primary text-on-primary px-4 py-2 rounded" href="https://www.apple.com/uk/app-store/" rel="noopener" target="_blank"><span class="material-symbols-outlined">phone_iphone</span><span class="font-label-caps text-label-caps">App Store</span></a>
+        <a class="flex items-center gap-3 bg-primary text-on-primary px-4 py-2 rounded" href="https://play.google.com/store" rel="noopener" target="_blank"><span class="material-symbols-outlined">play_arrow</span><span class="font-label-caps text-label-caps">Google Play</span></a>
+      </div>
+    </div>
+  </div>
+  <div class="max-w-container-max mx-auto pt-6 border-t border-outline-variant/30 flex flex-col lg:flex-row justify-between gap-6 font-label-caps text-label-caps text-on-surface-variant">
+    <p>© 2026 OPULENT VAULT. All rights reserved.</p>
+    <div class="flex flex-wrap gap-5">
+      <a class="hover:text-primary transition-colors" href="/legal/privacy">Privacy</a>
+      <a class="hover:text-primary transition-colors" href="/legal/terms">Terms</a>
+      <a class="hover:text-primary transition-colors" href="/legal/cancellation">Cancellation</a>
+      <a class="hover:text-primary transition-colors" href="/legal/cookies">Cookies</a>
+      <a class="hover:text-primary transition-colors" href="/legal/verification">Verification</a>
+    </div>
+  </div>
+</footer>
+<script>
+        function toggleConcierge() {
+            const chat = document.getElementById('concierge-chat');
+            chat.classList.toggle('hidden');
+        }
+
+        // Simple scroll parallax for smooth luxury feel
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                navbar.classList.add('h-16', 'bg-surface/90');
+                navbar.classList.remove('h-20', 'bg-surface/60');
+            } else {
+                navbar.classList.add('h-20', 'bg-surface/60');
+                navbar.classList.remove('h-16', 'bg-surface/90');
+            }
+        });
+    </script>
+</body></html>

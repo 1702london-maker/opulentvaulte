@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OPV LUXURY | Elite Security &amp; Executive Protection</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-primary": "#c9c6c5",
+                    "on-tertiary-container": "#8d8277",
+                    "on-background": "#1a1c1c",
+                    "on-primary-fixed-variant": "#474646",
+                    "on-primary-container": "#858383",
+                    "on-tertiary-fixed-variant": "#4e453c",
+                    "surface-dim": "#dadada",
+                    "surface-tint": "#5f5e5e",
+                    "outline": "#747878",
+                    "primary": "#000000",
+                    "tertiary-fixed": "#eee0d3",
+                    "surface-variant": "#e2e2e2",
+                    "on-tertiary-fixed": "#211a13",
+                    "inverse-on-surface": "#f0f1f1",
+                    "secondary-fixed": "#ffdea5",
+                    "inverse-surface": "#2f3131",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed-dim": "#c9c6c5",
+                    "on-primary-fixed": "#1c1b1b",
+                    "primary-container": "#1c1b1b",
+                    "on-surface": "#1a1c1c",
+                    "on-secondary-fixed": "#261900",
+                    "error": "#ba1a1a",
+                    "surface-container": "#eeeeee",
+                    "primary-fixed": "#e5e2e1",
+                    "on-secondary-fixed-variant": "#5d4201",
+                    "on-secondary": "#ffffff",
+                    "tertiary-container": "#211a13",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed-dim": "#d1c4b8",
+                    "surface-container-low": "#f3f3f4",
+                    "secondary-container": "#fed488",
+                    "secondary-fixed-dim": "#e9c176",
+                    "on-primary": "#ffffff",
+                    "surface-container-highest": "#e2e2e2",
+                    "surface": "#f9f9f9",
+                    "tertiary": "#000000",
+                    "outline-variant": "#c4c7c7",
+                    "on-secondary-container": "#785a1a",
+                    "background": "#f9f9f9",
+                    "surface-bright": "#f9f9f9",
+                    "surface-container-high": "#e8e8e8",
+                    "on-error-container": "#93000a",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error": "#ffffff",
+                    "on-surface-variant": "#444748",
+                    "secondary": "#775a19"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "80px",
+                    "container-max": "1440px",
+                    "unit": "8px",
+                    "section-gap": "120px",
+                    "margin-mobile": "20px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Playfair Display"],
+                    "headline-lg-mobile": ["Playfair Display"],
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-caps": ["Inter"],
+                    "headline-md": ["Playfair Display"],
+                    "display-xl": ["Playfair Display"]
+            },
+            "fontSize": {
+                    "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["36px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.15em", "fontWeight": "600"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                    "display-xl": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-nav {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal-on-scroll.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .hover-zoom img {
+            transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .hover-zoom:hover img {
+            transform: scale(1.05);
+        }
+        .gold-underline {
+            position: relative;
+        }
+        .gold-underline::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #775a19;
+            transition: width 0.4s ease;
+        }
+        .gold-underline:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 w-full z-50 transition-all duration-500 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 h-20">
+<div class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-full">
+<div class="font-headline-md text-headline-md tracking-widest text-primary uppercase">OPV LUXURY</div>
+<nav class="hidden md:flex items-center space-x-10">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="/">Stays</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="/">Destinations</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="/">Drive</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="/">Aviation</a>
+<a class="font-label-caps text-label-caps text-primary border-b-2 border-primary pb-1" href="/">Security</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="/">Concierge</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="/">Experiences</a>
+</nav>
+<div class="flex items-center space-x-6">
+<button class="hidden lg:block font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest hover:opacity-70 transition-opacity">AI Concierge</button>
+<button class="bg-primary text-on-primary px-8 py-3 font-label-caps text-label-caps uppercase tracking-widest hover:bg-on-surface-variant transition-all scale-100 active:scale-95 duration-200">Book Now</button>
+</div>
+</div>
+</header>
+<!-- Rich OPV Hero Section -->
+<section class="relative min-h-screen w-full flex items-center overflow-hidden pt-28 bg-surface">
+  <div class="absolute inset-0 z-0">
+    <img class="w-full h-full object-cover grayscale opacity-55" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkWCnVBnUfwrEc4WHhcvB_h91nUW0sjIQ8-ggT_8uKB-RZVQmgWQSB8Rp2fZCVWudjBgo2iYRRY9dy2qO19kihXvb9Xxop-S3FnZGaZGo6QqnA_xzHE2sl-57yjz0ATwqFzav4c2gEAXuZZhsJgClvMZPWuxqH3r29VFwBuAHpMErvnPhLSi5SmiqMeWISR0T61KM9t8u5hn_NjYqRVVrxctKAPxaq5DkHJO-lJHBRRHZTiO6oHQzBwyNUvMQBWGeu4FoMNYJXIPEb" alt="Security by OPV Luxury" />
+    <div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/90 to-surface/20"></div>
+    <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-surface to-transparent"></div>
+  </div>
+  <div class="relative z-10 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-16 items-end">
+    <div class="pb-16 md:pb-24 max-w-4xl">
+      <span class="font-label-caps text-label-caps text-secondary mb-6 block tracking-[0.3em] uppercase">Security</span>
+      <h1 class="font-display-xl text-[56px] md:text-[86px] leading-[0.98] tracking-normal text-primary mb-8">Protection That Moves Quietly With Your Life.</h1>
+      <p class="font-body-lg text-[20px] leading-[1.7] text-on-surface-variant max-w-3xl mb-10">OPV connects members with vetted executive protection, secure transport, residential cover and event safety teams designed for discretion, readiness and calm control.</p>
+      <div class="flex flex-wrap gap-4">
+        <a class="inline-flex items-center justify-center bg-primary text-on-primary px-10 py-5 font-label-caps text-label-caps hover:bg-secondary transition-colors" href="#request">Request Protection</a>
+        <a class="inline-flex items-center justify-center border border-outline-variant px-10 py-5 font-label-caps text-label-caps text-primary hover:border-secondary hover:text-secondary transition-colors" href="/contact/">Speak To Concierge</a>
+      </div>
+    </div>
+    <div class="hidden lg:grid grid-cols-1 gap-4 pb-20">
+      <div class="bg-white/80 backdrop-blur-xl border border-outline-variant/40 p-6 shadow-sm"><span class="font-label-caps text-label-caps text-secondary mb-3 block">01</span><p class="font-body-md text-body-md text-on-surface-variant">Executive close protection and secure movement planning</p></div>
+      <div class="bg-white/80 backdrop-blur-xl border border-outline-variant/40 p-6 shadow-sm"><span class="font-label-caps text-label-caps text-secondary mb-3 block">02</span><p class="font-body-md text-body-md text-on-surface-variant">Residential, travel and event security coordination</p></div>
+      <div class="bg-white/80 backdrop-blur-xl border border-outline-variant/40 p-6 shadow-sm"><span class="font-label-caps text-label-caps text-secondary mb-3 block">03</span><p class="font-body-md text-body-md text-on-surface-variant">Vetted operators, confidential briefs and rapid response</p></div>
+    </div>
+  </div>
+</section>
+<!-- OPV Service Richness Strip -->
+<section class="px-margin-mobile md:px-margin-desktop py-16 bg-surface border-y border-outline-variant/30">
+  <div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="border-l border-secondary/60 pl-6"><p class="font-label-caps text-label-caps text-primary mb-3">OPV Handles</p><p class="font-body-md text-body-md text-on-surface-variant">Executive close protection and secure movement planning</p></div>
+    <div class="border-l border-secondary/60 pl-6"><p class="font-label-caps text-label-caps text-primary mb-3">OPV Handles</p><p class="font-body-md text-body-md text-on-surface-variant">Residential, travel and event security coordination</p></div>
+    <div class="border-l border-secondary/60 pl-6"><p class="font-label-caps text-label-caps text-primary mb-3">OPV Handles</p><p class="font-body-md text-body-md text-on-surface-variant">Vetted operators, confidential briefs and rapid response</p></div>
+  </div>
+</section>
+<!-- Services Section (Bento Grid) -->
+<section class="py-section-gap px-margin-desktop max-w-container-max mx-auto" id="services">
+<div class="text-center mb-24 max-w-3xl mx-auto space-y-4">
+<span class="font-label-caps text-label-caps text-secondary tracking-widest uppercase">The Pillars of Protection</span>
+<h2 class="font-headline-md text-headline-md text-primary">Comprehensive Elite Security Solutions</h2>
+<div class="w-12 h-px bg-secondary mx-auto mt-6"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Executive Protection -->
+<div class="md:col-span-8 group overflow-hidden relative aspect-[16/9] hover-zoom reveal-on-scroll">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="A group of elite security professionals in tailored dark suits walking purposefully through a high-end corporate lobby. The image captures a sense of alertness and movement, with shallow depth of field focusing on the lead agent. The lighting is clean and sophisticated, typical of luxury office architecture, emphasizing a professional and authoritative atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyTXC-y-5xbTXRH4OChyePhlGMHh1v53FUg93gr9lypbhWp1bYj7A5YS_DaVoNEDZEJakY9qvQZP-FvD6d5h8QAiyqtvnIgHGLk3nNnRCU8LXKS2NYmm3crETKlQjxuGGx3ZXgYmXnc1RnkuDqQn3BM36J5Y7RJ-1GocKeuMWrwkfeF-pB3j_gRGAnoJaod6pZHM8-EWivFfLmCO1nyQG_2cL9qA8gsB9Lbpqg4xNNO-tLYsnwrcCzzb1VGlZq3x1pD4E2l-FGw7x5"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-10">
+<h3 class="font-headline-md text-headline-md text-white mb-2">Executive Protection</h3>
+<p class="font-body-md text-surface-variant/80 max-w-md mb-6">Personal bodyguards and celebrity protection for high-profile assets requiring constant vigilance without intrusion.</p>
+<span class="font-label-caps text-label-caps text-secondary-fixed uppercase tracking-widest border-b border-secondary-fixed/30 pb-2 w-fit">Learn More</span>
+</div>
+</div>
+<!-- Travel Security -->
+<div class="md:col-span-4 group overflow-hidden relative aspect-[4/5] hover-zoom reveal-on-scroll" style="transition-delay: 100ms;">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="A luxury private jet on a wet tarmac at night, reflecting the runway lights. A professional escort stands at the foot of the stairs, maintaining a watchful perimeter. The mood is exclusive, high-stakes, and serene, with a cool color palette of deep blues and silvers, highlighting the elite nature of international travel security." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOcO-nvizVxsDOw5lr982r4SxMNZ_7tMH_U471uD8OX9IPfm91o2962kIkWlTnYgyeChun_Ery-C3akfa-TDGfacNGEwu57D7nCqIhZGqgLfxgwF1CZa1t3zErF7iPiRInLHZfHKNU4pM9V-zAe4kf1AkFlz_dP7P_xSIl1qvPSqzbC9PHB6-X499maSNOjgSDORJDWwy6VWKmiGc_Sqd3OUgn5zyr0rcFzwBADxO7lIbkmrMO6MEnh10hlJl28pzYUYnTCVDi_b9g"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-8">
+<h3 class="font-headline-md text-headline-md text-white mb-2">Travel Security</h3>
+<p class="font-body-md text-surface-variant/80 mb-6">International logistics, secure escorts, and global risk assessment for seamless cross-border mobility.</p>
+<span class="font-label-caps text-label-caps text-secondary-fixed uppercase tracking-widest border-b border-secondary-fixed/30 pb-2 w-fit">Global Operations</span>
+</div>
+</div>
+<!-- Residential Security -->
+<div class="md:col-span-4 group overflow-hidden relative aspect-[4/5] hover-zoom reveal-on-scroll" style="transition-delay: 200ms;">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="The exterior of a sprawling, modern minimalist villa at twilight. Subdued landscape lighting highlights the sleek architecture. In the shadows, a discreet residential security officer monitors the perimeter. The scene exudes safety, luxury, and tranquility, with a warm-to-cool lighting transition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAr0HJ0dJmMa8TLKoIMzzoZBgw5zXf2RtHy9EX4aZY55ULDfN3B1BShrmj-SwjJWjDj42Yi5Xk9NSmT3TooNp2QQEm6T2qhgt9d5csy4-yT5YL0bBXsIAfbh7zAZoF6DCOPgci8Dd_jsWPSUzAx_xUzRZbSYliPHFVLUspY5MCU9p-Qj5mPH7oy9lQgdrBdVbL9TeXKTIQNUgivY9ry9w4V5KdHVr6DQMC-LFerORyJrBuxSjP4lj5qWuly9A54RSVAyXOLEeatyRXA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-8">
+<h3 class="font-headline-md text-headline-md text-white mb-2">Residential Security</h3>
+<p class="font-body-md text-surface-variant/80 mb-6">24/7 villa and estate protection utilizing advanced surveillance and physical presence.</p>
+<span class="font-label-caps text-label-caps text-secondary-fixed uppercase tracking-widest border-b border-secondary-fixed/30 pb-2 w-fit">Estate Shield</span>
+</div>
+</div>
+<!-- Event Security -->
+<div class="md:col-span-8 group overflow-hidden relative aspect-[16/9] hover-zoom reveal-on-scroll" style="transition-delay: 300ms;">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="A glamorous gala event inside a grand ballroom, with crystal chandeliers and guests in formal attire. Security personnel are visible but blended into the environment, monitoring the crowd with expert precision. The lighting is warm, golden, and sparkling, contrasting with the sharp, focused dark attire of the security professionals." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-3661kY26A9XieA2fwsR8rNFswdLOpk8KHBljqQ6ZX-ZFg1rVNoZ9eFaeNIBtVPqVcvmbOg3yM6t0aBBfo-WbsEqDfkE6ZFUB1kG2c11ZGHwaYRQjIBtpcpaK3E5Fis3lVpodofA0ano7YYdmp3xPM8ExApmnz42yBJ-rv86TTXrc2b4TpeZY6H-zXRK0CgVpeMWi4JVZ1ht-KZWjEyh0T9jmXU-99U0P5OqzHhFsixfdagkCLyB1No2q9099pjp6VBy8pk545w_I"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-10">
+<h3 class="font-headline-md text-headline-md text-white mb-2">Event Security</h3>
+<p class="font-body-md text-surface-variant/80 max-w-md mb-6">Specialized VIP management for private galas, corporate summits, and high-net-worth gatherings.</p>
+<span class="font-label-caps text-label-caps text-secondary-fixed uppercase tracking-widest border-b border-secondary-fixed/30 pb-2 w-fit">Event Protocol</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Female Security Personnel Section -->
+<section class="bg-surface-container py-section-gap">
+<div class="px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+<div class="relative reveal-on-scroll">
+<div class="absolute -top-10 -left-10 w-40 h-40 border-l border-t border-secondary opacity-30"></div>
+<img class="w-full h-[600px] object-cover grayscale shadow-2xl" data-alt="A professional female security specialist in a dark, sharp-tailored suit standing in a modern architectural setting. She wears a discreet earpiece and maintains a calm, observant posture. The lighting is sophisticated and bright, highlighting her confidence and professional authority within a high-end light-mode environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4L5DnxtHyWW5zArA1ggGPP-qT858Sxe3-vuttsbP7_YCRQUk7c0WAo06wA4nX0whLlcfpaw7qr4vYI4cw6LjoW2J6TXqZDwQu0nHhA0khWLsNr7-mwibdpoFZlb_bRy1obmks4bbvNdTwAQUzDBySivJz1cmZ35W-RKAJO2dSd2seUHMDn36LNBwS8BmaOEIEzPY0Wmldd8_lXhhsiSjKEup0R77m8KvrD1VTLPsIr_51c1JZ9ows8jvC7awsXsJjdoGy1ygYC-PX"/>
+<div class="absolute -bottom-10 -right-10 w-40 h-40 border-r border-b border-secondary opacity-30"></div>
+</div>
+<div class="space-y-8 reveal-on-scroll" style="transition-delay: 200ms;">
+<span class="font-label-caps text-label-caps text-secondary tracking-widest uppercase">The OPV Distinction</span>
+<h2 class="font-headline-lg text-headline-lg text-primary">Female Security Specialists</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                    For situations requiring a more subtle presence, specialized family protection, or cultural sensitivity, our elite female security personnel offer a unique combination of high-tier tactical training and soft-skills excellence.
+                </p>
+<ul class="space-y-4 font-body-md text-on-surface-variant">
+<li class="flex items-center space-x-4">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Discreet Family &amp; Nanny Protection</span>
+</li>
+<li class="flex items-center space-x-4">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>International High-Stakes Travel Escorts</span>
+</li>
+<li class="flex items-center space-x-4">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Understated Presence in Social Environments</span>
+</li>
+</ul>
+<div class="pt-4">
+<button class="bg-primary text-on-primary px-10 py-5 font-label-caps text-label-caps uppercase tracking-widest hover:opacity-90 transition-all">Request Specialist Profile</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Request Form Section -->
+<section class="py-section-gap px-margin-desktop max-w-container-max mx-auto" id="request">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<div class="lg:col-span-5 space-y-8 reveal-on-scroll">
+<h2 class="font-headline-md text-headline-md text-primary">Initiate Deployment Protocol</h2>
+<p class="font-body-lg text-on-surface-variant">
+                    Security is not a commodity; it is a personalized architecture of safety. Share your requirements, and our senior strategists will contact you within 60 minutes for a confidential consultation.
+                </p>
+<div class="space-y-6 pt-6">
+<div class="flex items-start space-x-4">
+<span class="material-symbols-outlined text-secondary text-3xl">verified_user</span>
+<div>
+<h4 class="font-label-caps text-label-caps text-primary mb-1">Confidentiality Assured</h4>
+<p class="text-sm text-on-surface-variant">All communications are encrypted and strictly confidential.</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<span class="material-symbols-outlined text-secondary text-3xl">public</span>
+<div>
+<h4 class="font-label-caps text-label-caps text-primary mb-1">Global Response</h4>
+<p class="text-sm text-on-surface-variant">Capabilities for deployment in over 120 countries within 24 hours.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-offset-1 lg:col-span-6 bg-white p-12 shadow-sm border border-outline-variant/30 reveal-on-scroll" style="transition-delay: 200ms;">
+<form class="space-y-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="space-y-1">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase">Principal Name</label>
+<input class="w-full border-b border-primary/20 focus:border-secondary transition-colors py-3 px-0 outline-none font-body-md" placeholder="Full Legal Name" type="text"/>
+</div>
+<div class="space-y-1">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase">Contact Method</label>
+<input class="w-full border-b border-primary/20 focus:border-secondary transition-colors py-3 px-0 outline-none font-body-md" placeholder="Secure Email or Phone" type="email"/>
+</div>
+</div>
+<div class="space-y-1">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase">Required Service</label>
+<select class="w-full border-b border-primary/20 focus:border-secondary transition-colors py-3 px-0 outline-none font-body-md bg-transparent appearance-none">
+<option>Executive Protection</option>
+<option>International Travel Escort</option>
+<option>Residential Security</option>
+<option>Event Security VIP</option>
+<option>Female Specialist Team</option>
+</select>
+</div>
+<div class="space-y-1">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase">Briefing Details</label>
+<textarea class="w-full border-b border-primary/20 focus:border-secondary transition-colors py-3 px-0 outline-none font-body-md resize-none" placeholder="Primary risks, location, and dates..." rows="4"></textarea>
+</div>
+<div class="pt-4">
+<button class="w-full bg-primary text-on-primary py-5 font-label-caps text-label-caps uppercase tracking-[0.2em] hover:bg-secondary transition-all" type="submit">Submit Secure Request</button>
+</div>
+</form>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-white border-t border-outline-variant/30 px-margin-mobile md:px-margin-desktop py-16 md:py-20">
+  <div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-14">
+    <div class="space-y-6">
+      <a class="font-headline-md text-headline-sm font-bold tracking-tighter text-primary" href="/">OPV Luxury</a>
+      <p class="font-body-md text-body-md text-on-surface-variant max-w-xs">Bespoke luxury lifestyle access across stays, travel, dining, shopping, protection and private membership.</p>
+    </div>
+    <div>
+      <h4 class="font-label-caps text-label-caps text-primary mb-6">Explore</h4>
+      <ul class="space-y-3 font-body-md text-body-md text-on-surface-variant">
+        <li><a class="hover:text-primary transition-colors" href="/services/luxury-stays/">Luxury Stays</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/services/car-rentals/">Drive</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/services/private-dining/">Eat</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/services/luxury-products/">Shop</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/services/private-jet/">Fly</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/services/yacht-services/">Yacht</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/services/vip-security/">Security</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-label-caps text-label-caps text-primary mb-6">Partners &amp; Affiliates</h4>
+      <ul class="space-y-3 font-body-md text-body-md text-on-surface-variant">
+        <li><a class="hover:text-primary transition-colors" href="/about/">Our Story</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/partners/apply/">Partner Programme</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/affiliates/">Affiliate Programme</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/membership/">Membership</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/faqs/">FAQs</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/contact/">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-label-caps text-label-caps text-primary mb-6">Join The OPV Circle</h4>
+      <p class="font-body-md text-body-md text-on-surface-variant mb-6">Member access and private requests stay one tap away.</p>
+      <div class="flex flex-col gap-3 max-w-[190px]">
+        <a class="flex items-center gap-3 bg-primary text-on-primary px-4 py-2 rounded" href="https://www.apple.com/uk/app-store/" rel="noopener" target="_blank"><span class="material-symbols-outlined">phone_iphone</span><span class="font-label-caps text-label-caps">App Store</span></a>
+        <a class="flex items-center gap-3 bg-primary text-on-primary px-4 py-2 rounded" href="https://play.google.com/store" rel="noopener" target="_blank"><span class="material-symbols-outlined">play_arrow</span><span class="font-label-caps text-label-caps">Google Play</span></a>
+      </div>
+    </div>
+  </div>
+  <div class="max-w-container-max mx-auto pt-6 border-t border-outline-variant/30 flex flex-col lg:flex-row justify-between gap-6 font-label-caps text-label-caps text-on-surface-variant">
+    <p>© 2026 OPULENT VAULT. All rights reserved.</p>
+    <div class="flex flex-wrap gap-5">
+      <a class="hover:text-primary transition-colors" href="/legal/privacy">Privacy</a>
+      <a class="hover:text-primary transition-colors" href="/legal/terms">Terms</a>
+      <a class="hover:text-primary transition-colors" href="/legal/cancellation">Cancellation</a>
+      <a class="hover:text-primary transition-colors" href="/legal/cookies">Cookies</a>
+      <a class="hover:text-primary transition-colors" href="/legal/verification">Verification</a>
+    </div>
+  </div>
+</footer>
+<!-- AI Concierge Widget -->
+<div class="fixed bottom-8 right-8 z-[60]">
+<button class="w-16 h-16 bg-white/60 backdrop-blur-3xl border border-secondary/30 rounded-full shadow-2xl flex items-center justify-center group hover:scale-110 transition-all duration-300">
+<span class="font-headline-md text-secondary group-hover:text-primary transition-colors">O</span>
+</button>
+</div>
+<script>
+        // Simple Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('h-16', 'bg-surface/95');
+                header.classList.remove('h-20', 'bg-surface/80');
+            } else {
+                header.classList.remove('h-16', 'bg-surface/95');
+                header.classList.add('h-20', 'bg-surface/80');
+            }
+        });
+    </script>
+</body></html>

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Concierge Services | OPV Luxury</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .text-gradient-gold {
+            background: linear-gradient(to right, #775a19, #e9c176);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hover-lift {
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .hover-lift:hover {
+            transform: translateY(-8px);
+        }
+        input:focus {
+            outline: none;
+            border-bottom-color: #775a19 !important;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #775a19;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-container": "#1c1b1b",
+                      "on-primary-container": "#858383",
+                      "surface-container": "#eeeeee",
+                      "on-secondary": "#ffffff",
+                      "inverse-surface": "#2f3131",
+                      "on-secondary-fixed-variant": "#5d4201",
+                      "primary-fixed-dim": "#c9c6c5",
+                      "primary-fixed": "#e5e2e1",
+                      "error": "#ba1a1a",
+                      "on-tertiary-fixed": "#211a13",
+                      "surface": "#f9f9f9",
+                      "on-primary-fixed": "#1c1b1b",
+                      "error-container": "#ffdad6",
+                      "surface-bright": "#f9f9f9",
+                      "on-tertiary-fixed-variant": "#4e453c",
+                      "secondary-container": "#fed488",
+                      "surface-container-high": "#e8e8e8",
+                      "surface-tint": "#5f5e5e",
+                      "primary": "#000000",
+                      "secondary-fixed-dim": "#e9c176",
+                      "on-primary-fixed-variant": "#474646",
+                      "inverse-primary": "#c9c6c5",
+                      "background": "#f9f9f9",
+                      "secondary": "#775a19",
+                      "on-primary": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "surface-dim": "#dadada",
+                      "on-error-container": "#93000a",
+                      "on-secondary-fixed": "#261900",
+                      "outline-variant": "#c4c7c7",
+                      "on-tertiary-container": "#8d8277",
+                      "secondary-fixed": "#ffdea5",
+                      "tertiary-fixed-dim": "#d1c4b8",
+                      "surface-container-highest": "#e2e2e2",
+                      "on-error": "#ffffff",
+                      "on-background": "#1a1c1c",
+                      "outline": "#747878",
+                      "on-surface": "#1a1c1c",
+                      "inverse-on-surface": "#f0f1f1",
+                      "surface-container-lowest": "#ffffff",
+                      "tertiary": "#000000",
+                      "tertiary-container": "#211a13",
+                      "on-surface-variant": "#444748",
+                      "surface-container-low": "#f3f3f4",
+                      "tertiary-fixed": "#eee0d3",
+                      "surface-variant": "#e2e2e2",
+                      "on-secondary-container": "#785a1a"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "unit": "8px",
+                      "gutter": "24px",
+                      "margin-mobile": "20px",
+                      "container-max": "1440px",
+                      "margin-desktop": "80px",
+                      "section-gap": "120px"
+              },
+              "fontFamily": {
+                      "label-caps": ["Inter"],
+                      "headline-md": ["Playfair Display"],
+                      "headline-lg-mobile": ["Playfair Display"],
+                      "body-lg": ["Inter"],
+                      "body-md": ["Inter"],
+                      "headline-lg": ["Playfair Display"],
+                      "display-xl": ["Playfair Display"]
+              },
+              "fontSize": {
+                      "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.15em", "fontWeight": "600"}],
+                      "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                      "headline-lg-mobile": ["36px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+                      "display-xl": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden selection:bg-secondary-fixed-dim selection:text-on-secondary-fixed">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-desktop py-6 bg-white/60 dark:bg-black/60 backdrop-blur-xl border-b border-outline-variant/30">
+<div class="flex items-center gap-12">
+<a class="font-headline-md text-headline-md font-bold tracking-tighter text-primary dark:text-on-primary" href="/">OPV Luxury</a>
+<nav class="hidden md:flex gap-8">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="/">Stays</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="/">Drive</a>
+<a class="font-label-caps text-label-caps text-primary border-b border-primary pb-1" href="/">Concierge</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="/">Affiliate</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="/">Partner</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined cursor-pointer hover:opacity-70 transition-all">search</span>
+<span class="material-symbols-outlined cursor-pointer hover:opacity-70 transition-all">account_circle</span>
+</div>
+</header>
+<main class="mt-24">
+<!-- Hero Section -->
+<section class="relative h-[716px] flex items-center px-margin-desktop overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="A grand luxury hotel lobby with high ceilings, marble floors, and golden chandeliers. The atmosphere is sophisticated and quiet, with soft afternoon sunlight streaming through tall arched windows. Elegant floral arrangements sit on a central circular table, reflecting a timeless European aesthetic of modern luxury and exclusive service." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdEF80HQsYBHEqCaOtPLceGFe2Kzs1gbJN-COc8YizztDbV6Vmvyp3ufqSd_5hd2IV98nU21rhNf7NOiv8NJuU_5fbGQ1x_93BFnbjew1JE2Jkc4UK1yQq8JsbccWShcdnCJkvxwvqfyPbwT589MOFqwCQRpfdFiezmJudt8SArhPJWR83JHatLTHpgobZuu2vVfHmHKUTKVx_YbwnvhZ84nxHygkKhziXr5e1S9QmDZ_EVJwEQJdH9vX3gp_vTQ4i4ZDQZKEYfHKr"/>
+<div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/60 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-2xl">
+<span class="font-label-caps text-label-caps text-secondary mb-4 block">Bespoke Excellence</span>
+<h1 class="font-headline-lg text-headline-lg mb-6 leading-tight">Elevated Experiences,<br/>Tailored for You.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10">From private chefs to secure transit, our concierge team handles every detail of your luxury lifestyle with absolute discretion.</p>
+<div class="flex gap-4">
+<button class="bg-primary text-on-primary font-label-caps text-label-caps px-8 py-4 hover:bg-on-surface-variant transition-all">Request Service</button>
+<button class="border border-secondary text-secondary font-label-caps text-label-caps px-8 py-4 hover:bg-secondary/5 transition-all">Explore Categories</button>
+</div>
+</div>
+</section>
+<!-- Service Categories Grid -->
+<section class="py-section-gap px-margin-desktop max-w-container-max mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+<div class="max-w-xl">
+<h2 class="font-headline-md text-headline-md mb-4">Our Premium Services</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Selected by excellence, delivered by professionals. Discover our range of bespoke services designed to simplify your stay.</p>
+</div>
+<div class="flex gap-2">
+<button class="p-2 border border-outline-variant hover:border-primary transition-colors"><span class="material-symbols-outlined">chevron_left</span></button>
+<button class="p-2 border border-outline-variant hover:border-primary transition-colors"><span class="material-symbols-outlined">chevron_right</span></button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Category 1 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[3/4] overflow-hidden mb-6 border border-outline-variant/20">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A professional private chef in a crisp white uniform meticulously plating a gourmet seafood dish in a modern, high-end kitchen. The lighting is focused and warm, highlighting the fresh ingredients and the chef's precise movements. The scene communicates culinary excellence and exclusive in-home dining services." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYskUSCNQlqU5sNlmokdvRFXRquf8CBT4sPMF_rCV4knlLEuNeqGCd6bCtpy_ELFf5NTdsL50yom4AsV5lZOmU5wTyViQTFt5RkyU429cMQp5Rfz9WMZiIydqf_7lDJXL_Ntdg9k6xlYWyXeKP_74lEcI-b1Bnwt7GTc6vM1a2imOI5RbCAU-uwCbG6nTZvwN5QfmJkkuXiHPdRaraQw9dKp0neNXmzxHPIJ5SXhQ4ky5LKopuaXJzAU7G4rJwnY4UjpsosWEA53YX"/>
+<div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors"></div>
+</div>
+<h3 class="font-headline-md text-xl mb-1">Private Chefs</h3>
+<p class="font-body-md text-sm text-on-surface-variant">Michelin-star culinary experiences in the comfort of your suite.</p>
+</div>
+<!-- Category 2 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[3/4] overflow-hidden mb-6 border border-outline-variant/20">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A sophisticated security professional in a well-tailored dark suit standing subtly in the background of a luxury property entrance. The focus is sharp on the professional yet unobtrusive presence. The lighting is moody and cinematic, suggesting high-level protection and absolute privacy for elite clientele." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGRyWXBbbtn1-eseyBfivxuG-2tgpGHy197VnM96HbE8r0pO-F1PtdA6MemGIfqpZNcUVWd6mAqsuWmkrbaWVIeQerNZ0KWp2YV-aL7RAVhYqLLX5boj8EmSM1vjsLcNyacyZQWETS5j2gCLRwQlGsLlQin_KOAmGYKX9CTnLs-MdWTzLNpRhJOQ5hgC3zdYdWwIdovJz6uk_apzcobvtrUvywA7jMN1bvvlgmvRZVETXzNPdoFFeCTqws5z6phyr3e9nQne-_NJ1o"/>
+<div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors"></div>
+</div>
+<h3 class="font-headline-md text-xl mb-1">Elite Security</h3>
+<p class="font-body-md text-sm text-on-surface-variant">Discreet, high-level protection for your absolute peace of mind.</p>
+</div>
+<!-- Category 3 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[3/4] overflow-hidden mb-6 border border-outline-variant/20">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="An exclusive personal shopping experience featuring a high-end designer showroom with minimalist decor. A personal stylist's hand is seen selecting a piece of refined luxury apparel. The lighting is soft and flattering, highlighting textures like silk and cashmere, embodying a curated and bespoke fashion service." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFEXxkuUI7nuWX-mbj8235T9ZS4og9flCLb_oXVUtkWrBs0tNvh-8Wcx5HAWa-fncsHepkX4U8vY3OQpW5-lBRjgefjqxc0bVQMf9MQv7-0BLGJc2dpP6JwAUd2BeynRHyLaL5HG-mWy4IG6EBhS2_wiP22nALHJQP_7PVch7kNJPScKYlxow6ND5rhQt6vRNSHGsg_qYawkvgAq5Syay0izXDjaA4syDpaYhvw3np2zKV0gYrdhd2tkfGO4O0wdWhC4NPkzQQpZk1"/>
+<div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors"></div>
+</div>
+<h3 class="font-headline-md text-xl mb-1">Personal Shopping</h3>
+<p class="font-body-md text-sm text-on-surface-variant">Access to the world's most exclusive boutiques and limited editions.</p>
+</div>
+<!-- Category 4 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[3/4] overflow-hidden mb-6 border border-outline-variant/20">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A serene spa environment with soft candlelight, smooth river stones, and fresh white towels. A therapist is preparing high-end essential oils in a minimalist, beige-toned treatment room. The atmosphere is profoundly calm and restorative, conveying a premium at-home wellness and massage service." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJPe1O4O0t4drpMHxhVA4CBQKnnJCBMnLoKI5DO70xMkaC_wD1IWaW-ScxK7VZb3inj4Lbo7ZQ9098j8tI5i-haY1Wj2WI6YOrAAhW4Oix9D9ojQuHCTwBaSY9UngFcuJoVMamvX76L7KETTx0kuBGhRodEjeCfPFC1xmVkoRvOQyu0IQpMP6aUO08hEaDUvQVVY8wyMZstuu1iv_WHvBDRLw456kbu1yHFhWriBRbp1nPLs6_PbeeZQYHZOub4dNoWk5iuqTg4eJb"/>
+<div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors"></div>
+</div>
+<h3 class="font-headline-md text-xl mb-1">Wellness &amp; Spa</h3>
+<p class="font-body-md text-sm text-on-surface-variant">Restorative treatments and private training at your residence.</p>
+</div>
+</div>
+</section>
+<!-- "How it Works" Timeline -->
+<section class="bg-surface-container-low py-section-gap px-margin-desktop overflow-hidden">
+<div class="max-w-container-max mx-auto">
+<div class="text-center mb-20">
+<span class="font-label-caps text-label-caps text-secondary">Our Process</span>
+<h2 class="font-headline-md text-headline-md mt-4">Simplicity at Every Step</h2>
+</div>
+<div class="relative flex flex-col md:flex-row justify-between gap-12">
+<!-- Step 1 -->
+<div class="flex-1 relative z-10 text-center">
+<div class="w-16 h-16 bg-white border border-outline-variant mx-auto flex items-center justify-center mb-8 rotate-45">
+<span class="material-symbols-outlined -rotate-45 text-secondary">edit_note</span>
+</div>
+<h4 class="font-headline-md text-lg mb-3">Define Your Needs</h4>
+<p class="font-body-md text-on-surface-variant">Submit a request through our digital portal or speak directly with our concierge.</p>
+</div>
+<!-- Step 2 -->
+<div class="flex-1 relative z-10 text-center">
+<div class="w-16 h-16 bg-white border border-outline-variant mx-auto flex items-center justify-center mb-8 rotate-45">
+<span class="material-symbols-outlined -rotate-45 text-secondary">verified</span>
+</div>
+<h4 class="font-headline-md text-lg mb-3">Vetted Confirmation</h4>
+<p class="font-body-md text-on-surface-variant">We source the highest-rated professionals and confirm all logistics within the hour.</p>
+</div>
+<!-- Step 3 -->
+<div class="flex-1 relative z-10 text-center">
+<div class="w-16 h-16 bg-white border border-outline-variant mx-auto flex items-center justify-center mb-8 rotate-45">
+<span class="material-symbols-outlined -rotate-45 text-secondary">auto_awesome</span>
+</div>
+<h4 class="font-headline-md text-lg mb-3">Flawless Execution</h4>
+<p class="font-body-md text-on-surface-variant">Relax as our experts deliver the service, ensuring every detail exceeds your standards.</p>
+</div>
+<!-- Connecting Line (Desktop) -->
+<div class="hidden md:block absolute top-8 left-[10%] right-[10%] h-[1px] bg-outline-variant -z-0"></div>
+</div>
+</div>
+</section>
+<!-- Request-a-Service Form -->
+<section class="py-section-gap px-margin-desktop max-w-container-max mx-auto flex flex-col lg:flex-row gap-20" id="request-service">
+<div class="lg:w-1/3">
+<h2 class="font-headline-md text-headline-md mb-6">Bespoke Request</h2>
+<p class="font-body-md text-on-surface-variant mb-8">Can't find what you're looking for? Our team specializes in the extraordinary. Describe your needs and we will make it happen.</p>
+<div class="space-y-4">
+<div class="flex items-center gap-4 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary">call</span>
+<span class="font-label-caps text-xs">+1 (800) OPV-LUXE</span>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary">mail</span>
+<span class="font-label-caps text-xs">concierge@opvluxury.com</span>
+</div>
+</div>
+</div>
+<div class="lg:w-2/3 bg-white p-12 border border-outline-variant/10 shadow-sm">
+<form class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+<div class="flex flex-col gap-2">
+<label class="font-label-caps text-[10px] text-secondary uppercase tracking-[0.2em]">Service Category</label>
+<select class="bg-transparent border-0 border-b border-outline-variant py-3 px-0 font-body-md focus:ring-0">
+<option>Private Chef</option>
+<option>Elite Security</option>
+<option>Personal Shopping</option>
+<option>Wellness &amp; Spa</option>
+<option>Transportation</option>
+<option>Other / Bespoke</option>
+</select>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-caps text-[10px] text-secondary uppercase tracking-[0.2em]">Preferred Date</label>
+<input class="bg-transparent border-0 border-b border-outline-variant py-3 px-0 font-body-md focus:ring-0" type="date"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-caps text-[10px] text-secondary uppercase tracking-[0.2em]">Time of Service</label>
+<input class="bg-transparent border-0 border-b border-outline-variant py-3 px-0 font-body-md focus:ring-0" type="time"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-caps text-[10px] text-secondary uppercase tracking-[0.2em]">Location</label>
+<input class="bg-transparent border-0 border-b border-outline-variant py-3 px-0 font-body-md focus:ring-0" placeholder="Villa or Hotel Name" type="text"/>
+</div>
+<div class="md:col-span-2 flex flex-col gap-2">
+<label class="font-label-caps text-[10px] text-secondary uppercase tracking-[0.2em]">Special Instructions</label>
+<textarea class="bg-transparent border-0 border-b border-outline-variant py-3 px-0 font-body-md focus:ring-0 resize-none" placeholder="Dietary restrictions, preferred dress code, or specific requests..." rows="3"></textarea>
+</div>
+<div class="md:col-span-2 mt-4">
+<button class="w-full bg-primary text-on-primary font-label-caps text-label-caps py-5 hover:opacity-90 transition-all tracking-[0.2em]" type="submit">SEND REQUEST</button>
+</div>
+</form>
+</div>
+</section>
+<!-- AI Concierge Integration (Prompt) -->
+<section class="mb-section-gap px-margin-desktop max-w-container-max mx-auto">
+<div class="bg-primary-container text-white p-16 relative overflow-hidden group">
+
+<div class="relative z-10 flex flex-col items-center text-center">
+<div class="w-12 h-12 border border-secondary text-secondary rounded-full flex items-center justify-center mb-8">
+<span class="material-symbols-outlined">smart_toy</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4">Looking for something bespoke?</h3>
+<p class="font-body-lg text-on-primary-container max-w-xl mb-10">Our AI Concierge is powered by the latest intelligence to assist with instant bookings, local recommendations, and itinerary planning.</p>
+<button class="border-b border-white pb-1 font-label-caps text-label-caps hover:text-secondary hover:border-secondary transition-all" onclick="toggleAIChat()">START CHAT</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-white border-t border-outline-variant/30 px-margin-mobile md:px-margin-desktop py-16 md:py-20">
+  <div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-14">
+    <div class="space-y-6">
+      <a class="font-headline-md text-headline-sm font-bold tracking-tighter text-primary" href="/">OPV Luxury</a>
+      <p class="font-body-md text-body-md text-on-surface-variant max-w-xs">Bespoke luxury lifestyle access across stays, travel, dining, shopping, protection and private membership.</p>
+    </div>
+    <div>
+      <h4 class="font-label-caps text-label-caps text-primary mb-6">Explore</h4>
+      <ul class="space-y-3 font-body-md text-body-md text-on-surface-variant">
+        <li><a class="hover:text-primary transition-colors" href="/services/luxury-stays/">Luxury Stays</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/services/car-rentals/">Drive</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/services/private-dining/">Eat</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/services/luxury-products/">Shop</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/services/private-jet/">Fly</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/services/yacht-services/">Yacht</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/services/vip-security/">Security</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-label-caps text-label-caps text-primary mb-6">Partners &amp; Affiliates</h4>
+      <ul class="space-y-3 font-body-md text-body-md text-on-surface-variant">
+        <li><a class="hover:text-primary transition-colors" href="/about/">Our Story</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/partners/apply/">Partner Programme</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/affiliates/">Affiliate Programme</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/membership/">Membership</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/faqs/">FAQs</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/contact/">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-label-caps text-label-caps text-primary mb-6">Join The OPV Circle</h4>
+      <p class="font-body-md text-body-md text-on-surface-variant mb-6">Member access and private requests stay one tap away.</p>
+      <div class="flex flex-col gap-3 max-w-[190px]">
+        <a class="flex items-center gap-3 bg-primary text-on-primary px-4 py-2 rounded" href="https://www.apple.com/uk/app-store/" rel="noopener" target="_blank"><span class="material-symbols-outlined">phone_iphone</span><span class="font-label-caps text-label-caps">App Store</span></a>
+        <a class="flex items-center gap-3 bg-primary text-on-primary px-4 py-2 rounded" href="https://play.google.com/store" rel="noopener" target="_blank"><span class="material-symbols-outlined">play_arrow</span><span class="font-label-caps text-label-caps">Google Play</span></a>
+      </div>
+    </div>
+  </div>
+  <div class="max-w-container-max mx-auto pt-6 border-t border-outline-variant/30 flex flex-col lg:flex-row justify-between gap-6 font-label-caps text-label-caps text-on-surface-variant">
+    <p>© 2026 OPULENT VAULT. All rights reserved.</p>
+    <div class="flex flex-wrap gap-5">
+      <a class="hover:text-primary transition-colors" href="/legal/privacy">Privacy</a>
+      <a class="hover:text-primary transition-colors" href="/legal/terms">Terms</a>
+      <a class="hover:text-primary transition-colors" href="/legal/cancellation">Cancellation</a>
+      <a class="hover:text-primary transition-colors" href="/legal/cookies">Cookies</a>
+      <a class="hover:text-primary transition-colors" href="/legal/verification">Verification</a>
+    </div>
+  </div>
+</footer>
+<!-- AI Concierge Widget -->
+<div class="fixed bottom-8 right-8 z-[100] translate-y-12 opacity-0 pointer-events-none transition-all duration-500 ease-in-out" id="ai-concierge-chat">
+<div class="w-80 md:w-96 glass-effect border border-secondary/30 shadow-2xl overflow-hidden flex flex-col h-[500px]">
+<div class="bg-primary text-white p-6 flex justify-between items-center">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full border border-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-sm text-secondary">smart_toy</span>
+</div>
+<div>
+<h4 class="font-label-caps text-xs">AI CONCIERGE</h4>
+<p class="text-[10px] opacity-60">Online &amp; Ready</p>
+</div>
+</div>
+<button class="hover:rotate-90 transition-transform" onclick="toggleAIChat()">
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+</div>
+<div class="flex-1 p-6 overflow-y-auto custom-scrollbar flex flex-col gap-4 text-sm" id="chat-messages">
+<div class="bg-surface-container-low p-3 max-w-[80%] border-l-2 border-secondary">
+                    Good evening. I am the OPV Luxury AI Concierge. How may I assist with your bespoke requirements tonight?
+                </div>
+</div>
+<div class="p-4 bg-white border-t border-outline-variant/20">
+<div class="relative">
+<input class="w-full border-0 border-b border-outline-variant py-2 pr-10 focus:ring-0 font-body-md text-sm" id="chat-input" placeholder="Type your request..." type="text"/>
+<button class="absolute right-0 bottom-2 text-secondary hover:translate-x-1 transition-transform">
+<span class="material-symbols-outlined text-sm">send</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Floating Trigger -->
+<button class="fixed bottom-8 right-8 z-[90] w-14 h-14 bg-primary text-secondary flex items-center justify-center border border-secondary/20 shadow-xl hover:scale-105 transition-all" id="chat-trigger" onclick="toggleAIChat()">
+<span class="material-symbols-outlined">chat_bubble</span>
+</button>
+<script>
+        function toggleAIChat() {
+            const chat = document.getElementById('ai-concierge-chat');
+            const trigger = document.getElementById('chat-trigger');
+            if (chat.classList.contains('opacity-0')) {
+                chat.classList.remove('opacity-0', 'translate-y-12', 'pointer-events-none');
+                trigger.classList.add('opacity-0', 'scale-0');
+            } else {
+                chat.classList.add('opacity-0', 'translate-y-12', 'pointer-events-none');
+                trigger.classList.remove('opacity-0', 'scale-0');
+            }
+        }
+
+        // Simple Chat Interaction
+        const chatInput = document.getElementById('chat-input');
+        const chatMessages = document.getElementById('chat-messages');
+
+        chatInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && this.value.trim() !== '') {
+                const userMsg = document.createElement('div');
+                userMsg.className = 'bg-primary text-white p-3 max-w-[80%] self-end font-label-caps text-[10px] tracking-wider';
+                userMsg.textContent = this.value.toUpperCase();
+                chatMessages.appendChild(userMsg);
+                
+                const val = this.value;
+                this.value = '';
+
+                setTimeout(() => {
+                    const aiMsg = document.createElement('div');
+                    aiMsg.className = 'bg-surface-container-low p-3 max-w-[80%] border-l-2 border-secondary';
+                    aiMsg.textContent = `Processing your request for "${val}". I am coordinating with our premium partners to provide you with the best options. One moment please.`;
+                    chatMessages.appendChild(aiMsg);
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }, 800);
+            }
+        });
+    </script>
+</body></html>

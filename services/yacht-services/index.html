@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Yacht Services | OPV</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Hanken+Grotesk:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #0b1221; }
+        ::-webkit-scrollbar-thumb { background: #e9c349; }
+        
+        .glass-panel {
+            background: rgba(31, 31, 31, 0.7);
+            backdrop-filter: blur(12px);
+            border: 0.5px solid rgba(229, 229, 229, 0.15);
+        }
+
+        .champagne-gradient {
+            background: linear-gradient(135deg, #e9c349 0%, #af8d11 100%);
+        }
+        
+        .mask-fade-bottom {
+            mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                "surface-dim": "#121414",
+                "on-primary-container": "#777d90",
+                "primary-fixed-dim": "#c0c6db",
+                "on-error-container": "#ffdad6",
+                "tertiary-container": "#11130b",
+                "surface-container": "#1e2020",
+                "inverse-surface": "#e2e2e2",
+                "on-secondary-container": "#342800",
+                "secondary-container": "#af8d11",
+                "surface-container-highest": "#333535",
+                "on-secondary-fixed-variant": "#574500",
+                "secondary": "#e9c349",
+                "tertiary": "#c7c7ba",
+                "surface-container-lowest": "#0d0f0f",
+                "primary-fixed": "#dce2f8",
+                "on-tertiary-fixed": "#1b1c14",
+                "outline": "#909097",
+                "surface-tint": "#c0c6db",
+                "inverse-primary": "#575e70",
+                "inverse-on-surface": "#2f3131",
+                "surface-container-high": "#282a2b",
+                "surface-container-low": "#1a1c1c",
+                "on-error": "#690005",
+                "on-primary": "#293041",
+                "on-tertiary-container": "#7d7e72",
+                "on-primary-fixed": "#151b2b",
+                "background": "#121414",
+                "primary-container": "#0b1221",
+                "outline-variant": "#45464c",
+                "on-surface-variant": "#c6c6cd",
+                "on-secondary": "#3c2f00",
+                "on-tertiary": "#2f3128",
+                "on-surface": "#e2e2e2",
+                "on-tertiary-fixed-variant": "#46483d",
+                "error": "#ffb4ab",
+                "surface-bright": "#38393a",
+                "on-primary-fixed-variant": "#404758",
+                "error-container": "#93000a",
+                "on-secondary-fixed": "#241a00",
+                "primary": "#c0c6db",
+                "on-background": "#e2e2e2",
+                "surface-variant": "#333535",
+                "secondary-fixed-dim": "#e9c349",
+                "surface": "#121414",
+                "tertiary-fixed": "#e3e3d5",
+                "secondary-fixed": "#ffe088",
+                "tertiary-fixed-dim": "#c7c7ba"
+              },
+              "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+              },
+              "spacing": {
+                "margin-mobile": "20px",
+                "section-gap": "120px",
+                "unit": "8px",
+                "container-max": "1440px",
+                "margin-desktop": "80px",
+                "gutter": "24px"
+              },
+              "fontFamily": {
+                "display": ["Playfair Display", "serif"],
+                "body": ["Hanken Grotesk", "sans-serif"]
+              }
+            }
+          }
+        }
+    </script>
+</head>
+<body class="bg-primary-container text-on-surface font-body overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 left-0 w-full z-[100] flex justify-between items-center px-margin-mobile md:px-margin-desktop py-5 bg-white/95 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm transition-all duration-300">
+  <div class="flex items-center gap-10 min-w-0">
+    <a class="font-headline-md text-[34px] md:text-[40px] leading-none font-bold tracking-tighter text-primary whitespace-nowrap" href="/">OPV Luxury</a>
+    <div class="hidden xl:flex items-center gap-7">
+      <a class="font-label-caps text-label-caps text-primary hover:text-secondary transition-colors duration-300" href="/">Home</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="/services/luxury-stays/">Stays</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="/services/car-rentals/">Drive</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="/services/private-dining/">Eat</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="/services/luxury-products/">Shop</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="/services/vip-security/">Security</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="/services/private-jet/">Fly</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="/services/yacht-services/">Yacht</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="/affiliates/">Affiliates</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="/contact/">Contact</a>
+    </div>
+  </div>
+  <div class="flex items-center gap-3 md:gap-5 shrink-0">
+    <a class="hidden 2xl:inline-flex items-center justify-center rounded-full border border-secondary/60 px-5 py-2 font-label-caps text-label-caps text-primary hover:bg-secondary hover:text-on-secondary transition-colors duration-300" href="/services/">Search The Vault</a>
+    <span class="hidden md:inline-flex font-label-caps text-label-caps text-on-surface-variant">£ GBP</span>
+    <span class="hidden md:inline-flex font-label-caps text-label-caps text-on-surface-variant">EN</span>
+    <a class="hidden md:inline-flex items-center justify-center border border-outline-variant px-8 py-3 font-label-caps text-label-caps text-primary hover:border-secondary hover:text-secondary transition-colors duration-300" href="/login/">Sign In</a>
+    <a aria-label="Account" class="material-symbols-outlined text-primary hover:text-secondary transition-colors duration-300" href="/account/dashboard/">person</a>
+  </div>
+</nav>
+<!-- Rich OPV Hero Section -->
+<section class="relative min-h-screen w-full flex items-center overflow-hidden pt-28 bg-surface">
+  <div class="absolute inset-0 z-0">
+    <img class="w-full h-full object-cover grayscale opacity-55" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6r2jrQd_MaGankgmtPfqYnkyX-aekjmU_ZQ1r1gd2JKwYdoIBrfWhvJur6QdHJvL9YuTBVaup-HLsCZiKEdKZk0lSjjfBVok3pQ03DmzbPIQtPFr3lObmG8Y6fXdCL04qOROrfwd2z7AmZJykgWXWGTZyjuFA-SSustv1htv-p528rBYBuPC4O59oIjIPTbtpGEXlcpYknGVd1J_Mu2iaTqQNJRY-7WhVSRx5iTp3MNQnZnv2-WvjQg" alt="Yacht by OPV Luxury" />
+    <div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/90 to-surface/20"></div>
+    <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-surface to-transparent"></div>
+  </div>
+  <div class="relative z-10 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-16 items-end">
+    <div class="pb-16 md:pb-24 max-w-4xl">
+      <span class="font-label-caps text-label-caps text-secondary mb-6 block tracking-[0.3em] uppercase">Yacht</span>
+      <h1 class="font-display-xl text-[56px] md:text-[86px] leading-[0.98] tracking-normal text-primary mb-8">Superyacht Days, Weekends and Escapes Without the Noise.</h1>
+      <p class="font-body-lg text-[20px] leading-[1.7] text-on-surface-variant max-w-3xl mb-10">OPV curates yacht charters, marina arrivals, private chefs, water toys, security and destination plans for days at sea that feel effortless from first step aboard.</p>
+      <div class="flex flex-wrap gap-4">
+        <a class="inline-flex items-center justify-center bg-primary text-on-primary px-10 py-5 font-label-caps text-label-caps hover:bg-secondary transition-colors" href="#enquiry">Plan A Yacht Charter</a>
+        <a class="inline-flex items-center justify-center border border-outline-variant px-10 py-5 font-label-caps text-label-caps text-primary hover:border-secondary hover:text-secondary transition-colors" href="/contact/">Speak To Concierge</a>
+      </div>
+    </div>
+    <div class="hidden lg:grid grid-cols-1 gap-4 pb-20">
+      <div class="bg-white/80 backdrop-blur-xl border border-outline-variant/40 p-6 shadow-sm"><span class="font-label-caps text-label-caps text-secondary mb-3 block">01</span><p class="font-body-md text-body-md text-on-surface-variant">Day charters, superyacht weeks and Mediterranean itineraries</p></div>
+      <div class="bg-white/80 backdrop-blur-xl border border-outline-variant/40 p-6 shadow-sm"><span class="font-label-caps text-label-caps text-secondary mb-3 block">02</span><p class="font-body-md text-body-md text-on-surface-variant">Crew, chef, transfers, entertainment and onboard requests</p></div>
+      <div class="bg-white/80 backdrop-blur-xl border border-outline-variant/40 p-6 shadow-sm"><span class="font-label-caps text-label-caps text-secondary mb-3 block">03</span><p class="font-body-md text-body-md text-on-surface-variant">Marina logistics, privacy planning and destination concierge</p></div>
+    </div>
+  </div>
+</section>
+<!-- OPV Service Richness Strip -->
+<section class="px-margin-mobile md:px-margin-desktop py-16 bg-surface border-y border-outline-variant/30">
+  <div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="border-l border-secondary/60 pl-6"><p class="font-label-caps text-label-caps text-primary mb-3">OPV Handles</p><p class="font-body-md text-body-md text-on-surface-variant">Day charters, superyacht weeks and Mediterranean itineraries</p></div>
+    <div class="border-l border-secondary/60 pl-6"><p class="font-label-caps text-label-caps text-primary mb-3">OPV Handles</p><p class="font-body-md text-body-md text-on-surface-variant">Crew, chef, transfers, entertainment and onboard requests</p></div>
+    <div class="border-l border-secondary/60 pl-6"><p class="font-label-caps text-label-caps text-primary mb-3">OPV Handles</p><p class="font-body-md text-body-md text-on-surface-variant">Marina logistics, privacy planning and destination concierge</p></div>
+  </div>
+</section>
+<!-- Fleet Listing -->
+<section class="py-section-gap bg-surface-container-low">
+<div class="px-margin-desktop max-w-container-max mx-auto">
+<div class="flex justify-between items-end mb-16">
+<div>
+<h2 class="font-display text-4xl mb-4">The Current Selection</h2>
+<p class="text-on-surface-variant">Exceptional vessels curated for seasonal availability.</p>
+</div>
+<div class="flex gap-4">
+<button class="w-12 h-12 border border-outline-variant flex items-center justify-center hover:bg-secondary hover:text-primary-container transition-all">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-12 h-12 border border-outline-variant flex items-center justify-center hover:bg-secondary hover:text-primary-container transition-all">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Yacht Card 1 -->
+<div class="group bg-surface-container relative overflow-hidden flex flex-col">
+<div class="relative aspect-[16/10] overflow-hidden">
+<img class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110" data-alt="Wide shot of a sleek white superyacht anchored in a turquoise lagoon in the Maldives. High-key lighting, bright colors, luxury photography style. The vessel has multiple decks and a clean, modern silhouette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxmJtzrqzEzJSWc5tA-Oz3kJbC_0n3YG-je96DQKOEME80f9A-Cd26CIeS8jKyvw8AXofPRhEjQgroZ7O432R7-sqaOQsEj66UMY0ZZVjGzWv_cA_5hDdCs6Gol1KC1xZfWu4G6gL1woOrkzja2irvyD4nfFznz92gwNWvkiilQdwOEVrRVfNJ-V_7M-iXDrkvxGqp79Ob6jexVg1mYPmMW0g9BzWplLzCnH5BqcowFYhoUJJPL_IsdA"/>
+<div class="absolute top-4 left-4 glass-panel px-3 py-1 flex items-center gap-2">
+<div class="w-6 h-6 rounded-full border border-secondary flex items-center justify-center text-[8px] font-bold text-secondary">OPV</div>
+<span class="text-[8px] uppercase tracking-widest text-on-surface">Verified</span>
+</div>
+</div>
+<div class="p-8 flex-grow">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-display text-2xl mb-1">AURELIA I</h3>
+<p class="text-secondary text-[10px] uppercase tracking-[0.2em] font-bold">Heesen Yachts • 2021</p>
+</div>
+<span class="text-on-surface-variant text-sm font-light">€180,000 / week</span>
+</div>
+<div class="grid grid-cols-3 gap-4 pt-6 border-t border-outline-variant/30">
+<div>
+<div class="text-[10px] uppercase text-on-surface-variant mb-1">Length</div>
+<div class="text-sm">45m / 147ft</div>
+</div>
+<div>
+<div class="text-[10px] uppercase text-on-surface-variant mb-1">Capacity</div>
+<div class="text-sm">12 Guests</div>
+</div>
+<div>
+<div class="text-[10px] uppercase text-on-surface-variant mb-1">Crew</div>
+<div class="text-sm">9 Professional</div>
+</div>
+</div>
+</div>
+<button class="w-full bg-on-surface text-primary-container py-4 text-xs font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">Request Dossier</button>
+</div>
+<!-- Yacht Card 2 -->
+<div class="group bg-surface-container relative overflow-hidden flex flex-col">
+<div class="relative aspect-[16/10] overflow-hidden">
+<img class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110" data-alt="A dark-hulled contemporary motor yacht cruising along the Amalfi Coast at dusk. Dramatic lighting from the setting sun, orange and purple hues in the sky, warm cabin lights visible. The yacht is 60 meters long and looks extremely modern." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHo8avzFcqvhd5Y8zY6LvGu6M2tp6PMXJFH1V2ZFFOEjax0XcX8-NqYob5di19rqww78HEWfAu30Fr0p2IuOa66oNzicUhvS7NNlTncwER5g_I2gLq_3KqsqEnIMTuGBSn7JsAEu9uL1_8EUk1jLZpTdJwyR_TRI5aOTqKftUZxU_VJvX6iZOJe9tug1TLyKK3_qWEEacMkstwdaZzPQH5-yVkZBUrxHu8vku6S-1mcn_jxTNMiIPG9Q"/>
+<div class="absolute top-4 left-4 glass-panel px-3 py-1 flex items-center gap-2">
+<div class="w-6 h-6 rounded-full border border-secondary flex items-center justify-center text-[8px] font-bold text-secondary">OPV</div>
+<span class="text-[8px] uppercase tracking-widest text-on-surface">Verified</span>
+</div>
+</div>
+<div class="p-8 flex-grow">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-display text-2xl mb-1">MIDNIGHT BLUE</h3>
+<p class="text-secondary text-[10px] uppercase tracking-[0.2em] font-bold">Lürssen • 2019</p>
+</div>
+<span class="text-on-surface-variant text-sm font-light">€450,000 / week</span>
+</div>
+<div class="grid grid-cols-3 gap-4 pt-6 border-t border-outline-variant/30">
+<div>
+<div class="text-[10px] uppercase text-on-surface-variant mb-1">Length</div>
+<div class="text-sm">62m / 203ft</div>
+</div>
+<div>
+<div class="text-[10px] uppercase text-on-surface-variant mb-1">Capacity</div>
+<div class="text-sm">14 Guests</div>
+</div>
+<div>
+<div class="text-[10px] uppercase text-on-surface-variant mb-1">Crew</div>
+<div class="text-sm">16 Professional</div>
+</div>
+</div>
+</div>
+<button class="w-full bg-on-surface text-primary-container py-4 text-xs font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">Request Dossier</button>
+</div>
+<!-- Yacht Card 3 -->
+<div class="group bg-surface-container relative overflow-hidden flex flex-col">
+<div class="relative aspect-[16/10] overflow-hidden">
+<img class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110" data-alt="A classic sailing yacht with large white sails fully deployed in the Aegean sea. The lighting is bright and airy, typical of a summer afternoon. The water is deep blue with white crests. The yacht has a traditional wooden deck and brass fittings." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxjNYN8pHr-OTRMtvTrxaziYGgASSIbfBlIXmW_cDXupozFzbZJz_9E7jHkaSBd-AC6lqsJIOMEvfaFOQ9qbPb3Otuj84itJO0zoawt3nMFAt4BEd7Qda-KQCMjuSN0ySu3j5Cw2QKxLTqY2ZoJ6GhmGUo6m-3txhbLtT7bWWLbmaUsisk3B-LkiMzu6XcN_HQfwhhQsMSorBf-IbRQ0eFNSJmX9fFAYLXcBL6Nv1sQXB_gvx6LfGIGw"/>
+<div class="absolute top-4 left-4 glass-panel px-3 py-1 flex items-center gap-2">
+<div class="w-6 h-6 rounded-full border border-secondary flex items-center justify-center text-[8px] font-bold text-secondary">OPV</div>
+<span class="text-[8px] uppercase tracking-widest text-on-surface">Verified</span>
+</div>
+</div>
+<div class="p-8 flex-grow">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-display text-2xl mb-1">ELEGANZA</h3>
+<p class="text-secondary text-[10px] uppercase tracking-[0.2em] font-bold">Perini Navi • 2023</p>
+</div>
+<span class="text-on-surface-variant text-sm font-light">€220,000 / week</span>
+</div>
+<div class="grid grid-cols-3 gap-4 pt-6 border-t border-outline-variant/30">
+<div>
+<div class="text-[10px] uppercase text-on-surface-variant mb-1">Length</div>
+<div class="text-sm">52m / 171ft</div>
+</div>
+<div>
+<div class="text-[10px] uppercase text-on-surface-variant mb-1">Capacity</div>
+<div class="text-sm">10 Guests</div>
+</div>
+<div>
+<div class="text-[10px] uppercase text-on-surface-variant mb-1">Crew</div>
+<div class="text-sm">8 Professional</div>
+</div>
+</div>
+</div>
+<button class="w-full bg-on-surface text-primary-container py-4 text-xs font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">Request Dossier</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Detailed Specs Section -->
+<section class="py-section-gap px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+<div class="lg:col-span-5">
+<div class="sticky top-32">
+<h2 class="font-display text-4xl mb-6">Uncompromising Certification</h2>
+<p class="text-on-surface-variant mb-10">Every vessel in the OPV registry undergoes rigorous annual inspections exceeding industry standards. We prioritize safety, legal compliance, and technical perfection so you can focus on the horizon.</p>
+<div class="space-y-6">
+<div class="p-6 border-l-2 border-secondary bg-surface-container-low">
+<div class="text-secondary font-bold text-xs uppercase tracking-widest mb-2">Safety Benchmark</div>
+<p class="text-sm text-on-surface">SOLAS &amp; IMO Compliant with additional OPV-specific protocols.</p>
+</div>
+<div class="p-6 border-l-2 border-outline-variant bg-surface-container-low/50">
+<div class="text-on-surface-variant font-bold text-xs uppercase tracking-widest mb-2">Crew Vetting</div>
+<p class="text-sm text-on-surface">Multilingual crews with specialist training in security and hospitality.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-px bg-outline-variant/20">
+<div class="bg-primary-container p-12 border border-outline-variant/10">
+<span class="material-symbols-outlined text-secondary mb-4 text-3xl">medical_services</span>
+<h4 class="text-lg font-display mb-3">On-Board Medical</h4>
+<p class="text-sm text-on-surface-variant font-light">Fully equipped medical bays with tele-medicine links to leading hospitals.</p>
+</div>
+<div class="bg-primary-container p-12 border border-outline-variant/10">
+<span class="material-symbols-outlined text-secondary mb-4 text-3xl">wifi_tethering</span>
+<h4 class="text-lg font-display mb-3">Starlink High-Speed</h4>
+<p class="text-sm text-on-surface-variant font-light">Dedicated low-latency satellite internet for remote global operations.</p>
+</div>
+<div class="bg-primary-container p-12 border border-outline-variant/10">
+<span class="material-symbols-outlined text-secondary mb-4 text-3xl">water_drop</span>
+<h4 class="text-lg font-display mb-3">ECO Certification</h4>
+<p class="text-sm text-on-surface-variant font-light">Sustainable waste management and low-emission propulsion systems.</p>
+</div>
+<div class="bg-primary-container p-12 border border-outline-variant/10">
+<span class="material-symbols-outlined text-secondary mb-4 text-3xl">private_connectivity</span>
+<h4 class="text-lg font-display mb-3">Privacy Shield</h4>
+<p class="text-sm text-on-surface-variant font-light">Anti-drone technology and hardware-level network encryption available.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Yacht Enquiry Form Section -->
+<section class="py-section-gap bg-surface-container-lowest" id="enquiry">
+<div class="px-margin-desktop max-w-[1000px] mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-display text-4xl mb-4 italic">The Commencement</h2>
+<p class="text-on-surface-variant tracking-widest uppercase text-xs">Request a Private Consultation</p>
+</div>
+<form class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+<div class="relative group">
+<label class="block text-[10px] uppercase tracking-widest text-secondary font-bold mb-2">Vessel Preference</label>
+<select class="w-full bg-transparent border-b border-outline-variant py-3 focus:outline-none focus:border-secondary transition-colors text-on-surface">
+<option>Motor Yacht (50m+)</option>
+<option>Expedition Vessel</option>
+<option>Sailing Superyacht</option>
+<option>Day Cruiser</option>
+</select>
+</div>
+<div class="relative group">
+<label class="block text-[10px] uppercase tracking-widest text-secondary font-bold mb-2">Voyage Type</label>
+<select class="w-full bg-transparent border-b border-outline-variant py-3 focus:outline-none focus:border-secondary transition-colors text-on-surface">
+<option>Private Leisure</option>
+<option>Corporate Retreat</option>
+<option>Production / Film</option>
+<option>Event Hosting</option>
+</select>
+</div>
+<div class="relative group">
+<label class="block text-[10px] uppercase tracking-widest text-secondary font-bold mb-2">Preferred Departure Port</label>
+<input class="w-full bg-transparent border-b border-outline-variant py-3 focus:outline-none focus:border-secondary transition-colors text-on-surface placeholder:text-outline-variant" placeholder="e.g., Monaco, St. Tropez, Amalfi" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-6">
+<div class="relative group">
+<label class="block text-[10px] uppercase tracking-widest text-secondary font-bold mb-2">Duration (Days)</label>
+<input class="w-full bg-transparent border-b border-outline-variant py-3 focus:outline-none focus:border-secondary transition-colors text-on-surface" min="1" placeholder="7" type="number"/>
+</div>
+<div class="relative group">
+<label class="block text-[10px] uppercase tracking-widest text-secondary font-bold mb-2">Guests</label>
+<input class="w-full bg-transparent border-b border-outline-variant py-3 focus:outline-none focus:border-secondary transition-colors text-on-surface" min="1" placeholder="12" type="number"/>
+</div>
+</div>
+<div class="md:col-span-2 relative group">
+<label class="block text-[10px] uppercase tracking-widest text-secondary font-bold mb-2">Voyage Window</label>
+<input class="w-full bg-transparent border-b border-outline-variant py-3 focus:outline-none focus:border-secondary transition-colors text-on-surface placeholder:text-outline-variant" placeholder="Dates of interest or specific season" type="text"/>
+</div>
+<div class="md:col-span-2 relative group">
+<label class="block text-[10px] uppercase tracking-widest text-secondary font-bold mb-2">Additional Specifications</label>
+<textarea class="w-full bg-transparent border-b border-outline-variant py-3 focus:outline-none focus:border-secondary transition-colors text-on-surface placeholder:text-outline-variant resize-none" placeholder="Special requirements, security needs, or culinary preferences..." rows="4"></textarea>
+</div>
+<div class="md:col-span-2 flex justify-center pt-8">
+<button class="bg-secondary text-primary-container px-20 py-6 text-sm font-bold uppercase tracking-[0.3em] hover:bg-secondary/90 transition-all shadow-xl shadow-secondary/10">Submit Confidential Enquiry</button>
+</div>
+</form>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-white border-t border-outline-variant/30 px-margin-mobile md:px-margin-desktop py-16 md:py-20">
+  <div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-14">
+    <div class="space-y-6">
+      <a class="font-headline-md text-headline-sm font-bold tracking-tighter text-primary" href="/">OPV Luxury</a>
+      <p class="font-body-md text-body-md text-on-surface-variant max-w-xs">Bespoke luxury lifestyle access across stays, travel, dining, shopping, protection and private membership.</p>
+    </div>
+    <div>
+      <h4 class="font-label-caps text-label-caps text-primary mb-6">Explore</h4>
+      <ul class="space-y-3 font-body-md text-body-md text-on-surface-variant">
+        <li><a class="hover:text-primary transition-colors" href="/services/luxury-stays/">Luxury Stays</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/services/car-rentals/">Drive</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/services/private-dining/">Eat</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/services/luxury-products/">Shop</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/services/private-jet/">Fly</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/services/yacht-services/">Yacht</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/services/vip-security/">Security</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-label-caps text-label-caps text-primary mb-6">Partners &amp; Affiliates</h4>
+      <ul class="space-y-3 font-body-md text-body-md text-on-surface-variant">
+        <li><a class="hover:text-primary transition-colors" href="/about/">Our Story</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/partners/apply/">Partner Programme</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/affiliates/">Affiliate Programme</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/membership/">Membership</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/faqs/">FAQs</a></li>
+        <li><a class="hover:text-primary transition-colors" href="/contact/">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-label-caps text-label-caps text-primary mb-6">Join The OPV Circle</h4>
+      <p class="font-body-md text-body-md text-on-surface-variant mb-6">Member access and private requests stay one tap away.</p>
+      <div class="flex flex-col gap-3 max-w-[190px]">
+        <a class="flex items-center gap-3 bg-primary text-on-primary px-4 py-2 rounded" href="https://www.apple.com/uk/app-store/" rel="noopener" target="_blank"><span class="material-symbols-outlined">phone_iphone</span><span class="font-label-caps text-label-caps">App Store</span></a>
+        <a class="flex items-center gap-3 bg-primary text-on-primary px-4 py-2 rounded" href="https://play.google.com/store" rel="noopener" target="_blank"><span class="material-symbols-outlined">play_arrow</span><span class="font-label-caps text-label-caps">Google Play</span></a>
+      </div>
+    </div>
+  </div>
+  <div class="max-w-container-max mx-auto pt-6 border-t border-outline-variant/30 flex flex-col lg:flex-row justify-between gap-6 font-label-caps text-label-caps text-on-surface-variant">
+    <p>© 2026 OPULENT VAULT. All rights reserved.</p>
+    <div class="flex flex-wrap gap-5">
+      <a class="hover:text-primary transition-colors" href="/legal/privacy">Privacy</a>
+      <a class="hover:text-primary transition-colors" href="/legal/terms">Terms</a>
+      <a class="hover:text-primary transition-colors" href="/legal/cancellation">Cancellation</a>
+      <a class="hover:text-primary transition-colors" href="/legal/cookies">Cookies</a>
+      <a class="hover:text-primary transition-colors" href="/legal/verification">Verification</a>
+    </div>
+  </div>
+</footer>
+<script>
+        // Micro-interactions for scrolling
+        document.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('py-4', 'bg-primary-container/95');
+                nav.classList.remove('py-6', 'bg-primary-container/80');
+            } else {
+                nav.classList.add('py-6', 'bg-primary-container/80');
+                nav.classList.remove('py-4', 'bg-primary-container/95');
+            }
+        });
+
+        // Form focus effects
+        const inputs = document.querySelectorAll('input, select, textarea');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.querySelector('label').classList.add('text-secondary');
+            });
+            input.addEventListener('blur', () => {
+                if (!input.value) {
+                    input.parentElement.querySelector('label').classList.remove('text-secondary');
+                }
+            });
+        });
+    </script>
+</body></html>
