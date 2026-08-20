@@ -56,7 +56,7 @@ export default function YachtPage() {
   return (
     <>
       <section className="page-hero page-hero-clear-top yacht-page-hero">
-        <Image src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=90" alt="Superyacht on open water" fill priority style={{ objectFit: 'cover' }} />
+        <Image src="https://images.unsplash.com/photo-1774579892096-a221d22984e5?w=1800&q=90" alt="Luxury yachts in a private marina" fill priority style={{ objectFit: 'cover', objectPosition: 'center' }} />
         <div className="page-hero-overlay page-hero-overlay-light" />
         <div className="page-hero-inner">
           <div className="page-hero-copy page-hero-copy-raised yacht-page-hero-copy">
@@ -67,7 +67,6 @@ export default function YachtPage() {
               <a href="#yachts" className="btn-primary">Browse yachts</a>
               <a href="#enquiry" className="btn-ghost-light">Plan a charter</a>
             </div>
-            <div className="yacht-trust-strip"><span>· Crewed charters only</span><span>· Full provisions included</span><span>· Worldwide availability</span></div>
           </div>
         </div>
       </section>
