@@ -1,115 +1,90 @@
-﻿"use client";
-import { useState } from "react";
-import AIConciergeSection from "@/components/AIConciergeSection";
+'use client'
+
+import Link from 'next/link'
+import { motion } from 'framer-motion'
+import EnquiryForm from '@/components/ui/EnquiryForm'
+
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 32 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: '-60px' },
+  transition: { duration: 0.65, delay, ease: [0.25, 0.46, 0.45, 0.94] },
+})
 
 export default function ContactPage() {
-  const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
-
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setLoading(true);
-    const form = e.currentTarget;
-    const data = {
-      type: "contact",
-      name: (form.querySelector("#c_name") as HTMLInputElement)?.value,
-      email: (form.querySelector("#c_email") as HTMLInputElement)?.value,
-      subject: (form.querySelector("#c_subject") as HTMLSelectElement)?.value,
-      message: (form.querySelector("#c_message") as HTMLTextAreaElement)?.value,
-    };
-    try {
-      await fetch("/api/enquiry", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });
-    } catch {}
-    setLoading(false);
-    setSubmitted(true);
-  }
-
   return (
     <>
+      <div className="breadcrumb">
+        <Link href="/">OPV</Link><span className="sep">·</span>
+        <span style={{ color: 'var(--ink)' }}>Contact</span>
+      </div>
+
       {/* Hero */}
-      <section className="relative py-40 overflow-hidden bg-primary text-on-primary">
-        <div className="absolute inset-0 z-0 opacity-20">
-          <img className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcGzksrWNGTvCHBJo_X9xYFE7a8mU7XfrhBaCXttF0cAZpep-wS-61f9nFj2QQ8cHyZek6yI8V8if-b8R0RUxHFnVpTbwrBN__aBv4wCqXjrwoPT1kYWX_4sHqiin6d3rhDBg0XrnXpAL7KniJFcAgyn2tX13YPIS6xRt4swHTC68t3evkXuar3qugyEP9yAu7b3sHfiFJ926x7p2zIqzET-7moH5cFi3oog0b3pKdJACCeDWjmaTzYA" alt="" data-placeholder="true" />
-        </div>
-        <div className="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center">
-          <span className="font-label-caps text-label-caps text-secondary-fixed mb-4 block">Bespoke Support</span>
-          <h1 className="font-serif text-display-xl mb-6 leading-[1.1]">We Are Always<br />At Your Service.</h1>
-          <p className="font-sans text-body-lg text-on-primary/70 max-w-xl mx-auto">Our concierge team operates 24 hours a day, seven days a week. No request is too complex, no detail too small.</p>
+      <section style={{ background: 'var(--white)', padding: '8rem 2.5rem 5rem', borderBottom: '1px solid var(--border)' }}>
+        <div style={{ maxWidth: 760, margin: '0 auto', textAlign: 'center' }}>
+          <motion.div {...fadeUp()}>
+            <span className="eyebrow">One number</span>
+            <h1 className="display-xl" style={{ marginBottom: '1.5rem' }}>Tell us<br /><em>what you need.</em></h1>
+            <p className="body-lg">One contact for every service. Available 24 hours a day, every day of the year.</p>
+          </motion.div>
         </div>
       </section>
 
-      {/* Contact Options */}
-      <section className="py-section-gap">
-        <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-section-gap">
+      {/* Contact cards */}
+      <section className="section" style={{ background: 'var(--ice)' }}>
+        <div className="container" style={{ maxWidth: 1360, margin: '0 auto', padding: '0 2.5rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
             {[
-              { icon: "phone", label: "Telephone", value: "+44 20 7946 0958", sub: "24/7 Concierge Line" },
-              { icon: "mail", label: "Email", value: "concierge@opulentvault.com", sub: "Response within 2 hours" },
-              { icon: "location_on", label: "Head Office", value: "Mayfair, London W1K", sub: "By appointment only" },
-            ].map((c) => (
-              <div key={c.label} className="bg-surface-container-low p-6 md:p-12 text-center border border-outline/5">
-                <div className="w-14 h-14 flex items-center justify-center border border-secondary mx-auto mb-6">
-                  <span className="material-symbols-outlined text-secondary">{c.icon}</span>
-                </div>
-                <p className="font-label-caps text-label-caps text-on-surface-variant mb-2">{c.label}</p>
-                <p className="font-serif text-body-lg md:text-headline-md mb-1 break-all">{c.value}</p>
-                <p className="font-sans text-body-md text-on-surface-variant">{c.sub}</p>
-              </div>
+              { method: 'Phone', value: '+44 (0) 161 000 0000', label: 'Available 24h', href: 'tel:+441610000000', cta: 'Call now' },
+              { method: 'Email', value: 'booking@budruum.co.uk', label: 'Response within 2 hours', href: 'mailto:booking@budruum.co.uk', cta: 'Send an email' },
+              { method: 'WhatsApp', value: '+44 (0) 7700 000000', label: 'Preferred for urgent requests', href: 'https://wa.me/447700000000', cta: 'Open WhatsApp' },
+            ].map((c, i) => (
+              <motion.div key={c.method} {...fadeUp(i * 0.08)} style={{ background: 'var(--white)', border: '1px solid var(--border)', padding: '2.5rem' }}>
+                <span className="eyebrow">{c.method}</span>
+                <p className="display-sm" style={{ marginBottom: '0.5rem', fontSize: '1.1rem', fontFamily: 'var(--body)' }}>{c.value}</p>
+                <p className="body-sm" style={{ marginBottom: '1.5rem' }}>{c.label}</p>
+                <a href={c.href} className="btn-ghost" style={{ padding: '0.6rem 1.2rem', fontSize: '0.68rem' }}>{c.cta}</a>
+              </motion.div>
             ))}
           </div>
-
-          {/* Form */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-24">
-            <div>
-              <span className="font-label-caps text-label-caps text-secondary mb-4 block">Send a Message</span>
-              <h2 className="font-serif text-headline-lg mb-6">Tell Us How We Can Help.</h2>
-              <p className="font-sans text-body-lg text-on-surface-variant">Whether you have a specific request, a question about our services, or simply wish to explore what is possible, we look forward to hearing from you.</p>
-            </div>
-            <div>
-              {submitted ? (
-                <div className="bg-surface-container-low border border-secondary/30 p-8 md:p-16 text-center">
-                  <span className="material-symbols-outlined text-secondary text-5xl mb-4 block">check_circle</span>
-                  <h3 className="font-serif text-headline-md mb-4">Message Received</h3>
-                  <p className="font-sans text-body-lg text-on-surface-variant">A member of our concierge team will respond within two hours.</p>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-8 bg-surface-container-low p-6 md:p-12 border border-outline-variant/20">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div>
-                      <label className="font-label-caps text-label-caps text-on-surface-variant mb-2 block">Full Name</label>
-                      <input id="c_name" className="w-full border-b border-primary/20 py-3 outline-none font-sans" placeholder="Your name" type="text" required />
-                    </div>
-                    <div>
-                      <label className="font-label-caps text-label-caps text-on-surface-variant mb-2 block">Email Address</label>
-                      <input id="c_email" className="w-full border-b border-primary/20 py-3 outline-none font-sans" placeholder="you@example.com" type="email" required />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="font-label-caps text-label-caps text-on-surface-variant mb-2 block">Subject</label>
-                    <select id="c_subject" className="w-full border-b border-primary/20 py-3 outline-none font-sans bg-transparent">
-                      <option>General Enquiry</option>
-                      <option>Property Booking</option>
-                      <option>Private Aviation</option>
-                      <option>Chauffeur Services</option>
-                      <option>Concierge Request</option>
-                      <option>Partnership</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="font-label-caps text-label-caps text-on-surface-variant mb-2 block">Message</label>
-                    <textarea id="c_message" className="w-full border-b border-primary/20 py-3 outline-none font-sans resize-none" placeholder="Your message..." rows={5} required />
-                  </div>
-                  <button className="w-full bg-primary text-on-primary py-5 font-label-caps text-label-caps uppercase tracking-widest hover:bg-secondary transition-all" type="submit" disabled={loading}>
-                    {loading ? "Sending..." : "Send Message"}
-                  </button>
-                </form>
-              )}
-            </div>
-          </div>
         </div>
       </section>
 
-      <AIConciergeSection />
+      {/* Enquiry form */}
+      <section className="section" style={{ background: 'var(--white)', borderTop: '1px solid var(--border)' }}>
+        <div style={{ maxWidth: 760, margin: '0 auto', padding: '0 2.5rem' }}>
+          <motion.div {...fadeUp()} style={{ marginBottom: '3rem' }}>
+            <span className="eyebrow">General enquiry</span>
+            <h2 className="display-md">Send us <em>your brief.</em></h2>
+          </motion.div>
+          <EnquiryForm page="contact" cta="Send enquiry" />
+        </div>
+      </section>
+
+      {/* Office */}
+      <section className="section" style={{ background: 'var(--ice)', borderTop: '1px solid var(--border)' }}>
+        <div className="container" style={{ maxWidth: 1360, margin: '0 auto', padding: '0 2.5rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem' }}>
+            <motion.div {...fadeUp()}>
+              <span className="eyebrow">Office</span>
+              <h2 className="display-md" style={{ marginBottom: '1.5rem' }}>Registered <em>address.</em></h2>
+              <p className="body-lg">Budruum Ltd<br />71–75 Shelton Street<br />Covent Garden<br />London WC2H 9JQ</p>
+            </motion.div>
+            <motion.div {...fadeUp(0.1)}>
+              <span className="eyebrow">Hours</span>
+              <h2 className="display-md" style={{ marginBottom: '1.5rem' }}>Concierge <em>availability.</em></h2>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+                {[['Concierge line', '24 hours / 7 days'], ['Email', 'Response within 2 hours'], ['Emergency line', '24 hours / 7 days']].map(([k, v]) => (
+                  <div key={k} style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid var(--border)', paddingBottom: '0.8rem' }}>
+                    <span className="label-sm">{k}</span>
+                    <span className="label-sm" style={{ color: 'var(--ink)' }}>{v}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
     </>
-  );
+  )
 }

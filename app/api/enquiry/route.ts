@@ -1,34 +1,32 @@
-import { NextRequest, NextResponse } from "next/server";
-import { createServerClient } from "@/lib/supabase";
-import { sendConfirmationEmail, sendInternalNotification } from "@/lib/email";
+import { NextRequest, NextResponse } from 'next/server'
+
+export const dynamic = 'force-dynamic'
 
 export async function POST(req: NextRequest) {
   try {
-    const body = await req.json();
-    const { type, name, email, phone, message, payload } = body;
-    if (!type || !name || !email) {
-      return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
+    const body = await req.json()
+    const { name, email, phone, service, message, page } = body
+
+    if (!name || !email || !message) {
+      return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
     }
 
-    const supabase = createServerClient();
-    const { error } = await supabase.from("enquiries").insert({
-      type, name, email, phone, message, payload,
-    });
-    if (error) throw error;
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 
-    await sendConfirmationEmail(
-      email,
-      "Your Opulent Vault Request Has Been Received",
-      `<p>Dear ${name},</p><p>Thank you for your enquiry. A member of the Opulent Vault team will be in touch within 24 hours.</p><p>The Opulent Vault Team</p>`
-    );
-    await sendInternalNotification(
-      `New Enquiry: ${type}`,
-      `<p><strong>Type:</strong> ${type}</p><p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Phone:</strong> ${phone}</p><p><strong>Message:</strong> ${message}</p><pre>${JSON.stringify(payload, null, 2)}</pre>`
-    );
+    if (supabaseUrl && supabaseKey && !supabaseUrl.startsWith('your_')) {
+      const { createClient } = await import('@supabase/supabase-js')
+      const sb = createClient(supabaseUrl, supabaseKey)
+      const { error } = await sb.from('opv_enquiries').insert({
+        page, name, email, phone: phone || null, service, message,
+        metadata: { userAgent: req.headers.get('user-agent') },
+      })
+      if (error) console.error('Supabase error:', error)
+    }
 
-    return NextResponse.json({ success: true });
+    return NextResponse.json({ success: true })
   } catch (err) {
-    console.error(err);
-    return NextResponse.json({ error: "Submission failed" }, { status: 500 });
+    console.error('Enquiry API error:', err)
+    return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
   }
 }

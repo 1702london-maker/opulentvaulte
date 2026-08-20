@@ -1,19 +1,12 @@
 {
-  "cleanUrls": true,
-  "trailingSlash": false,
-  "buildCommand": "npm run build",
-  "outputDirectory": ".",
-  "installCommand": "npm install",
-  "framework": null,
-  "rewrites": [
-    { "source": "/register", "destination": "/login" },
-    { "source": "/legal/terms", "destination": "/legal/terms.html" },
-    { "source": "/legal/privacy", "destination": "/legal/privacy.html" },
-    { "source": "/legal/verification", "destination": "/legal/verification.html" },
-    { "source": "/legal/cancellation", "destination": "/legal/cancellation.html" },
-    { "source": "/legal/cookies", "destination": "/legal/cookies.html" }
-  ],
-  "env": {
-    "NEXT_PUBLIC_SUPABASE_URL": "https://rjskyzgkxnwxtkijqwgq.supabase.co"
-  }
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    }
+  ]
 }

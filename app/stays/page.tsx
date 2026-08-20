@@ -1,237 +1,366 @@
-"use client";
+'use client'
+import Image from 'next/image'
+import Link from 'next/link'
+import { useState } from 'react'
+import { motion } from 'framer-motion'
+import EnquiryForm from '@/components/ui/EnquiryForm'
 
-import { FormEvent, useMemo, useState } from "react";
+const properties = [
+  { id: 1, name: 'The Crescent Riverside', city: 'Manchester', area: 'Salford Quays', type: 'penthouse', designation: 'opv-managed', beds: 4, guests: 8, priceFrom: 850, image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=700&q=80', chips: ['River View', 'Private Terrace', 'Chef Kitchen', 'Concierge'], verified: true, description: 'Four-bedroom penthouse on the Irwell with panoramic water views.' },
+  { id: 2, name: 'Alderton Hall', city: 'Cheshire', area: 'Alderley Edge', type: 'estate', designation: 'partner-hosted', beds: 7, guests: 14, priceFrom: 3200, image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=700&q=80', chips: ['Private Grounds', 'Heated Pool', 'Helipad', 'Staff Included'], verified: true, description: 'Georgian estate on six acres with full household staff.' },
+  { id: 3, name: 'The Knightsbridge Residence', city: 'London', area: 'Knightsbridge', type: 'townhouse', designation: 'opv-managed', beds: 5, guests: 10, priceFrom: 4100, image: 'https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?w=700&q=80', chips: ['Mayfair Adjacent', 'Butler', 'Rooftop Terrace', 'Wine Cellar'], verified: true, description: 'Five-storey Knightsbridge townhouse with butler and rooftop garden.' },
+  { id: 4, name: 'Harewood Grange', city: 'Leeds', area: 'Harewood', type: 'estate', designation: 'partner-hosted', beds: 6, guests: 12, priceFrom: 2800, image: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?w=700&q=80', chips: ['Private Grounds', 'Hot Tub', 'Home Cinema', 'Stables'], verified: true, description: 'Country estate with stable block, cinema room and landscaped grounds.' },
+  { id: 5, name: 'Royal Mills Penthouse', city: 'Manchester', area: 'Ancoats', type: 'penthouse', designation: 'opv-managed', beds: 3, guests: 6, priceFrom: 890, image: 'https://images.unsplash.com/photo-1598928636135-d146006ff4be?w=700&q=80', chips: ['Mill Conversion', 'Rooftop', 'City Views', 'Parking'], verified: true, description: 'Converted Victorian mill with rooftop terrace above Ancoats.' },
+  { id: 6, name: 'The Mayfair Suite', city: 'London', area: 'Mayfair', type: 'apartment', designation: 'opv-managed', beds: 2, guests: 4, priceFrom: 2900, image: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=700&q=80', chips: ['24h Doorman', 'Butler', 'Concierge', 'Bond Street'], verified: true, description: 'White-glove apartment steps from Bond Street with 24-hour butler.' },
+  { id: 7, name: 'Castlefield Loft', city: 'Manchester', area: 'Castlefield', type: 'apartment', designation: 'partner-hosted', beds: 2, guests: 4, priceFrom: 620, image: 'https://images.unsplash.com/photo-1567767292278-a4f21aa2d36e?w=700&q=80', chips: ['Canal View', 'Balcony', 'Viaduct Views', 'Secure Parking'], verified: false, description: 'Industrial-chic loft overlooking the Roman Fort and canal basin.' },
+  { id: 8, name: 'Mount Street W1', city: 'London', area: 'Mayfair', type: 'townhouse', designation: 'opv-managed', beds: 4, guests: 8, priceFrom: 3800, image: 'https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=700&q=80', chips: ['Private Courtyard', 'Wine Cellar', 'Staff', 'Mayfair'], verified: true, description: 'Four-floor W1 townhouse with private courtyard and household staff.' },
+  { id: 9, name: 'The Grain Loft', city: 'Leeds', area: 'Granary Wharf', type: 'apartment', designation: 'partner-hosted', beds: 2, guests: 4, priceFrom: 580, image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=700&q=80', chips: ['Waterfront', 'Canal Views', 'Exposed Ironwork', 'Art Hung'], verified: false, description: 'Converted grain warehouse with original ironwork at Granary Wharf.' },
+  { id: 10, name: 'Thornfield Manor', city: 'Cheshire', area: 'Wilmslow', type: 'villa', designation: 'partner-hosted', beds: 8, guests: 16, priceFrom: 5200, image: 'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=700&q=80', chips: ['Tennis Court', 'Pool', 'Cinema Room', 'Housekeeper'], verified: true, description: 'Eight-bedroom manor with pool, tennis court and resident housekeeper.' },
+  { id: 11, name: 'Deansgate Residences', city: 'Manchester', area: 'Deansgate', type: 'penthouse', designation: 'opv-managed', beds: 2, guests: 4, priceFrom: 740, image: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=700&q=80', chips: ['Beetham Tower Views', 'Gym', 'Concierge', 'Valet'], verified: true, description: 'High-floor Deansgate residence with Beetham Tower views and valet.' },
+  { id: 12, name: 'Belgravia Mews', city: 'London', area: 'Belgravia', type: 'townhouse', designation: 'opv-managed', beds: 3, guests: 6, priceFrom: 3400, image: 'https://images.unsplash.com/photo-1549517045-bc93de075e53?w=700&q=80', chips: ['Private Garage', 'Garden', 'Period Features', 'Butler'], verified: true, description: 'Grade II listed mews with private garage, walled garden and butler.' },
+  { id: 13, name: 'Victoria Quarter Flat', city: 'Leeds', area: 'City Centre', type: 'apartment', designation: 'partner-hosted', beds: 1, guests: 2, priceFrom: 390, image: 'https://images.unsplash.com/photo-1484154218962-a197022b5858?w=700&q=80', chips: ['Arcade Adjacent', 'Designer Interiors', 'Concierge'], verified: false, description: 'Elegantly designed flat adjacent to the Victoria Quarter arcade.' },
+  { id: 14, name: 'The Cheshire House', city: 'Cheshire', area: 'Knutsford', type: 'villa', designation: 'partner-hosted', beds: 5, guests: 10, priceFrom: 2100, image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=700&q=80', chips: ['Walled Garden', 'Hot Tub', "Chef's Kitchen", 'Games Room'], verified: false, description: 'Knutsford villa with walled kitchen garden and entertaining space.' },
+  { id: 15, name: 'Shoreditch Loft', city: 'London', area: 'Shoreditch', type: 'apartment', designation: 'partner-hosted', beds: 2, guests: 4, priceFrom: 980, image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=700&q=80', chips: ['Rooftop Terrace', 'Industrial Design', 'Art Collection'], verified: false, description: 'East London loft with curated art collection and private rooftop.' },
+  { id: 16, name: 'The Northern Quarter Residence', city: 'Manchester', area: 'Northern Quarter', type: 'apartment', designation: 'opv-managed', beds: 1, guests: 2, priceFrom: 480, image: 'https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=700&q=80', chips: ['NQ Location', 'Designer Fit-out', 'Concierge', 'Gym'], verified: true, description: 'Bespoke one-bedroom in the heart of Manchester\'s Northern Quarter.' },
+]
 
-type PropertyType = "penthouse" | "villa" | "estate" | "townhouse" | "apartment";
-type PropertyCity = "Manchester" | "London" | "Leeds" | "Cheshire" | "Edinburgh" | "International";
+const types = ['All', 'Penthouse', 'Villa', 'Estate', 'Townhouse', 'Apartment']
+const cities = ['All Cities', 'Manchester', 'London', 'Leeds', 'Cheshire', 'Edinburgh', 'International']
 
-type Property = {
-  id: string;
-  name: string;
-  city: PropertyCity;
-  area: string;
-  type: PropertyType;
-  designation: "opv-managed" | "partner-hosted";
-  beds: number;
-  guests: number;
-  priceFrom: number;
-  image: string;
-  chips: string[];
-  verified: boolean;
-  description: string;
-};
-
-const properties: Property[] = [
-  ["crescent-riverside", "The Crescent Riverside", "Manchester", "Salford Quays", "penthouse", "opv-managed", 4, 8, 850, "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80", ["River View", "Private Terrace", "Chef Kitchen", "Concierge"], true, "A glass-fronted residence above the water with generous hosting space."],
-  ["alderton-hall", "Alderton Hall", "Cheshire", "Alderley Edge", "estate", "partner-hosted", 7, 14, 3200, "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1200&q=80", ["Private Grounds", "Heated Pool", "Helipad", "Staff Included"], true, "A secluded country estate prepared for full-house private stays."],
-  ["knightsbridge-residence", "The Knightsbridge Residence", "London", "Knightsbridge", "townhouse", "opv-managed", 5, 10, 4100, "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80", ["Mayfair Adjacent", "Butler", "Rooftop Terrace", "Wine Cellar"], true, "A polished townhouse moments from London's most private addresses."],
-  ["harewood-grange", "Harewood Grange", "Leeds", "Harewood", "estate", "partner-hosted", 6, 12, 2800, "https://images.unsplash.com/photo-1572120360610-d971b9d7767c?auto=format&fit=crop&w=1200&q=80", ["Private Grounds", "Hot Tub", "Home Cinema", "Stables"], true, "A Yorkshire estate with space for family gatherings and quiet arrivals."],
-  ["royal-mills-penthouse", "Royal Mills Penthouse", "Manchester", "Ancoats", "penthouse", "opv-managed", 3, 6, 890, "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1200&q=80", ["Mill Conversion", "Rooftop", "City Views", "Parking"], true, "Industrial heritage softened by considered interiors and skyline views."],
-  ["mayfair-suite", "The Mayfair Suite", "London", "Mayfair", "apartment", "opv-managed", 2, 4, 2900, "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80", ["24h Doorman", "Butler", "Concierge", "Bond Street"], true, "A discreet Mayfair apartment tuned for shopping, dining, and rest."],
-  ["castlefield-loft", "Castlefield Loft", "Manchester", "Castlefield", "apartment", "partner-hosted", 2, 4, 620, "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80", ["Canal View", "Balcony", "Viaduct Views", "Secure Parking"], false, "A calm canal-side base with open-plan living and city access."],
-  ["mount-street-w1", "Mount Street W1", "London", "Mayfair", "townhouse", "opv-managed", 4, 8, 3800, "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80", ["Private Courtyard", "Wine Cellar", "Staff", "Mayfair"], true, "A composed W1 house with private entertaining space and staff access."],
-  ["grain-loft", "The Grain Loft", "Leeds", "Granary Wharf", "apartment", "partner-hosted", 2, 4, 580, "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=80", ["Waterfront", "Canal Views", "Exposed Ironwork", "Art Hung"], false, "A warehouse apartment with waterfront outlooks and strong character."],
-  ["thornfield-manor", "Thornfield Manor", "Cheshire", "Wilmslow", "villa", "partner-hosted", 8, 16, 5200, "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1200&q=80", ["Tennis Court", "Pool", "Cinema Room", "Housekeeper"], true, "A private villa with leisure spaces for longer hosted weekends."],
-  ["deansgate-residences", "Deansgate Residences", "Manchester", "Deansgate", "penthouse", "opv-managed", 2, 4, 740, "https://images.unsplash.com/photo-1600607687644-c7171b42498b?auto=format&fit=crop&w=1200&q=80", ["Beetham Tower Views", "Gym", "Concierge", "Valet"], true, "A high-floor residence for efficient city stays and late check-ins."],
-  ["belgravia-mews", "Belgravia Mews", "London", "Belgravia", "townhouse", "opv-managed", 3, 6, 3400, "https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1200&q=80", ["Private Garage", "Garden", "Period Features", "Butler"], true, "A quiet mews house with polished service and private parking."],
-  ["victoria-quarter-flat", "Victoria Quarter Flat", "Leeds", "City Centre", "apartment", "partner-hosted", 1, 2, 390, "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80", ["Arcade Adjacent", "Designer Interiors", "Concierge"], false, "A compact city apartment for shopping-led weekends and short stays."],
-  ["cheshire-house", "The Cheshire House", "Cheshire", "Knutsford", "villa", "partner-hosted", 5, 10, 2100, "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1200&q=80", ["Walled Garden", "Hot Tub", "Chef's Kitchen", "Games Room"], true, "A village-edge villa with garden privacy and sociable interiors."],
-  ["shoreditch-loft", "Shoreditch Loft", "London", "Shoreditch", "apartment", "partner-hosted", 2, 4, 980, "https://images.unsplash.com/photo-1600607688066-890987f18a86?auto=format&fit=crop&w=1200&q=80", ["Rooftop Terrace", "Industrial Design", "Art Collection"], false, "A loft residence close to galleries, members clubs, and studios."],
-  ["northern-quarter-residence", "The Northern Quarter Residence", "Manchester", "Northern Quarter", "apartment", "opv-managed", 1, 2, 480, "https://images.unsplash.com/photo-1600566752229-250ed79470f8?auto=format&fit=crop&w=1200&q=80", ["NQ Location", "Designer Fit-out", "Concierge", "Gym"], true, "A sharp city apartment with OPV support and walkable dining."],
-].map(([id, name, city, area, type, designation, beds, guests, priceFrom, image, chips, verified, description]) => ({
-  id,
-  name,
-  city,
-  area,
-  type,
-  designation,
-  beds,
-  guests,
-  priceFrom,
-  image,
-  chips,
-  verified,
-  description,
-})) as Property[];
-
-const typeFilters = ["All", "Penthouse", "Villa", "Estate", "Townhouse", "Apartment"];
-const cityFilters = ["All Cities", "Manchester", "London", "Leeds", "Cheshire", "Edinburgh", "International"];
 const destinations = [
-  ["Manchester", "United Kingdom", "https://images.unsplash.com/photo-1594306221495-efb0f6b82a9e?auto=format&fit=crop&w=900&q=80"],
-  ["London", "United Kingdom", "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=900&q=80"],
-  ["Leeds", "United Kingdom", "https://images.unsplash.com/photo-1583178005425-63f19d320f25?auto=format&fit=crop&w=900&q=80"],
-  ["Cheshire", "United Kingdom", "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80"],
-  ["Edinburgh", "Scotland", "https://images.unsplash.com/photo-1506377585622-bedcbb027afc?auto=format&fit=crop&w=900&q=80"],
-  ["Côte d'Azur", "France", "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80"],
-];
-const verificationSteps = ["Property Inspection", "Owner Verification", "Legal Title Check", "Photography Audit", "Concierge Walkthrough"];
+  { city: 'Manchester', country: 'England', img: 'https://images.unsplash.com/photo-1520986606214-8b456906c813?w=600&q=80' },
+  { city: 'London', country: 'England', img: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600&q=80' },
+  { city: 'Leeds', country: 'England', img: 'https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=600&q=80' },
+  { city: 'Cheshire', country: 'England', img: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&q=80' },
+  { city: 'Edinburgh', country: 'Scotland', img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80' },
+  { city: 'Côte d\'Azur', country: 'France', img: 'https://images.unsplash.com/photo-1534430480872-3498386e7856?w=600&q=80' },
+]
 
-function Eyebrow({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  return <p className={`font-['DM_Mono'] text-[0.68rem] uppercase tracking-[0.22em] text-[#1B6CA8] ${className}`}>{children}</p>;
-}
-
-function Heading({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  return <h2 className={`font-['Cormorant_Garamond'] text-5xl leading-none text-[#1A2733] md:text-7xl ${className}`}>{children}</h2>;
-}
+const fu = (d = 0) => ({ initial: { opacity: 0, y: 28 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true, margin: '-60px' }, transition: { duration: 0.6, delay: d, ease: [0.25, 0.46, 0.45, 0.94] } })
 
 export default function StaysPage() {
-  const [activeType, setActiveType] = useState("All");
-  const [activeCity, setActiveCity] = useState("All Cities");
-  const [submitting, setSubmitting] = useState(false);
-  const [sent, setSent] = useState(false);
+  const [activeType, setActiveType] = useState('All')
+  const [activeCity, setActiveCity] = useState('All Cities')
 
-  const filteredProperties = useMemo(
-    () =>
-      properties.filter((property) => {
-        const matchesType = activeType === "All" || property.type === activeType.toLowerCase();
-        const matchesCity = activeCity === "All Cities" || property.city === activeCity;
-        return matchesType && matchesCity;
-      }),
-    [activeType, activeCity]
-  );
-
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    setSubmitting(true);
-    setSent(false);
-    const form = event.currentTarget;
-    const payload = Object.fromEntries(new FormData(form).entries());
-    const response = await fetch("/api/enquiry", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        type: "stays",
-        name: payload.name,
-        email: payload.email,
-        phone: "",
-        message: String(payload.requirements || ""),
-        payload,
-      }),
-    });
-    setSubmitting(false);
-    if (response.ok) {
-      setSent(true);
-      form.reset();
-    }
-  }
+  const filtered = properties.filter(p => {
+    const typeMatch = activeType === 'All' || p.type === activeType.toLowerCase()
+    const cityMatch = activeCity === 'All Cities' || p.city === activeCity
+    return typeMatch && cityMatch
+  })
 
   return (
-    <div className="bg-white font-['DM_Sans'] text-[#1A2733]">
-      <style>{`@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap");`}</style>
-      <section className="relative flex h-[85vh] items-end overflow-hidden bg-white">
-        <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=2400&q=85" alt="Private residence interior" className="absolute inset-0 h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent" />
-        <div className="relative z-10 mx-auto w-full max-w-[1360px] px-6 pb-16 md:px-10">
-          <Eyebrow className="mb-5 text-white">Private Residences</Eyebrow>
-          <h1 className="max-w-4xl font-['Cormorant_Garamond'] text-6xl leading-none text-white md:text-8xl">The property you <em className="italic text-white">couldn't find.</em></h1>
-          <p className="mt-6 max-w-2xl text-lg font-light text-white/90">Private residences, city penthouses, and country estates verified for guests who expect the unseen to be handled.</p>
-          <div className="mt-8 flex flex-wrap gap-4">
-            <a href="#properties" className="border border-[#1B6CA8] bg-[#1B6CA8] px-7 py-4 font-['DM_Mono'] text-[0.68rem] uppercase tracking-[0.22em] text-white">Browse all stays</a>
-            <a href="#enquiry" className="border border-white px-7 py-4 font-['DM_Mono'] text-[0.68rem] uppercase tracking-[0.22em] text-white">Send your brief</a>
-          </div>
+    <>
+      {/* Breadcrumb */}
+      <div className="breadcrumb">
+        <Link href="/">OPV</Link><span className="sep">·</span>
+        <span style={{ color: 'var(--ink)' }}>Stays</span>
+      </div>
+
+      {/* 1. Hero */}
+      <section style={{ position: 'relative', height: '85vh', overflow: 'hidden', background: '#EAF4FB' }}>
+        <Image
+          src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1600&q=90"
+          alt="OPV Private Residences"
+          fill
+          style={{ objectFit: 'cover' }}
+          priority
+        />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(26,39,51,0.72) 0%, rgba(26,39,51,0.3) 35%, transparent 55%)' }} />
+        <div style={{ position: 'absolute', bottom: '4.5rem', left: 0, right: 0, maxWidth: 1360, margin: '0 auto', padding: '0 2.5rem' }}>
+          <motion.div {...fu()}>
+            <span className="eyebrow" style={{ color: 'rgba(255,255,255,0.65)' }}>Private Residences</span>
+            <h1 style={{ fontFamily: 'var(--display)', fontSize: 'clamp(2.8rem,5.5vw,5.5rem)', fontWeight: 300, lineHeight: 1.06, letterSpacing: '-0.02em', color: '#FFFFFF', marginBottom: '1.4rem', maxWidth: 640 }}>
+              The property you<br /><em style={{ fontStyle: 'italic', color: '#D4EAF6' }}>couldn&apos;t find.</em>
+            </h1>
+            <p style={{ fontSize: '1rem', lineHeight: 1.7, color: 'rgba(255,255,255,0.8)', fontWeight: 300, marginBottom: '2rem', maxWidth: 420 }}>
+              Curated private residences across the UK. Every property verified by an OPV property guardian before it appears here.
+            </p>
+            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+              <a href="#properties" className="btn-primary">Browse all stays</a>
+              <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.6rem', padding: '0.9rem 2rem', background: 'transparent', color: '#FFFFFF', border: '1px solid rgba(255,255,255,0.6)', fontFamily: 'var(--mono)', fontSize: '0.72rem', fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase' }}>
+                Send your brief
+              </Link>
+            </div>
+          </motion.div>
         </div>
       </section>
 
-      <section className="border-y border-[#C8DFF0] bg-white">
-        <div className="mx-auto grid max-w-[1360px] grid-cols-2 px-6 md:grid-cols-4 md:px-10">
-          {[["500+", "Curated Properties"], ["16", "Available Now"], ["200", "Point Verification"], ["24/7", "Concierge Access"]].map(([number, label]) => (
-            <div key={label} className="border-[#C8DFF0] py-10 odd:border-r md:border-r md:last:border-r-0">
-              <p className="font-['Cormorant_Garamond'] text-5xl text-[#1B6CA8]">{number}</p>
-              <p className="mt-2 font-['DM_Mono'] text-[0.68rem] uppercase tracking-[0.22em] text-[#1A2733]">{label}</p>
+      {/* 2. Stat strip */}
+      <section style={{ background: '#FFFFFF', borderBottom: '1px solid var(--border)' }}>
+        <div className="stat-strip">
+          {[
+            { num: '500+', label: 'Curated Properties' },
+            { num: '16', label: 'Available Now' },
+            { num: '200', label: 'Point Verification' },
+            { num: '24/7', label: 'Concierge Access' },
+          ].map(s => (
+            <div key={s.label} className="stat-item">
+              <div className="stat-num">{s.num}</div>
+              <span className="label-sm">{s.label}</span>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="sticky top-[72px] z-30 border-b border-[#C8DFF0] bg-white/95 backdrop-blur">
-        <div className="mx-auto flex max-w-[1360px] flex-col gap-4 px-6 py-5 md:px-10">
-          {[typeFilters, cityFilters].map((filters, index) => (
-            <div key={index} className="flex gap-3 overflow-x-auto pb-1">
-              {filters.map((filter) => {
-                const active = index === 0 ? activeType === filter : activeCity === filter;
-                return (
-                  <button key={filter} onClick={() => (index === 0 ? setActiveType(filter) : setActiveCity(filter))} className={`shrink-0 border px-4 py-2 font-['DM_Mono'] text-[0.68rem] uppercase tracking-[0.18em] ${active ? "border-[#1B6CA8] bg-[#1B6CA8] text-white" : "border-[#C8DFF0] bg-white text-[#1A2733]"}`}>
-                    {filter}
-                  </button>
-                );
-              })}
+      {/* 3. Filter bar */}
+      <div id="properties" style={{ position: 'sticky', top: 72, zIndex: 80, background: '#FFFFFF', borderBottom: '1px solid var(--border)', padding: '0.9rem 0' }}>
+        <div style={{ maxWidth: 1360, margin: '0 auto', padding: '0 2.5rem', display: 'flex', gap: '2.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+            {types.map(t => (
+              <button
+                key={t}
+                onClick={() => setActiveType(t)}
+                style={{
+                  fontFamily: 'var(--mono)', fontSize: '0.65rem', letterSpacing: '0.16em', textTransform: 'uppercase',
+                  padding: '0.4rem 0.9rem', border: '1px solid',
+                  borderColor: activeType === t ? 'var(--sapphire)' : 'var(--border)',
+                  background: activeType === t ? 'var(--sapphire)' : 'transparent',
+                  color: activeType === t ? '#FFFFFF' : 'var(--ink-soft)',
+                  cursor: 'pointer', transition: 'all 0.2s',
+                }}
+              >{t}</button>
+            ))}
+          </div>
+          <div style={{ width: '1px', height: 20, background: 'var(--border)', flexShrink: 0 }} />
+          <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+            {cities.map(c => (
+              <button
+                key={c}
+                onClick={() => setActiveCity(c)}
+                style={{
+                  fontFamily: 'var(--mono)', fontSize: '0.65rem', letterSpacing: '0.16em', textTransform: 'uppercase',
+                  padding: '0.4rem 0.9rem', border: '1px solid',
+                  borderColor: activeCity === c ? 'var(--sapphire)' : 'var(--border)',
+                  background: activeCity === c ? 'var(--sapphire)' : 'transparent',
+                  color: activeCity === c ? '#FFFFFF' : 'var(--ink-soft)',
+                  cursor: 'pointer', transition: 'all 0.2s',
+                }}
+              >{c}</button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* 4. Property grid */}
+      <section style={{ background: '#FFFFFF', padding: '4rem 0 7rem' }}>
+        <div style={{ maxWidth: 1360, margin: '0 auto', padding: '0 2.5rem' }}>
+          {filtered.length === 0 ? (
+            <div style={{ textAlign: 'center', padding: '6rem 0' }}>
+              <p className="body-lg">No properties match your current filters.</p>
+              <button onClick={() => { setActiveType('All'); setActiveCity('All Cities') }} className="btn-ghost" style={{ marginTop: '1.5rem' }}>Clear filters</button>
             </div>
-          ))}
+          ) : (
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
+              {filtered.map((p, i) => (
+                <motion.div
+                  key={p.id}
+                  initial={{ opacity: 0, y: 28 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: (i % 3) * 0.07 }}
+                  className="prop-card"
+                  style={{ display: 'flex', flexDirection: 'column' }}
+                >
+                  {/* Image */}
+                  <div style={{ position: 'relative', aspectRatio: '3/4', overflow: 'hidden' }} className="group">
+                    <Image
+                      src={p.image}
+                      alt={p.name}
+                      fill
+                      style={{ objectFit: 'cover', transition: 'transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94)' }}
+                      className="group-hover:scale-105"
+                    />
+                    {/* Top-left designation badge */}
+                    <div style={{ position: 'absolute', top: '1rem', left: '1rem' }}>
+                      <span style={{ display: 'inline-block', background: '#FFFFFF', border: '1px solid var(--sapphire)', color: 'var(--sapphire)', fontFamily: 'var(--mono)', fontSize: '0.58rem', letterSpacing: '0.14em', textTransform: 'uppercase', padding: '0.25rem 0.6rem' }}>
+                        {p.designation === 'opv-managed' ? 'OPV Managed' : 'Partner Hosted'}
+                      </span>
+                    </div>
+                    {/* Top-right verified badge */}
+                    {p.verified && (
+                      <div style={{ position: 'absolute', top: '1rem', right: '1rem' }}>
+                        <span style={{ display: 'inline-block', background: 'var(--sapphire)', color: '#FFFFFF', fontFamily: 'var(--mono)', fontSize: '0.58rem', letterSpacing: '0.14em', textTransform: 'uppercase', padding: '0.25rem 0.6rem' }}>
+                          Verified
+                        </span>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Card body */}
+                  <div style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', flex: 1 }}>
+                    <span className="prop-city" style={{ marginBottom: '0.3rem', display: 'block' }}>{p.city} · {p.area}</span>
+                    <h3 style={{ fontFamily: 'var(--display)', fontSize: '1.5rem', fontWeight: 400, lineHeight: 1.2, color: 'var(--ink)', marginBottom: '0.5rem' }}>{p.name}</h3>
+                    <p className="body-sm" style={{ marginBottom: '1rem', color: 'var(--ink-soft)' }}>{p.description}</p>
+
+                    {/* Chips */}
+                    <div style={{ display: 'flex', gap: '0.35rem', flexWrap: 'wrap', marginBottom: '1rem' }}>
+                      {p.chips.map(c => (
+                        <span key={c} style={{ fontFamily: 'var(--mono)', fontSize: '0.58rem', letterSpacing: '0.12em', textTransform: 'uppercase', border: '1px solid var(--border)', color: 'var(--ink-soft)', padding: '0.2rem 0.5rem' }}>
+                          {c}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Guests + Beds */}
+                    <div style={{ display: 'flex', gap: '1.2rem', marginBottom: '1rem' }}>
+                      <span className="label-sm">{p.beds} Bedrooms</span>
+                      <span className="label-sm">{p.guests} Guests</span>
+                    </div>
+
+                    {/* Price + CTAs */}
+                    <div style={{ borderTop: '1px solid var(--border)', paddingTop: '1rem', marginTop: 'auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                      <div>
+                        <span style={{ fontFamily: 'var(--display)', fontSize: '1.5rem', fontWeight: 400, color: 'var(--ink)' }}>£{p.priceFrom.toLocaleString()}</span>
+                        <span style={{ fontFamily: 'var(--body)', fontSize: '0.78rem', color: 'var(--ink-soft)', marginLeft: '0.3rem' }}>/night</span>
+                      </div>
+                      <div style={{ display: 'flex', gap: '0.5rem' }}>
+                        <Link href="/contact" className="btn-primary" style={{ padding: '0.55rem 1rem', fontSize: '0.62rem' }}>View</Link>
+                        <Link href="/contact" className="btn-ghost" style={{ padding: '0.55rem 1rem', fontSize: '0.62rem' }}>Request</Link>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
-      <section id="properties" className="bg-white py-28">
-        <div className="mx-auto max-w-[1360px] px-6 md:px-10">
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {filteredProperties.map((property) => (
-              <article key={property.id} data-type={property.type} data-city={property.city} className="group border border-[#C8DFF0] bg-white">
-                <div className="relative aspect-[3/4] overflow-hidden">
-                  <img src={property.image} alt={property.name} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                  <div className="absolute left-4 top-4 border border-[#1B6CA8] bg-white px-3 py-2 font-['DM_Mono'] text-[0.62rem] uppercase tracking-[0.18em] text-[#1B6CA8]">{property.designation === "opv-managed" ? "OPV Managed" : "Partner Hosted"}</div>
-                  {property.verified && <div className="absolute right-4 top-4 bg-[#1B6CA8] px-3 py-2 font-['DM_Mono'] text-[0.62rem] uppercase tracking-[0.18em] text-white">Verified</div>}
-                </div>
-                <div className="p-6">
-                  <p className="font-['DM_Mono'] text-[0.68rem] uppercase tracking-[0.22em] text-[#1B6CA8]">{property.city}, {property.area}</p>
-                  <h3 className="mt-3 font-['Cormorant_Garamond'] text-2xl text-[#1A2733]">{property.name}</h3>
-                  <p className="mt-3 min-h-12 font-light text-[#556574]">{property.description}</p>
-                  <div className="mt-5 flex flex-wrap gap-2">{property.chips.map((chip) => <span key={chip} className="border border-[#D4EAF6] px-2.5 py-1.5 font-['DM_Mono'] text-[0.58rem] uppercase tracking-[0.16em] text-[#1A2733]">{chip}</span>)}</div>
-                  <div className="mt-5 flex items-center gap-3 font-['DM_Mono'] text-[0.68rem] uppercase tracking-[0.16em] text-[#1A2733]"><span>{property.guests} Guests</span><span className="h-1 w-1 bg-[#1B6CA8]" /><span>{property.beds} Bed</span></div>
-                  <p className="mt-5 font-['Cormorant_Garamond'] text-4xl text-[#1B6CA8]">£{property.priceFrom.toLocaleString("en-GB")}<span className="ml-1 font-['DM_Sans'] text-sm font-light text-[#556574]">/night</span></p>
-                  <div className="mt-6 grid grid-cols-2 gap-3"><button className="border border-[#1B6CA8] bg-[#1B6CA8] py-3 font-['DM_Mono'] text-[0.68rem] uppercase tracking-[0.18em] text-white">View</button><a href="#enquiry" className="border border-[#1B6CA8] py-3 text-center font-['DM_Mono'] text-[0.68rem] uppercase tracking-[0.18em] text-[#1B6CA8]">Request</a></div>
-                </div>
-              </article>
+      {/* 5. OPV Standard */}
+      <section style={{ background: '#FFFFFF', borderTop: '1px solid var(--border)', padding: '7rem 0' }}>
+        <div style={{ maxWidth: 1360, margin: '0 auto', padding: '0 2.5rem', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', alignItems: 'start' }}>
+          <motion.div {...fu()}>
+            <span className="eyebrow">Our designations</span>
+            <h2 style={{ fontFamily: 'var(--display)', fontSize: 'clamp(2rem,3.5vw,3.4rem)', fontWeight: 300, lineHeight: 1.12, color: 'var(--ink)', marginBottom: '1.5rem' }}>
+              Two designations.<br /><em style={{ fontStyle: 'italic', color: 'var(--sapphire)' }}>One threshold.</em>
+            </h2>
+            <p className="body-lg">Every property on OPV meets the same verification standard regardless of designation. The difference is who manages the day-to-day experience.</p>
+          </motion.div>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+            <motion.div {...fu(0.1)} style={{ border: '1px solid var(--border)', padding: '2rem', background: '#FFFFFF' }}>
+              <span style={{ display: 'inline-block', background: 'var(--sapphire)', color: '#FFFFFF', fontFamily: 'var(--mono)', fontSize: '0.6rem', letterSpacing: '0.14em', textTransform: 'uppercase', padding: '0.25rem 0.6rem', marginBottom: '1rem' }}>OPV Managed</span>
+              <h3 style={{ fontFamily: 'var(--display)', fontSize: '1.4rem', fontWeight: 400, color: 'var(--ink)', marginBottom: '0.8rem' }}>Fully managed.</h3>
+              <p className="body-sm">Our team operates the property directly — arrivals, housekeeping, concierge and maintenance. Your named guardian handles everything end-to-end.</p>
+            </motion.div>
+            <motion.div {...fu(0.15)} style={{ border: '1px solid var(--border)', padding: '2rem', background: '#EAF4FB' }}>
+              <span style={{ display: 'inline-block', border: '1px solid var(--sapphire)', color: 'var(--sapphire)', fontFamily: 'var(--mono)', fontSize: '0.6rem', letterSpacing: '0.14em', textTransform: 'uppercase', padding: '0.25rem 0.6rem', marginBottom: '1rem' }}>Partner Hosted</span>
+              <h3 style={{ fontFamily: 'var(--display)', fontSize: '1.4rem', fontWeight: 400, color: 'var(--ink)', marginBottom: '0.8rem' }}>Owner-operated.</h3>
+              <p className="body-sm">The owner manages the day-to-day, but we have physically audited the property and verified ownership, legal title and guest experience standards.</p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Verification strip */}
+      <section style={{ background: '#EAF4FB', padding: '5rem 0', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
+        <div style={{ maxWidth: 1360, margin: '0 auto', padding: '0 2.5rem' }}>
+          <motion.div {...fu()} style={{ marginBottom: '3rem' }}>
+            <span className="eyebrow">The OPV standard</span>
+            <h2 style={{ fontFamily: 'var(--display)', fontSize: 'clamp(1.8rem,3vw,3rem)', fontWeight: 300, color: 'var(--ink)' }}>
+              200-point verification.<br /><em style={{ fontStyle: 'italic', color: 'var(--sapphire)' }}>Every time.</em>
+            </h2>
+          </motion.div>
+          <div style={{ display: 'flex', gap: '0', overflowX: 'auto', paddingBottom: '1rem' }}>
+            {[
+              { title: 'Property Inspection', body: 'An OPV guardian visits in person. Condition, fixtures, access and presentation are assessed against our criteria.' },
+              { title: 'Owner Verification', body: 'Identity documents, proof of ownership and regulatory compliance are checked before the listing goes live.' },
+              { title: 'Legal Title Check', body: 'We verify the property is free of encumbrances, short-let compliant and properly insured for guest stays.' },
+              { title: 'Photography Audit', body: 'Our team reviews imagery for accuracy — no render shots, no wide-angle distortion, no misrepresentation.' },
+              { title: 'Concierge Walkthrough', body: 'A final end-to-end guest journey rehearsal. If anything falls short, the listing does not go live.' },
+            ].map((step, i) => (
+              <motion.div
+                key={step.title}
+                {...fu(i * 0.08)}
+                style={{ minWidth: 240, maxWidth: 280, paddingLeft: '1.5rem', borderLeft: '2px solid var(--sapphire)', marginRight: '3rem', flexShrink: 0 }}
+              >
+                <h4 style={{ fontFamily: 'var(--display)', fontSize: '1.3rem', fontWeight: 400, color: 'var(--ink)', marginBottom: '0.7rem' }}>{step.title}</h4>
+                <p className="body-sm">{step.body}</p>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-white py-28">
-        <div className="mx-auto grid max-w-[1360px] gap-12 px-6 md:grid-cols-[0.85fr_1.15fr] md:px-10">
-          <div><Eyebrow className="mb-5">OPV Standard</Eyebrow><Heading>Two designations. <em className="italic text-[#1B6CA8]">One threshold.</em></Heading></div>
-          <div className="grid gap-6 md:grid-cols-2">
-            {[["OPV Managed", "Residences directly managed by the OPV team, with arrival, housekeeping, concierge, and guest standards controlled end to end."], ["Partner Hosted", "Owner-operated properties physically audited by OPV, with access, safety, photography, and hospitality standards verified before listing."]].map(([title, copy]) => (
-              <div key={title} className="border border-[#C8DFF0] bg-white p-8"><span className="border border-[#1B6CA8] px-3 py-2 font-['DM_Mono'] text-[0.62rem] uppercase tracking-[0.18em] text-[#1B6CA8]">{title}</span><h3 className="mt-8 font-['Cormorant_Garamond'] text-4xl text-[#1A2733]">{title}</h3><p className="mt-4 font-light text-[#556574]">{copy}</p></div>
+      {/* 7. Destinations grid */}
+      <section style={{ background: '#FFFFFF', padding: '7rem 0' }}>
+        <div style={{ maxWidth: 1360, margin: '0 auto', padding: '0 2.5rem' }}>
+          <motion.div {...fu()} style={{ marginBottom: '3rem' }}>
+            <span className="eyebrow">Where we operate</span>
+            <h2 style={{ fontFamily: 'var(--display)', fontSize: 'clamp(2rem,3.5vw,3.4rem)', fontWeight: 300, color: 'var(--ink)' }}>
+              Six destinations.<br /><em style={{ fontStyle: 'italic', color: 'var(--sapphire)' }}>One standard.</em>
+            </h2>
+          </motion.div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem' }}>
+            {destinations.map((d, i) => (
+              <motion.div
+                key={d.city}
+                {...fu(i * 0.07)}
+                style={{ position: 'relative', aspectRatio: '3/4', overflow: 'hidden', cursor: 'pointer' }}
+                onClick={() => setActiveCity(d.city)}
+              >
+                <Image src={d.img} alt={d.city} fill style={{ objectFit: 'cover', transition: 'transform 0.6s ease' }} />
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(26,39,51,0.65) 0%, transparent 55%)' }} />
+                <div style={{ position: 'absolute', bottom: '1.8rem', left: '1.8rem' }}>
+                  <p style={{ fontFamily: 'var(--display)', fontSize: '2rem', fontWeight: 300, color: '#FFFFFF', lineHeight: 1.1, marginBottom: '0.2rem' }}>{d.city}</p>
+                  <span style={{ fontFamily: 'var(--mono)', fontSize: '0.62rem', letterSpacing: '0.16em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.65)' }}>{d.country}</span>
+                </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-[#EAF4FB] py-28">
-        <div className="mx-auto max-w-[1360px] px-6 md:px-10">
-          <div className="flex gap-6 overflow-x-auto pb-4">
-            {verificationSteps.map((title) => <div key={title} className="min-w-[280px] border-l-2 border-[#1B6CA8] pl-6"><h3 className="font-['Cormorant_Garamond'] text-3xl font-semibold text-[#1A2733]">{title}</h3><p className="mt-4 text-sm font-light leading-6 text-[#556574]">Every checkpoint is recorded before a residence is presented, from access and ownership to imagery, amenities, and arrival flow.</p></div>)}
-          </div>
+      {/* 8. Off-market teaser */}
+      <section style={{ background: '#EAF4FB', padding: '7rem 0', borderTop: '1px solid var(--border)' }}>
+        <div style={{ maxWidth: 1360, margin: '0 auto', padding: '0 2.5rem', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', alignItems: 'center' }}>
+          <motion.div {...fu()} style={{ position: 'relative', aspectRatio: '3/4', overflow: 'hidden' }}>
+            <Image src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=85" alt="Off-market property" fill style={{ objectFit: 'cover' }} />
+          </motion.div>
+          <motion.div {...fu(0.1)}>
+            <span className="eyebrow">Off-Market</span>
+            <h2 style={{ fontFamily: 'var(--display)', fontSize: 'clamp(2rem,3.5vw,3.4rem)', fontWeight: 300, lineHeight: 1.12, color: 'var(--ink)', marginBottom: '1.5rem' }}>
+              Not every property<br /><em style={{ fontStyle: 'italic', color: 'var(--sapphire)' }}>is listed.</em>
+            </h2>
+            <p className="body-lg" style={{ marginBottom: '1.2rem' }}>
+              The most exclusive properties in our portfolio are never advertised publicly. They are presented privately to clients who have established a relationship with OPV.
+            </p>
+            <p className="body-md" style={{ marginBottom: '2rem' }}>
+              These include family estates, private islands and properties whose owners prefer absolute discretion. A property guardian can share availability on request.
+            </p>
+            <Link href="/contact" className="btn-primary">
+              Speak to a property guardian →
+            </Link>
+          </motion.div>
         </div>
       </section>
 
-      <section className="bg-white py-28">
-        <div className="mx-auto max-w-[1360px] px-6 md:px-10">
-          <Eyebrow className="mb-5">Destinations</Eyebrow><Heading className="mb-12">Residences by <em className="italic text-[#1B6CA8]">request.</em></Heading>
-          <div className="grid gap-8 md:grid-cols-3">{destinations.map(([city, country, image]) => <div key={city} className="relative aspect-[3/4] overflow-hidden"><img src={image} alt={city} className="h-full w-full object-cover transition-transform duration-700 hover:scale-105" /><div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent" /><div className="absolute bottom-6 left-6"><h3 className="font-['Cormorant_Garamond'] text-5xl text-white">{city}</h3><p className="mt-2 font-['DM_Mono'] text-[0.68rem] uppercase tracking-[0.22em] text-white/70">{country}</p></div></div>)}</div>
+      {/* 9. Enquiry form */}
+      <section style={{ background: '#FFFFFF', padding: '7rem 0', borderTop: '1px solid var(--border)' }}>
+        <div style={{ maxWidth: 1360, margin: '0 auto', padding: '0 2.5rem', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6rem', alignItems: 'start' }}>
+          <motion.div {...fu()}>
+            <span className="eyebrow">Enquire now</span>
+            <h2 style={{ fontFamily: 'var(--display)', fontSize: 'clamp(2rem,3.5vw,3.4rem)', fontWeight: 300, lineHeight: 1.12, color: 'var(--ink)', marginBottom: '1.5rem' }}>
+              Tell us the<br /><em style={{ fontStyle: 'italic', color: 'var(--sapphire)' }}>dates.</em>
+            </h2>
+            <p className="body-lg" style={{ marginBottom: '2rem' }}>
+              Share your requirements and a property guardian will respond within two hours with a curated shortlist matched to your brief.
+            </p>
+            {[
+              'Off-market properties presented on request',
+              'Named guardian assigned from first enquiry',
+              'Single invoice covering property and services',
+            ].map(b => (
+              <div key={b} style={{ display: 'flex', gap: '0.8rem', alignItems: 'flex-start', marginBottom: '1rem' }}>
+                <span style={{ color: 'var(--sapphire)', fontWeight: 500, flexShrink: 0, marginTop: '0.1rem' }}>✓</span>
+                <p className="body-sm" style={{ color: 'var(--ink-mid)' }}>{b}</p>
+              </div>
+            ))}
+          </motion.div>
+          <motion.div {...fu(0.1)}>
+            <EnquiryForm page="stays" cta="Send your brief →" />
+          </motion.div>
         </div>
       </section>
-
-      <section className="bg-[#EAF4FB] py-28">
-        <div className="mx-auto grid max-w-[1360px] gap-12 px-6 md:grid-cols-2 md:px-10">
-          <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1200&q=80" alt="Editorial private residence" className="h-[720px] w-full object-cover" />
-          <div className="flex flex-col justify-center"><Eyebrow className="mb-5">Off-Market</Eyebrow><Heading>Not every property <em className="italic text-[#1B6CA8]">is listed.</em></Heading><p className="mt-8 font-light leading-8 text-[#556574]">The most guarded residences rarely appear in public search. They are shared quietly, after the brief is understood and the guest profile is approved.</p><p className="mt-5 font-light leading-8 text-[#556574]">OPV property guardians can source private villas, serviced estates, and temporary city residences through a discreet owner network.</p><a href="#enquiry" className="mt-8 w-fit border border-[#1B6CA8] bg-[#1B6CA8] px-7 py-4 font-['DM_Mono'] text-[0.68rem] uppercase tracking-[0.22em] text-white">Speak to a property guardian →</a></div>
-        </div>
-      </section>
-
-      <section id="enquiry" className="bg-white py-28">
-        <div className="mx-auto grid max-w-[1360px] gap-12 px-6 md:grid-cols-2 md:px-10">
-          <div><Eyebrow className="mb-5">Enquiry</Eyebrow><Heading>Tell us the <em className="italic text-[#1B6CA8]">dates.</em></Heading><p className="mt-8 max-w-xl font-light leading-8 text-[#556574]">Share the destination, timing, guest profile, and any non-negotiables. The concierge team will respond with suitable residences or private options.</p><div className="mt-10 space-y-5">{["Verified before presentation", "Private options available", "Concierge support from brief to arrival"].map((benefit) => <div key={benefit} className="flex items-center gap-4"><span className="font-['DM_Mono'] text-[#1B6CA8]">✓</span><span className="font-light">{benefit}</span></div>)}</div></div>
-          <form onSubmit={handleSubmit} className="grid gap-4 border border-[#C8DFF0] bg-white p-6 md:p-8">
-            <input required name="name" placeholder="Full name" className="border border-[#C8DFF0] px-4 py-4 font-light text-[#1A2733] outline-none focus:border-[#1B6CA8]" />
-            <input required name="email" type="email" placeholder="Email" className="border border-[#C8DFF0] px-4 py-4 font-light text-[#1A2733] outline-none focus:border-[#1B6CA8]" />
-            <select name="destination" className="border border-[#C8DFF0] px-4 py-4 font-light text-[#1A2733] outline-none focus:border-[#1B6CA8]">{["Manchester", "London", "Leeds", "Cheshire", "Edinburgh", "International"].map((item) => <option key={item}>{item}</option>)}</select>
-            <div className="grid gap-4 md:grid-cols-2"><input name="checkIn" type="date" className="border border-[#C8DFF0] px-4 py-4 font-light text-[#1A2733] outline-none focus:border-[#1B6CA8]" /><input name="checkOut" type="date" className="border border-[#C8DFF0] px-4 py-4 font-light text-[#1A2733] outline-none focus:border-[#1B6CA8]" /></div>
-            <div className="grid gap-4 md:grid-cols-2"><input name="guests" type="number" min="1" placeholder="Guests" className="border border-[#C8DFF0] px-4 py-4 font-light text-[#1A2733] outline-none focus:border-[#1B6CA8]" /><select name="propertyType" className="border border-[#C8DFF0] px-4 py-4 font-light text-[#1A2733] outline-none focus:border-[#1B6CA8]">{["Penthouse", "Villa", "Estate", "Townhouse", "Apartment"].map((item) => <option key={item}>{item}</option>)}</select></div>
-            <textarea name="requirements" placeholder="Special requirements" rows={5} className="border border-[#C8DFF0] px-4 py-4 font-light text-[#1A2733] outline-none focus:border-[#1B6CA8]" />
-            <button disabled={submitting} className="border border-[#1B6CA8] bg-[#1B6CA8] py-4 font-['DM_Mono'] text-[0.68rem] uppercase tracking-[0.22em] text-white disabled:opacity-70">{submitting ? "Sending..." : sent ? "Brief sent" : "Send your brief →"}</button>
-          </form>
-        </div>
-      </section>
-    </div>
-  );
+    </>
+  )
 }
