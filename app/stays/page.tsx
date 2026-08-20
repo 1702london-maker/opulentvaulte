@@ -53,7 +53,7 @@ export default function StaysPage() {
       {/* 1. Hero */}
       <section style={{ position: 'relative', height: '85vh', overflow: 'hidden', background: '#EAF4FB' }}>
         <Image
-          src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1600&q=90"
+          src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?w=1600&q=90"
           alt="OPV Private Residences"
           fill
           style={{ objectFit: 'cover' }}

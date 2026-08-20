@@ -1,85 +1,96 @@
-'use client'
-
 import Image from 'next/image'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
+import NewsletterForm from '@/components/NewsletterForm'
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] } },
-}
+const tickerItems = ['Stays', 'Drive', 'Eat', 'Fly', 'Yacht', 'Security', 'Shop', 'Private Access', 'Stays', 'Drive', 'Eat', 'Fly', 'Yacht', 'Security', 'Shop', 'Private Access']
 
-const stagger = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.12 } },
-}
+const worlds = [
+  { title: 'Stays', href: '/stays', body: 'Private apartments, townhouses and estates across Manchester, London and Leeds.', icon: 'home' },
+  { title: 'Drive', href: '/drive', body: 'Chauffeured, self-drive and secure transport arranged across the UK.', icon: 'car' },
+  { title: 'Eat', href: '/eat', body: 'Private chefs, last-minute tables and hosted dining for quiet occasions.', icon: 'eat' },
+  { title: 'Fly', href: '/fly', body: 'Aircraft, empty legs and airport movement handled from first call.', icon: 'fly' },
+  { title: 'Yacht', href: '/yacht', body: 'Charters and waterside itineraries coordinated with one named concierge.', icon: 'yacht' },
+  { title: 'Security', href: '/security', body: 'Close protection, route planning and principal movement for sensitive travel.', icon: 'shield' },
+  { title: 'Shop', href: '/shop', body: 'Hard-to-source pieces, gifting and personal shopping managed discreetly.', icon: 'shop' },
+  { title: 'Always On', href: '/contact', body: 'A single contact who keeps the brief moving until everything is arranged.', icon: 'phone', always: true },
+]
 
-const services = [
-  { label: 'Stays',     href: '/stays',    img: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&q=80' },
-  { label: 'Drive',     href: '/drive',    img: 'https://images.unsplash.com/photo-1555215695-3004980ad54e?w=600&q=80' },
-  { label: 'Eat',       href: '/eat',      img: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80' },
-  { label: 'Fly',       href: '/fly',      img: 'https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=600&q=80' },
-  { label: 'Yacht',     href: '/yacht',    img: 'https://images.unsplash.com/photo-1563941406054-949f567f84bd?w=600&q=80' },
-  { label: 'Security',  href: '/security', img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80' },
-  { label: 'Shop',      href: '/shop',     img: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&q=80' },
-  { label: 'Always On', href: '/contact',  img: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&q=80' },
+const cities = [
+  { city: 'Manchester', img: 'https://images.unsplash.com/photo-1520986606214-8b456906c813?w=800&q=85' },
+  { city: 'London', img: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&q=85' },
+  { city: 'Leeds', img: 'https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=800&q=85' },
+]
+
+const stats = [
+  ['500+', 'Curated properties'],
+  ['3', 'Active UK cities'],
+  ['200', 'Point verification'],
+  ['24/7', 'Concierge access'],
+]
+
+const process = [
+  ['Tell us.', 'Send the brief once: dates, people, preferences, non-negotiables and timing.'],
+  ['We build it.', 'OPV coordinates the residence, car, table, flight, security and suppliers behind one plan.'],
+  ['You arrive.', 'Everything is confirmed before you move. One itinerary, one contact, one invoice.'],
 ]
 
 const testimonials = [
-  { quote: 'Three days in Manchester. Car, table, suite. Everything arrived exactly as briefed. Not once did I need to chase.', name: 'J. Hargreaves', role: 'Private Client' },
-  { quote: 'The flight was arranged in under four hours. Nothing was missed. That is what this service is.', name: 'M. Osei', role: 'Corporate Client' },
-  { quote: 'Seven people, four days in London. Every detail was handled before I even thought of it.', name: 'S. Al-Rashidi', role: 'Private Client' },
+  ['Three days in Manchester. The residence, driver and chef all landed exactly as promised.', 'J. Hargreaves'],
+  ['The brief changed twice and nothing slipped. That is why OPV has our account.', 'M. Osei'],
+  ['London in forty-eight hours, handled without noise. Proper private service.', 'S. Al-Rashidi'],
 ]
 
-const tickerItems = ['Stays', 'Drive', 'Eat', 'Fly', 'Yacht', 'Security', 'Shop', 'Stays', 'Drive', 'Eat', 'Fly', 'Yacht', 'Security', 'Shop']
+const benefits = [
+  'Named concierge from first enquiry',
+  'Private residences verified before listing',
+  'UK-first service across Manchester, London and Leeds',
+  'Single plan covering stays, cars, dining, travel and protection',
+]
 
 export default function HomePage() {
   return (
     <>
-      {/* Hero */}
-      <section style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', background: '#FFFFFF', paddingTop: 72 }}>
-        <div style={{ maxWidth: 1360, margin: '0 auto', padding: '0 2.5rem', width: '100%' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', alignItems: 'center', padding: '6rem 0' }}>
-            <motion.div variants={stagger} initial="hidden" animate="show">
-              <motion.span className="eyebrow" variants={fadeUp}>Manchester &middot; London &middot; Leeds</motion.span>
-              <motion.h1 className="display-xl" variants={fadeUp} style={{ marginBottom: '2rem' }}>
-                Every detail.<br />One contact.<br /><em>Perfectly arranged.</em>
-              </motion.h1>
-              <motion.p className="body-lg" variants={fadeUp} style={{ marginBottom: '2.5rem', maxWidth: 440 }}>
-                OPV is a private concierge service that arranges stays, cars, dining, aviation, yacht charter and close protection on a single invoice.
-              </motion.p>
-              <motion.div variants={fadeUp} style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-                <Link href="/contact" className="btn-primary">Tell us what you need</Link>
-                <Link href="/stays" className="btn-ghost">Explore stays</Link>
-              </motion.div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.9, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-              style={{ position: 'relative', aspectRatio: '4 / 5', overflow: 'hidden' }}
-            >
-              <Image
-                src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=900&q=85"
-                alt="OPV private residence"
-                fill
-                style={{ objectFit: 'cover' }}
-                priority
-              />
-              <div style={{ position: 'absolute', bottom: '2rem', left: '2rem', background: 'rgba(255,255,255,0.96)', padding: '1.2rem 1.6rem', backdropFilter: 'blur(8px)' }}>
-                <span className="eyebrow" style={{ marginBottom: '0.2rem' }}>24 / 7</span>
-                <p className="body-sm">One number. Always answered.</p>
-              </div>
-            </motion.div>
+      <section className="home-hero">
+        <div className="home-hero-copy">
+          <div>
+            <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '2rem' }}>
+              {['Manchester', 'London', 'Leeds'].map(city => (
+                <span key={city} className="home-pill">{city}</span>
+              ))}
+            </div>
+            <h1 className="display-xl" style={{ marginBottom: '1.5rem', maxWidth: 640 }}>
+              One call.<br />One world.<br /><em>Everything.</em>
+            </h1>
+            <p className="body-lg" style={{ maxWidth: 480, marginBottom: '2rem' }}>
+              OPV is a private concierge platform for residences, cars, dining, aviation, yacht charter, security and sourcing, arranged through one trusted contact.
+            </p>
+            <div style={{ display: 'flex', gap: '0.8rem', flexWrap: 'wrap' }}>
+              <Link href="/contact" className="btn-primary">Request access</Link>
+              <Link href="/stays" className="btn-ghost">Explore stays</Link>
+            </div>
           </div>
+          <div className="home-trust-strip">
+            <span>Private access</span>
+            <span>Verified supply</span>
+            <span>Single invoice</span>
+          </div>
+        </div>
+        <div className="home-hero-image">
+          <Image
+            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1400&q=90"
+            alt="Luxury private residence"
+            fill
+            style={{ objectFit: 'cover' }}
+            priority
+          />
+          <div className="home-hero-caption">Manchester, England</div>
         </div>
       </section>
 
-      {/* Ticker */}
       <div className="ticker-outer">
         <div className="ticker-track">
           {tickerItems.map((item, i) => (
-            <span key={i} className="ticker-item">
+            <span key={`${item}-${i}`} className="ticker-item">
               {item}
               <span className="ticker-dot" />
             </span>
@@ -87,170 +98,162 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Services grid */}
-      <section className="section" style={{ background: '#EAF4FB' }}>
-        <div style={{ maxWidth: 1360, margin: '0 auto', padding: '0 2.5rem' }}>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.6 }}
-            style={{ marginBottom: '3rem' }}
-          >
-            <span className="eyebrow">Eight worlds. One number.</span>
-            <h2 className="display-lg">Everything you need,<br /><em>arranged for you.</em></h2>
-          </motion.div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1px', background: '#C8DFF0' }}>
-            {services.map((s, i) => (
-              <motion.div
-                key={s.href}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.07 }}
-              >
-                <Link href={s.href} className="service-tile" style={{ display: 'block', aspectRatio: '1/1' }}>
-                  <Image src={s.img} alt={s.label} width={400} height={400} style={{ objectFit: 'cover', width: '100%', height: '100%' }} />
-                  <div className="service-tile-overlay">
-                    <span className="eyebrow" style={{ color: 'white', marginBottom: 0 }}>{s.label}</span>
-                  </div>
-                </Link>
-              </motion.div>
+      <section className="section" style={{ background: '#FFFFFF' }}>
+        <div className="container">
+          <span className="eyebrow">Eight worlds</span>
+          <h2 className="display-lg" style={{ maxWidth: 760, marginBottom: '3rem' }}>
+            One private layer for<br /><em>everything you need.</em>
+          </h2>
+          <div className="home-worlds-grid">
+            {worlds.map(world => (
+              <Link key={world.title} href={world.href} className={`home-world-tile${world.always ? ' always' : ''}`}>
+                <WorldIcon name={world.icon} />
+                <h3>{world.title}</h3>
+                <p>{world.body}</p>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Featured Residence */}
-      <section className="section" style={{ background: '#FFFFFF' }}>
-        <div style={{ maxWidth: 1360, margin: '0 auto', padding: '0 2.5rem' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', alignItems: 'center' }}>
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-80px' }}
-              transition={{ duration: 0.7 }}
-              style={{ position: 'relative', aspectRatio: '3 / 4', overflow: 'hidden' }}
-            >
-              <Image src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=85" alt="The Crescent Riverside" fill style={{ objectFit: 'cover' }} />
-              <div style={{ position: 'absolute', top: '1.5rem', left: '1.5rem' }}>
-                <span className="prop-badge">Featured Residence</span>
-              </div>
-            </motion.div>
-            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: '-80px' }} transition={{ duration: 0.7, delay: 0.1 }}>
-              <span className="eyebrow">Manchester, UK</span>
-              <h2 className="display-md" style={{ marginBottom: '1.5rem' }}>The Crescent Riverside<em>.</em></h2>
-              <p className="body-lg" style={{ marginBottom: '1.5rem' }}>Four bedrooms across 3,400 sq ft on the River Irwell. Private terrace, chef kitchen, dedicated concierge on arrival. Available from two nights.</p>
-              <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap', marginBottom: '2rem' }}>
-                {['4 Bed', '3,400 sq ft', 'River Irwell', 'Private Terrace'].map(tag => (
-                  <span key={tag} className="prop-badge">{tag}</span>
-                ))}
-              </div>
-              <Link href="/stays" className="btn-ghost">Enquire about this residence</Link>
-            </motion.div>
+      <section className="section" style={{ background: '#EAF4FB' }}>
+        <div className="container home-featured">
+          <div className="home-featured-image">
+            <Image src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1000&q=85" alt="The Crescent Riverside residence" fill style={{ objectFit: 'cover' }} />
+          </div>
+          <div>
+            <span className="eyebrow">Featured residence</span>
+            <h2 className="display-md" style={{ marginBottom: '1.3rem' }}>The Crescent Riverside<em>.</em></h2>
+            <p className="body-lg" style={{ marginBottom: '1.4rem' }}>
+              Four-bedroom riverside penthouse with private terrace, chef kitchen and a named OPV guardian on arrival.
+            </p>
+            <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '2rem' }}>
+              {['Manchester', '4 bedrooms', 'River view', 'Concierge'].map(tag => <span key={tag} className="prop-badge">{tag}</span>)}
+            </div>
+            <Link href="/stays" className="btn-ghost">View private stays</Link>
           </div>
         </div>
       </section>
 
-      {/* Pull Quote */}
-      <section style={{ background: '#EAF4FB', padding: '8rem 2.5rem', textAlign: 'center' }}>
-        <div style={{ maxWidth: 860, margin: '0 auto' }}>
-          <motion.p className="pull-quote" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.7 }}>
-            "We arrange the evening.<br />You simply <em style={{ color: '#1B6CA8' }}>enjoy it.</em>"
-          </motion.p>
+      <section className="home-quote">
+        <p className="pull-quote">"We arrange the evening.<br />You simply <em>enjoy it.</em>"</p>
+      </section>
+
+      <section className="section" style={{ background: '#FFFFFF' }}>
+        <div className="container">
+          <span className="eyebrow">Where we operate now</span>
+          <h2 className="display-md" style={{ marginBottom: '3rem' }}>Three cities.<br /><em>One standard.</em></h2>
+          <div className="home-city-grid">
+            {cities.map(city => (
+              <Link key={city.city} href="/stays" className="home-city-card">
+                <Image src={city.img} alt={city.city} fill style={{ objectFit: 'cover' }} />
+                <div />
+                <span>{city.city}</span>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Stat Strip */}
-      <section style={{ background: '#FFFFFF', borderTop: '1px solid #C8DFF0', borderBottom: '1px solid #C8DFF0' }}>
+      <section style={{ background: '#FFFFFF', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
         <div className="stat-strip">
-          {[
-            { num: '500+', label: 'Curated Properties' },
-            { num: '34',   label: 'Countries' },
-            { num: '200',  label: 'Point Verification' },
-            { num: '24/7', label: 'Concierge Access' },
-          ].map(s => (
-            <div key={s.label} className="stat-item">
-              <div className="stat-num">{s.num}</div>
-              <span className="label-sm">{s.label}</span>
+          {stats.map(([num, label]) => (
+            <div key={label} className="stat-item">
+              <div className="stat-num">{num}</div>
+              <span className="label-sm">{label}</span>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Process */}
-      <section className="section" style={{ background: '#FFFFFF' }}>
-        <div style={{ maxWidth: 1360, margin: '0 auto', padding: '0 2.5rem' }}>
-          <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} style={{ marginBottom: '4rem', maxWidth: 600 }}>
-            <span className="eyebrow">The process</span>
-            <h2 className="display-lg">Simple for you.<br /><em>Invisible to everyone else.</em></h2>
-          </motion.div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '4rem' }}>
-            {[
-              { title: 'Tell us.', body: 'Share your brief. Dates, preferences, guests, constraints. One message or a call. We take it from there.' },
-              { title: 'We build it.', body: 'Our team coordinates every supplier, every confirmation, every transfer. You see a single plan and a single invoice.' },
-              { title: 'You enjoy it.', body: 'The car is there. The table is held. The suite is ready. Nothing falls between the cracks because nothing is left to chance.' },
-            ].map((step, i) => (
-              <motion.div key={step.title} className="process-step" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.6, delay: i * 0.1 }}>
-                <h3 className="display-sm" style={{ marginBottom: '1rem' }}>{step.title}</h3>
-                <p className="body-md">{step.body}</p>
-              </motion.div>
+      <section className="section home-process-section">
+        <div className="container home-process">
+          <div>
+            <span className="eyebrow">Process</span>
+            <h2 className="display-md">Simple for you.<br /><em>Handled by us.</em></h2>
+          </div>
+          <div>
+            {process.map(([title, body], i) => (
+              <div key={title} className="home-process-row">
+                <span>{String(i + 1).padStart(2, '0')}</span>
+                <div>
+                  <h3>{title}</h3>
+                  <p>{body}</p>
+                </div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="section" style={{ background: '#EAF4FB' }}>
-        <div style={{ maxWidth: 1360, margin: '0 auto', padding: '0 2.5rem' }}>
+      <section className="section" style={{ background: '#FFFFFF' }}>
+        <div className="container">
           <span className="eyebrow">Client notes</span>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem', marginTop: '2rem' }}>
-            {testimonials.map((t, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.1 }} style={{ background: '#FFFFFF', border: '1px solid #C8DFF0', padding: '2.5rem' }}>
-                <p className="display-sm" style={{ fontStyle: 'italic', marginBottom: '2rem' }}>"{t.quote}"</p>
-                <div style={{ borderTop: '1px solid #C8DFF0', paddingTop: '1.2rem' }}>
-                  <p className="label-sm" style={{ color: '#1A2733', marginBottom: '0.2rem' }}>{t.name}</p>
-                  <p className="label-sm">{t.role}</p>
-                </div>
-              </motion.div>
+          <div className="home-testimonials">
+            {testimonials.map(([quote, name]) => (
+              <article key={name}>
+                <p>"{quote}"</p>
+                <span>{name}</span>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Access CTA */}
-      <section className="section" style={{ background: '#FFFFFF' }}>
-        <div style={{ maxWidth: 1360, margin: '0 auto', padding: '0 2.5rem' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', alignItems: 'center' }}>
-            <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
-              <span className="eyebrow">Curated access</span>
-              <h2 className="display-md" style={{ marginBottom: '1.5rem' }}>Not a booking engine.<br /><em>A service.</em></h2>
-              <p className="body-lg" style={{ marginBottom: '2rem' }}>OPV operates on referral and direct enquiry. There is no public catalogue. Your named concierge knows your preferences and handles everything before you ask.</p>
-              <Link href="/contact" className="btn-primary">Request access</Link>
-            </motion.div>
-            <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.1 }} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1px', background: '#C8DFF0' }}>
-              {['Stays', 'Drive', 'Fly', 'Eat'].map(s => (
-                <div key={s} style={{ background: '#EAF4FB', padding: '2.5rem', textAlign: 'center' }}>
-                  <span className="eyebrow" style={{ marginBottom: 0 }}>{s}</span>
-                </div>
-              ))}
-            </motion.div>
+      <section className="section" style={{ background: '#EAF4FB' }}>
+        <div className="container home-access">
+          <div>
+            <span className="eyebrow">Membership access</span>
+            <h2 className="display-md" style={{ marginBottom: '1.4rem' }}>Not public.<br /><em>Properly private.</em></h2>
+            <p className="body-lg">OPV works by request, referral and account. The best homes, drivers, chefs and aircraft are shared directly, not listed publicly.</p>
+          </div>
+          <div>
+            {benefits.map(benefit => (
+              <div key={benefit} className="home-benefit">
+                <CheckIcon />
+                <p>{benefit}</p>
+              </div>
+            ))}
+            <Link href="/contact" className="btn-primary" style={{ marginTop: '1.6rem' }}>Apply for access</Link>
           </div>
         </div>
       </section>
 
-      {/* Newsletter */}
-      <section className="section-sm" style={{ background: '#EAF4FB', borderTop: '1px solid #C8DFF0' }}>
-        <div style={{ maxWidth: 560, margin: '0 auto', textAlign: 'center', padding: '0 2.5rem' }}>
-          <span className="eyebrow">Stay informed</span>
-          <h3 className="display-sm" style={{ marginBottom: '0.8rem' }}>Seasonal access. <em>Nothing public.</em></h3>
-          <p className="body-sm" style={{ marginBottom: '2rem' }}>Off-market properties, empty legs and private dining slots. Only for those already here.</p>
-          <form style={{ display: 'flex', border: '1px solid #C8DFF0' }} onSubmit={e => e.preventDefault()}>
-            <input type="email" placeholder="Your email" className="opv-input" style={{ flex: 1, padding: '0.9rem 1.2rem', border: 'none', borderRight: '1px solid #C8DFF0' }} />
-            <button type="submit" className="btn-primary" style={{ whiteSpace: 'nowrap' }}>Join the list</button>
-          </form>
+      <section className="section-sm" style={{ background: '#FFFFFF', borderTop: '1px solid var(--border)' }}>
+        <div className="container" style={{ maxWidth: 640, textAlign: 'center' }}>
+          <span className="eyebrow">Private updates</span>
+          <h2 className="display-sm" style={{ marginBottom: '0.8rem' }}>Quiet access, sent occasionally.</h2>
+          <p className="body-sm" style={{ marginBottom: '2rem' }}>Off-market residences, private dining windows and transport availability in the cities we operate.</p>
+          <NewsletterForm />
         </div>
       </section>
     </>
+  )
+}
+
+function WorldIcon({ name }: { name: string }) {
+  const paths: Record<string, string> = {
+    home: 'M4 11.5 12 5l8 6.5V20H6v-8.5',
+    car: 'M5 16h14l-1.5-5h-11L5 16Zm1 0v3m12-3v3M7 11l1.5-4h7L17 11',
+    eat: 'M7 4v16m5-16v16m5-16v7a3 3 0 0 1-3 3',
+    fly: 'M3 12h18M12 3l4 9-4 9M12 3 8 12l4 9',
+    yacht: 'M4 17h16l-3 3H7l-3-3Zm4 0 4-12 4 12',
+    shield: 'M12 3 5 6v5c0 5 3 8 7 10 4-2 7-5 7-10V6l-7-3Z',
+    shop: 'M6 8h12l-1 12H7L6 8Zm2 0a4 4 0 0 1 8 0',
+    phone: 'M7 5h10v14H7V5Zm4 11h2',
+  }
+
+  return (
+    <svg className="home-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d={paths[name]} stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
+function CheckIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="m5 12 4 4L19 6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
   )
 }
