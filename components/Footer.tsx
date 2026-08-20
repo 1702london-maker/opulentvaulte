@@ -35,7 +35,7 @@ export default function Footer() {
             <p className="body-sm" style={{ maxWidth: 220 }}>
               Private concierge. Manchester, London, Leeds. One contact. One invoice.
             </p>
-            <p className="label-sm" style={{ marginTop: '1.5rem', color: 'var(--sapphire)' }}>booking@budruum.co.uk</p>
+            <p className="label-sm" style={{ marginTop: '1.5rem', color: 'var(--sapphire)' }}>hello@opulentvault.co.uk</p>
           </div>
 
           {/* Explore */}
