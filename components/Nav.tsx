@@ -69,8 +69,7 @@ export default function Nav() {
             </Link>
             <button
               onClick={() => setOpen(o => !o)}
-              className="lg:hidden"
-              style={{ display: 'flex', flexDirection: 'column', gap: '5px', padding: '4px' }}
+              className="nav-mobile-toggle"
               aria-label="Menu"
             >
               <span style={{ width: 22, height: 1.5, background: 'var(--ink)', display: 'block', transition: 'transform 0.3s', transform: open ? 'rotate(45deg) translate(5px,5px)' : 'none' }} />
@@ -89,12 +88,7 @@ export default function Nav() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.28 }}
-            style={{
-              position: 'fixed', top: 72, left: 0, right: 0,
-              background: 'var(--white)', borderBottom: '1px solid var(--border)',
-              zIndex: 850, padding: '2rem 2.5rem',
-              display: 'flex', flexDirection: 'column', gap: '1.4rem',
-            }}
+            className="nav-mobile-menu"
           >
             {links.map(l => (
               <Link key={l.href} href={l.href} className="footer-link" style={{ fontSize: '0.8rem' }}>

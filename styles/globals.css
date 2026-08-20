@@ -293,6 +293,27 @@ ul, ol { list-style: none; }
   width: 20px;
   height: 20px;
 }
+.nav-mobile-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 4px;
+}
+.nav-mobile-menu {
+  position: fixed;
+  top: 86px;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  max-width: 100vw;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  z-index: 850;
+  padding: 2rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
 
 /* ── Scroll progress ────────────────────────────────────── */
 .scroll-progress {
@@ -1777,6 +1798,7 @@ ul, ol { list-style: none; }
     min-height: 420px;
   }
   .nav-luxury-inner { grid-template-columns: 1fr auto; }
+  .nav-mobile-toggle { display: flex; }
 }
 
 @media (max-width: 680px) {
@@ -1829,6 +1851,11 @@ ul, ol { list-style: none; }
     gap: 0.45rem;
   }
   .nav-luxury-inner { padding: 0 1.25rem; }
+  .nav-mobile-menu {
+    top: 86px;
+    width: 100vw;
+    padding: 2rem 1.25rem;
+  }
   .home-world-tile {
     min-height: 220px;
     padding: 1.6rem;
