@@ -55,15 +55,20 @@ function CheckIcon() {
 export default function YachtPage() {
   return (
     <>
-      <section className="yacht-hero">
+      <section className="page-hero page-hero-clear-top yacht-page-hero">
         <Image src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=90" alt="Superyacht on open water" fill priority style={{ objectFit: 'cover' }} />
-        <div className="yacht-hero-overlay" />
-        <div className="yacht-hero-copy">
-          <span className="yacht-hero-kicker">Private Yacht Charter</span>
-          <h1>Open water. No schedule. <em>No compromise.</em></h1>
-          <p>Day charters from the Solent. Week voyages across the Aegean. Corporate charters from Monaco. We arrange the vessel, the crew, the provisions and the itinerary - you choose where the water takes you.</p>
-          <div className="yacht-hero-actions"><a href="#yachts" className="yacht-hero-btn">Browse yachts</a><a href="#enquiry" className="yacht-hero-btn yacht-hero-btn-ghost">Plan a charter</a></div>
-          <div className="yacht-trust-strip"><span>· Crewed charters only</span><span>· Full provisions included</span><span>· Worldwide availability</span></div>
+        <div className="page-hero-overlay page-hero-overlay-light" />
+        <div className="page-hero-inner">
+          <div className="page-hero-copy page-hero-copy-raised yacht-page-hero-copy">
+            <span className="eyebrow page-hero-kicker">Private Yacht Charter</span>
+            <h1 className="page-hero-title">Open water.<br /><em>No compromise.</em></h1>
+            <p className="page-hero-body">Day charters from the Solent. Week voyages across the Aegean. Corporate charters from Monaco. We arrange the vessel, crew, provisions and itinerary.</p>
+            <div className="page-hero-actions">
+              <a href="#yachts" className="btn-primary">Browse yachts</a>
+              <a href="#enquiry" className="btn-ghost-light">Plan a charter</a>
+            </div>
+            <div className="yacht-trust-strip"><span>· Crewed charters only</span><span>· Full provisions included</span><span>· Worldwide availability</span></div>
+          </div>
         </div>
       </section>
 
