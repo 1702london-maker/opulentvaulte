@@ -44,14 +44,8 @@ export default function StaysPage() {
 
   return (
     <>
-      {/* Breadcrumb */}
-      <div className="breadcrumb">
-        <Link href="/">OPV</Link><span className="sep">·</span>
-        <span style={{ color: 'var(--ink)' }}>Stays</span>
-      </div>
-
       {/* 1. Hero */}
-      <section style={{ position: 'relative', height: '85vh', overflow: 'hidden', background: '#EAF4FB' }}>
+      <section className="page-hero">
         <Image
           src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?w=1600&q=90"
           alt="OPV Private Residences"
@@ -59,21 +53,19 @@ export default function StaysPage() {
           style={{ objectFit: 'cover' }}
           priority
         />
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(26,39,51,0.72) 0%, rgba(26,39,51,0.3) 35%, transparent 55%)' }} />
-        <div style={{ position: 'absolute', bottom: '4.5rem', left: 0, right: 0, maxWidth: 1360, margin: '0 auto', padding: '0 2.5rem' }}>
-          <motion.div {...fu()}>
-            <span className="eyebrow" style={{ color: 'rgba(255,255,255,0.65)' }}>Private Residences</span>
-            <h1 style={{ fontFamily: 'var(--display)', fontSize: 'clamp(2.8rem,5.5vw,5.5rem)', fontWeight: 300, lineHeight: 1.06, letterSpacing: '-0.02em', color: '#FFFFFF', marginBottom: '1.4rem', maxWidth: 640 }}>
+        <div className="page-hero-overlay" />
+        <div className="page-hero-inner">
+          <motion.div {...fu()} className="page-hero-copy">
+            <span className="eyebrow page-hero-kicker">Stays</span>
+            <h1 className="page-hero-title">
               The property you<br /><em style={{ fontStyle: 'italic', color: '#D4EAF6' }}>couldn&apos;t find.</em>
             </h1>
-            <p style={{ fontSize: '1rem', lineHeight: 1.7, color: 'rgba(255,255,255,0.8)', fontWeight: 300, marginBottom: '2rem', maxWidth: 420 }}>
+            <p className="page-hero-body">
               Curated private residences across the UK. Every property verified by an OPV property guardian before it appears here.
             </p>
-            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+            <div className="page-hero-actions">
               <a href="#properties" className="btn-primary">Browse all stays</a>
-              <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.6rem', padding: '0.9rem 2rem', background: 'transparent', color: '#FFFFFF', border: '1px solid rgba(255,255,255,0.6)', fontFamily: 'var(--mono)', fontSize: '0.72rem', fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase' }}>
-                Send your brief
-              </Link>
+              <Link href="/contact" className="btn-ghost-light">Send your brief</Link>
             </div>
           </motion.div>
         </div>

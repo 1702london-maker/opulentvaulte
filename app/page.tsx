@@ -50,40 +50,29 @@ const benefits = [
 export default function HomePage() {
   return (
     <>
-      <section className="home-hero">
-        <div className="home-hero-copy">
-          <div>
-            <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '2rem' }}>
-              {['Manchester', 'London', 'Leeds'].map(city => (
-                <span key={city} className="home-pill">{city}</span>
-              ))}
-            </div>
-            <h1 className="display-xl" style={{ marginBottom: '1.5rem', maxWidth: 640 }}>
+      <section className="page-hero home-hero">
+        <Image
+          src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1400&q=90"
+          alt="Luxury private residence"
+          fill
+          style={{ objectFit: 'cover' }}
+          priority
+        />
+        <div className="page-hero-overlay" />
+        <div className="page-hero-inner">
+          <div className="page-hero-copy">
+            <span className="eyebrow page-hero-kicker">Stays  Drive  Eat  Fly  Yacht  Security  Shop</span>
+            <h1 className="page-hero-title">
               One call.<br />One world.<br /><em>Everything.</em>
             </h1>
-            <p className="body-lg" style={{ maxWidth: 480, marginBottom: '2rem' }}>
+            <p className="page-hero-body">
               OPV is a private concierge platform for residences, cars, dining, aviation, yacht charter, security and sourcing, arranged through one trusted contact.
             </p>
-            <div style={{ display: 'flex', gap: '0.8rem', flexWrap: 'wrap' }}>
+            <div className="page-hero-actions">
               <Link href="/contact" className="btn-primary">Request access</Link>
-              <Link href="/stays" className="btn-ghost">Explore stays</Link>
+              <Link href="/stays" className="btn-ghost-light">Explore stays</Link>
             </div>
           </div>
-          <div className="home-trust-strip">
-            <span>Private access</span>
-            <span>Verified supply</span>
-            <span>Single invoice</span>
-          </div>
-        </div>
-        <div className="home-hero-image">
-          <Image
-            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1400&q=90"
-            alt="Luxury private residence"
-            fill
-            style={{ objectFit: 'cover' }}
-            priority
-          />
-          <div className="home-hero-caption">Manchester, England</div>
         </div>
       </section>
 

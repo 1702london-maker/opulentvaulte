@@ -99,28 +99,21 @@ export default function DrivePage() {
 
   return (
     <>
-      <div className="breadcrumb">
-        <Link href="/">OPV</Link><span className="sep">·</span>
-        <span style={{ color: 'var(--ink)' }}>Drive</span>
-      </div>
-
-      <section style={{ position: 'relative', height: '85vh', overflow: 'hidden', background: '#EAF4FB' }}>
+      <section className="page-hero page-hero-clear-top">
         <Image src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=1800&q=90" alt="Luxury chauffeur cabin" fill style={{ objectFit: 'cover' }} priority />
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(26,39,51,0.66) 0%, rgba(26,39,51,0.32) 34%, rgba(26,39,51,0.06) 68%), linear-gradient(to top, rgba(26,39,51,0.46) 0%, transparent 44%)' }} />
-        <div style={{ position: 'absolute', inset: 0, maxWidth: 1360, margin: '0 auto', padding: '7.5rem 2.5rem 3.2rem', display: 'flex', alignItems: 'stretch' }}>
-          <motion.div {...fadeUp()} style={{ minHeight: '100%', maxWidth: 500, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-            <div>
-            <span className="eyebrow" style={{ color: 'rgba(255,255,255,0.7)' }}>Chauffeured &amp; Self-Drive</span>
-            <h1 style={{ fontFamily: 'var(--display)', fontSize: 'clamp(2rem,3.6vw,3.5rem)', fontWeight: 300, lineHeight: 1.04, letterSpacing: '-0.015em', color: '#FFFFFF', marginBottom: '0.9rem', maxWidth: 440 }}>
+        <div className="page-hero-overlay page-hero-overlay-light" />
+        <div className="page-hero-inner">
+          <motion.div {...fadeUp()} className="page-hero-copy page-hero-copy-raised">
+            <span className="eyebrow page-hero-kicker">Drive</span>
+            <h1 className="page-hero-title">
               The road. Your rules.<br /><em style={{ fontStyle: 'italic', color: '#D4EAF6' }}>Your car.</em>
             </h1>
-            <p style={{ fontSize: '0.84rem', lineHeight: 1.65, color: 'rgba(255,255,255,0.82)', fontWeight: 300, maxWidth: 350 }}>
+            <p className="page-hero-body">
               Chauffeured, self-driven or armoured. Delivered to your door, hotel steps or aircraft.
             </p>
-            </div>
-            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-              <a href="#fleet" className="btn-primary" style={{ padding: '0.7rem 1.35rem', fontSize: '0.58rem' }}>Browse the fleet</a>
-              <a href="#booking" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem', padding: '0.7rem 1.35rem', background: 'transparent', color: '#FFFFFF', border: '1px solid rgba(255,255,255,0.65)', fontFamily: 'var(--mono)', fontSize: '0.58rem', fontWeight: 500, letterSpacing: '0.16em', textTransform: 'uppercase' }}>Book a chauffeur</a>
+            <div className="page-hero-actions">
+              <a href="#fleet" className="btn-primary">Browse the fleet</a>
+              <a href="#booking" className="btn-ghost-light">Book a chauffeur</a>
             </div>
           </motion.div>
         </div>
