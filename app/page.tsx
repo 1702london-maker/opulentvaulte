@@ -1,18 +1,21 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
 import NewsletterForm from '@/components/NewsletterForm'
+import { motion } from 'framer-motion'
 
 const tickerItems = ['Stays', 'Drive', 'Eat', 'Fly', 'Yacht', 'Security', 'Shop', 'Private Access', 'Stays', 'Drive', 'Eat', 'Fly', 'Yacht', 'Security', 'Shop', 'Private Access']
 
 const worlds = [
-  { title: 'Stays', href: '/stays', body: 'Private apartments, townhouses and estates across Manchester, London and Leeds.', icon: 'home' },
-  { title: 'Drive', href: '/drive', body: 'Chauffeured, self-drive and secure transport arranged across the UK.', icon: 'car' },
-  { title: 'Eat', href: '/eat', body: 'Private chefs, last-minute tables and hosted dining for quiet occasions.', icon: 'eat' },
-  { title: 'Fly', href: '/fly', body: 'Aircraft, empty legs and airport movement handled from first call.', icon: 'fly' },
-  { title: 'Yacht', href: '/yacht', body: 'Charters and waterside itineraries coordinated with one named concierge.', icon: 'yacht' },
-  { title: 'Security', href: '/security', body: 'Close protection, route planning and principal movement for sensitive travel.', icon: 'shield' },
-  { title: 'Shop', href: '/shop', body: 'Hard-to-source pieces, gifting and personal shopping managed discreetly.', icon: 'shop' },
-  { title: 'Always On', href: '/contact', body: 'A single contact who keeps the brief moving until everything is arranged.', icon: 'phone', always: true },
+  { title: 'Stays', href: '/stays', body: 'Residences inspected by a guardian before they are ever offered to a client.', mark: 'Residence' },
+  { title: 'Drive', href: '/drive', body: 'Chauffeured, self-drive and secure transport held to principal-level standards.', mark: 'Movement' },
+  { title: 'Eat', href: '/eat', body: 'Private rooms, chef tables and impossible reservations arranged through standing access.', mark: 'Tables' },
+  { title: 'Fly', href: '/fly', body: 'Aircraft, empty legs, FBO movement and arrival coordination handled end to end.', mark: 'Aviation' },
+  { title: 'Yacht', href: '/yacht', body: 'Crewed charters and waterside itineraries prepared without public catalogues.', mark: 'Charter' },
+  { title: 'Security', href: '/security', body: 'Close protection, route planning and discreet presence for sensitive travel.', mark: 'Protection' },
+  { title: 'Shop', href: '/shop', body: 'Atelier access, sourcing, gifting and personal shopping without retail noise.', mark: 'Sourcing' },
+  { title: 'Always On', href: '/contact', body: 'A named concierge who keeps the brief moving until every detail is closed.', mark: '24 / 7', always: true },
 ]
 
 const cities = [
@@ -60,19 +63,19 @@ export default function HomePage() {
         />
         <div className="page-hero-overlay" />
         <div className="page-hero-inner">
-          <div className="page-hero-copy">
-            <span className="eyebrow page-hero-kicker">Stays  Drive  Eat  Fly  Yacht  Security  Shop</span>
+          <motion.div className="page-hero-copy" initial={{ opacity: 0, y: 34 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] }}>
+            <span className="eyebrow page-hero-kicker">Private concierge for serious requests</span>
             <h1 className="page-hero-title">
-              One call.<br />One world.<br /><em>Everything.</em>
+              Multimillion-pound service.<br />One trusted <em>concierge.</em>
             </h1>
             <p className="page-hero-body">
-              OPV is a private concierge platform for residences, cars, dining, aviation, yacht charter, security and sourcing, arranged through one trusted contact.
+              Residences, cars, dining, aviation, yacht charter, security and sourcing, arranged with the discretion expected by principals, families and private offices.
             </p>
             <div className="page-hero-actions">
               <Link href="/contact" className="btn-primary">Request access</Link>
-              <Link href="/stays" className="btn-ghost-light">Explore stays</Link>
+              <Link href="/eat" className="btn-ghost-light">Reserve the evening</Link>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -89,14 +92,16 @@ export default function HomePage() {
 
       <section className="section" style={{ background: '#FFFFFF' }}>
         <div className="container">
-          <span className="eyebrow">Eight worlds</span>
+          <span className="eyebrow">Eight private desks</span>
           <h2 className="display-lg" style={{ maxWidth: 760, marginBottom: '3rem' }}>
-            One private layer for<br /><em>everything you need.</em>
+            Not cartoons. Not bookings.<br /><em>Representation.</em>
           </h2>
           <div className="home-worlds-grid">
-            {worlds.map(world => (
+            {worlds.map((world, i) => (
               <Link key={world.title} href={world.href} className={`home-world-tile${world.always ? ' always' : ''}`}>
-                <WorldIcon name={world.icon} />
+                <motion.span className="home-world-mark" initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.04 }}>
+                  {world.mark}
+                </motion.span>
                 <h3>{world.title}</h3>
                 <p>{world.body}</p>
               </Link>
@@ -111,15 +116,15 @@ export default function HomePage() {
             <Image src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1000&q=85" alt="The Crescent Riverside residence" fill style={{ objectFit: 'cover' }} />
           </div>
           <div>
-            <span className="eyebrow">Featured residence</span>
-            <h2 className="display-md" style={{ marginBottom: '1.3rem' }}>The Crescent Riverside<em>.</em></h2>
+            <span className="eyebrow">Private-office standard</span>
+            <h2 className="display-md" style={{ marginBottom: '1.3rem' }}>The brief moves quietly.<br /><em>The result does not.</em></h2>
             <p className="body-lg" style={{ marginBottom: '1.4rem' }}>
-              Four-bedroom riverside penthouse with private terrace, chef kitchen and a named OPV guardian on arrival.
+              OPV behaves like a private office for clients who need the evening, the residence, the driver and the room secured without explaining the request twice.
             </p>
             <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '2rem' }}>
-              {['Manchester', '4 bedrooms', 'River view', 'Concierge'].map(tag => <span key={tag} className="prop-badge">{tag}</span>)}
+              {['Private residences', 'Standing dining access', 'Principal movement', 'Single invoice'].map(tag => <span key={tag} className="prop-badge">{tag}</span>)}
             </div>
-            <Link href="/stays" className="btn-ghost">View private stays</Link>
+            <Link href="/contact" className="btn-ghost">Open a private request</Link>
           </div>
         </div>
       </section>
@@ -217,25 +222,6 @@ export default function HomePage() {
         </div>
       </section>
     </>
-  )
-}
-
-function WorldIcon({ name }: { name: string }) {
-  const paths: Record<string, string> = {
-    home: 'M4 11.5 12 5l8 6.5V20H6v-8.5',
-    car: 'M5 16h14l-1.5-5h-11L5 16Zm1 0v3m12-3v3M7 11l1.5-4h7L17 11',
-    eat: 'M7 4v16m5-16v16m5-16v7a3 3 0 0 1-3 3',
-    fly: 'M3 12h18M12 3l4 9-4 9M12 3 8 12l4 9',
-    yacht: 'M4 17h16l-3 3H7l-3-3Zm4 0 4-12 4 12',
-    shield: 'M12 3 5 6v5c0 5 3 8 7 10 4-2 7-5 7-10V6l-7-3Z',
-    shop: 'M6 8h12l-1 12H7L6 8Zm2 0a4 4 0 0 1 8 0',
-    phone: 'M7 5h10v14H7V5Zm4 11h2',
-  }
-
-  return (
-    <svg className="home-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d={paths[name]} stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
   )
 }
 

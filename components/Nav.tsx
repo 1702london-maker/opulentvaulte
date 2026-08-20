@@ -6,14 +6,16 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const links = [
+  { href: '/',           label: 'Home' },
   { href: '/stays',      label: 'Stays' },
   { href: '/drive',      label: 'Drive' },
   { href: '/eat',        label: 'Eat' },
+  { href: '/shop',       label: 'Shop' },
+  { href: '/security',   label: 'Security' },
   { href: '/fly',        label: 'Fly' },
   { href: '/yacht',      label: 'Yacht' },
-  { href: '/security',   label: 'Security' },
-  { href: '/shop',       label: 'Shop' },
   { href: '/affiliates', label: 'Affiliates' },
+  { href: '/contact',    label: 'Contact' },
 ]
 
 export default function Nav() {
@@ -31,21 +33,20 @@ export default function Nav() {
 
   return (
     <>
-      <nav className="nav" style={{ boxShadow: scrolled ? '0 2px 24px rgba(27,108,168,0.06)' : 'none' }}>
-        <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', maxWidth: 1360, margin: '0 auto', padding: '0 2.5rem' }}>
+      <nav className="nav nav-luxury" style={{ boxShadow: scrolled ? '0 2px 24px rgba(27,108,168,0.06)' : 'none' }}>
+        <div className="nav-luxury-inner">
           {/* Logo */}
-          <Link href="/" className="footer-logo" style={{ fontSize: '1.4rem', letterSpacing: '0.2em' }}>
-            OPV
+          <Link href="/" className="nav-luxury-logo">
+            OPV Luxury
           </Link>
 
           {/* Desktop links */}
-          <ul style={{ display: 'flex', gap: '2rem', alignItems: 'center' }} className="hidden lg:flex">
+          <ul className="nav-luxury-links hidden lg:flex">
             {links.map(l => (
               <li key={l.href}>
                 <Link
                   href={l.href}
-                  className="footer-link"
-                  style={{ color: pathname === l.href ? 'var(--sapphire)' : undefined, fontWeight: pathname === l.href ? 500 : undefined }}
+                  className={`nav-luxury-link${pathname === l.href ? ' active' : ''}`}
                 >
                   {l.label}
                 </Link>
@@ -54,9 +55,16 @@ export default function Nav() {
           </ul>
 
           {/* CTA + mobile burger */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
-            <Link href="/contact" className="btn-primary hidden lg:inline-flex" style={{ padding: '0.65rem 1.4rem' }}>
-              Enquire
+          <div className="nav-luxury-actions">
+            <span className="nav-luxury-meta hidden xl:inline-flex">£ GBP</span>
+            <span className="nav-luxury-meta hidden xl:inline-flex">EN</span>
+            <Link href="/contact" className="nav-luxury-signin hidden lg:inline-flex">
+              Sign in
+            </Link>
+            <Link href="/contact" aria-label="Account" className="nav-luxury-user hidden lg:inline-flex">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M20 21a8 8 0 0 0-16 0M12 13a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+              </svg>
             </Link>
             <button
               onClick={() => setOpen(o => !o)}
@@ -93,7 +101,7 @@ export default function Nav() {
               </Link>
             ))}
             <Link href="/contact" className="btn-primary" style={{ alignSelf: 'flex-start', marginTop: '0.5rem' }}>
-              Enquire
+              Sign in
             </Link>
           </motion.div>
         )}
