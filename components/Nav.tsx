@@ -15,6 +15,7 @@ const links = [
   { href: '/security',   label: 'Security' },
   { href: '/fly',        label: 'Fly' },
   { href: '/yacht',      label: 'Yacht' },
+  { href: '/membership', label: 'Membership' },
   { href: '/affiliates', label: 'Affiliates' },
   { href: '/contact',    label: 'Contact' },
 ]

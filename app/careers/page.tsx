@@ -1,29 +1,41 @@
 'use client'
 
+import Image from 'next/image'
 import { FormEvent, useState } from 'react'
 
 const roles = [
-  ['Senior Concierge', 'Full-time', 'Manchester', 'The central role. You manage client relationships, brief suppliers and coordinate arrangements across all service categories. You have experience in luxury hospitality, private aviation or high-end property - ideally more than one. You are calm, discreet and deeply reliable.'],
-  ['Close Protection Officer', 'Contract', 'Manchester & London', 'SIA Close Protection licence required. Former military or Metropolitan Police background expected. You are suited to plainclothes environments, medically trained and available at short notice. NDA signed before interview.'],
-  ['Client Relations Executive', 'Full-time', 'London', 'First point of contact for new client enquiries. You handle incoming briefs, qualify requirements and ensure the initial experience of OPV matches the standard of the service itself. Background in luxury goods, private banking or premium hospitality preferred.'],
+  ['Senior Concierge', 'Full-time', 'Manchester', 'Own client briefs from first call to final confirmation across residences, cars, dining and private access.'],
+  ['Client Relations Executive', 'Full-time', 'London', 'Qualify incoming enquiries, protect the tone of first contact and coordinate briefs with the concierge team.'],
+  ['Close Protection Officer', 'Contract', 'Manchester & London', 'SIA Close Protection licence required. Plainclothes work, route planning and discreet principal movement.'],
 ]
 
-const qualities = [
-  ['Judgement over process', 'The ability to make the right call in an unfamiliar situation without being told what to do. OPV clients do not wait for escalation.'],
-  ['Discretion as default', 'Not as a policy you follow but as a value you hold. The kind of person who does not mention who they work with at dinner.'],
-  ['Obsession with delivery', 'Not satisfaction with arrangements that are mostly right. An inability to sign off on something that is not exactly right.'],
-  ['Composure under pressure', 'Last-minute changes, unavailable suppliers, demanding timelines. The ability to resolve these calmly and without making the client aware of the difficulty.'],
+const standards = [
+  ['Judgement', 'You can make the right call before a process catches up.'],
+  ['Discretion', 'Client information stays private without needing reminders.'],
+  ['Delivery', 'Almost right is not the standard. Finished means exact.'],
+  ['Composure', 'Pressure is handled calmly and away from the client.'],
 ]
 
-const expectations = [
-  ['No hierarchy for its own sake', 'Small team means direct access to decision-making. Ideas are heard if they are good. Seniority is earned by judgement and delivery, not tenure.'],
-  ['Clients who are serious', 'The briefs are real, the standards are high and the satisfaction of delivering correctly is genuine. You are not processing requests - you are making arrangements that matter.'],
-  ['Discretion in both directions', 'OPV protects client information absolutely. We extend the same respect to team information. What happens inside OPV stays there.'],
+const moments = [
+  {
+    title: 'Private Client Desk',
+    copy: 'Briefs are handled personally, with context carried from request to delivery.',
+    src: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1200&q=90',
+  },
+  {
+    title: 'Supplier Standards',
+    copy: 'The role is coordination, verification and judgement, not call-centre handoff.',
+    src: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1200&q=90',
+  },
+  {
+    title: 'Field Readiness',
+    copy: 'The best team members are as comfortable on site as they are behind a desk.',
+    src: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200&q=90',
+  },
 ]
 
 function CareersApplicationForm() {
   const [submitted, setSubmitted] = useState(false)
-  const [fileName, setFileName] = useState('')
 
   function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -34,59 +46,27 @@ function CareersApplicationForm() {
     return (
       <div className="careers-form-success" role="status">
         <strong>Application received.</strong>
-        <p>We will be in touch within 10 business days.</p>
-        <small>Please also send your CV directly to hello@opulentvault.co.uk with the role in the subject line.</small>
+        <p>Thank you. OPV will review the note and respond if there is a clear fit.</p>
       </div>
     )
   }
 
   return (
     <form className="careers-form" onSubmit={onSubmit}>
-      <label><span>Full name</span><input required type="text" name="name" placeholder="Your name" /></label>
-      <label><span>Email</span><input required type="email" name="email" placeholder="your@email.com" /></label>
-      <label><span>Phone</span><input required type="tel" name="phone" placeholder="+44..." /></label>
+      <label><span>Full name</span><input required name="name" type="text" placeholder="Your name" /></label>
+      <label><span>Email</span><input required name="email" type="email" placeholder="your@email.com" /></label>
+      <label><span>Phone</span><input required name="phone" type="tel" placeholder="+44..." /></label>
       <label>
-        <span>Role applying for</span>
+        <span>Role</span>
         <select required name="role" defaultValue="">
           <option value="" disabled>Select role</option>
-          <option>Senior Concierge</option>
-          <option>Close Protection Officer</option>
-          <option>Client Relations Executive</option>
+          {roles.map(([title]) => <option key={title}>{title}</option>)}
           <option>Speculative application</option>
         </select>
       </label>
-      <label><span>Current location</span><input required type="text" name="location" placeholder="City / country" /></label>
-      <label>
-        <span>Relevant background</span>
-        <select required name="background" defaultValue="">
-          <option value="" disabled>Select background</option>
-          <option>Luxury hospitality</option>
-          <option>Private aviation</option>
-          <option>Security</option>
-          <option>Finance</option>
-          <option>Property</option>
-          <option>Other</option>
-        </select>
-      </label>
       <label className="careers-form-wide">
-        <span>Cover note</span>
-        <textarea required name="note" placeholder="Tell us why you are right for OPV. Be specific - a generic cover letter will not be read." />
-      </label>
-      <label className="careers-file careers-form-wide">
-        <span>CV upload</span>
-        <input type="file" name="cv" accept=".pdf,.doc,.docx" onChange={(event) => setFileName(event.currentTarget.files?.[0]?.name || '')} />
-        <b>{fileName || 'Choose file'}</b>
-        <small>File acknowledged locally. Please also email your CV after submitting.</small>
-      </label>
-      <label className="careers-form-wide">
-        <span>How did you hear about OPV?</span>
-        <select required name="source" defaultValue="">
-          <option value="" disabled>Select source</option>
-          <option>LinkedIn</option>
-          <option>Referral</option>
-          <option>Search</option>
-          <option>Other</option>
-        </select>
+        <span>Why OPV?</span>
+        <textarea required name="note" placeholder="Keep it specific. Tell us where your standard has already been tested." />
       </label>
       <button className="btn-primary careers-form-wide" type="submit">Submit application -&gt;</button>
     </form>
@@ -95,48 +75,81 @@ function CareersApplicationForm() {
 
 export default function CareersPage() {
   return (
-    <>
-      <section className="careers-hero">
-        <div>
+    <main className="editorial-page">
+      <section className="editorial-hero careers-editorial-hero">
+        <div className="editorial-hero-copy">
           <span className="eyebrow">Careers</span>
-          <h1>Small team. <em>High standard.</em></h1>
-          <p>OPV is not a large organisation and does not intend to become one. We grow only when we find people who meet the standard the role requires. If that describes you, we would like to hear from you.</p>
+          <h1>Small team. <em>Exacting standard.</em></h1>
+          <p>
+            OPV grows carefully. We are interested in people who understand private clients, hold detail naturally and
+            know how to deliver without turning the work into theatre.
+          </p>
+          <a className="btn-primary" href="#apply">View roles -&gt;</a>
         </div>
-        <aside>
-          <strong>3</strong>
-          <span>Current openings</span>
-          <p>We also consider exceptional speculative applications at any time.</p>
-          <small>Opulent Vault Limited</small>
-        </aside>
+        <div className="editorial-hero-image">
+          <Image
+            src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1400&q=90"
+            alt="Refined private office prepared for concierge work"
+            fill
+            priority
+            sizes="(max-width: 900px) 100vw, 50vw"
+          />
+        </div>
       </section>
 
-      <section className="careers-section careers-white">
-        <span className="eyebrow">What we look for</span>
-        <h2>Four things that <em>matter here.</em></h2>
-        <div className="careers-quality-grid">
-          {qualities.map(([title, copy]) => <article key={title}><i /><h3>{title}</h3><p>{copy}</p></article>)}
-        </div>
-      </section>
-
-      <section className="careers-section careers-ice">
-        <span className="eyebrow">Open roles</span>
-        <h2>Current <em>openings.</em></h2>
-        <div className="careers-role-list">
-          {roles.map(([title, type, location, description]) => (
+      <section className="editorial-section editorial-ice">
+        <span className="eyebrow">The standard</span>
+        <h2>What matters <em>here.</em></h2>
+        <div className="editorial-card-grid four">
+          {standards.map(([title, copy]) => (
             <article key={title}>
-              <div><h3>{title}</h3><span>{type} · {location}</span><p>{description}</p></div>
-              <aside><a href="#apply">Apply -&gt;</a><small>{location}</small></aside>
+              <h3>{title}</h3>
+              <p>{copy}</p>
             </article>
           ))}
         </div>
-        <p className="careers-speculative">Don&apos;t see a role that fits? We consider speculative applications from exceptional candidates at any time. Send your CV and a brief note to <a href="mailto:hello@opulentvault.co.uk">hello@opulentvault.co.uk</a></p>
       </section>
 
-      <section className="careers-section careers-white">
-        <span className="eyebrow">Working here</span>
-        <h2>What you can <em>expect.</em></h2>
-        <div className="careers-expect-grid">
-          {expectations.map(([title, copy]) => <article key={title}><i /><h3>{title}</h3><p>{copy}</p></article>)}
+      <section className="editorial-section">
+        <span className="eyebrow">Inside the work</span>
+        <h2>Service, but <em>private.</em></h2>
+        <div className="editorial-image-row careers-moment-row">
+          {moments.map((moment) => (
+            <article key={moment.title}>
+              <Image src={moment.src} alt={moment.title} fill sizes="(max-width: 900px) 100vw, 33vw" />
+              <div>
+                <h3>{moment.title}</h3>
+                <p>{moment.copy}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="editorial-section editorial-feature reverse">
+        <div className="editorial-feature-copy">
+          <span className="eyebrow">Open roles</span>
+          <h2>Current <em>openings.</em></h2>
+          <div className="careers-role-list compact">
+            {roles.map(([title, type, location, description]) => (
+              <article key={title}>
+                <div>
+                  <h3>{title}</h3>
+                  <span>{type} · {location}</span>
+                  <p>{description}</p>
+                </div>
+                <aside><a href="#apply">Apply -&gt;</a></aside>
+              </article>
+            ))}
+          </div>
+        </div>
+        <div className="editorial-feature-image">
+          <Image
+            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1400&q=90"
+            alt="Manchester commercial architecture in a quiet premium palette"
+            fill
+            sizes="(max-width: 900px) 100vw, 50vw"
+          />
         </div>
       </section>
 
@@ -144,10 +157,13 @@ export default function CareersPage() {
         <div>
           <span className="eyebrow">Apply</span>
           <h2>Send us your <em>application.</em></h2>
-          <p>Applications are reviewed by the founding team. We respond to every application - successful or not - within 10 business days.</p>
+          <p>
+            We read applications for judgement, clarity and proof of standards. A short, specific note is better than a
+            generic cover letter.
+          </p>
         </div>
         <CareersApplicationForm />
       </section>
-    </>
+    </main>
   )
 }

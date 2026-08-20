@@ -21,7 +21,6 @@ const explore = [
 const company = [
   ['About OPV', '/about'],
   ['Affiliates', '/affiliates'],
-  ['Partners', '/partners'],
   ['Careers', '/careers'],
   ['Press', '/press'],
 ]
@@ -38,8 +37,8 @@ const stickyActions = [
   ['Stays', '/stays'],
   ['Drive', '/drive'],
   ['Eat', '/eat'],
-  ['Partnership', '/affiliates'],
-  ['Account Portal Login', '/contact'],
+  ['Affiliate', '/affiliates'],
+  ['Account', '/contact'],
   ['Fly', '/fly'],
   ['Yacht', '/yacht'],
   ['Chat With Us', '#shan'],
