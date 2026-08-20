@@ -7,7 +7,6 @@ import EnquiryForm from '@/components/ui/EnquiryForm'
 
 const properties = [
   { id: 1, name: 'The Crescent Riverside', city: 'Manchester', area: 'Salford Quays', type: 'penthouse', designation: 'opv-managed', beds: 4, guests: 8, priceFrom: 850, image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=700&q=80', chips: ['River View', 'Private Terrace', 'Chef Kitchen', 'Concierge'], verified: true, description: 'Four-bedroom penthouse on the Irwell with panoramic water views.' },
-  { id: 2, name: 'Alderton Hall', city: 'Cheshire', area: 'Alderley Edge', type: 'estate', designation: 'partner-hosted', beds: 7, guests: 14, priceFrom: 3200, image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=700&q=80', chips: ['Private Grounds', 'Heated Pool', 'Helipad', 'Staff Included'], verified: true, description: 'Georgian estate on six acres with full household staff.' },
   { id: 3, name: 'The Knightsbridge Residence', city: 'London', area: 'Knightsbridge', type: 'townhouse', designation: 'opv-managed', beds: 5, guests: 10, priceFrom: 4100, image: 'https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?w=700&q=80', chips: ['Mayfair Adjacent', 'Butler', 'Rooftop Terrace', 'Wine Cellar'], verified: true, description: 'Five-storey Knightsbridge townhouse with butler and rooftop garden.' },
   { id: 4, name: 'Harewood Grange', city: 'Leeds', area: 'Harewood', type: 'estate', designation: 'partner-hosted', beds: 6, guests: 12, priceFrom: 2800, image: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?w=700&q=80', chips: ['Private Grounds', 'Hot Tub', 'Home Cinema', 'Stables'], verified: true, description: 'Country estate with stable block, cinema room and landscaped grounds.' },
   { id: 5, name: 'Royal Mills Penthouse', city: 'Manchester', area: 'Ancoats', type: 'penthouse', designation: 'opv-managed', beds: 3, guests: 6, priceFrom: 890, image: 'https://images.unsplash.com/photo-1598928636135-d146006ff4be?w=700&q=80', chips: ['Mill Conversion', 'Rooftop', 'City Views', 'Parking'], verified: true, description: 'Converted Victorian mill with rooftop terrace above Ancoats.' },
@@ -15,25 +14,20 @@ const properties = [
   { id: 7, name: 'Castlefield Loft', city: 'Manchester', area: 'Castlefield', type: 'apartment', designation: 'partner-hosted', beds: 2, guests: 4, priceFrom: 620, image: 'https://images.unsplash.com/photo-1567767292278-a4f21aa2d36e?w=700&q=80', chips: ['Canal View', 'Balcony', 'Viaduct Views', 'Secure Parking'], verified: false, description: 'Industrial-chic loft overlooking the Roman Fort and canal basin.' },
   { id: 8, name: 'Mount Street W1', city: 'London', area: 'Mayfair', type: 'townhouse', designation: 'opv-managed', beds: 4, guests: 8, priceFrom: 3800, image: 'https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=700&q=80', chips: ['Private Courtyard', 'Wine Cellar', 'Staff', 'Mayfair'], verified: true, description: 'Four-floor W1 townhouse with private courtyard and household staff.' },
   { id: 9, name: 'The Grain Loft', city: 'Leeds', area: 'Granary Wharf', type: 'apartment', designation: 'partner-hosted', beds: 2, guests: 4, priceFrom: 580, image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=700&q=80', chips: ['Waterfront', 'Canal Views', 'Exposed Ironwork', 'Art Hung'], verified: false, description: 'Converted grain warehouse with original ironwork at Granary Wharf.' },
-  { id: 10, name: 'Thornfield Manor', city: 'Cheshire', area: 'Wilmslow', type: 'villa', designation: 'partner-hosted', beds: 8, guests: 16, priceFrom: 5200, image: 'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=700&q=80', chips: ['Tennis Court', 'Pool', 'Cinema Room', 'Housekeeper'], verified: true, description: 'Eight-bedroom manor with pool, tennis court and resident housekeeper.' },
   { id: 11, name: 'Deansgate Residences', city: 'Manchester', area: 'Deansgate', type: 'penthouse', designation: 'opv-managed', beds: 2, guests: 4, priceFrom: 740, image: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=700&q=80', chips: ['Beetham Tower Views', 'Gym', 'Concierge', 'Valet'], verified: true, description: 'High-floor Deansgate residence with Beetham Tower views and valet.' },
   { id: 12, name: 'Belgravia Mews', city: 'London', area: 'Belgravia', type: 'townhouse', designation: 'opv-managed', beds: 3, guests: 6, priceFrom: 3400, image: 'https://images.unsplash.com/photo-1549517045-bc93de075e53?w=700&q=80', chips: ['Private Garage', 'Garden', 'Period Features', 'Butler'], verified: true, description: 'Grade II listed mews with private garage, walled garden and butler.' },
   { id: 13, name: 'Victoria Quarter Flat', city: 'Leeds', area: 'City Centre', type: 'apartment', designation: 'partner-hosted', beds: 1, guests: 2, priceFrom: 390, image: 'https://images.unsplash.com/photo-1484154218962-a197022b5858?w=700&q=80', chips: ['Arcade Adjacent', 'Designer Interiors', 'Concierge'], verified: false, description: 'Elegantly designed flat adjacent to the Victoria Quarter arcade.' },
-  { id: 14, name: 'The Cheshire House', city: 'Cheshire', area: 'Knutsford', type: 'villa', designation: 'partner-hosted', beds: 5, guests: 10, priceFrom: 2100, image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=700&q=80', chips: ['Walled Garden', 'Hot Tub', "Chef's Kitchen", 'Games Room'], verified: false, description: 'Knutsford villa with walled kitchen garden and entertaining space.' },
   { id: 15, name: 'Shoreditch Loft', city: 'London', area: 'Shoreditch', type: 'apartment', designation: 'partner-hosted', beds: 2, guests: 4, priceFrom: 980, image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=700&q=80', chips: ['Rooftop Terrace', 'Industrial Design', 'Art Collection'], verified: false, description: 'East London loft with curated art collection and private rooftop.' },
   { id: 16, name: 'The Northern Quarter Residence', city: 'Manchester', area: 'Northern Quarter', type: 'apartment', designation: 'opv-managed', beds: 1, guests: 2, priceFrom: 480, image: 'https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=700&q=80', chips: ['NQ Location', 'Designer Fit-out', 'Concierge', 'Gym'], verified: true, description: 'Bespoke one-bedroom in the heart of Manchester\'s Northern Quarter.' },
 ]
 
 const types = ['All', 'Penthouse', 'Villa', 'Estate', 'Townhouse', 'Apartment']
-const cities = ['All Cities', 'Manchester', 'London', 'Leeds', 'Cheshire', 'Edinburgh', 'International']
+const cities = ['All Cities', 'Manchester', 'London', 'Leeds']
 
 const destinations = [
   { city: 'Manchester', country: 'England', img: 'https://images.unsplash.com/photo-1520986606214-8b456906c813?w=600&q=80' },
   { city: 'London', country: 'England', img: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600&q=80' },
   { city: 'Leeds', country: 'England', img: 'https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=600&q=80' },
-  { city: 'Cheshire', country: 'England', img: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&q=80' },
-  { city: 'Edinburgh', country: 'Scotland', img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80' },
-  { city: 'Côte d\'Azur', country: 'France', img: 'https://images.unsplash.com/photo-1534430480872-3498386e7856?w=600&q=80' },
 ]
 
 const fu = (d = 0) => ({ initial: { opacity: 0, y: 28 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true, margin: '-60px' }, transition: { duration: 0.6, delay: d, ease: [0.25, 0.46, 0.45, 0.94] } })
@@ -90,7 +84,7 @@ export default function StaysPage() {
         <div className="stat-strip">
           {[
             { num: '500+', label: 'Curated Properties' },
-            { num: '16', label: 'Available Now' },
+            { num: '13', label: 'Available Now' },
             { num: '200', label: 'Point Verification' },
             { num: '24/7', label: 'Concierge Access' },
           ].map(s => (
@@ -150,14 +144,14 @@ export default function StaysPage() {
               <button onClick={() => { setActiveType('All'); setActiveCity('All Cities') }} className="btn-ghost" style={{ marginTop: '1.5rem' }}>Clear filters</button>
             </div>
           ) : (
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
+            <div className="stays-property-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, minmax(0, 1fr))', gap: '1.25rem' }}>
               {filtered.map((p, i) => (
                 <motion.div
                   key={p.id}
                   initial={{ opacity: 0, y: 28 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: (i % 3) * 0.07 }}
+                  transition={{ duration: 0.5, delay: (i % 4) * 0.05 }}
                   className="prop-card"
                   style={{ display: 'flex', flexDirection: 'column' }}
                 >
@@ -171,15 +165,15 @@ export default function StaysPage() {
                       className="group-hover:scale-105"
                     />
                     {/* Top-left designation badge */}
-                    <div style={{ position: 'absolute', top: '1rem', left: '1rem' }}>
-                      <span style={{ display: 'inline-block', background: '#FFFFFF', border: '1px solid var(--sapphire)', color: 'var(--sapphire)', fontFamily: 'var(--mono)', fontSize: '0.58rem', letterSpacing: '0.14em', textTransform: 'uppercase', padding: '0.25rem 0.6rem' }}>
+                    <div style={{ position: 'absolute', top: '0.75rem', left: '0.75rem' }}>
+                      <span style={{ display: 'inline-block', background: '#FFFFFF', border: '1px solid var(--sapphire)', color: 'var(--sapphire)', fontFamily: 'var(--mono)', fontSize: '0.5rem', letterSpacing: '0.12em', textTransform: 'uppercase', padding: '0.22rem 0.48rem' }}>
                         {p.designation === 'opv-managed' ? 'OPV Managed' : 'Partner Hosted'}
                       </span>
                     </div>
                     {/* Top-right verified badge */}
                     {p.verified && (
-                      <div style={{ position: 'absolute', top: '1rem', right: '1rem' }}>
-                        <span style={{ display: 'inline-block', background: 'var(--sapphire)', color: '#FFFFFF', fontFamily: 'var(--mono)', fontSize: '0.58rem', letterSpacing: '0.14em', textTransform: 'uppercase', padding: '0.25rem 0.6rem' }}>
+                      <div style={{ position: 'absolute', top: '0.75rem', right: '0.75rem' }}>
+                        <span style={{ display: 'inline-block', background: 'var(--sapphire)', color: '#FFFFFF', fontFamily: 'var(--mono)', fontSize: '0.5rem', letterSpacing: '0.12em', textTransform: 'uppercase', padding: '0.22rem 0.48rem' }}>
                           Verified
                         </span>
                       </div>
@@ -187,35 +181,35 @@ export default function StaysPage() {
                   </div>
 
                   {/* Card body */}
-                  <div style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', flex: 1 }}>
+                  <div style={{ padding: '1rem', display: 'flex', flexDirection: 'column', flex: 1 }}>
                     <span className="prop-city" style={{ marginBottom: '0.3rem', display: 'block' }}>{p.city} · {p.area}</span>
-                    <h3 style={{ fontFamily: 'var(--display)', fontSize: '1.5rem', fontWeight: 400, lineHeight: 1.2, color: 'var(--ink)', marginBottom: '0.5rem' }}>{p.name}</h3>
-                    <p className="body-sm" style={{ marginBottom: '1rem', color: 'var(--ink-soft)' }}>{p.description}</p>
+                    <h3 style={{ fontFamily: 'var(--display)', fontSize: '1.18rem', fontWeight: 400, lineHeight: 1.16, color: 'var(--ink)', marginBottom: '0.45rem' }}>{p.name}</h3>
+                    <p className="body-sm" style={{ marginBottom: '0.75rem', color: 'var(--ink-soft)' }}>{p.description}</p>
 
                     {/* Chips */}
-                    <div style={{ display: 'flex', gap: '0.35rem', flexWrap: 'wrap', marginBottom: '1rem' }}>
+                    <div style={{ display: 'flex', gap: '0.3rem', flexWrap: 'wrap', marginBottom: '0.8rem' }}>
                       {p.chips.map(c => (
-                        <span key={c} style={{ fontFamily: 'var(--mono)', fontSize: '0.58rem', letterSpacing: '0.12em', textTransform: 'uppercase', border: '1px solid var(--border)', color: 'var(--ink-soft)', padding: '0.2rem 0.5rem' }}>
+                        <span key={c} style={{ fontFamily: 'var(--mono)', fontSize: '0.5rem', letterSpacing: '0.1em', textTransform: 'uppercase', border: '1px solid var(--border)', color: 'var(--ink-soft)', padding: '0.16rem 0.4rem' }}>
                           {c}
                         </span>
                       ))}
                     </div>
 
                     {/* Guests + Beds */}
-                    <div style={{ display: 'flex', gap: '1.2rem', marginBottom: '1rem' }}>
+                    <div style={{ display: 'flex', gap: '0.8rem', marginBottom: '0.8rem' }}>
                       <span className="label-sm">{p.beds} Bedrooms</span>
                       <span className="label-sm">{p.guests} Guests</span>
                     </div>
 
                     {/* Price + CTAs */}
-                    <div style={{ borderTop: '1px solid var(--border)', paddingTop: '1rem', marginTop: 'auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <div style={{ borderTop: '1px solid var(--border)', paddingTop: '0.8rem', marginTop: 'auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '0.75rem' }}>
                       <div>
-                        <span style={{ fontFamily: 'var(--display)', fontSize: '1.5rem', fontWeight: 400, color: 'var(--ink)' }}>£{p.priceFrom.toLocaleString()}</span>
+                        <span style={{ fontFamily: 'var(--display)', fontSize: '1.25rem', fontWeight: 400, color: 'var(--ink)' }}>£{p.priceFrom.toLocaleString()}</span>
                         <span style={{ fontFamily: 'var(--body)', fontSize: '0.78rem', color: 'var(--ink-soft)', marginLeft: '0.3rem' }}>/night</span>
                       </div>
                       <div style={{ display: 'flex', gap: '0.5rem' }}>
-                        <Link href="/contact" className="btn-primary" style={{ padding: '0.55rem 1rem', fontSize: '0.62rem' }}>View</Link>
-                        <Link href="/contact" className="btn-ghost" style={{ padding: '0.55rem 1rem', fontSize: '0.62rem' }}>Request</Link>
+                        <Link href="/contact" className="btn-primary" style={{ padding: '0.48rem 0.75rem', fontSize: '0.56rem' }}>View</Link>
+                        <Link href="/contact" className="btn-ghost" style={{ padding: '0.48rem 0.75rem', fontSize: '0.56rem' }}>Request</Link>
                       </div>
                     </div>
                   </div>
@@ -287,7 +281,7 @@ export default function StaysPage() {
           <motion.div {...fu()} style={{ marginBottom: '3rem' }}>
             <span className="eyebrow">Where we operate</span>
             <h2 style={{ fontFamily: 'var(--display)', fontSize: 'clamp(2rem,3.5vw,3.4rem)', fontWeight: 300, color: 'var(--ink)' }}>
-              Six destinations.<br /><em style={{ fontStyle: 'italic', color: 'var(--sapphire)' }}>One standard.</em>
+              Three cities.<br /><em style={{ fontStyle: 'italic', color: 'var(--sapphire)' }}>One standard.</em>
             </h2>
           </motion.div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem' }}>

@@ -234,6 +234,28 @@ ul, ol { list-style: none; }
   color: var(--sapphire);
 }
 
+.stays-property-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+}
+
+@media (max-width: 1180px) {
+  .stays-property-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 860px) {
+  .stays-property-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .stays-property-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
 /* ── Stat strip ─────────────────────────────────────────── */
 .stat-strip { display: grid; grid-template-columns: repeat(4, 1fr); }
 .stat-strip .stat-item {
