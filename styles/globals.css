@@ -238,20 +238,27 @@ ul, ol { list-style: none; }
   grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
 }
 
+.drive-fleet-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+}
+
 @media (max-width: 1180px) {
-  .stays-property-grid {
+  .stays-property-grid,
+  .drive-fleet-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
   }
 }
 
 @media (max-width: 860px) {
-  .stays-property-grid {
+  .stays-property-grid,
+  .drive-fleet-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
 }
 
 @media (max-width: 560px) {
-  .stays-property-grid {
+  .stays-property-grid,
+  .drive-fleet-grid {
     grid-template-columns: 1fr !important;
   }
 }
