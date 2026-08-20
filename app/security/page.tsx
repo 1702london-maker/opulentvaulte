@@ -53,7 +53,7 @@ export default function SecurityPage() {
   return (
     <>
       <section className="page-hero page-hero-clear-top security-page-hero">
-        <Image src="https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?w=1800&q=90" alt="Discreet suited protection specialist in a formal setting" fill priority style={{ objectFit: 'cover', objectPosition: 'center' }} />
+        <Image src="https://images.unsplash.com/photo-1708807472445-d33589e6b090?w=1800&q=90" alt="CCTV surveillance control room with multiple monitoring screens" fill priority style={{ objectFit: 'cover', objectPosition: 'center' }} />
         <div className="page-hero-overlay page-hero-overlay-light" />
         <div className="page-hero-inner">
           <div className="page-hero-copy page-hero-copy-raised security-page-hero-copy">
@@ -116,8 +116,8 @@ export default function SecurityPage() {
           </div>
         </div>
         <div className="security-feature-image">
-          <Image src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=900&q=90" alt="Understated suited protection operative" fill style={{ objectFit: 'cover', objectPosition: 'center top' }} />
-          <span>Plainclothes · SIA Licensed · NDA Signed</span>
+          <Image src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=900&q=90" alt="Security technology hardware and access-control circuitry" fill style={{ objectFit: 'cover', objectPosition: 'center' }} />
+          <span>CCTV · Access Control · SIA Standard</span>
         </div>
       </section>
 
@@ -139,7 +139,7 @@ export default function SecurityPage() {
 
       <section className="security-feature security-white security-feature-reverse">
         <div className="security-feature-image">
-          <Image src="https://images.unsplash.com/photo-1549317661-bd32c8ce0729?w=900&q=90" alt="Luxury black vehicle prepared for secure transport" fill style={{ objectFit: 'cover', objectPosition: 'center' }} />
+          <Image src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=90" alt="Security operations dashboard for routing and incident monitoring" fill style={{ objectFit: 'cover', objectPosition: 'center' }} />
         </div>
         <div className="security-feature-copy">
           <span className="eyebrow">Secure Transport</span>
