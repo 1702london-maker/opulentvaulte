@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
@@ -36,8 +37,8 @@ export default function Nav() {
       <nav className="nav nav-luxury" style={{ boxShadow: scrolled ? '0 2px 24px rgba(27,108,168,0.06)' : 'none' }}>
         <div className="nav-luxury-inner">
           {/* Logo */}
-          <Link href="/" className="nav-luxury-logo">
-            OPV Luxury
+          <Link href="/" className="nav-luxury-logo" aria-label="OPV Luxury home">
+            <Image src="/opv-logo.png" alt="OPV Luxury" width={220} height={72} priority />
           </Link>
 
           {/* Desktop links */}

@@ -43,12 +43,12 @@ const venues: Venue[] = [
 ]
 
 const neighbourhoods = [
-  ['Spinningfields', 'Manchester', 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=500&q=85'],
-  ['Ancoats', 'Manchester', 'https://images.unsplash.com/photo-1590736704728-f4730bb30770?w=500&q=85'],
-  ['Mayfair', 'London', 'https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=500&q=85'],
-  ['Knightsbridge', 'London', 'https://images.unsplash.com/photo-1516912481808-3406841bd33c?w=500&q=85'],
-  ['Granary Wharf', 'Leeds', 'https://images.unsplash.com/photo-1533929736458-ca588d08c8be?w=500&q=85'],
-  ['Hale & Alderley', 'Cheshire', 'https://images.unsplash.com/photo-1464207687429-7505649dae38?w=500&q=85'],
+  ['Spinningfields', 'Manchester', 'https://images.unsplash.com/photo-1559339352-11d035aa65de?w=700&q=90'],
+  ['Ancoats', 'Manchester', 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=700&q=90'],
+  ['Mayfair', 'London', 'https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=700&q=90'],
+  ['Knightsbridge', 'London', 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&q=90'],
+  ['Granary Wharf', 'Leeds', 'https://images.unsplash.com/photo-1544025162-d76694265947?w=700&q=90'],
+  ['Hale & Alderley', 'Cheshire', 'https://images.unsplash.com/photo-1551218808-94e220e084d2?w=700&q=90'],
 ]
 
 const occasions = [

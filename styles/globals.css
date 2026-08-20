@@ -195,16 +195,25 @@ ul, ol { list-style: none; }
   gap: 2rem;
 }
 .nav-luxury-logo {
-  font-family: var(--display);
-  font-size: 1.55rem;
-  font-weight: 600;
-  color: #111820;
-  letter-spacing: -0.02em;
+  display: inline-flex;
+  align-items: center;
+  width: clamp(150px, 14vw, 220px);
+  height: 72px;
   white-space: nowrap;
-  transition: color var(--transition);
+  overflow: hidden;
+  transition: opacity var(--transition), filter var(--transition);
 }
 .nav-luxury-logo:hover {
-  color: #B08D57;
+  opacity: 0.82;
+  filter: sepia(0.25) saturate(1.2);
+}
+.nav-luxury-logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 58px;
+  object-fit: contain;
+  object-position: left center;
 }
 .nav-luxury-links {
   justify-content: center;
