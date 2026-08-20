@@ -476,8 +476,16 @@ ul, ol { list-style: none; }
   transition: background var(--transition), transform var(--transition);
 }
 .floating-contact-btn:hover { background: var(--sapphire-lt); transform: translateX(-3px); }
-.floating-contact-btn.chat { background: var(--ink); }
-.floating-contact-btn.chat:hover { background: var(--ink-mid); }
+.floating-contact-btn.icon-only {
+  width: 58px;
+  min-width: 58px;
+  height: 58px;
+  min-height: 58px;
+  padding: 0;
+  justify-content: center;
+}
+.floating-contact-btn.ai-chat { background: var(--ink); }
+.floating-contact-btn.ai-chat:hover { background: var(--ink-mid); }
 .floating-contact-btn svg { width: 22px; height: 22px; flex: 0 0 22px; }
 .floating-contact-btn > span:last-child {
   font-family: var(--mono);
@@ -622,19 +630,20 @@ ul, ol { list-style: none; }
 }
 .footer-brand-mark {
   width: 116px;
-  height: 72px;
+  height: 116px;
   margin-bottom: 0.9rem;
   background: var(--sapphire);
   color: var(--white);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--display);
-  font-size: 2rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
+  padding: 1rem;
 }
-.footer-brand-mark em { font-style: italic; }
+.footer-brand-mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
 .footer-brand > span {
   display: block;
   margin: 0 0 1.5rem;
@@ -653,18 +662,21 @@ ul, ol { list-style: none; }
   line-height: 1.75;
   font-weight: 300;
 }
-.footer-socials { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+.footer-socials { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 2rem; }
 .footer-socials a {
+  width: 38px;
+  height: 38px;
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
+  justify-content: center;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.42);
   color: var(--ink-soft);
-  transition: color var(--transition);
+  transition: border-color var(--transition), background var(--transition), color var(--transition);
 }
 .footer-socials svg { width: 18px; height: 18px; color: var(--sapphire); transition: transform var(--transition); }
-.footer-socials a:hover { color: var(--sapphire); }
+.footer-socials a:hover { color: var(--sapphire); border-color: var(--sapphire); background: var(--white); }
 .footer-socials a:hover svg { transform: scale(1.1); }
-.footer-socials span,
 .footer-link {
   font-family: var(--mono);
   font-size: 0.62rem;
@@ -758,7 +770,7 @@ ul, ol { list-style: none; }
   padding: 1.5rem 2.5rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 1.5rem;
   flex-wrap: wrap;
   background: var(--white);
@@ -786,6 +798,12 @@ ul, ol { list-style: none; }
   .footer-bottombar { padding: 1.5rem 1rem; }
   .floating-contact { right: 1rem; bottom: 1rem; }
   .floating-contact-btn { min-width: 132px; min-height: 48px; }
+  .floating-contact-btn.icon-only {
+    width: 52px;
+    min-width: 52px;
+    height: 52px;
+    min-height: 52px;
+  }
 }
 
 /* ── Service tile ───────────────────────────────────────── */

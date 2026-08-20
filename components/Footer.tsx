@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import FooterNewsletter from './FooterNewsletter'
 
@@ -15,7 +16,6 @@ const explore = [
   ['Fly', '/fly'],
   ['Yacht', '/yacht'],
   ['Security', '/security'],
-  ['Contact', '/contact'],
 ]
 
 const company = [
@@ -24,6 +24,14 @@ const company = [
   ['Partners', '#'],
   ['Careers', '#'],
   ['Press', '#'],
+]
+
+const contactLinks = [
+  ['Contact', '/contact'],
+  ['FAQ', '/faq'],
+  ['Privacy', '/privacy'],
+  ['Terms', '/terms'],
+  ['Cookies', '/cookies'],
 ]
 
 const socials = [
@@ -56,20 +64,17 @@ export default function Footer() {
       <div className="footer-main">
         <div className="footer-grid">
           <section className="footer-brand">
-            <div className="footer-brand-mark">O<em>P</em>V</div>
+            <div className="footer-brand-mark">
+              <Image src="/opv-logo.png" alt="OPV Luxury" width={96} height={96} />
+            </div>
             <span>Private Concierge</span>
             <p>Stays, cars, private dining, aviation, yachts and close protection arranged privately across Manchester, London and Leeds.</p>
             <div className="footer-socials">
               {socials.map(([label, href, icon]) => (
-                <a key={label} href={href} target="_blank" rel="noopener noreferrer">
+                <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>
                   <StrokeIcon path={icon} />
-                  <span>{label}</span>
                 </a>
               ))}
-            </div>
-            <div className="footer-availability">
-              <span className="availability-dot" />
-              <p>Concierge available now</p>
             </div>
           </section>
 
@@ -85,11 +90,7 @@ export default function Footer() {
 
           <section>
             <h2 className="footer-heading">Contact</h2>
-            <div className="footer-contact-stack">
-              <div><span>Phone</span><a href={telHref}>{phone}</a><p>24 hours, 365 days</p></div>
-              <div><span>Email</span><a href={mailHref}>{email}</a><p>Response within 2 hours</p></div>
-              <div><span>WhatsApp</span><a href={whatsappHref} target="_blank" rel="noopener noreferrer">{phone}</a><p>For immediate requests</p></div>
-            </div>
+            <nav className="footer-list">{contactLinks.map(([label, href]) => <FooterLink key={label} href={href} label={label} />)}</nav>
           </section>
 
           <section>
@@ -101,11 +102,6 @@ export default function Footer() {
 
       <div className="footer-bottombar">
         <p>© 2026 OPV</p>
-        <nav>
-          <Link href="/terms">Terms</Link>
-          <Link href="/privacy">Privacy</Link>
-          <Link href="/cookies">Cookies</Link>
-        </nav>
       </div>
     </footer>
   )
