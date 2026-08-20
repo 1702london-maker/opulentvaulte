@@ -467,7 +467,7 @@ ul, ol { list-style: none; }
 /* ── Floating contact controls ──────────────────────────── */
 .floating-contact {
   position: fixed;
-  bottom: 1.7rem;
+  bottom: 6.35rem;
   right: 1.7rem;
   display: flex;
   flex-direction: column;
@@ -670,6 +670,7 @@ ul, ol { list-style: none; }
   background: var(--ice);
   border-top: 1px solid var(--border);
   position: relative;
+  padding-bottom: 7rem;
 }
 .footer-topbar {
   min-height: 52px;
@@ -872,8 +873,10 @@ ul, ol { list-style: none; }
 .footer-bottombar nav { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
 .footer-bottombar a:hover { color: var(--sapphire); }
 .footer-sticky-bar-wrap {
-  position: sticky;
+  position: fixed;
   bottom: 1.25rem;
+  left: 0;
+  right: 0;
   z-index: 760;
   display: flex;
   justify-content: center;
@@ -968,32 +971,33 @@ ul, ol { list-style: none; }
     font-size: 0.74rem;
   }
   .footer-sticky-bar-wrap {
-    position: relative;
-    bottom: auto;
-    padding: 0 1rem 1.4rem;
+    position: fixed;
+    bottom: 0.65rem;
+    left: 0;
+    right: 0;
+    padding: 0 0.5rem;
   }
   .footer-sticky-bar {
-    width: auto;
-    max-width: 100%;
+    width: min(23.25rem, calc(100vw - 1rem));
+    max-width: calc(100vw - 1rem);
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    border-radius: 22px;
-    padding: 0.7rem;
-    gap: 0.55rem;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    border-radius: 18px;
+    padding: 0.34rem;
+    gap: 0.24rem;
+    border-width: 1.5px;
+    box-shadow: 0 18px 48px rgba(26,39,51,0.24), inset 0 0 0 1px rgba(255,255,255,0.12), inset 0 0 0 4px rgba(215,187,122,0.09);
   }
   .footer-sticky-pill {
     width: 100%;
     min-width: 0;
-    min-height: 42px;
-    padding: 0.68rem 0.5rem;
-    font-size: 0.55rem;
-    letter-spacing: 0.08em;
+    min-height: 28px;
+    padding: 0.3rem 0.16rem;
+    font-size: 0.36rem;
+    letter-spacing: 0.035em;
     overflow-wrap: anywhere;
   }
-  .footer-sticky-pill:nth-last-child(1) {
-    grid-column: 1 / -1;
-  }
-  .floating-contact { right: 1rem; bottom: 1.25rem; flex-direction: row; gap: 0.75rem; }
+  .floating-contact { right: 1rem; bottom: 5.45rem; flex-direction: row; gap: 0.75rem; }
   .floating-contact-btn { min-width: 132px; min-height: 48px; }
   .floating-contact-btn.icon-only {
     width: 56px;
