@@ -1,9 +1,21 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function ConciergeWidget() {
   const [open, setOpen] = useState(false)
+
+  useEffect(() => {
+    const openFromFooter = (event: MouseEvent) => {
+      const target = event.target as HTMLElement | null
+      if (!target?.closest('[data-open-shan]')) return
+      event.preventDefault()
+      setOpen(true)
+    }
+
+    document.addEventListener('click', openFromFooter)
+    return () => document.removeEventListener('click', openFromFooter)
+  }, [])
 
   return (
     <div className="floating-contact">

@@ -34,6 +34,17 @@ const contactLinks = [
   ['Cookies', '/cookies'],
 ]
 
+const stickyActions = [
+  ['Stays', '/stays'],
+  ['Drive', '/drive'],
+  ['Eat', '/eat'],
+  ['Partnership', '/affiliates'],
+  ['Account Portal Login', '/contact'],
+  ['Fly', '/fly'],
+  ['Yacht', '/yacht'],
+  ['Chat With Us', '/contact'],
+]
+
 const socials = [
   ['Instagram', '#', 'M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm5 5.5A4.5 4.5 0 1 0 12 16a4.5 4.5 0 0 0 0-9Zm6-.7h.01'],
   ['Snapchat', '#', 'M12 3c2.4 0 4 1.8 4 4.3v2.1c0 .8.6 1.3 1.4 1.6l1.4.5c.5.2.5.9 0 1.1l-1.5.6c-.5.2-.8.6-.7 1.1.2 1-.5 1.5-1.5 1.3-.7-.1-1.1.2-1.5.8-.4.7-.9 1.1-1.6 1.1s-1.2-.4-1.6-1.1c-.4-.6-.8-.9-1.5-.8-1 .2-1.7-.3-1.5-1.3.1-.5-.2-.9-.7-1.1l-1.5-.6c-.5-.2-.5-.9 0-1.1l1.4-.5c.8-.3 1.4-.8 1.4-1.6V7.3C8 4.8 9.6 3 12 3Z'],
@@ -101,6 +112,24 @@ export default function Footer() {
 
       <div className="footer-bottombar">
         <p>© 2026 OPV</p>
+      </div>
+
+      <div className="footer-sticky-bar-wrap" aria-label="Quick OPV actions">
+        <nav className="footer-sticky-bar">
+          {stickyActions.map(([label, href]) => {
+            const isChat = label === 'Chat With Us'
+            return (
+              <Link
+                key={label}
+                href={href}
+                className={`footer-sticky-pill${isChat ? ' footer-sticky-pill-chat' : ''}`}
+                data-open-shan={isChat ? 'true' : undefined}
+              >
+                {label}
+              </Link>
+            )
+          })}
+        </nav>
       </div>
     </footer>
   )
