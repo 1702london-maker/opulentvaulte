@@ -35,20 +35,20 @@ const venues: Venue[] = [
   { id: 'ivy', name: 'The Ivy Manchester', area: 'Spinningfields', city: 'Manchester', tags: ['Dinner', 'Rooftop', 'Manchester'], description: 'All-day destination dining with a rooftop bar. Private booths and a member feel without the membership requirement.', image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&q=85' },
   { id: 'mana', name: 'Mana', area: 'Ancoats', city: 'Manchester', tags: ['Dinner', 'Manchester'], description: "The only Michelin-starred restaurant in Manchester. Chef's table access when the public waitlist is closed.", image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=700&q=85', note: 'Special access' },
   { id: 'nobu', name: 'Nobu London', area: 'Mayfair', city: 'London', tags: ['Dinner', 'Late', 'Private Hire', 'London'], description: 'Japanese-Peruvian mastery with a private dining room, separate entrance and dedicated team.', image: 'https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=700&q=85' },
-  { id: 'scotts', name: "Scott's", area: 'Mayfair', city: 'London', tags: ['Dinner', 'Private Hire', 'London'], description: "Mayfair's enduring seafood institution. Champagne, privacy and the kind of room where decisions get made.", image: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?w=700&q=85' },
-  { id: 'mandrake', name: 'The Mandrake', area: 'Fitzrovia', city: 'London', tags: ['Late', 'Dinner', 'London'], description: "London's most theatrical hotel restaurant. Private space, candlelit service and living walls.", image: 'https://images.unsplash.com/photo-1551218808-94e220e084d2?w=700&q=85' },
-  { id: 'blanc', name: 'Brasserie Blanc', area: 'City Centre', city: 'Leeds', tags: ['Dinner', 'Private Hire'], description: "Raymond Blanc's Leeds outpost. Private dining room, full wine list and a kitchen that does not disappoint.", image: 'https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=700&q=85' },
-  { id: 'crafthouse', name: 'Crafthouse', area: 'Trinity Kitchen', city: 'Leeds', tags: ['Rooftop', 'Dinner'], description: 'Rooftop restaurant with panoramic views of Leeds. Private hire evenings available Sunday through Tuesday.', image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&q=85' },
-  { id: 'black-swan', name: 'The Black Swan', area: 'Oldstead', city: 'North Yorkshire', tags: ['Dinner'], description: "Two Michelin stars, 30 miles from Leeds, completely worth the drive. One of the UK's important rooms.", image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=700&q=85', note: 'Reservation through OPV' },
+  { id: 'scotts', name: "Scott's", area: 'Mayfair', city: 'London', tags: ['Dinner', 'Private Hire', 'London'], description: "Mayfair's enduring seafood institution. Champagne, privacy and the kind of room where decisions get made.", image: 'https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=700&q=85' },
+  { id: 'mandrake', name: 'The Mandrake', area: 'Fitzrovia', city: 'London', tags: ['Late', 'Dinner', 'London'], description: "London's most theatrical hotel restaurant. Private space, candlelit service and living walls.", image: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?w=700&q=85' },
+  { id: 'blanc', name: 'Brasserie Blanc', area: 'City Centre', city: 'Leeds', tags: ['Dinner', 'Private Hire'], description: "Raymond Blanc's Leeds outpost. Private dining room, full wine list and a kitchen that does not disappoint.", image: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=700&q=85' },
+  { id: 'crafthouse', name: 'Crafthouse', area: 'Trinity Kitchen', city: 'Leeds', tags: ['Rooftop', 'Dinner'], description: 'Rooftop restaurant with panoramic views of Leeds. Private hire evenings available Sunday through Tuesday.', image: 'https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=700&q=85' },
+  { id: 'black-swan', name: 'The Black Swan', area: 'Oldstead', city: 'North Yorkshire', tags: ['Dinner'], description: "Two Michelin stars, 30 miles from Leeds, completely worth the drive. One of the UK's important rooms.", image: 'https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?w=700&q=85', note: 'Reservation through OPV' },
 ]
 
 const neighbourhoods = [
-  ['Spinningfields', 'Manchester', 'https://images.unsplash.com/photo-1559339352-11d035aa65de?w=700&q=90'],
-  ['Ancoats', 'Manchester', 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=700&q=90'],
-  ['Mayfair', 'London', 'https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=700&q=90'],
-  ['Knightsbridge', 'London', 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&q=90'],
-  ['Granary Wharf', 'Leeds', 'https://images.unsplash.com/photo-1544025162-d76694265947?w=700&q=90'],
-  ['Hale & Alderley', 'Cheshire', 'https://images.unsplash.com/photo-1551218808-94e220e084d2?w=700&q=90'],
+  ['Spinningfields', 'Manchester', 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=700&q=90'],
+  ['Ancoats', 'Manchester', 'https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=700&q=90'],
+  ['Mayfair', 'London', 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=700&q=90'],
+  ['Knightsbridge', 'London', 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=700&q=90'],
+  ['Granary Wharf', 'Leeds', 'https://images.unsplash.com/photo-1519671282429-b44660ead0a7?w=700&q=90'],
+  ['Hale & Alderley', 'Cheshire', 'https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=700&q=90'],
 ]
 
 const occasions = [
@@ -74,7 +74,7 @@ export default function EatPage() {
   return (
     <>
       <section className="page-hero page-hero-clear-top">
-        <Image src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1800&q=90" alt="Luxury private dining room" fill style={{ objectFit: 'cover' }} priority />
+        <Image src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=1800&q=90" alt="Luxury private dining room" fill style={{ objectFit: 'cover' }} priority />
         <div className="page-hero-overlay page-hero-overlay-light" />
         <div className="page-hero-inner">
           <motion.div {...fadeUp()} className="page-hero-copy page-hero-copy-raised">
@@ -184,7 +184,7 @@ export default function EatPage() {
       <section id="corporate" className="section" style={{ background: 'var(--white)' }}>
         <div className="container eat-corporate">
           <motion.div {...fadeUp()} className="eat-corporate-image">
-            <Image src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=90" alt="Corporate private dinner" fill style={{ objectFit: 'cover' }} />
+            <Image src="https://images.unsplash.com/photo-1555244162-803834f70033?w=800&q=90" alt="Corporate private dinner" fill style={{ objectFit: 'cover' }} />
           </motion.div>
           <motion.div {...fadeUp(0.1)}>
             <span className="eyebrow">Corporate</span>
