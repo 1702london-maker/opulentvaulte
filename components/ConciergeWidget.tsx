@@ -42,10 +42,6 @@ export default function ConciergeWidget() {
           </form>
         </div>
       )}
-
-      <button type="button" onClick={() => setOpen(true)} className="floating-contact-btn shan-trigger icon-only" aria-label="Open Shan chat">
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.86 9.86 0 0 1-4.26-.95L3 20l1.4-3.72A7.7 7.7 0 0 1 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8Z" stroke="currentColor" strokeWidth="1.45" strokeLinecap="round" strokeLinejoin="round" /></svg>
-      </button>
     </div>
   )
 }

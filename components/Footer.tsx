@@ -42,7 +42,7 @@ const stickyActions = [
   ['Account Portal Login', '/contact'],
   ['Fly', '/fly'],
   ['Yacht', '/yacht'],
-  ['Chat With Us', '/contact'],
+  ['Chat With Us', '#shan'],
 ]
 
 const socials = [
