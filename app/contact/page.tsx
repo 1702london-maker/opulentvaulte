@@ -1,90 +1,162 @@
-'use client'
+import ContactForm from './ContactForm'
+import MapEmbed from './MapEmbed'
 
-import Image from 'next/image'
-import Link from 'next/link'
-import { motion } from 'framer-motion'
-import EnquiryForm from '@/components/ui/EnquiryForm'
+const phone = '+44 7385 694230'
+const telHref = 'tel:+447385694230'
+const email = 'hello@opulentvault.co.uk'
+const mailHref = 'mailto:hello@opulentvault.co.uk'
+const whatsAppHref = 'https://wa.me/447385694230'
 
-const fadeUp = (delay = 0) => ({
-  initial: { opacity: 0, y: 32 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: '-60px' },
-  transition: { duration: 0.65, delay, ease: [0.25, 0.46, 0.45, 0.94] },
-})
+const contactMethods = [
+  {
+    label: 'Call us',
+    title: 'Call the team',
+    value: phone,
+    href: telHref,
+    description: 'Direct line to the OPV concierge team. Answered at any hour, any day. No IVR, no menu, no hold - a person picks up.',
+    cta: 'Call now',
+    icon: 'M22 16.9v3a2 2 0 0 1-2.18 2 19.7 19.7 0 0 1-8.59-3.05 19.3 19.3 0 0 1-5.95-5.95A19.7 19.7 0 0 1 2.23 4.2 2 2 0 0 1 4.21 2h3a2 2 0 0 1 2 1.72c.13.96.35 1.9.66 2.79a2 2 0 0 1-.45 2.11L8.17 9.87a15.4 15.4 0 0 0 5.96 5.96l1.25-1.25a2 2 0 0 1 2.11-.45c.89.31 1.83.53 2.79.66A2 2 0 0 1 22 16.9Z',
+  },
+  {
+    label: 'Email us',
+    title: 'Send an email',
+    value: email,
+    href: mailHref,
+    description: 'For briefs that benefit from detail - dates, guest counts, specific requirements. We read every email ourselves and respond within two hours.',
+    cta: 'Send email',
+    icon: 'M4 6h16v12H4V6Zm0 0 8 7 8-7',
+  },
+  {
+    label: 'WhatsApp',
+    title: 'WhatsApp',
+    value: phone,
+    href: whatsAppHref,
+    external: true,
+    description: 'The fastest route for same-day requests, last-minute changes and anything where speed matters. Message us directly - no chatbot, no delay.',
+    cta: 'Message now',
+    icon: 'M21 11.5a8.4 8.4 0 0 1-12.2 7.45L3 20l1.3-5.16A8.4 8.4 0 1 1 21 11.5Zm-11-3c.4 2 1.6 3.7 3.5 4.6l1.35-1.1 2.15.95-.35 1.85c-.2.55-.85.84-1.4.65-3.35-1.1-5.75-3.55-6.86-6.86-.18-.55.1-1.2.66-1.4L10 8.5Z',
+  },
+]
+
+const socials = [
+  ['Instagram', '#', 'M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm5 5.5A4.5 4.5 0 1 0 12 16a4.5 4.5 0 0 0 0-9Zm6-.7h.01'],
+  ['LinkedIn', '#', 'M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4V9h4v2a4.5 4.5 0 0 1 2-3ZM2 9h4v12H2V9Zm2-6a2 2 0 1 1 0 4 2 2 0 0 1 0-4Z'],
+  ['X', '#', 'M4 4l16 16M20 4 4 20'],
+  ['WhatsApp', whatsAppHref, 'M21 11.5a8.4 8.4 0 0 1-12.2 7.45L3 20l1.3-5.16A8.4 8.4 0 1 1 21 11.5Z'],
+]
+
+function StrokeIcon({ path }: { path: string }) {
+  return <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d={path} stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" /></svg>
+}
 
 export default function ContactPage() {
   return (
     <>
-      <section className="page-hero page-hero-clear-top">
-        <Image src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1800&q=90" alt="Private concierge desk" fill priority style={{ objectFit: 'cover' }} />
-        <div className="page-hero-overlay page-hero-overlay-light" />
-        <div className="page-hero-inner">
-          <motion.div {...fadeUp()} className="page-hero-copy page-hero-copy-raised">
-            <span className="eyebrow page-hero-kicker">Contact</span>
-            <h1 className="page-hero-title">
-              Tell us<br /><em style={{ fontStyle: 'italic', color: '#D4EAF6' }}>what you need.</em>
-            </h1>
-            <p className="page-hero-body">One contact for every service. Available 24 hours a day, every day of the year.</p>
-            <div className="page-hero-actions">
-              <a href="#enquiry" className="btn-primary">Send enquiry</a>
-            </div>
-          </motion.div>
+      <section className="contact-hero">
+        <div className="contact-hero-left">
+          <span className="eyebrow">Get in touch</span>
+          <h1>We're always <em>available.</em></h1>
+          <p>No automated responses. No ticketing system. No hold music. A member of the OPV team picks up every call and responds to every message - typically within two hours, often within minutes.</p>
+          <small>Tell us what you need. We'll handle the rest.</small>
+        </div>
+        <div className="contact-hero-right">
+          <div>
+            <span>Call us</span>
+            <a href={telHref}>{phone}</a>
+            <p>Answered around the clock, 365 days a year. If we miss you, we call back within 10 minutes.</p>
+          </div>
+          <div>
+            <span>Email us</span>
+            <a href={mailHref}>{email}</a>
+            <p>For detailed briefs, document sharing and anything that benefits from a written record. Response within 2 hours.</p>
+          </div>
+          <div>
+            <span>WhatsApp</span>
+            <a href={whatsAppHref} target="_blank" rel="noopener noreferrer">{phone}</a>
+            <p>Preferred for immediate requests, quick confirmations and anything time-sensitive. Message us directly.</p>
+          </div>
         </div>
       </section>
 
-      {/* Contact cards */}
-      <section className="section" style={{ background: 'var(--ice)' }}>
-        <div className="container" style={{ maxWidth: 1360, margin: '0 auto', padding: '0 2.5rem' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
+      <section className="contact-channel-section">
+        <div className="contact-channel-grid">
+          {contactMethods.map(method => (
+            <article key={method.title} className="contact-channel-card">
+              <StrokeIcon path={method.icon} />
+              <span>{method.label}</span>
+              <h2>{method.title}</h2>
+              <a href={method.href} target={method.external ? '_blank' : undefined} rel={method.external ? 'noopener noreferrer' : undefined}>{method.value}</a>
+              <p>{method.description}</p>
+              <a className="btn-ghost" href={method.href} target={method.external ? '_blank' : undefined} rel={method.external ? 'noopener noreferrer' : undefined}>{method.cta} -&gt;</a>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="enquiry" className="contact-enquiry-section">
+        <div className="contact-enquiry-grid">
+          <ContactForm />
+          <aside className="contact-office-panel">
+            <span className="eyebrow">Find us</span>
+            <h2>Two offices. <em>One standard.</em></h2>
+            <p>OPV is headquartered in Manchester with a London presence. Both offices run to the same standard - walk-in appointments are not usual, but the team is always reachable.</p>
             {[
-              { method: 'Phone', value: '+44 (0) 161 000 0000', label: 'Available 24h', href: 'tel:+441610000000', cta: 'Call now' },
-              { method: 'Email', value: 'booking@budruum.co.uk', label: 'Response within 2 hours', href: 'mailto:booking@budruum.co.uk', cta: 'Send an email' },
-              { method: 'WhatsApp', value: '+44 (0) 7700 000000', label: 'Preferred for urgent requests', href: 'https://wa.me/447700000000', cta: 'Open WhatsApp' },
-            ].map((c, i) => (
-              <motion.div key={c.method} {...fadeUp(i * 0.08)} style={{ background: 'var(--white)', border: '1px solid var(--border)', padding: '2.5rem' }}>
-                <span className="eyebrow">{c.method}</span>
-                <p className="display-sm" style={{ marginBottom: '0.5rem', fontSize: '1.1rem', fontFamily: 'var(--body)' }}>{c.value}</p>
-                <p className="body-sm" style={{ marginBottom: '1.5rem' }}>{c.label}</p>
-                <a href={c.href} className="btn-ghost" style={{ padding: '0.6rem 1.2rem', fontSize: '0.68rem' }}>{c.cta}</a>
-              </motion.div>
+              ['Manchester - Primary', '14 John Dalton Street · Manchester · M2 6JR'],
+              ['London', '22 Brook Mews · Mayfair · London · W1K 4DW'],
+            ].map(([label, address]) => (
+              <div className="contact-office-block" key={label}>
+                <span>{label}</span>
+                <strong>OPV Luxury</strong>
+                <p>{address}</p>
+                <a href={telHref}>{phone}</a>
+                <a href={mailHref}>{email}</a>
+              </div>
+            ))}
+            <div className="contact-hours">
+              <span>Office hours</span>
+              {[
+                ['Mon-Fri', '08:00 - 22:00'],
+                ['Saturday', '09:00 - 20:00'],
+                ['Sunday', '10:00 - 18:00'],
+                ['Emergency', '24 hours'],
+              ].map(([day, time]) => <div key={day}><small>{day}</small><strong>{time}</strong></div>)}
+              <div className="contact-emergency">
+                <span>Emergency line</span>
+                <a href={telHref}>{phone}</a>
+                <p>For existing clients with urgent requirements outside office hours.</p>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <MapEmbed />
+
+      <section className="contact-social-section">
+        <div className="contact-social-left">
+          <span className="eyebrow">Follow</span>
+          <h2>Stay in the <em>world.</em></h2>
+          <p>New residences, seasonal fleet additions, empty legs and private dining access - quietly announced to those who follow.</p>
+          <div className="contact-social-links">
+            {socials.map(([label, href, icon]) => (
+              <a key={label} href={href} target={href === whatsAppHref ? '_blank' : undefined} rel={href === whatsAppHref ? 'noopener noreferrer' : undefined}>
+                <StrokeIcon path={icon} />
+                <span>{label}</span>
+              </a>
             ))}
           </div>
         </div>
-      </section>
-
-      {/* Enquiry form */}
-      <section id="enquiry" className="section" style={{ background: 'var(--white)', borderTop: '1px solid var(--border)' }}>
-        <div style={{ maxWidth: 760, margin: '0 auto', padding: '0 2.5rem' }}>
-          <motion.div {...fadeUp()} style={{ marginBottom: '3rem' }}>
-            <span className="eyebrow">General enquiry</span>
-            <h2 className="display-md">Send us <em>your brief.</em></h2>
-          </motion.div>
-          <EnquiryForm page="contact" cta="Send enquiry" />
+        <div className="contact-social-right">
+          <p>One contact. Every arrangement. Nothing falls between the cracks.</p>
+          <small>OPV Luxury · Budruum Ltd · Manchester & London · Registered in England & Wales</small>
         </div>
       </section>
 
-      {/* Office */}
-      <section className="section" style={{ background: 'var(--ice)', borderTop: '1px solid var(--border)' }}>
-        <div className="container" style={{ maxWidth: 1360, margin: '0 auto', padding: '0 2.5rem' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem' }}>
-            <motion.div {...fadeUp()}>
-              <span className="eyebrow">Office</span>
-              <h2 className="display-md" style={{ marginBottom: '1.5rem' }}>Registered <em>address.</em></h2>
-              <p className="body-lg">Budruum Ltd<br />71–75 Shelton Street<br />Covent Garden<br />London WC2H 9JQ</p>
-            </motion.div>
-            <motion.div {...fadeUp(0.1)}>
-              <span className="eyebrow">Hours</span>
-              <h2 className="display-md" style={{ marginBottom: '1.5rem' }}>Concierge <em>availability.</em></h2>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-                {[['Concierge line', '24 hours / 7 days'], ['Email', 'Response within 2 hours'], ['Emergency line', '24 hours / 7 days']].map(([k, v]) => (
-                  <div key={k} style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid var(--border)', paddingBottom: '0.8rem' }}>
-                    <span className="label-sm">{k}</span>
-                    <span className="label-sm" style={{ color: 'var(--ink)' }}>{v}</span>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
+      <section className="contact-closing">
+        <p>Tell us what you need. Leave the rest to us.</p>
+        <div>
+          <a className="btn-primary" href={telHref}>Call now</a>
+          <a className="btn-ghost" href={mailHref}>Send an email</a>
         </div>
       </section>
     </>
