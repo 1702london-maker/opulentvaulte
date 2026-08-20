@@ -490,8 +490,12 @@ ul, ol { list-style: none; }
   box-shadow: none;
 }
 .floating-contact-btn.whatsapp:hover { background: transparent; color: #128c7e; }
-.floating-contact-btn.ai-chat { background: var(--sapphire); color: var(--white); border: 1px solid rgba(255,255,255,0.35); }
-.floating-contact-btn.ai-chat:hover { background: var(--sapphire-dk); }
+.floating-contact-btn.shan-trigger {
+  background: transparent;
+  color: var(--sapphire);
+  border: 0;
+}
+.floating-contact-btn.shan-trigger:hover { background: transparent; color: var(--sapphire-dk); }
 .floating-contact-btn svg { width: 22px; height: 22px; flex: 0 0 22px; }
 .floating-contact-btn > span:last-child {
   font-family: var(--mono);
@@ -521,6 +525,7 @@ ul, ol { list-style: none; }
   100% { transform: scale(2); opacity: 0; }
 }
 .shan-chat-panel {
+  position: relative;
   width: min(340px, calc(100vw - 2rem));
   background: var(--white);
   border: 1px solid var(--border);
@@ -535,17 +540,8 @@ ul, ol { list-style: none; }
   padding: 1rem;
   border-bottom: 1px solid var(--border);
 }
-.shan-chat-header span {
-  display: block;
-  font-family: var(--mono);
-  font-size: 0.58rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--sapphire);
-}
 .shan-chat-header strong {
   display: block;
-  margin-top: 0.15rem;
   font-family: var(--display);
   font-size: 1.4rem;
   font-weight: 400;
@@ -838,7 +834,7 @@ ul, ol { list-style: none; }
   padding: 1.5rem 2.5rem;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 1.5rem;
   flex-wrap: wrap;
   background: var(--white);
@@ -850,6 +846,7 @@ ul, ol { list-style: none; }
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--ink-mute);
+  font-weight: 800;
   transition: color var(--transition);
 }
 .footer-bottombar nav { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
@@ -863,14 +860,20 @@ ul, ol { list-style: none; }
   .footer-topbar { align-items: flex-start; flex-direction: column; padding: 1rem; }
   .footer-topbar div { gap: 0.8rem 1.2rem; }
   .footer-grid { grid-template-columns: 1fr; padding: 3.5rem 1rem; }
-  .footer-bottombar { padding: 1.5rem 1rem; }
-  .floating-contact { right: 1rem; bottom: 1rem; }
+  .footer-bottombar { padding: 1.5rem 1rem; text-align: center; }
+  .floating-contact { right: 1rem; bottom: 8.7rem; flex-direction: row; gap: 0.75rem; }
   .floating-contact-btn { min-width: 132px; min-height: 48px; }
   .floating-contact-btn.icon-only {
-    width: 52px;
-    min-width: 52px;
-    height: 52px;
-    min-height: 52px;
+    width: 38px;
+    min-width: 38px;
+    height: 38px;
+    min-height: 38px;
+  }
+  .floating-contact-btn svg { width: 21px; height: 21px; flex-basis: 21px; }
+  .shan-chat-panel {
+    position: absolute;
+    right: 0;
+    bottom: 3.25rem;
   }
 }
 
@@ -1943,8 +1946,15 @@ ul, ol { list-style: none; }
     padding: 2rem 1.25rem;
   }
   .home-world-tile {
-    min-height: 220px;
-    padding: 1.6rem;
+    min-height: 390px;
+    padding: 0;
+  }
+  .home-world-content {
+    min-height: 390px;
+    padding: 2rem 1.4rem;
+  }
+  .home-city-card {
+    aspect-ratio: 4 / 5;
   }
   .home-newsletter-form {
     grid-template-columns: 1fr;
@@ -2163,17 +2173,47 @@ main > .breadcrumb + section {
 
 @media (max-width: 760px) {
   .page-hero {
-    min-height: 620px;
+    height: calc(100svh - 92px);
+    min-height: 680px;
+    margin-top: 92px;
+  }
+  .page-hero > img {
+    object-position: center center !important;
   }
   .page-hero-inner {
-    padding: 0 1.25rem 2.2rem;
+    padding: 0 1.1rem 1.35rem;
+    align-items: stretch;
   }
   .page-hero-copy-raised {
-    padding-top: 3.6rem;
+    width: 100%;
+    max-width: 100%;
+    padding-top: 2.2rem;
+    min-height: 100%;
   }
   .page-hero-title,
   .page-hero-copy-raised .page-hero-title {
-    font-size: clamp(2rem, 12vw, 3.2rem);
+    font-size: clamp(2.15rem, 11vw, 3.55rem);
+    max-width: 92vw;
+  }
+  .page-hero-body,
+  .page-hero-copy-raised .page-hero-body {
+    max-width: 84vw;
+    font-size: 0.82rem;
+    line-height: 1.6;
+  }
+  .page-hero-actions {
+    width: 100%;
+    gap: 0.75rem;
+    margin-top: auto;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .page-hero-actions .btn-primary,
+  .page-hero-actions .btn-ghost-light {
+    flex: 1 1 100%;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0.85rem 1rem;
+    text-align: center;
   }
 }
 
