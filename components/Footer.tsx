@@ -68,7 +68,6 @@ export default function Footer() {
               <Image src="/opv-logo.png" alt="OPV Luxury" width={96} height={96} />
             </div>
             <span>Private Concierge</span>
-            <p>Stays, cars, private dining, aviation, yachts and close protection arranged privately across Manchester, London and Leeds.</p>
             <div className="footer-socials">
               {socials.map(([label, href, icon]) => (
                 <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>

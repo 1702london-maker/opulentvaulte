@@ -190,15 +190,15 @@ ul, ol { list-style: none; }
   margin: 0 auto;
   padding: 0 2.5rem;
   display: grid;
-  grid-template-columns: 230px 1fr auto;
+  grid-template-columns: 290px 1fr auto;
   align-items: center;
   gap: 2rem;
 }
 .nav-luxury-logo {
   display: inline-flex;
   align-items: center;
-  width: clamp(150px, 14vw, 220px);
-  height: 72px;
+  width: clamp(190px, 17vw, 290px);
+  height: 92px;
   white-space: nowrap;
   overflow: hidden;
   transition: opacity var(--transition), filter var(--transition);
@@ -211,7 +211,7 @@ ul, ol { list-style: none; }
   display: block;
   width: 100%;
   height: auto;
-  max-height: 58px;
+  max-height: 82px;
   object-fit: contain;
   object-position: left center;
 }
@@ -484,8 +484,14 @@ ul, ol { list-style: none; }
   padding: 0;
   justify-content: center;
 }
-.floating-contact-btn.ai-chat { background: var(--ink); }
-.floating-contact-btn.ai-chat:hover { background: var(--ink-mid); }
+.floating-contact-btn.whatsapp {
+  background: transparent;
+  color: #25d366;
+  box-shadow: none;
+}
+.floating-contact-btn.whatsapp:hover { background: transparent; color: #128c7e; }
+.floating-contact-btn.ai-chat { background: var(--sapphire); color: var(--white); border: 1px solid rgba(255,255,255,0.35); }
+.floating-contact-btn.ai-chat:hover { background: var(--sapphire-dk); }
 .floating-contact-btn svg { width: 22px; height: 22px; flex: 0 0 22px; }
 .floating-contact-btn > span:last-child {
   font-family: var(--mono);
@@ -513,6 +519,68 @@ ul, ol { list-style: none; }
 @keyframes pulse {
   0%   { transform: scale(1); opacity: 0.8; }
   100% { transform: scale(2); opacity: 0; }
+}
+.shan-chat-panel {
+  width: min(340px, calc(100vw - 2rem));
+  background: var(--white);
+  border: 1px solid var(--border);
+  box-shadow: 0 24px 70px rgba(17,31,43,0.18);
+  color: var(--ink);
+}
+.shan-chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+.shan-chat-header span {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--sapphire);
+}
+.shan-chat-header strong {
+  display: block;
+  margin-top: 0.15rem;
+  font-family: var(--display);
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+.shan-chat-header button {
+  font-size: 1.3rem;
+  line-height: 1;
+  color: var(--ink-soft);
+}
+.shan-chat-body {
+  padding: 1rem;
+  color: var(--ink-soft);
+  font-size: 0.86rem;
+  line-height: 1.6;
+}
+.shan-chat-form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  border-top: 1px solid var(--border);
+}
+.shan-chat-form input {
+  min-width: 0;
+  border: 0;
+  padding: 0.9rem 1rem;
+  outline: none;
+  color: var(--ink);
+}
+.shan-chat-form button {
+  padding: 0 1rem;
+  background: var(--sapphire);
+  color: var(--white);
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 /* ── Custom cursor ──────────────────────────────────────── */
@@ -632,12 +700,9 @@ ul, ol { list-style: none; }
   width: 116px;
   height: 116px;
   margin-bottom: 0.9rem;
-  background: var(--sapphire);
-  color: var(--white);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
 }
 .footer-brand-mark img {
   width: 100%;
