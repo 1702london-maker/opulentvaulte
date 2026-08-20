@@ -8,14 +8,14 @@ import { motion } from 'framer-motion'
 const tickerItems = ['Stays', 'Drive', 'Eat', 'Fly', 'Yacht', 'Security', 'Shop', 'Private Access', 'Stays', 'Drive', 'Eat', 'Fly', 'Yacht', 'Security', 'Shop', 'Private Access']
 
 const worlds = [
-  { title: 'Stays', href: '/stays', body: 'Residences inspected by a guardian before they are ever offered to a client.', mark: 'Residence' },
-  { title: 'Drive', href: '/drive', body: 'Chauffeured, self-drive and secure transport held to principal-level standards.', mark: 'Movement' },
-  { title: 'Eat', href: '/eat', body: 'Private rooms, chef tables and impossible reservations arranged through standing access.', mark: 'Tables' },
-  { title: 'Fly', href: '/fly', body: 'Aircraft, empty legs, FBO movement and arrival coordination handled end to end.', mark: 'Aviation' },
-  { title: 'Yacht', href: '/yacht', body: 'Crewed charters and waterside itineraries prepared without public catalogues.', mark: 'Charter' },
-  { title: 'Security', href: '/security', body: 'Close protection, route planning and discreet presence for sensitive travel.', mark: 'Protection' },
-  { title: 'Shop', href: '/shop', body: 'Atelier access, sourcing, gifting and personal shopping without retail noise.', mark: 'Sourcing' },
-  { title: 'Always On', href: '/contact', body: 'A named concierge who keeps the brief moving until every detail is closed.', mark: '24 / 7', always: true },
+  { title: 'Stays', href: '/stays', body: 'Residences inspected by a guardian before they are ever offered to a client.', mark: 'Residence', image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=900&q=90' },
+  { title: 'Drive', href: '/drive', body: 'Chauffeured, self-drive and secure transport held to principal-level standards.', mark: 'Movement', image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=900&q=90' },
+  { title: 'Eat', href: '/eat', body: 'Private rooms, chef tables and impossible reservations arranged through standing access.', mark: 'Tables', image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=90' },
+  { title: 'Fly', href: '/fly', body: 'Aircraft, empty legs, FBO movement and arrival coordination handled end to end.', mark: 'Aviation', image: 'https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=900&q=90' },
+  { title: 'Yacht', href: '/yacht', body: 'Crewed charters and waterside itineraries prepared without public catalogues.', mark: 'Charter', image: 'https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=900&q=90' },
+  { title: 'Security', href: '/security', body: 'Close protection, route planning and discreet presence for sensitive travel.', mark: 'Protection', image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=900&q=90' },
+  { title: 'Shop', href: '/shop', body: 'Atelier access, sourcing, gifting and personal shopping without retail noise.', mark: 'Sourcing', image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=900&q=90' },
+  { title: 'Always On', href: '/contact', body: 'A named concierge who keeps the brief moving until every detail is closed.', mark: '24 / 7', image: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=900&q=90', always: true },
 ]
 
 const cities = [
@@ -99,11 +99,16 @@ export default function HomePage() {
           <div className="home-worlds-grid">
             {worlds.map((world, i) => (
               <Link key={world.title} href={world.href} className={`home-world-tile${world.always ? ' always' : ''}`}>
-                <motion.span className="home-world-mark" initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.04 }}>
-                  {world.mark}
-                </motion.span>
-                <h3>{world.title}</h3>
-                <p>{world.body}</p>
+                <div className="home-world-image">
+                  <Image src={world.image} alt={`${world.title} concierge service`} fill style={{ objectFit: 'cover' }} />
+                </div>
+                <div className="home-world-content">
+                  <motion.span className="home-world-mark" initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.04 }}>
+                    {world.mark}
+                  </motion.span>
+                  <h3>{world.title}</h3>
+                  <p>{world.body}</p>
+                </div>
               </Link>
             ))}
           </div>
