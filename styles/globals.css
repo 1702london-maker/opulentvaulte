@@ -1668,9 +1668,11 @@ main > .breadcrumb + section {
   max-width: 620px;
 }
 .page-hero-copy-raised {
-  align-self: flex-start;
-  margin-top: clamp(4.5rem, 7vh, 6.25rem);
+  align-self: stretch;
+  padding-top: clamp(4.5rem, 7vh, 6.25rem);
   max-width: 440px;
+  display: flex;
+  flex-direction: column;
 }
 .page-hero-kicker {
   color: rgba(255,255,255,0.72);
@@ -1705,7 +1707,7 @@ main > .breadcrumb + section {
   margin-top: 1.8rem;
 }
 .page-hero-copy-raised .page-hero-actions {
-  margin-top: 1.2rem;
+  margin-top: auto;
 }
 .page-hero-actions .btn-primary,
 .btn-ghost-light {
@@ -1749,7 +1751,7 @@ main > .breadcrumb + section {
     padding: 0 1.25rem 2.2rem;
   }
   .page-hero-copy-raised {
-    margin-top: 3.6rem;
+    padding-top: 3.6rem;
   }
   .page-hero-title,
   .page-hero-copy-raised .page-hero-title {
