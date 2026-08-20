@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import EnquiryForm from '@/components/ui/EnquiryForm'
@@ -24,28 +25,20 @@ const fadeUp = (delay = 0) => ({
 export default function AffiliatesPage() {
   return (
     <>
-      <div className="breadcrumb">
-        <Link href="/">OPV</Link><span className="sep">·</span>
-        <span style={{ color: 'var(--ink)' }}>Affiliates</span>
-      </div>
-
-      {/* Hero */}
-      <section style={{ background: 'var(--ice)', padding: '8rem 2.5rem', borderBottom: '1px solid var(--border)' }}>
-        <div style={{ maxWidth: 1360, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', alignItems: 'center' }}>
-          <motion.div {...fadeUp()}>
-            <span className="eyebrow">Referral Programme</span>
-            <h1 className="display-xl" style={{ marginBottom: '1.5rem' }}>Refer once.<br /><em>Earn for life.</em></h1>
-            <p className="body-lg" style={{ marginBottom: '2rem', maxWidth: 420 }}>OPV pays commission on every booking made by a client you refer — across all services, for as long as they remain a client.</p>
-            <a href="#apply" className="btn-primary">Apply to the programme</a>
+      <section className="page-hero page-hero-clear-top">
+        <Image src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=1800&q=90" alt="Private affiliate meeting" fill priority style={{ objectFit: 'cover' }} />
+        <div className="page-hero-overlay page-hero-overlay-light" />
+        <div className="page-hero-inner">
+          <motion.div {...fadeUp()} className="page-hero-copy page-hero-copy-raised">
+            <span className="eyebrow page-hero-kicker">Affiliates</span>
+            <h1 className="page-hero-title">
+              Refer once.<br /><em style={{ fontStyle: 'italic', color: '#D4EAF6' }}>Earn for life.</em>
+            </h1>
+            <p className="page-hero-body">OPV pays commission on every booking made by a client you refer - across all services, for as long as they remain a client.</p>
+            <div className="page-hero-actions">
+              <a href="#apply" className="btn-primary">Apply to the programme</a>
+            </div>
           </motion.div>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1px', background: 'var(--border)' }}>
-            {[{ num: '15%', label: 'Max commission' }, { num: '90', label: 'Day cookie window' }, { num: 'Monthly', label: 'Payout cycle' }, { num: 'Lifetime', label: 'Client attribution' }].map(s => (
-              <div key={s.label} style={{ background: 'var(--white)', padding: '2.5rem', textAlign: 'center' }}>
-                <div className="stat-num" style={{ fontSize: '2.2rem', marginBottom: '0.4rem' }}>{s.num}</div>
-                <span className="label-sm">{s.label}</span>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 

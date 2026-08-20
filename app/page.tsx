@@ -53,7 +53,7 @@ const benefits = [
 export default function HomePage() {
   return (
     <>
-      <section className="page-hero home-hero">
+      <section className="page-hero home-hero page-hero-clear-top">
         <Image
           src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1400&q=90"
           alt="Luxury private residence"
@@ -61,9 +61,9 @@ export default function HomePage() {
           style={{ objectFit: 'cover' }}
           priority
         />
-        <div className="page-hero-overlay" />
+        <div className="page-hero-overlay page-hero-overlay-light" />
         <div className="page-hero-inner">
-          <motion.div className="page-hero-copy" initial={{ opacity: 0, y: 34 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] }}>
+          <motion.div className="page-hero-copy page-hero-copy-raised" initial={{ opacity: 0, y: 34 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] }}>
             <span className="eyebrow page-hero-kicker">Private concierge for serious requests</span>
             <h1 className="page-hero-title">
               One call.<br />One world.<br /><em>Everything.</em>

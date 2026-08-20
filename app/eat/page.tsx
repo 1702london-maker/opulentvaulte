@@ -73,11 +73,11 @@ export default function EatPage() {
 
   return (
     <>
-      <section className="page-hero">
+      <section className="page-hero page-hero-clear-top">
         <Image src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600&q=90" alt="Private dining" fill style={{ objectFit: 'cover' }} priority />
-        <div className="page-hero-overlay" />
+        <div className="page-hero-overlay page-hero-overlay-light" />
         <div className="page-hero-inner">
-          <motion.div {...fadeUp()} className="page-hero-copy">
+          <motion.div {...fadeUp()} className="page-hero-copy page-hero-copy-raised">
             <span className="eyebrow page-hero-kicker">Eat</span>
             <h1 className="page-hero-title">The table you<br /><em>could not get.</em></h1>
             <p className="page-hero-body">Private rooms, impossible reservations and chef's tables across Manchester, London and Leeds. One contact arranges it with the standing to deliver.</p>

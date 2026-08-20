@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import EnquiryForm from '@/components/ui/EnquiryForm'
@@ -14,18 +15,19 @@ const fadeUp = (delay = 0) => ({
 export default function ContactPage() {
   return (
     <>
-      <div className="breadcrumb">
-        <Link href="/">OPV</Link><span className="sep">·</span>
-        <span style={{ color: 'var(--ink)' }}>Contact</span>
-      </div>
-
-      {/* Hero */}
-      <section style={{ background: 'var(--white)', padding: '8rem 2.5rem 5rem', borderBottom: '1px solid var(--border)' }}>
-        <div style={{ maxWidth: 760, margin: '0 auto', textAlign: 'center' }}>
-          <motion.div {...fadeUp()}>
-            <span className="eyebrow">One number</span>
-            <h1 className="display-xl" style={{ marginBottom: '1.5rem' }}>Tell us<br /><em>what you need.</em></h1>
-            <p className="body-lg">One contact for every service. Available 24 hours a day, every day of the year.</p>
+      <section className="page-hero page-hero-clear-top">
+        <Image src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1800&q=90" alt="Private concierge desk" fill priority style={{ objectFit: 'cover' }} />
+        <div className="page-hero-overlay page-hero-overlay-light" />
+        <div className="page-hero-inner">
+          <motion.div {...fadeUp()} className="page-hero-copy page-hero-copy-raised">
+            <span className="eyebrow page-hero-kicker">Contact</span>
+            <h1 className="page-hero-title">
+              Tell us<br /><em style={{ fontStyle: 'italic', color: '#D4EAF6' }}>what you need.</em>
+            </h1>
+            <p className="page-hero-body">One contact for every service. Available 24 hours a day, every day of the year.</p>
+            <div className="page-hero-actions">
+              <a href="#enquiry" className="btn-primary">Send enquiry</a>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -51,7 +53,7 @@ export default function ContactPage() {
       </section>
 
       {/* Enquiry form */}
-      <section className="section" style={{ background: 'var(--white)', borderTop: '1px solid var(--border)' }}>
+      <section id="enquiry" className="section" style={{ background: 'var(--white)', borderTop: '1px solid var(--border)' }}>
         <div style={{ maxWidth: 760, margin: '0 auto', padding: '0 2.5rem' }}>
           <motion.div {...fadeUp()} style={{ marginBottom: '3rem' }}>
             <span className="eyebrow">General enquiry</span>

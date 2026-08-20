@@ -31,25 +31,20 @@ const fadeUp = (delay = 0) => ({
 export default function FlyPage() {
   return (
     <>
-      <div className="breadcrumb">
-        <Link href="/">OPV</Link><span className="sep">·</span>
-        <span style={{ color: 'var(--ink)' }}>Fly</span>
-      </div>
-
-      {/* Hero */}
-      <section style={{ background: 'var(--ice)', padding: '7rem 2.5rem', borderBottom: '1px solid var(--border)' }}>
-        <div style={{ maxWidth: 1360, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', alignItems: 'center' }}>
-          <motion.div {...fadeUp()}>
-            <span className="eyebrow">Private Aviation</span>
-            <h1 className="display-xl" style={{ marginBottom: '1.5rem' }}>Your aircraft.<br /><em>Your schedule.</em></h1>
-            <p className="body-lg" style={{ marginBottom: '2rem', maxWidth: 420 }}>Turboprop to ultra long range. Arranged from Manchester, Heathrow or your preferred FBO. Catering, ground transport and arrival coordination included.</p>
-            <div style={{ display: 'flex', gap: '1rem' }}>
+      <section className="page-hero page-hero-clear-top">
+        <Image src="https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=1800&q=90" alt="Private aviation" fill priority style={{ objectFit: 'cover' }} />
+        <div className="page-hero-overlay page-hero-overlay-light" />
+        <div className="page-hero-inner">
+          <motion.div {...fadeUp()} className="page-hero-copy page-hero-copy-raised">
+            <span className="eyebrow page-hero-kicker">Fly</span>
+            <h1 className="page-hero-title">
+              Your aircraft.<br /><em style={{ fontStyle: 'italic', color: '#D4EAF6' }}>Your schedule.</em>
+            </h1>
+            <p className="page-hero-body">Turboprop to ultra long range. Arranged from Manchester, Heathrow or your preferred FBO. Catering, ground transport and arrival coordination included.</p>
+            <div className="page-hero-actions">
               <Link href="/contact" className="btn-primary">Plan a charter</Link>
-              <a href="#empty-legs" className="btn-ghost">View empty legs</a>
+              <a href="#empty-legs" className="btn-ghost-light">View empty legs</a>
             </div>
-          </motion.div>
-          <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} style={{ position: 'relative', height: 400, overflow: 'hidden' }}>
-            <Image src="https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=800&q=85" alt="Private aviation" fill style={{ objectFit: 'cover' }} />
           </motion.div>
         </div>
       </section>

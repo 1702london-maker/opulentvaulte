@@ -21,24 +21,20 @@ const fadeUp = (delay = 0) => ({
 export default function YachtPage() {
   return (
     <>
-      <div className="breadcrumb">
-        <Link href="/">OPV</Link><span className="sep">·</span>
-        <span style={{ color: 'var(--ink)' }}>Yacht</span>
-      </div>
-
-      <section style={{ background: 'var(--ice)', padding: '7rem 2.5rem', borderBottom: '1px solid var(--border)' }}>
-        <div style={{ maxWidth: 1360, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', alignItems: 'center' }}>
-          <motion.div {...fadeUp()}>
-            <span className="eyebrow">Yacht Charter</span>
-            <h1 className="display-xl" style={{ marginBottom: '1.5rem' }}>Open water.<br /><em>Private crew.</em></h1>
-            <p className="body-lg" style={{ marginBottom: '2rem', maxWidth: 420 }}>Day charters, week-long itineraries and corporate charters. Mediterranean, Caribbean or coastal UK. Every charter includes full crew and concierge coordination from Manchester.</p>
-            <div style={{ display: 'flex', gap: '1rem' }}>
+      <section className="page-hero page-hero-clear-top">
+        <Image src="https://images.unsplash.com/photo-1563941406054-949f567f84bd?w=1800&q=90" alt="Yacht charter" fill priority style={{ objectFit: 'cover' }} />
+        <div className="page-hero-overlay page-hero-overlay-light" />
+        <div className="page-hero-inner">
+          <motion.div {...fadeUp()} className="page-hero-copy page-hero-copy-raised">
+            <span className="eyebrow page-hero-kicker">Yacht</span>
+            <h1 className="page-hero-title">
+              Open water.<br /><em style={{ fontStyle: 'italic', color: '#D4EAF6' }}>Private crew.</em>
+            </h1>
+            <p className="page-hero-body">Day charters, week-long itineraries and corporate charters. Mediterranean, Caribbean or coastal UK. Every charter includes full crew and concierge coordination from Manchester.</p>
+            <div className="page-hero-actions">
               <Link href="/contact" className="btn-primary">Plan a charter</Link>
-              <a href="#vessels" className="btn-ghost">View vessels</a>
+              <a href="#vessels" className="btn-ghost-light">View vessels</a>
             </div>
-          </motion.div>
-          <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} style={{ position: 'relative', height: 440, overflow: 'hidden' }}>
-            <Image src="https://images.unsplash.com/photo-1563941406054-949f567f84bd?w=800&q=85" alt="Yacht charter" fill style={{ objectFit: 'cover' }} />
           </motion.div>
         </div>
       </section>

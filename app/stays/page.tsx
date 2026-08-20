@@ -45,7 +45,7 @@ export default function StaysPage() {
   return (
     <>
       {/* 1. Hero */}
-      <section className="page-hero">
+      <section className="page-hero page-hero-clear-top">
         <Image
           src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?w=1600&q=90"
           alt="OPV Private Residences"
@@ -53,9 +53,9 @@ export default function StaysPage() {
           style={{ objectFit: 'cover' }}
           priority
         />
-        <div className="page-hero-overlay" />
+        <div className="page-hero-overlay page-hero-overlay-light" />
         <div className="page-hero-inner">
-          <motion.div {...fu()} className="page-hero-copy">
+          <motion.div {...fu()} className="page-hero-copy page-hero-copy-raised">
             <span className="eyebrow page-hero-kicker">Stays</span>
             <h1 className="page-hero-title">
               The property you<br /><em style={{ fontStyle: 'italic', color: '#D4EAF6' }}>couldn&apos;t find.</em>

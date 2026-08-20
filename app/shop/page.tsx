@@ -67,26 +67,21 @@ const fadeUp = (delay = 0) => ({
 export default function ShopPage() {
   return (
     <>
-      <section className="shop-hero">
-        <div className="shop-hero-copy">
-          <motion.div {...fadeUp()}>
-            <span className="eyebrow">Personal Shopping & Sourcing</span>
-            <h1 className="display-xl">Found. Sourced. <em>Delivered.</em></h1>
-            <p className="body-md">We find what is not listed. We source what is not available. From a Patek Philippe on allocation to a Savile Row commission to a single rare bottle - described once, delivered discreetly.</p>
-            <div className="shop-hero-actions">
+      <section className="page-hero page-hero-clear-top">
+        <Image src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1800&q=90" alt="Editorial luxury personal shopping" fill priority style={{ objectFit: 'cover', objectPosition: 'top' }} />
+        <div className="page-hero-overlay page-hero-overlay-light" />
+        <div className="page-hero-inner">
+          <motion.div {...fadeUp()} className="page-hero-copy page-hero-copy-raised">
+            <span className="eyebrow page-hero-kicker">Shop</span>
+            <h1 className="page-hero-title">
+              Found. Sourced.<br /><em style={{ fontStyle: 'italic', color: '#D4EAF6' }}>Delivered.</em>
+            </h1>
+            <p className="page-hero-body">We find what is not listed. We source what is not available. From a Patek Philippe on allocation to a Savile Row commission to a single rare bottle - described once, delivered discreetly.</p>
+            <div className="page-hero-actions">
               <Link href="#brief" className="btn-primary">Start a sourcing brief</Link>
-              <Link href="#stylist" className="btn-ghost">Book a stylist session</Link>
+              <Link href="#stylist" className="btn-ghost-light">Book a stylist session</Link>
             </div>
           </motion.div>
-          <div className="shop-trust-strip">
-            <span>No commission affiliations</span>
-            <span>Same-day sourcing available</span>
-            <span>NDA on every engagement</span>
-          </div>
-        </div>
-        <div className="shop-hero-image">
-          <Image src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1400&q=90" alt="Editorial luxury personal shopping" fill style={{ objectFit: 'cover', objectPosition: 'top' }} priority />
-          <span>Bond Street, London</span>
         </div>
       </section>
 
