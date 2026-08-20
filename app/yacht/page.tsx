@@ -7,7 +7,7 @@ import EnquiryForm from '@/components/ui/EnquiryForm'
 
 const vessels = [
   { name: 'Azimut 72', type: 'Motor Yacht', length: '72ft', pax: 10, detail: 'Four-cabin motor yacht with flybridge and water toys. Mediterranean-ready.', img: 'https://images.unsplash.com/photo-1563941406054-949f567f84bd?w=700&q=80' },
-  { name: 'Sunseeker 88', type: 'Superyacht', length: '88ft', pax: 12, detail: "Flybridge superyacht with chef's galley, master stateroom and full crew.", img: 'https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=700&q=80' },
+  { name: 'Sunseeker 88', type: 'Superyacht', length: '88ft', pax: 12, detail: "Flybridge superyacht with chef's galley, master stateroom and full crew.", img: 'https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=700&q=80' },
   { name: 'Leopard 50', type: 'Sailing Catamaran', length: '50ft', pax: 8, detail: 'Four-cabin sailing catamaran. Ideal for week charters through the Balearics.', img: 'https://images.unsplash.com/photo-1605281317010-fe5ffe798166?w=700&q=80' },
 ]
 
@@ -22,7 +22,7 @@ export default function YachtPage() {
   return (
     <>
       <section className="page-hero page-hero-clear-top">
-        <Image src="https://images.unsplash.com/photo-1563941406054-949f567f84bd?w=1800&q=90" alt="Yacht charter" fill priority style={{ objectFit: 'cover' }} />
+        <Image src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1800&q=90" alt="Yacht charter" fill priority style={{ objectFit: 'cover' }} />
         <div className="page-hero-overlay page-hero-overlay-light" />
         <div className="page-hero-inner">
           <motion.div {...fadeUp()} className="page-hero-copy page-hero-copy-raised">

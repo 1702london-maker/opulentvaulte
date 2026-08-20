@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 import EnquiryForm from '@/components/ui/EnquiryForm'
 
 const properties = [
-  { id: 1, name: 'The Crescent Riverside', city: 'Manchester', area: 'Salford Quays', type: 'penthouse', designation: 'opv-managed', beds: 4, guests: 8, priceFrom: 850, image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=700&q=80', chips: ['River View', 'Private Terrace', 'Chef Kitchen', 'Concierge'], verified: true, description: 'Four-bedroom penthouse on the Irwell with panoramic water views.' },
+  { id: 1, name: 'The Crescent Riverside', city: 'Manchester', area: 'Salford Quays', type: 'penthouse', designation: 'opv-managed', beds: 4, guests: 8, priceFrom: 850, image: 'https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=700&q=80', chips: ['River View', 'Private Terrace', 'Chef Kitchen', 'Concierge'], verified: true, description: 'Four-bedroom penthouse on the Irwell with panoramic water views.' },
   { id: 3, name: 'The Knightsbridge Residence', city: 'London', area: 'Knightsbridge', type: 'townhouse', designation: 'opv-managed', beds: 5, guests: 10, priceFrom: 4100, image: 'https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?w=700&q=80', chips: ['Mayfair Adjacent', 'Butler', 'Rooftop Terrace', 'Wine Cellar'], verified: true, description: 'Five-storey Knightsbridge townhouse with butler and rooftop garden.' },
   { id: 4, name: 'Harewood Grange', city: 'Leeds', area: 'Harewood', type: 'estate', designation: 'partner-hosted', beds: 6, guests: 12, priceFrom: 2800, image: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?w=700&q=80', chips: ['Private Grounds', 'Hot Tub', 'Home Cinema', 'Stables'], verified: true, description: 'Country estate with stable block, cinema room and landscaped grounds.' },
   { id: 5, name: 'Royal Mills Penthouse', city: 'Manchester', area: 'Ancoats', type: 'penthouse', designation: 'opv-managed', beds: 3, guests: 6, priceFrom: 890, image: 'https://images.unsplash.com/photo-1598928636135-d146006ff4be?w=700&q=80', chips: ['Mill Conversion', 'Rooftop', 'City Views', 'Parking'], verified: true, description: 'Converted Victorian mill with rooftop terrace above Ancoats.' },
@@ -25,9 +25,9 @@ const types = ['All', 'Penthouse', 'Villa', 'Estate', 'Townhouse', 'Apartment']
 const cities = ['All Cities', 'Manchester', 'London', 'Leeds']
 
 const destinations = [
-  { city: 'Manchester', country: 'England', img: 'https://images.unsplash.com/photo-1520986606214-8b456906c813?w=600&q=80' },
-  { city: 'London', country: 'England', img: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600&q=80' },
-  { city: 'Leeds', country: 'England', img: 'https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=600&q=80' },
+  { city: 'Manchester', country: 'England', img: 'https://images.unsplash.com/photo-1518005020951-eccb494ad742?w=600&q=80' },
+  { city: 'London', country: 'England', img: 'https://images.unsplash.com/photo-1486299267070-83823f5448dd?w=600&q=80' },
+  { city: 'Leeds', country: 'England', img: 'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=600&q=80' },
 ]
 
 const fu = (d = 0) => ({ initial: { opacity: 0, y: 28 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true, margin: '-60px' }, transition: { duration: 0.6, delay: d, ease: [0.25, 0.46, 0.45, 0.94] } })
@@ -300,7 +300,7 @@ export default function StaysPage() {
       <section style={{ background: '#EAF4FB', padding: '7rem 0', borderTop: '1px solid var(--border)' }}>
         <div style={{ maxWidth: 1360, margin: '0 auto', padding: '0 2.5rem', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', alignItems: 'center' }}>
           <motion.div {...fu()} style={{ position: 'relative', aspectRatio: '3/4', overflow: 'hidden' }}>
-            <Image src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=85" alt="Off-market property" fill style={{ objectFit: 'cover' }} />
+            <Image src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=85" alt="Off-market property" fill style={{ objectFit: 'cover' }} />
           </motion.div>
           <motion.div {...fu(0.1)}>
             <span className="eyebrow">Off-Market</span>

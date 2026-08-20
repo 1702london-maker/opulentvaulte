@@ -107,7 +107,7 @@ export default function ShopPage() {
       <section id="stylist" className="section shop-stylist-section">
         <div className="container shop-stylist">
           <motion.div {...fadeUp()} className="shop-stylist-image">
-            <Image src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=90" alt="Private stylist suite" fill style={{ objectFit: 'cover' }} />
+            <Image src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=900&q=90" alt="Private stylist suite" fill style={{ objectFit: 'cover' }} />
           </motion.div>
           <motion.div {...fadeUp(0.1)} className="shop-stylist-copy">
             <span className="eyebrow">Your Stylist</span>

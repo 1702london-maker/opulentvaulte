@@ -32,7 +32,7 @@ const fleet: FleetCar[] = [
   { id: 'taycan', make: 'Porsche', model: 'Taycan Turbo S', category: 'sports', badge: 'Self-Drive Only', passengers: 4, spec: 'Electric, 761bhp launch control', chips: ['4 passengers', '2 luggage'], priceFrom: '£980', image: 'https://images.unsplash.com/photo-1614200187524-dc4b892acf16?w=900&q=85', cta: 'Reserve' },
   { id: 'roma', make: 'Ferrari', model: 'Roma Spider', category: 'sports', badge: 'Self-Drive Only', passengers: 2, spec: '3.9L V8, 620bhp open-top GT', chips: ['2 passengers', '1 luggage'], priceFrom: '£1,900', image: 'https://images.unsplash.com/photo-1592198084033-aade902d1aae?w=900&q=85', cta: 'Reserve' },
   { id: 'bmw-armoured', make: 'BMW', model: '7-Series B6 Armoured', category: 'armoured', badge: 'Chauffeur Only', passengers: 4, spec: 'B6 ballistic rated, run-flat tyres', chips: ['4 passengers', 'secure comms'], priceFrom: 'POA', image: 'https://images.unsplash.com/photo-1553440569-bcc63803a83d?w=900&q=85', cta: 'Request Briefing' },
-  { id: 's-guard', make: 'Mercedes-Benz', model: 'S-Class Guard', category: 'armoured', badge: 'Chauffeur Only', passengers: 4, spec: 'VR6/VR7 rated, blast-resistant floor', chips: ['4 passengers', 'VR rated'], priceFrom: 'POA', image: 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=900&q=85', cta: 'Request Briefing' },
+  { id: 's-guard', make: 'Mercedes-Benz', model: 'S-Class Guard', category: 'armoured', badge: 'Chauffeur Only', passengers: 4, spec: 'VR6/VR7 rated, blast-resistant floor', chips: ['4 passengers', 'VR rated'], priceFrom: 'POA', image: 'https://images.unsplash.com/photo-1603386329225-868f9b1ee6c9?w=900&q=85', cta: 'Request Briefing' },
   { id: 'sentinel', make: 'Range Rover', model: 'Sentinel', category: 'armoured', badge: 'Chauffeur Only', passengers: 5, spec: 'B6+ armour, NATO STANAG standard', chips: ['5 passengers', 'B6+ armour'], priceFrom: 'POA', image: 'https://images.unsplash.com/photo-1541447270924-9e16e94cd6d8?w=900&q=85', cta: 'Request Briefing' },
 ]
 
@@ -233,7 +233,7 @@ export default function DrivePage() {
             <a href="#booking" className="btn-primary" style={{ marginTop: '1.5rem' }}>Request armoured transport</a>
           </motion.div>
           <motion.div {...fadeUp(0.1)} style={{ position: 'relative', height: 680, overflow: 'hidden' }}>
-            <Image src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?w=900&q=85" alt="Secure luxury transport" fill style={{ objectFit: 'cover' }} />
+            <Image src="https://images.unsplash.com/photo-1563720223185-11003d516935?w=900&q=85" alt="Secure luxury transport" fill style={{ objectFit: 'cover' }} />
           </motion.div>
         </div>
       </section>

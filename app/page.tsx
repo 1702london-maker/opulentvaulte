@@ -10,7 +10,7 @@ const tickerItems = ['Stays', 'Drive', 'Eat', 'Fly', 'Yacht', 'Security', 'Shop'
 const worlds = [
   { title: 'Stays', href: '/stays', body: 'Residences inspected by a guardian before they are ever offered to a client.', mark: 'Residence', image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=900&q=90' },
   { title: 'Drive', href: '/drive', body: 'Chauffeured, self-drive and secure transport held to principal-level standards.', mark: 'Movement', image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=900&q=90' },
-  { title: 'Eat', href: '/eat', body: 'Private rooms, chef tables and impossible reservations arranged through standing access.', mark: 'Tables', image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=90' },
+  { title: 'Eat', href: '/eat', body: 'Private rooms, chef tables and impossible reservations arranged through standing access.', mark: 'Tables', image: 'https://images.unsplash.com/photo-1559847844-5315695dadae?w=900&q=90' },
   { title: 'Fly', href: '/fly', body: 'Aircraft, empty legs, FBO movement and arrival coordination handled end to end.', mark: 'Aviation', image: 'https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=900&q=90' },
   { title: 'Yacht', href: '/yacht', body: 'Crewed charters and waterside itineraries prepared without public catalogues.', mark: 'Charter', image: 'https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=900&q=90' },
   { title: 'Security', href: '/security', body: 'Close protection, route planning and discreet presence for sensitive travel.', mark: 'Protection', image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=900&q=90' },
@@ -118,7 +118,7 @@ export default function HomePage() {
       <section className="section" style={{ background: '#EAF4FB' }}>
         <div className="container home-featured">
           <div className="home-featured-image">
-            <Image src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1000&q=85" alt="The Crescent Riverside residence" fill style={{ objectFit: 'cover' }} />
+            <Image src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1000&q=85" alt="The Crescent Riverside residence" fill style={{ objectFit: 'cover' }} />
           </div>
           <div>
             <span className="eyebrow">Private-office standard</span>

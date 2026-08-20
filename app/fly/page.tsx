@@ -32,7 +32,7 @@ export default function FlyPage() {
   return (
     <>
       <section className="page-hero page-hero-clear-top">
-        <Image src="https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=1800&q=90" alt="Private aviation" fill priority style={{ objectFit: 'cover' }} />
+        <Image src="https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=1800&q=90" alt="Private aviation" fill priority style={{ objectFit: 'cover' }} />
         <div className="page-hero-overlay page-hero-overlay-light" />
         <div className="page-hero-inner">
           <motion.div {...fadeUp()} className="page-hero-copy page-hero-copy-raised">
