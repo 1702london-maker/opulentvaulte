@@ -74,7 +74,7 @@ export default function EatPage() {
   return (
     <>
       <section className="page-hero page-hero-clear-top">
-        <Image src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600&q=90" alt="Private dining" fill style={{ objectFit: 'cover' }} priority />
+        <Image src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1800&q=90" alt="Luxury private dining room" fill style={{ objectFit: 'cover' }} priority />
         <div className="page-hero-overlay page-hero-overlay-light" />
         <div className="page-hero-inner">
           <motion.div {...fadeUp()} className="page-hero-copy page-hero-copy-raised">
