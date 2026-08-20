@@ -1,91 +1,111 @@
-'use client'
-
 import Link from 'next/link'
+import FooterNewsletter from './FooterNewsletter'
+
+const phone = '+44 7385 694230'
+const telHref = 'tel:+447385694230'
+const email = 'hello@opulentvault.co.uk'
+const mailHref = 'mailto:hello@opulentvault.co.uk'
+const whatsappHref = 'https://wa.me/447385694230'
 
 const explore = [
-  { href: '/stays',    label: 'Stays' },
-  { href: '/drive',    label: 'Drive' },
-  { href: '/eat',      label: 'Eat' },
-  { href: '/fly',      label: 'Fly' },
-  { href: '/yacht',    label: 'Yacht' },
-  { href: '/security', label: 'Security' },
-  { href: '/shop',     label: 'Shop' },
+  ['Stays', '/stays'],
+  ['Drive', '/drive'],
+  ['Eat', '/eat'],
+  ['Shop', '/shop'],
+  ['Fly', '/fly'],
+  ['Yacht', '/yacht'],
+  ['Security', '/security'],
+  ['Contact', '/contact'],
 ]
 
 const company = [
-  { href: '/affiliates', label: 'Affiliates' },
-  { href: '/contact',    label: 'Contact' },
+  ['About OPV', '/about'],
+  ['Affiliates', '/affiliates'],
+  ['Partners', '#'],
+  ['Careers', '#'],
+  ['Press', '#'],
 ]
 
-const legal = [
-  { href: '/privacy', label: 'Privacy Policy' },
-  { href: '/terms',   label: 'Terms of Service' },
+const socials = [
+  ['Instagram', '#', 'M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm5 5.5A4.5 4.5 0 1 0 12 16a4.5 4.5 0 0 0 0-9Zm6-.7h.01'],
+  ['Snapchat', '#', 'M12 3c2.4 0 4 1.8 4 4.3v2.1c0 .8.6 1.3 1.4 1.6l1.4.5c.5.2.5.9 0 1.1l-1.5.6c-.5.2-.8.6-.7 1.1.2 1-.5 1.5-1.5 1.3-.7-.1-1.1.2-1.5.8-.4.7-.9 1.1-1.6 1.1s-1.2-.4-1.6-1.1c-.4-.6-.8-.9-1.5-.8-1 .2-1.7-.3-1.5-1.3.1-.5-.2-.9-.7-1.1l-1.5-.6c-.5-.2-.5-.9 0-1.1l1.4-.5c.8-.3 1.4-.8 1.4-1.6V7.3C8 4.8 9.6 3 12 3Z'],
+  ['TikTok', '#', 'M15 3v10.2a4.8 4.8 0 1 1-4.8-4.8c.5 0 1 .1 1.4.2v3.1a1.8 1.8 0 1 0 1.4 1.8V3h2Zm0 0c.7 2 2.1 3.3 4 3.7v3.1c-1.5-.1-2.9-.7-4-1.6'],
+  ['Facebook', '#', 'M14 8h3V4h-3a5 5 0 0 0-5 5v3H6v4h3v6h4v-6h3l1-4h-4V9a1 1 0 0 1 1-1Z'],
 ]
+
+function StrokeIcon({ path }: { path: string }) {
+  return <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d={path} stroke="currentColor" strokeWidth="1.35" strokeLinecap="round" strokeLinejoin="round" /></svg>
+}
+
+function FooterLink({ href, label }: { href: string; label: string }) {
+  return href === '#' ? <a href={href} className="footer-link">{label}</a> : <Link href={href} className="footer-link">{label}</Link>
+}
 
 export default function Footer() {
   return (
-    <footer className="footer">
-      <div className="container" style={{ maxWidth: 1360, margin: '0 auto', padding: '0 2.5rem' }}>
-        {/* Main grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '3rem', padding: '5rem 0 4rem' }}>
-
-          {/* Brand */}
-          <div>
-            <div className="footer-logo" style={{ marginBottom: '1rem' }}>OPV</div>
-            <p className="body-sm" style={{ maxWidth: 220 }}>
-              Private concierge. Manchester, London, Leeds. One contact. One invoice.
-            </p>
-            <p className="label-sm" style={{ marginTop: '1.5rem', color: 'var(--sapphire)' }}>hello@opulentvault.co.uk</p>
-          </div>
-
-          {/* Explore */}
-          <div>
-            <span className="eyebrow" style={{ marginBottom: '1.2rem' }}>Explore</span>
-            <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-              {explore.map(l => (
-                <li key={l.href}><Link href={l.href} className="footer-link">{l.label}</Link></li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Company */}
-          <div>
-            <span className="eyebrow" style={{ marginBottom: '1.2rem' }}>Company</span>
-            <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-              {company.map(l => (
-                <li key={l.href}><Link href={l.href} className="footer-link">{l.label}</Link></li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Legal */}
-          <div>
-            <span className="eyebrow" style={{ marginBottom: '1.2rem' }}>Legal</span>
-            <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-              {legal.map(l => (
-                <li key={l.href}><Link href={l.href} className="footer-link">{l.label}</Link></li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Newsletter */}
-          <div>
-            <span className="eyebrow" style={{ marginBottom: '1.2rem' }}>Stay Informed</span>
-            <p className="body-sm" style={{ marginBottom: '1.2rem' }}>Seasonal access. Private offers. Nothing public.</p>
-            <form style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }} onSubmit={e => e.preventDefault()}>
-              <input type="email" placeholder="Your email" className="opv-input" style={{ fontSize: '0.85rem' }} />
-              <button type="submit" className="btn-primary" style={{ alignSelf: 'flex-start', padding: '0.7rem 1.4rem' }}>
-                Subscribe
-              </button>
-            </form>
-          </div>
+    <footer className="opv-footer">
+      <div className="footer-topbar">
+        <p>Private Concierge · Manchester · London · Leeds</p>
+        <div>
+          <a href={telHref}>{phone}</a>
+          <a href={mailHref}>{email}</a>
+          <a href={whatsappHref} target="_blank" rel="noopener noreferrer">WhatsApp</a>
         </div>
+      </div>
 
-        {/* Footer bar */}
-        <div style={{ borderTop: '1px solid var(--border)', padding: '1.5rem 0', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.8rem' }}>
-          <p className="label-sm">© 2026 OPV Luxury · Budruum Ltd · Manchester</p>
-          <p className="label-sm">71–75 Shelton Street, Covent Garden, London WC2H 9JQ</p>
+      <div className="footer-main">
+        <div className="footer-grid">
+          <section className="footer-brand">
+            <div className="footer-brand-mark">O<em>P</em>V</div>
+            <span>Private Concierge</span>
+            <p>Stays, cars, private dining, aviation, yachts and close protection arranged privately across Manchester, London and Leeds.</p>
+            <div className="footer-socials">
+              {socials.map(([label, href, icon]) => (
+                <a key={label} href={href} target="_blank" rel="noopener noreferrer">
+                  <StrokeIcon path={icon} />
+                  <span>{label}</span>
+                </a>
+              ))}
+            </div>
+            <div className="footer-availability">
+              <span className="availability-dot" />
+              <p>Concierge available now</p>
+            </div>
+          </section>
+
+          <section>
+            <h2 className="footer-heading">Explore</h2>
+            <nav className="footer-list">{explore.map(([label, href]) => <FooterLink key={href} href={href} label={label} />)}</nav>
+          </section>
+
+          <section>
+            <h2 className="footer-heading">Company</h2>
+            <nav className="footer-list">{company.map(([label, href]) => <FooterLink key={label} href={href} label={label} />)}</nav>
+          </section>
+
+          <section>
+            <h2 className="footer-heading">Contact</h2>
+            <div className="footer-contact-stack">
+              <div><span>Phone</span><a href={telHref}>{phone}</a><p>24 hours, 365 days</p></div>
+              <div><span>Email</span><a href={mailHref}>{email}</a><p>Response within 2 hours</p></div>
+              <div><span>WhatsApp</span><a href={whatsappHref} target="_blank" rel="noopener noreferrer">{phone}</a><p>For immediate requests</p></div>
+            </div>
+          </section>
+
+          <section>
+            <h2 className="footer-heading">The Inner Circle</h2>
+            <FooterNewsletter />
+          </section>
         </div>
+      </div>
+
+      <div className="footer-bottombar">
+        <p>© 2026 OPV</p>
+        <nav>
+          <Link href="/terms">Terms</Link>
+          <Link href="/privacy">Privacy</Link>
+          <Link href="/cookies">Cookies</Link>
+        </nav>
       </div>
     </footer>
   )

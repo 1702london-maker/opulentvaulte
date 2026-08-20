@@ -40,9 +40,9 @@ const contactMethods = [
 
 const socials = [
   ['Instagram', '#', 'M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm5 5.5A4.5 4.5 0 1 0 12 16a4.5 4.5 0 0 0 0-9Zm6-.7h.01'],
-  ['LinkedIn', '#', 'M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4V9h4v2a4.5 4.5 0 0 1 2-3ZM2 9h4v12H2V9Zm2-6a2 2 0 1 1 0 4 2 2 0 0 1 0-4Z'],
-  ['X', '#', 'M4 4l16 16M20 4 4 20'],
-  ['WhatsApp', whatsAppHref, 'M21 11.5a8.4 8.4 0 0 1-12.2 7.45L3 20l1.3-5.16A8.4 8.4 0 1 1 21 11.5Z'],
+  ['Snapchat', '#', 'M12 3c2.4 0 4 1.8 4 4.3v2.1c0 .8.6 1.3 1.4 1.6l1.4.5c.5.2.5.9 0 1.1l-1.5.6c-.5.2-.8.6-.7 1.1.2 1-.5 1.5-1.5 1.3-.7-.1-1.1.2-1.5.8-.4.7-.9 1.1-1.6 1.1s-1.2-.4-1.6-1.1c-.4-.6-.8-.9-1.5-.8-1 .2-1.7-.3-1.5-1.3.1-.5-.2-.9-.7-1.1l-1.5-.6c-.5-.2-.5-.9 0-1.1l1.4-.5c.8-.3 1.4-.8 1.4-1.6V7.3C8 4.8 9.6 3 12 3Z'],
+  ['TikTok', '#', 'M15 3v10.2a4.8 4.8 0 1 1-4.8-4.8c.5 0 1 .1 1.4.2v3.1a1.8 1.8 0 1 0 1.4 1.8V3h2Zm0 0c.7 2 2.1 3.3 4 3.7v3.1c-1.5-.1-2.9-.7-4-1.6'],
+  ['Facebook', '#', 'M14 8h3V4h-3a5 5 0 0 0-5 5v3H6v4h3v6h4v-6h3l1-4h-4V9a1 1 0 0 1 1-1Z'],
 ]
 
 function StrokeIcon({ path }: { path: string }) {
@@ -139,7 +139,7 @@ export default function ContactPage() {
           <p>New residences, seasonal fleet additions, empty legs and private dining access - quietly announced to those who follow.</p>
           <div className="contact-social-links">
             {socials.map(([label, href, icon]) => (
-              <a key={label} href={href} target={href === whatsAppHref ? '_blank' : undefined} rel={href === whatsAppHref ? 'noopener noreferrer' : undefined}>
+              <a key={label} href={href}>
                 <StrokeIcon path={icon} />
                 <span>{label}</span>
               </a>
