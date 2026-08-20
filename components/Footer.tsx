@@ -21,9 +21,9 @@ const explore = [
 const company = [
   ['About OPV', '/about'],
   ['Affiliates', '/affiliates'],
-  ['Partners', '#'],
-  ['Careers', '#'],
-  ['Press', '#'],
+  ['Partners', '/partners'],
+  ['Careers', '/careers'],
+  ['Press', '/press'],
 ]
 
 const contactLinks = [
