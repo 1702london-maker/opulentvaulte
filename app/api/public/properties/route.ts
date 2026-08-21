@@ -1,21 +1,21 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { createServerClient } from '@/lib/supabase-server'
+import { getSupabaseAdmin } from '@/lib/api'
 
 export const dynamic = 'force-dynamic'
 
 export async function GET(req: NextRequest) {
   try {
     const params = new URL(req.url).searchParams
-    let query = createServerClient()
+    let query = getSupabaseAdmin()
       .from('properties')
       .select('*')
-      .eq('active', true)
+      .eq('is_active', true)
       .order('created_at', { ascending: false })
       .limit(Math.min(Number(params.get('limit') || 24), 100)) as any
 
     if (params.get('city')) query = query.eq('city', params.get('city'))
-    if (params.get('type')) query = query.eq('property_type', params.get('type'))
-    if (params.get('available')) query = query.eq('available', params.get('available') === 'true')
+    if (params.get('type')) query = query.eq('category', params.get('type'))
+    if (params.get('featured')) query = query.eq('is_featured', params.get('featured') === 'true')
 
     const { data, error } = await query
     if (error) throw error

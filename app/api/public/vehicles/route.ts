@@ -1,20 +1,20 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { createServerClient } from '@/lib/supabase-server'
+import { getSupabaseAdmin } from '@/lib/api'
 
 export const dynamic = 'force-dynamic'
 
 export async function GET(req: NextRequest) {
   try {
     const params = new URL(req.url).searchParams
-    let query = createServerClient()
+    let query = getSupabaseAdmin()
       .from('vehicles')
       .select('*')
-      .eq('active', true)
+      .eq('is_active', true)
       .order('created_at', { ascending: false })
       .limit(Math.min(Number(params.get('limit') || 24), 100)) as any
 
     if (params.get('category')) query = query.eq('category', params.get('category'))
-    if (params.get('based_at')) query = query.eq('based_at', params.get('based_at'))
+    if (params.get('based_at')) query = query.eq('location', params.get('based_at'))
 
     const { data, error } = await query
     if (error) throw error
