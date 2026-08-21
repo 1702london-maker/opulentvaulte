@@ -410,6 +410,126 @@ begin
   end if;
 end $$;
 
+-- OPV next-phase support: client portal, affiliate portal, messaging,
+-- empty legs, and date-based property availability.
+alter table clients add column if not exists supabase_user_id uuid references auth.users(id);
+create index if not exists idx_clients_supabase_user on clients(supabase_user_id);
+
+alter table affiliates add column if not exists supabase_user_id uuid references auth.users(id);
+create index if not exists idx_affiliates_supabase_user on affiliates(supabase_user_id);
+
+alter table properties add column if not exists blocked_dates jsonb default '[]'::jsonb;
+alter table bookings add column if not exists invoice_ref text;
+alter table bookings add column if not exists service_detail jsonb default '{}'::jsonb;
+alter table bookings add column if not exists supplier_name text;
+alter table bookings add column if not exists supplier_contact text;
+alter table bookings add column if not exists supplier_ref text;
+alter table enquiries add column if not exists converted_to_booking boolean default false;
+alter table enquiries add column if not exists booking_id uuid references bookings(id);
+alter table affiliate_referrals add column if not exists metadata jsonb default '{}'::jsonb;
+alter table bookings add column if not exists quoted_amount numeric(12,2);
+alter table bookings add column if not exists deposit_paid numeric(12,2);
+alter table bookings add column if not exists balance_due numeric(12,2);
+
+create table if not exists messages (
+  id uuid primary key default uuid_generate_v4(),
+  created_at timestamptz not null default now(),
+  thread_id uuid not null,
+  client_id uuid not null references clients(id),
+  sender_type text check (sender_type in ('client', 'guardian')),
+  sender_id uuid not null,
+  body text not null,
+  read boolean default false,
+  read_at timestamptz
+);
+
+create index if not exists idx_messages_thread on messages(thread_id);
+create index if not exists idx_messages_client on messages(client_id);
+
+create table if not exists empty_legs (
+  id uuid primary key default uuid_generate_v4(),
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
+  departure_iata text not null,
+  arrival_iata text not null,
+  departure_city text,
+  arrival_city text,
+  date_from date not null,
+  date_to date,
+  aircraft_type text,
+  max_passengers integer,
+  estimated_saving_pct integer,
+  price_from_gbp numeric(10,2),
+  available boolean default true,
+  operator text,
+  notes text
+);
+
+create index if not exists idx_empty_legs_date on empty_legs(date_from);
+create index if not exists idx_empty_legs_available on empty_legs(available);
+
+alter table messages enable row level security;
+alter table empty_legs enable row level security;
+
+grant select, insert, update, delete on messages to authenticated;
+grant select on empty_legs to anon, authenticated;
+grant select, insert, update, delete on empty_legs to authenticated;
+
+drop policy if exists "Client sees own record" on clients;
+create policy "Client sees own record" on clients
+  for select to authenticated
+  using ((select auth.uid()) = supabase_user_id);
+
+drop policy if exists "Client sees own enquiries" on enquiries;
+create policy "Client sees own enquiries" on enquiries
+  for select to authenticated
+  using (client_id in (select id from clients where supabase_user_id = (select auth.uid())));
+
+drop policy if exists "Client sees own bookings" on bookings;
+create policy "Client sees own bookings" on bookings
+  for select to authenticated
+  using (client_id in (select id from clients where supabase_user_id = (select auth.uid())));
+
+drop policy if exists "Client reads own messages" on messages;
+create policy "Client reads own messages" on messages
+  for select to authenticated
+  using (client_id in (select id from clients where supabase_user_id = (select auth.uid())));
+
+drop policy if exists "Client inserts own messages" on messages;
+create policy "Client inserts own messages" on messages
+  for insert to authenticated
+  with check (
+    sender_type = 'client'
+    and client_id in (select id from clients where supabase_user_id = (select auth.uid()))
+  );
+
+drop policy if exists "Staff manages messages" on messages;
+create policy "Staff manages messages" on messages
+  for all to authenticated
+  using (true)
+  with check (true);
+
+drop policy if exists "Public can view empty legs" on empty_legs;
+create policy "Public can view empty legs" on empty_legs
+  for select to anon, authenticated
+  using (available = true and date_from >= current_date);
+
+drop policy if exists "Staff manage empty legs" on empty_legs;
+create policy "Staff manage empty legs" on empty_legs
+  for all to authenticated
+  using (true)
+  with check (true);
+
+drop policy if exists "Affiliate sees own record" on affiliates;
+create policy "Affiliate sees own record" on affiliates
+  for select to authenticated
+  using (supabase_user_id = (select auth.uid()));
+
+drop policy if exists "Affiliate sees own referrals" on affiliate_referrals;
+create policy "Affiliate sees own referrals" on affiliate_referrals
+  for select to authenticated
+  using (affiliate_id in (select id from affiliates where supabase_user_id = (select auth.uid())));
+
 create or replace function set_updated_at()
 returns trigger as $$
 begin

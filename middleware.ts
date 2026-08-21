@@ -9,9 +9,22 @@ export function middleware(req: NextRequest) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
 
-  return NextResponse.next()
+  const res = NextResponse.next()
+  const ref = req.nextUrl.searchParams.get('ref')?.trim()
+
+  if (ref && /^[a-z0-9_-]{3,64}$/i.test(ref)) {
+    res.cookies.set('opv_ref', ref, {
+      httpOnly: true,
+      secure: true,
+      sameSite: 'lax',
+      path: '/',
+      maxAge: 60 * 60 * 24 * 90,
+    })
+  }
+
+  return res
 }
 
 export const config = {
-  matcher: ['/api/admin/:path*'],
+  matcher: ['/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico)$).*)'],
 }

@@ -3,12 +3,14 @@ import { enquiryConfirmationEmail, enquiryNotificationEmail } from '@/lib/email-
 import { opvFromEmail, opvNotificationEmail, resend } from '@/lib/email'
 import { cleanString, getIp, getSupabaseAdmin, isEmail, jsonError, logActivity, normaliseService, priorityByService, upsertClient } from '@/lib/api'
 import type { Json } from '@/lib/database.types'
+import { isRateLimited } from '@/lib/rate-limit'
+import { sanitizeObject, sanitizeText } from '@/lib/sanitize'
 
 export const dynamic = 'force-dynamic'
 
 function firstAvailable(...values: unknown[]) {
   for (const value of values) {
-    const clean = cleanString(value)
+    const clean = sanitizeText(value)
     if (clean) return clean
   }
   return null
@@ -16,15 +18,22 @@ function firstAvailable(...values: unknown[]) {
 
 export async function POST(req: NextRequest) {
   try {
+    const contentType = req.headers.get('content-type') || ''
+    if (!contentType.includes('application/json')) return jsonError('Content-Type must be application/json', 415)
+
+    const ip = getIp(req) || 'unknown'
+    if (await isRateLimited(`enquiry:${ip}`)) return jsonError('Too many requests. Please try again shortly.', 429)
+
     const db = getSupabaseAdmin()
     const body = await req.json()
     const fullName = firstAvailable(body.full_name, body.name)
     const email = String(body.email || '').trim().toLowerCase()
-    const phone = cleanString(body.phone)
+    const phone = sanitizeText(body.phone, 80)
     const service = normaliseService(body.service || body.page)
     const message = firstAvailable(body.message, body.brief, body.notes)
     const pageUrl = firstAvailable(body.page_url, body.page, req.headers.get('referer'))
-    const rawMetadata = typeof body.metadata === 'object' && body.metadata ? body.metadata : {}
+    const rawMetadata = sanitizeObject(typeof body.metadata === 'object' && body.metadata ? body.metadata : {})
+    const affiliateRef = sanitizeText(body.referral_code, 80) || sanitizeText(req.cookies.get('opv_ref')?.value, 80)
     const metadata = {
       ...rawMetadata,
       payload: body.payload || null,
@@ -35,6 +44,7 @@ export async function POST(req: NextRequest) {
       utm_source: (rawMetadata as any).utm_source || null,
       utm_medium: (rawMetadata as any).utm_medium || null,
       utm_campaign: (rawMetadata as any).utm_campaign || null,
+      referral_code: affiliateRef,
       userAgent: req.headers.get('user-agent'),
     } as Json
 
@@ -74,14 +84,34 @@ export async function POST(req: NextRequest) {
 
     if (error) throw error
 
+    if (affiliateRef) {
+      const { data: affiliate } = await db
+        .from('affiliates')
+        .select('id')
+        .eq('referral_code', affiliateRef)
+        .in('status', ['approved', 'active', 'elite'])
+        .maybeSingle()
+
+      if (affiliate?.id) {
+        await db.from('affiliate_referrals').insert({
+          affiliate_id: affiliate.id,
+          client_id: clientId,
+          enquiry_id: enquiry.id,
+          status: 'lead',
+          source: pageUrl || 'website',
+          metadata: { referral_code: affiliateRef, service } as Json,
+        })
+      }
+    }
+
     if (service === 'affiliates') {
       await db.from('affiliates').upsert(
         {
           full_name: fullName,
           email,
           phone,
-          company: cleanString(body.company),
-          city: cleanString(body.city),
+          company: sanitizeText(body.company, 160),
+          city: sanitizeText(body.city, 120),
           source: pageUrl || 'website',
           audience: message,
           notes: JSON.stringify(rawMetadata),

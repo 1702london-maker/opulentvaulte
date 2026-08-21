@@ -5,6 +5,8 @@ import Footer from '@/components/Footer'
 import ScrollProgress from '@/components/ScrollProgress'
 import SmoothScroll from '@/components/SmoothScroll'
 import ConciergeWidget from '@/components/ConciergeWidget'
+import { Analytics } from '@vercel/analytics/next'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://opulentvault.co.uk'),
@@ -40,6 +42,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <ConciergeWidget />
           <Footer />
         </SmoothScroll>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )

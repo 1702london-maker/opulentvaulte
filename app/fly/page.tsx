@@ -2,6 +2,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import AircraftFilter, { Aircraft } from './AircraftFilter'
 import FlyEnquiryForm from './FlyEnquiryForm'
+import { supabaseAdmin } from '@/lib/supabase'
+
+export const dynamic = 'force-dynamic'
 
 const categories = [
   { name: 'Turboprop', range: 'Up to 4h', seats: '4-8 seats', example: 'Pilatus PC-12, King Air 350', scale: 0.72 },
@@ -41,18 +44,50 @@ const featured = [
   { name: 'Sikorsky S-76.', em: 'No traffic.', badge: 'Helicopter · Transfer & Charter', body: 'Manchester to London in around 90 minutes. Rooftop to rooftop, helipad to aircraft steps. VIP configured interiors, 6-seat capacity and a range that covers any UK transfer without stopping.', specs: ['6 seats', '90min MAN to LHR', 'Rooftop capable', 'Executive fit-out'], price: 'From £4,200', cta: 'Request a helicopter', image: 'https://images.unsplash.com/photo-1517479149777-5f3b1511d5ad?w=900&q=90' },
 ]
 
-const emptyLegs = [
-  ['MAN -> NCE', 'Sep 2026', 'Midsize Jet', 'Up to 8', 'Save ~65%', 'From £4,200'],
-  ['LHR -> DXB', 'Sep 2026', 'Heavy Jet', 'Up to 12', 'Save ~70%', 'From £18,500'],
-  ['GVA -> MAN', 'Oct 2026', 'Light Jet', 'Up to 6', 'Save ~60%', 'From £6,800'],
-  ['MAN -> IBI', 'Oct 2026', 'Turboprop', 'Up to 6', 'Save ~55%', 'From £3,600'],
-  ['LHR -> FCO', 'Oct 2026', 'Midsize Jet', 'Up to 8', 'Save ~60%', 'From £8,100'],
-  ['FAB -> MAD', 'Oct 2026', 'Heavy Jet', 'Up to 14', 'Save ~72%', 'From £14,200'],
-  ['MAN -> MXP', 'Nov 2026', 'Light Jet', 'Up to 7', 'Save ~58%', 'From £5,400'],
-  ['LCY -> DUB', 'Nov 2026', 'Turboprop', 'Up to 8', 'Save ~50%', 'From £2,900'],
-  ['LHR -> JFK', 'Nov 2026', 'Ultra Long Range', 'Up to 16', 'Save ~68%', 'From £42,000'],
-  ['MAN -> BCN', 'Dec 2026', 'Midsize Jet', 'Up to 9', 'Save ~63%', 'From £6,200'],
-]
+type EmptyLeg = {
+  id: string
+  departure_iata: string
+  arrival_iata: string
+  date_from: string
+  date_to?: string | null
+  aircraft_type?: string | null
+  max_passengers?: number | null
+  estimated_saving_pct?: number | null
+  price_from_gbp?: number | null
+}
+
+async function getEmptyLegs(): Promise<EmptyLeg[]> {
+  if (!supabaseAdmin) return []
+
+  try {
+    const today = new Date().toISOString().slice(0, 10)
+    const { data, error } = await (supabaseAdmin as any)
+      .from('empty_legs')
+      .select('id, departure_iata, arrival_iata, date_from, date_to, aircraft_type, max_passengers, estimated_saving_pct, price_from_gbp')
+      .eq('available', true)
+      .gte('date_from', today)
+      .order('date_from', { ascending: true })
+      .limit(10)
+
+    if (error) throw error
+    return (data || []) as EmptyLeg[]
+  } catch (error) {
+    console.error('Fly empty legs error:', error)
+    return []
+  }
+}
+
+function formatLegDate(from: string, to?: string | null) {
+  const start = new Date(`${from}T00:00:00`)
+  const label = start.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })
+  if (!to || to === from) return label
+  const end = new Date(`${to}T00:00:00`)
+  return `${label} - ${end.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' })}`
+}
+
+function formatLegPrice(value?: number | null) {
+  return value ? `From £${Number(value).toLocaleString('en-GB')}` : 'POA'
+}
 
 function AircraftIcon({ scale }: { scale: number }) {
   return <svg className="fly-aircraft-icon" style={{ transform: `scale(${scale})` }} viewBox="0 0 120 48" fill="none" aria-hidden="true"><path d="M8 27h38L70 8h10L66 27h34c7 0 12 3 12 7s-5 7-12 7H66L80 46H69L46 41H18l-8 5H2l7-12-7-12h8l-2 5Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" /><path d="M47 27 34 11h9l25 16M46 41 34 46" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg>
@@ -62,7 +97,9 @@ function CheckIcon() {
   return <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12 4 4L19 6" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg>
 }
 
-export default function FlyPage() {
+export default async function FlyPage() {
+  const emptyLegs = await getEmptyLegs()
+
   return (
     <>
       <section className="page-hero page-hero-clear-top fly-page-hero">
@@ -130,7 +167,30 @@ export default function FlyPage() {
           <span className="eyebrow">Empty legs</span>
           <h2 className="display-md">Available now. <em>Priced to move.</em></h2>
           <p className="body-lg fly-intro">Empty leg flights are repositioning aircraft available at reduced rates. Listed in real time. Enquire immediately as availability changes within hours.</p>
-          <div className="fly-empty-table"><div className="fly-empty-head">{['Route', 'Date', 'Aircraft', 'Seats', 'Est. saving', 'Price', ''].map(h => <span key={h}>{h}</span>)}</div>{emptyLegs.map(row => <div className="fly-empty-row" key={`${row[0]}-${row[1]}`}>{row.map(cell => <span key={cell}>{cell}</span>)}<a href="#fly-enquiry">Enquire</a></div>)}</div>
+          <div className="fly-empty-table">
+            <div className="fly-empty-head">{['Route', 'Date', 'Aircraft', 'Seats', 'Est. saving', 'Price', ''].map(h => <span key={h}>{h}</span>)}</div>
+            {emptyLegs.length ? emptyLegs.map(row => (
+              <div className="fly-empty-row" key={row.id}>
+                <span>{row.departure_iata} {'->'} {row.arrival_iata}</span>
+                <span>{formatLegDate(row.date_from, row.date_to)}</span>
+                <span>{row.aircraft_type || 'Aircraft TBC'}</span>
+                <span>{row.max_passengers ? `Up to ${row.max_passengers}` : 'TBC'}</span>
+                <span>{row.estimated_saving_pct ? `Save ~${row.estimated_saving_pct}%` : 'Market rate'}</span>
+                <span>{formatLegPrice(row.price_from_gbp)}</span>
+                <a href="#fly-enquiry">Enquire</a>
+              </div>
+            )) : (
+              <div className="fly-empty-row">
+                <span>No live empty legs</span>
+                <span>Checked daily</span>
+                <span>Private jet</span>
+                <span>By request</span>
+                <span>On availability</span>
+                <span>POA</span>
+                <a href="#fly-enquiry">Request alert</a>
+              </div>
+            )}
+          </div>
           <p className="fly-empty-note">Empty leg availability changes in real time. Prices are estimates - confirm with the team. All flights include FBO access, catering and ground transport.</p>
         </div>
       </section>

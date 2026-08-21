@@ -4,6 +4,13 @@ import AdminLogout from './AdminLogout'
 const links = [
   ['Dashboard', '/admin'],
   ['Enquiries', '/admin/enquiries'],
+  ['Properties', '/admin/properties'],
+  ['Vehicles', '/admin/vehicles'],
+  ['Memberships', '/admin/memberships'],
+  ['Affiliates', '/admin/affiliates'],
+  ['Partners', '/admin/partners'],
+  ['Communications', '/admin/communications'],
+  ['Settings', '/admin/settings'],
 ]
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
