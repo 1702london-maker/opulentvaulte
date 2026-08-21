@@ -23,7 +23,13 @@ export async function GET(req: NextRequest) {
     if (params.get('aircraft')) query = query.ilike('aircraft_type', `%${params.get('aircraft')}%`)
 
     const { data, error } = await query
-    if (error) throw error
+    if (error) {
+      const message = String(error.message || '')
+      if (error.code === '42P01' || error.code === 'PGRST205' || message.includes('empty_legs')) {
+        return NextResponse.json({ data: [] })
+      }
+      throw error
+    }
 
     return NextResponse.json({ data: data || [] })
   } catch (error) {
