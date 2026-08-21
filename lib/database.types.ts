@@ -54,6 +54,7 @@ export interface Client {
   city: string | null
   country: string
   preferred_channel: NotificationChannel
+  language: string
   membership_tier: MembershipTier
   membership_status: MembershipStatus
   membership_since: string | null
@@ -87,6 +88,11 @@ export interface Enquiry {
   metadata: Json
   assigned_to: string | null
   priority: number
+  first_response_at: string | null
+  response_time_minutes: number | null
+  resolved_at: string | null
+  converted_to_booking: boolean
+  booking_id: string | null
   page_url: string | null
   referrer: string | null
   utm_source: string | null

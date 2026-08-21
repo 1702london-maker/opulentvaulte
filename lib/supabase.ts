@@ -23,3 +23,11 @@ export const supabaseAdmin = supabaseServiceRoleKey
       },
     })
   : null
+
+export function getSupabaseAdmin() {
+  if (!supabaseAdmin) {
+    throw new Error('Supabase admin environment is not configured')
+  }
+
+  return supabaseAdmin as any
+}
