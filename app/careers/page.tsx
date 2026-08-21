@@ -25,7 +25,7 @@ const moments = [
   {
     title: 'Supplier Standards',
     copy: 'The role is coordination, verification and judgement, not call-centre handoff.',
-    src: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1200&q=90',
+    src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1200&q=90',
   },
   {
     title: 'Field Readiness',
@@ -76,24 +76,28 @@ function CareersApplicationForm() {
 export default function CareersPage() {
   return (
     <main className="editorial-page">
-      <section className="editorial-hero careers-editorial-hero">
-        <div className="editorial-hero-copy">
-          <span className="eyebrow">Careers</span>
-          <h1>Small team. <em>Exacting standard.</em></h1>
-          <p>
-            OPV grows carefully. We are interested in people who understand private clients, hold detail naturally and
-            know how to deliver without turning the work into theatre.
-          </p>
-          <a className="btn-primary" href="#apply">View roles -&gt;</a>
-        </div>
-        <div className="editorial-hero-image">
-          <Image
-            src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1400&q=90"
-            alt="Refined private office prepared for concierge work"
-            fill
-            priority
-            sizes="(max-width: 900px) 100vw, 50vw"
-          />
+      <section className="page-hero page-hero-clear-top careers-page-hero">
+        <Image
+          src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=1800&q=90"
+          alt="Refined private operations office prepared for concierge work"
+          fill
+          priority
+          sizes="100vw"
+        />
+        <div className="page-hero-overlay page-hero-overlay-light" />
+        <div className="page-hero-inner">
+          <div className="page-hero-copy page-hero-copy-raised careers-page-hero-copy">
+            <span className="eyebrow page-hero-kicker">Careers</span>
+            <h1 className="page-hero-title">Small team. <em>Exacting standard.</em></h1>
+            <p className="page-hero-body">
+              OPV grows carefully. We are interested in people who understand private clients, hold detail naturally and
+              know how to deliver without turning the work into theatre.
+            </p>
+            <div className="page-hero-actions">
+              <a className="btn-primary" href="#apply">View roles</a>
+              <a className="btn-ghost-light" href="#apply">Apply now</a>
+            </div>
+          </div>
         </div>
       </section>
 

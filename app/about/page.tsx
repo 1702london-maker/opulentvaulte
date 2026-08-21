@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
@@ -20,7 +21,7 @@ const principles = [
 
 const cities = [
   ['Manchester', 'Our home city.', 'Spinningfields · Ancoats · Castlefield · Deansgate', 'https://images.unsplash.com/photo-1529655682523-9e9a5a6f6b3e?w=900&q=85'],
-  ['London', 'The global stage.', 'Mayfair · Knightsbridge · Belgravia · Shoreditch', 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=900&q=85'],
+  ['London', 'The global stage.', 'Mayfair · Knightsbridge · Belgravia · Shoreditch', 'https://images.unsplash.com/photo-1533929736458-ca588d08c8be?w=900&q=85'],
   ['Leeds', 'The northern ambition.', 'Granary Wharf · Victoria Quarter · Harewood · City Centre', 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=900&q=85'],
 ]
 
@@ -71,18 +72,26 @@ function ContactIcon({ type }: { type: 'phone' | 'email' | 'whatsapp' }) {
 export default function AboutPage() {
   return (
     <>
-      <section className="about-hero">
-        <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1800&q=90" alt="" />
-        <div className="about-hero-wash" />
-        <div className="about-container">
-          <div className="about-hero-copy">
-            <span className="eyebrow">About OPV</span>
-            <h1>Private concierge. <em>Properly done.</em></h1>
-            <p>OPV was built on a single observation: the level of service available to people who need it most is consistently below the level they have every right to expect. We set out to change that. Quietly, comprehensively and without compromise.</p>
-            <Link className="btn-primary" href="/contact">Speak to the team -&gt;</Link>
+      <section className="page-hero page-hero-clear-top about-page-hero">
+        <Image
+          src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1800&q=90"
+          alt="Private city-level concierge operations interior"
+          fill
+          priority
+          sizes="100vw"
+        />
+        <div className="page-hero-overlay page-hero-overlay-light" />
+        <div className="page-hero-inner">
+          <div className="page-hero-copy page-hero-copy-raised about-page-hero-copy">
+            <span className="eyebrow page-hero-kicker">About OPV</span>
+            <h1 className="page-hero-title">Private concierge. <em>Properly done.</em></h1>
+            <p className="page-hero-body">OPV was built on a single observation: the level of service available to people who need it most is consistently below the level they have every right to expect. We set out to change that. Quietly, comprehensively and without compromise.</p>
+            <div className="page-hero-actions">
+              <Link className="btn-primary" href="/contact">Speak to the team</Link>
+              <Link className="btn-ghost-light" href="/membership">Membership</Link>
+            </div>
           </div>
         </div>
-        <span className="about-caption">Manchester, England · 2026</span>
       </section>
 
       <section className="about-statement">
@@ -146,7 +155,7 @@ export default function AboutPage() {
           </div>
         </div>
         <div className="about-editorial-image">
-          <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1000&q=90" alt="Senior professional team" />
+          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1000&q=90" alt="Senior professional team" />
         </div>
       </section>
 

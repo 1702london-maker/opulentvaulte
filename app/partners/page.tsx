@@ -41,7 +41,7 @@ export default function PartnersPage() {
           <p>OPV arranges services for private clients across Manchester, London and Leeds. We work with a small, carefully selected network of suppliers who operate at the level our clients require. If your property, vehicle, venue or service meets that standard, we would like to hear from you.</p>
           <div className="hero-actions"><a className="btn-primary" href="#apply">Apply to become a partner</a><a className="btn-ghost" href="mailto:hello@opulentvault.co.uk?subject=OPV%20partner%20guide%20request">Request partner guide</a></div>
         </div>
-        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1400&q=90" alt="Professional OPV partner meeting" />
+        <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=1400&q=90" alt="Professional OPV partner meeting" />
       </section>
 
       <section className="opv-section">

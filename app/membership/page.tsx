@@ -126,19 +126,24 @@ function Check({ goldCheck = false, invert = false }: { goldCheck?: boolean; inv
 export default function MembershipPage() {
   return (
     <>
-      <section className="membership-hero">
-        <Image src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1600&q=90" alt="Luxury hotel lobby" fill priority sizes="100vw" />
-        <div className="membership-hero-wash" />
-        <div className="membership-hero-content">
-          <div>
-            <span className="eyebrow">Membership</span>
-            <h1>Access at the level <em>you require.</em></h1>
-            <p>OPV membership is not a subscription to a service. It is the relationship that makes every arrangement faster, more personal and more precise. Four tiers. Genuine differences between them. No upselling once you are in.</p>
-            <div className="membership-actions">
+      <section className="page-hero page-hero-clear-top membership-page-hero">
+        <Image
+          src="https://images.unsplash.com/photo-1618220179428-22790b461013?w=1800&q=90"
+          alt="Private members lounge prepared for OPV membership"
+          fill
+          priority
+          sizes="100vw"
+        />
+        <div className="page-hero-overlay page-hero-overlay-light" />
+        <div className="page-hero-inner">
+          <div className="page-hero-copy page-hero-copy-raised membership-page-hero-copy">
+            <span className="eyebrow page-hero-kicker">Membership</span>
+            <h1 className="page-hero-title">Access at the level <em>you require.</em></h1>
+            <p className="page-hero-body">OPV membership is not a subscription to a service. It is the relationship that makes every arrangement faster, more personal and more precise. Four tiers. Genuine differences between them. No upselling once you are in.</p>
+            <div className="page-hero-actions">
               <a href="#tiers" className="btn-primary">View membership tiers</a>
-              <Link href="/contact" className="btn-ghost">Speak to the team</Link>
+              <Link href="/contact" className="btn-ghost-light">Speak to the team</Link>
             </div>
-            <div className="membership-trust"><span>No joining fee</span><span>Cancel any time</span><span>Private by default</span></div>
           </div>
         </div>
       </section>
@@ -221,7 +226,7 @@ export default function MembershipPage() {
           <div className="membership-guardian-list">{guardianRows.map(([title, copy]) => <div key={title}><Check /><span><strong>{title}</strong><small>{copy}</small></span></div>)}</div>
         </div>
         <div className="membership-guardian-image">
-          <Image src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=900&q=90" alt="Discreet suited OPV guardian" fill sizes="(max-width: 900px) 100vw, 45vw" />
+          <Image src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=900&q=90" alt="Private concierge desk with architectural detail" fill sizes="(max-width: 900px) 100vw, 45vw" />
         </div>
       </section>
 

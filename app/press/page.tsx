@@ -20,17 +20,17 @@ const imageSet = [
   {
     title: 'Private Residences',
     copy: 'Verified apartments, townhouses and estates presented by request.',
-    src: 'https://images.unsplash.com/photo-1600607688969-a5bfcd646154?w=1200&q=90',
+    src: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1200&q=90',
   },
   {
     title: 'Private Movement',
     copy: 'Chauffeur, fleet and secure transport arranged quietly across the UK.',
-    src: 'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=1200&q=90',
+    src: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=1200&q=90',
   },
   {
     title: 'Private Tables',
     copy: 'Dining access, chefs and hosted rooms for clients who do not queue.',
-    src: 'https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=1200&q=90',
+    src: 'https://images.unsplash.com/photo-1525610553991-2bede1a236e2?w=1200&q=90',
   },
 ]
 
@@ -44,26 +44,30 @@ const guidelines = [
 export default function PressPage() {
   return (
     <main className="editorial-page">
-      <section className="editorial-hero press-editorial-hero">
-        <div className="editorial-hero-copy">
-          <span className="eyebrow">Press</span>
-          <h1>Private access. <em>Public facts.</em></h1>
-          <p>
-            Media resources for OPV: approved company language, key facts, brand guidance and editorial imagery for coverage
-            of a private concierge service operating across Manchester, London and Leeds.
-          </p>
-          <Link className="btn-primary" href="mailto:hello@opulentvault.co.uk?subject=OPV%20press%20enquiry">
-            Press enquiry -&gt;
-          </Link>
-        </div>
-        <div className="editorial-hero-image">
-          <Image
-            src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1400&q=90"
-            alt="Editorial private members interior with refined seating"
-            fill
-            priority
-            sizes="(max-width: 900px) 100vw, 50vw"
-          />
+      <section className="page-hero page-hero-clear-top press-page-hero">
+        <Image
+          src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=1800&q=90"
+          alt="Editorial private members interior with refined seating"
+          fill
+          priority
+          sizes="100vw"
+        />
+        <div className="page-hero-overlay page-hero-overlay-light" />
+        <div className="page-hero-inner">
+          <div className="page-hero-copy page-hero-copy-raised press-page-hero-copy">
+            <span className="eyebrow page-hero-kicker">Press</span>
+            <h1 className="page-hero-title">Private access. <em>Public facts.</em></h1>
+            <p className="page-hero-body">
+              Media resources for OPV: approved company language, key facts, brand guidance and editorial imagery for coverage
+              of a private concierge service operating across Manchester, London and Leeds.
+            </p>
+            <div className="page-hero-actions">
+              <Link className="btn-primary" href="mailto:hello@opulentvault.co.uk?subject=OPV%20press%20enquiry">
+                Press enquiry
+              </Link>
+              <Link className="btn-ghost-light" href="#facts">View facts</Link>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -85,7 +89,7 @@ export default function PressPage() {
         </div>
       </section>
 
-      <section className="editorial-section editorial-ice">
+      <section id="facts" className="editorial-section editorial-ice">
         <span className="eyebrow">Key facts</span>
         <h2>The details <em>editors need.</em></h2>
         <div className="editorial-fact-grid">
@@ -117,7 +121,7 @@ export default function PressPage() {
       <section className="editorial-section editorial-feature">
         <div className="editorial-feature-image">
           <Image
-            src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1400&q=90"
+            src="https://images.unsplash.com/photo-1573164713988-8665fc963095?w=1400&q=90"
             alt="Private lounge prepared for an editorial meeting"
             fill
             sizes="(max-width: 900px) 100vw, 50vw"

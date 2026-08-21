@@ -4409,6 +4409,16 @@ main > .breadcrumb + section {
 .home-trust-strip {
   min-height: 0;
 }
+.membership-page-hero-copy,
+.careers-page-hero-copy,
+.press-page-hero-copy,
+.about-page-hero-copy {
+  max-width: 500px;
+}
+.membership-page-hero > img { object-position: center 58%; }
+.careers-page-hero > img { object-position: center 48%; }
+.press-page-hero > img { object-position: center 54%; }
+.about-page-hero > img { object-position: center 52%; }
 
 @media (max-width: 760px) {
   .page-hero {
