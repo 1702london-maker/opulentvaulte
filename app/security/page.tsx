@@ -53,7 +53,7 @@ export default function SecurityPage() {
   return (
     <>
       <section className="page-hero page-hero-clear-top security-page-hero">
-        <Image src="https://images.unsplash.com/photo-1708807472445-d33589e6b090?w=1800&q=90" alt="CCTV surveillance control room with multiple monitoring screens" fill priority style={{ objectFit: 'cover', objectPosition: 'center' }} />
+        <Image src="https://images.unsplash.com/photo-1708807472445-d33589e6b090?w=1800&q=90" alt="CCTV surveillance control room with multiple monitoring screens" fill priority sizes="100vw" />
         <div className="page-hero-overlay page-hero-overlay-light" />
         <div className="page-hero-inner">
           <div className="page-hero-copy page-hero-copy-raised security-page-hero-copy">

@@ -4412,13 +4412,15 @@ main > .breadcrumb + section {
 .membership-page-hero-copy,
 .careers-page-hero-copy,
 .press-page-hero-copy,
-.about-page-hero-copy {
+.about-page-hero-copy,
+.security-page-hero-copy {
   max-width: 500px;
 }
 .membership-page-hero > img { object-position: center 58%; }
 .careers-page-hero > img { object-position: center 48%; }
 .press-page-hero > img { object-position: center 54%; }
 .about-page-hero > img { object-position: center 52%; }
+.security-page-hero > img { object-position: center 50%; }
 
 @media (max-width: 760px) {
   .page-hero {
@@ -4467,7 +4469,6 @@ main > .breadcrumb + section {
 }
 
 /* Security page */
-.security-page-hero-copy { max-width: 520px; }
 .security-section { padding: 7rem 0; border-top: 1px solid var(--border); }
 .security-white { background: var(--white); }
 .security-ice { background: var(--ice); }
