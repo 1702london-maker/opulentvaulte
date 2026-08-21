@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'About OPV',
-  description: 'About OPV Luxury, a private concierge service operated by Opulentvaulte Limited across Manchester, London and Leeds.',
+  description: 'About OPV Luxury, a private concierge service operated by Opulent Vault Limited across Manchester, London and Leeds.',
 }
 
 const phone = '+44 7385 694230'
@@ -103,7 +103,7 @@ export default function AboutPage() {
           <span className="eyebrow">The founding</span>
           <h2>Built in Manchester. <em>Built for this.</em></h2>
           <p>OPV was founded in Manchester deliberately. The city has the wealth, the ambition and the client base that demands exactly what OPV provides. It did not have a service that operated at the required level. That gap was the founding observation.</p>
-          <p>The platform is owned and operated by Opulentvaulte Limited. It is not a side project. It is a purpose-built private concierge operation with the infrastructure, supplier relationships and team to deliver at the level it promises.</p>
+          <p>The platform is owned and operated by Opulent Vault Limited. It is not a side project. It is a purpose-built private concierge operation with the infrastructure, supplier relationships and team to deliver at the level it promises.</p>
           <p>We extended to London and Leeds within the first year. The services, the standard and the people are identical in each city. The only thing that changes is the address.</p>
           <div className="about-stat-row">
             <div><strong>2023</strong><span>Founded in Manchester</span></div>
@@ -177,11 +177,11 @@ export default function AboutPage() {
 
       <section className="about-company">
         <div>
-          <span className="eyebrow">Opulentvaulte Limited</span>
+          <span className="eyebrow">Opulent Vault Limited</span>
           <h2>The company behind <em>the service.</em></h2>
-          <p>OPV Luxury is owned and operated by Opulentvaulte Limited. The business exists for one purpose: to coordinate private residences, movement, dining, aviation, yacht charter, sourcing and close protection at a level that protects the client from friction.</p>
+          <p>OPV Luxury is owned and operated by Opulent Vault Limited. The business exists for one purpose: to coordinate private residences, movement, dining, aviation, yacht charter, sourcing and close protection at a level that protects the client from friction.</p>
           <p>The platform, supplier network and operating process were built specifically for private concierge work. It is not adapted from a generic booking platform. The whole structure is designed around one contact, one invoice and complete discretion.</p>
-          <p>Opulentvaulte Limited is the company behind OPV. The service, the client relationship and the operating standard sit with OPV alone.</p>
+          <p>Opulent Vault Limited is the company behind OPV. The service, the client relationship and the operating standard sit with OPV alone.</p>
           <div>
             <span>Get in touch</span>
             <a href={mailHref}>{email}</a>
@@ -189,7 +189,7 @@ export default function AboutPage() {
           </div>
         </div>
         <aside>
-          <div><span>Registered name</span><strong>Opulentvaulte Limited</strong><p>Registered in England & Wales</p></div>
+          <div><span>Registered name</span><strong>Opulent Vault Limited</strong><p>Registered in England & Wales</p></div>
           <div><span>Operating name</span><strong>OPV Luxury</strong><p>Private concierge across Manchester, London and Leeds</p></div>
           <div><span>Contact</span><a href={mailHref}>{email}</a><a href={telHref}>{phone}</a></div>
         </aside>
@@ -245,8 +245,9 @@ export default function AboutPage() {
 
       <section className="about-quote">
         <p>We are not the largest concierge service. We are the one that turns up at the standard we promised.</p>
-        <span>OPV Luxury · Opulentvaulte Limited · Manchester · London · Leeds</span>
+        <span>OPV Luxury · Opulent Vault Limited · Manchester · London · Leeds</span>
       </section>
     </>
   )
 }
+

@@ -148,7 +148,7 @@ export default function ContactPage() {
         </div>
         <div className="contact-social-right">
           <p>One contact. Every arrangement. Nothing falls between the cracks.</p>
-          <small>OPV Luxury · Opulentvaulte Limited · Manchester & London · Registered in England & Wales</small>
+          <small>OPV Luxury · Opulent Vault Limited · Manchester & London · Registered in England & Wales</small>
         </div>
       </section>
 
@@ -162,3 +162,4 @@ export default function ContactPage() {
     </>
   )
 }
+

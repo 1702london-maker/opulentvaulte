@@ -10,15 +10,12 @@ export default function FooterNewsletter() {
     event.preventDefault()
     setStatus('loading')
     try {
-      const response = await fetch('/api/enquiry', {
+      const response = await fetch('/api/newsletter', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          page: 'footer',
-          service: 'newsletter',
-          name: 'Newsletter subscriber',
           email,
-          message: 'Footer Inner Circle newsletter signup',
+          source: 'footer',
         }),
       })
       if (!response.ok) throw new Error('Newsletter failed')

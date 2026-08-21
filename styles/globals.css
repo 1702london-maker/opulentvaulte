@@ -829,14 +829,14 @@ ul, ol { list-style: none; }
   margin: 0 auto;
   padding: 0 2.5rem;
   display: grid;
-  grid-template-columns: 290px 1fr auto;
+  grid-template-columns: minmax(150px, 210px) minmax(0, 1fr) auto;
   align-items: center;
-  gap: 2rem;
+  gap: clamp(1rem, 1.6vw, 2rem);
 }
 .nav-luxury-logo {
   display: inline-flex;
   align-items: center;
-  width: clamp(190px, 17vw, 290px);
+  width: clamp(150px, 12vw, 210px);
   height: 92px;
   white-space: nowrap;
   overflow: hidden;
@@ -855,9 +855,10 @@ ul, ol { list-style: none; }
   object-position: left center;
 }
 .nav-luxury-links {
-  justify-content: center;
-  gap: clamp(1.2rem, 2vw, 2.1rem);
+  justify-content: flex-start;
+  gap: clamp(0.78rem, 1.2vw, 1.55rem);
   align-items: center;
+  justify-self: start;
 }
 .nav-luxury-link {
   position: relative;
@@ -893,7 +894,8 @@ ul, ol { list-style: none; }
 .nav-luxury-actions {
   display: flex;
   align-items: center;
-  gap: 1.1rem;
+  gap: clamp(0.7rem, 1vw, 1.1rem);
+  justify-self: end;
 }
 .nav-luxury-meta {
   font-family: var(--mono);
