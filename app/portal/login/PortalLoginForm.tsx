@@ -1,10 +1,13 @@
 'use client'
 
 import { FormEvent, useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { supabase } from '@/lib/supabase'
 
 export default function PortalLoginForm() {
+  const router = useRouter()
   const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
   const [status, setStatus] = useState('')
   const [busy, setBusy] = useState(false)
 
@@ -13,16 +16,19 @@ export default function PortalLoginForm() {
     setBusy(true)
     setStatus('')
 
-    const origin = window.location.origin
-    const { error } = await supabase.auth.signInWithOtp({
+    const { error } = await supabase.auth.signInWithPassword({
       email,
-      options: {
-        emailRedirectTo: `${origin}/api/portal/auth/callback`,
-      },
+      password,
     })
 
+    if (!error) {
+      router.push('/portal')
+      router.refresh()
+      return
+    }
+
     setBusy(false)
-    setStatus(error ? error.message : 'Check your email for the secure OPV portal link.')
+    setStatus(error.message)
   }
 
   return (
@@ -38,11 +44,21 @@ export default function PortalLoginForm() {
           placeholder="you@email.com"
         />
       </label>
+      <label className="mt-6 block text-[0.7rem] uppercase tracking-[0.28em] text-[#4774a8]">
+        Password
+        <input
+          required
+          type="password"
+          value={password}
+          onChange={(event) => setPassword(event.target.value)}
+          className="mt-4 w-full border-0 border-b border-[#c8dff0] bg-transparent px-0 py-4 text-lg normal-case tracking-normal text-[#1c2a36] outline-none"
+          placeholder="Approved password"
+        />
+      </label>
       <button className="mt-8 bg-[#4774a8] px-10 py-4 text-[0.75rem] font-bold uppercase tracking-[0.26em] text-white" disabled={busy} type="submit">
-        {busy ? 'Sending...' : 'Send magic link'}
+        {busy ? 'Signing in...' : 'Sign in'}
       </button>
       {status && <p className="mt-6 text-sm leading-7 text-[#6f879d]">{status}</p>}
     </form>
   )
 }
-

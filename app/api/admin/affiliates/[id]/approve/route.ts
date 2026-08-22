@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { affiliateApprovedEmail } from '@/lib/email-templates'
 import { opvFromEmail, resend } from '@/lib/email'
 import { getSiteUrl, getSupabaseAdmin, logActivity, requireAdmin } from '@/lib/api'
+import { ensurePasswordUser } from '@/lib/portal-credentials'
 
 export const dynamic = 'force-dynamic'
 
@@ -18,9 +19,15 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
     const { data: current, error: readError } = await db.from('affiliates').select('*').eq('id', params.id).single()
     if (readError) throw readError
     const referralCode = current.referral_code || codeFromName(current.full_name)
+    const credentials = await ensurePasswordUser({
+      email: current.email,
+      fullName: current.full_name,
+      existingUserId: current.supabase_user_id,
+      role: 'affiliate',
+    })
     const { data: affiliate, error } = await db
       .from('affiliates')
-      .update({ status: 'approved', referral_code: referralCode })
+      .update({ status: 'approved', referral_code: referralCode, supabase_user_id: credentials.userId })
       .eq('id', params.id)
       .select('*')
       .single()
@@ -35,6 +42,9 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
           full_name: affiliate.full_name,
           referral_code: referralCode,
           referral_link: `${getSiteUrl()}?ref=${referralCode}`,
+          email: affiliate.email,
+          password: credentials.password,
+          portal_link: `${getSiteUrl()}/affiliate/login`,
         }),
       })
     }

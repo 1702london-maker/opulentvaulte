@@ -64,20 +64,43 @@ export function adminReplyEmail({ message }: { message: string }) {
   return shell('A note from OPV.', `<p style="line-height:1.8;color:#3A5068;">${escapeHtml(message).replace(/\n/g, '<br>')}</p>`)
 }
 
-export function membershipWelcomeEmail({ full_name, tier }: { full_name: string; tier: string }) {
+export function membershipWelcomeEmail({ full_name, tier, email, password, portal_link }: { full_name: string; tier: string; email?: string; password?: string; portal_link?: string }) {
   return shell(
     `Welcome to ${escapeHtml(tier)} membership.`,
-    `<p style="line-height:1.8;color:#3A5068;">${escapeHtml(full_name)}, your OPV membership has been updated. Your guardian will be in touch to confirm the next steps.</p>`
+    `
+      <p style="line-height:1.8;color:#3A5068;">${escapeHtml(full_name)}, your OPV membership has been approved. Your account is now authorised for portal access.</p>
+      ${email ? `<p><strong>Username:</strong> ${escapeHtml(email)}</p>` : ''}
+      ${password ? `<p><strong>Temporary password:</strong> ${escapeHtml(password)}</p>` : ''}
+      ${portal_link ? `<p><a href="${escapeHtml(portal_link)}">${escapeHtml(portal_link)}</a></p>` : ''}
+      <p style="line-height:1.8;color:#6B87A0;">Keep these details private. OPV can reset access from the admin portal if needed.</p>
+    `
   )
 }
 
-export function affiliateApprovedEmail({ full_name, referral_code, referral_link }: { full_name: string; referral_code: string; referral_link: string }) {
+export function affiliateApprovedEmail({
+  full_name,
+  referral_code,
+  referral_link,
+  email,
+  password,
+  portal_link,
+}: {
+  full_name: string
+  referral_code: string
+  referral_link: string
+  email?: string
+  password?: string
+  portal_link?: string
+}) {
   return shell(
     'Affiliate access approved.',
     `
       <p style="line-height:1.8;color:#3A5068;">${escapeHtml(full_name)}, your OPV affiliate application has been approved.</p>
+      ${email ? `<p><strong>Username:</strong> ${escapeHtml(email)}</p>` : ''}
+      ${password ? `<p><strong>Temporary password:</strong> ${escapeHtml(password)}</p>` : ''}
       <p><strong>Code:</strong> ${escapeHtml(referral_code)}</p>
       <p><a href="${escapeHtml(referral_link)}">${escapeHtml(referral_link)}</a></p>
+      ${portal_link ? `<p><strong>Portal:</strong> <a href="${escapeHtml(portal_link)}">${escapeHtml(portal_link)}</a></p>` : ''}
     `
   )
 }

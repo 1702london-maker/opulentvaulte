@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { membershipWelcomeEmail } from '@/lib/email-templates'
 import { opvFromEmail, resend } from '@/lib/email'
 import { getSupabaseAdmin, jsonError, logActivity, requireAdmin } from '@/lib/api'
+import { ensurePasswordUser } from '@/lib/portal-credentials'
 
 export const dynamic = 'force-dynamic'
 
@@ -35,14 +36,38 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
       .single()
     if (error) throw error
 
-    await db.from('clients').update({ membership_tier: newTier, membership_status: 'active' }).eq('id', membership.client_id)
+    let credentials: { password?: string; userId?: string } = {}
+
+    if (membership.clients?.email) {
+      credentials = await ensurePasswordUser({
+        email: membership.clients.email,
+        fullName: membership.clients.full_name,
+        existingUserId: membership.clients.supabase_user_id,
+        role: 'client',
+      })
+    }
+
+    await db
+      .from('clients')
+      .update({
+        membership_tier: newTier,
+        membership_status: 'active',
+        ...(credentials.userId ? { supabase_user_id: credentials.userId } : {}),
+      })
+      .eq('id', membership.client_id)
 
     if (resend && membership.clients?.email) {
       await resend.emails.send({
         from: `OPV Membership <${opvFromEmail}>`,
         to: membership.clients.email,
         subject: `OPV - Welcome to ${newTier} membership`,
-        html: membershipWelcomeEmail({ full_name: membership.clients.full_name, tier: newTier }),
+        html: membershipWelcomeEmail({
+          full_name: membership.clients.full_name,
+          tier: newTier,
+          email: membership.clients.email,
+          password: credentials.password,
+          portal_link: `${new URL(req.url).origin}/portal/login`,
+        }),
       })
     }
 
