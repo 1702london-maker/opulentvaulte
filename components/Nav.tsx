@@ -20,10 +20,26 @@ const links = [
   { href: '/contact',    label: 'Contact' },
 ]
 
+const currencies = [
+  { value: 'GBP', label: '£ GBP' },
+  { value: 'EUR', label: '€ EUR' },
+  { value: 'USD', label: '$ USD' },
+]
+
+const languages = [
+  { value: 'EN', label: 'English' },
+  { value: 'FR', label: 'French' },
+  { value: 'ES', label: 'Spanish' },
+  { value: 'AR', label: 'Arabic' },
+  { value: 'ZH', label: 'Mandarin' },
+]
+
 export default function Nav() {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [currency, setCurrency] = useState('GBP')
+  const [language, setLanguage] = useState('EN')
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12)
@@ -58,6 +74,32 @@ export default function Nav() {
 
           {/* CTA + mobile burger */}
           <div className="nav-luxury-actions">
+            <label className="nav-luxury-select-label">
+              <span>Currency</span>
+              <select
+                className="nav-luxury-select"
+                value={currency}
+                onChange={(event) => setCurrency(event.target.value)}
+                aria-label="Select currency"
+              >
+                {currencies.map(option => (
+                  <option key={option.value} value={option.value}>{option.label}</option>
+                ))}
+              </select>
+            </label>
+            <label className="nav-luxury-select-label">
+              <span>Language</span>
+              <select
+                className="nav-luxury-select"
+                value={language}
+                onChange={(event) => setLanguage(event.target.value)}
+                aria-label="Select language"
+              >
+                {languages.map(option => (
+                  <option key={option.value} value={option.value}>{option.label}</option>
+                ))}
+              </select>
+            </label>
             <button
               onClick={() => setOpen(o => !o)}
               className="nav-mobile-toggle"
@@ -86,6 +128,34 @@ export default function Nav() {
                 {l.label}
               </Link>
             ))}
+            <div className="nav-mobile-controls">
+              <label className="nav-luxury-select-label">
+                <span>Currency</span>
+                <select
+                  className="nav-luxury-select"
+                  value={currency}
+                  onChange={(event) => setCurrency(event.target.value)}
+                  aria-label="Select currency"
+                >
+                  {currencies.map(option => (
+                    <option key={option.value} value={option.value}>{option.label}</option>
+                  ))}
+                </select>
+              </label>
+              <label className="nav-luxury-select-label">
+                <span>Language</span>
+                <select
+                  className="nav-luxury-select"
+                  value={language}
+                  onChange={(event) => setLanguage(event.target.value)}
+                  aria-label="Select language"
+                >
+                  {languages.map(option => (
+                    <option key={option.value} value={option.value}>{option.label}</option>
+                  ))}
+                </select>
+              </label>
+            </div>
             <Link href="/contact" className="btn-primary" style={{ alignSelf: 'flex-start', marginTop: '0.5rem' }}>
               Contact OPV
             </Link>

@@ -1,9 +1,8 @@
 'use client'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useState } from 'react'
+import { FormEvent, useState } from 'react'
 import { motion } from 'framer-motion'
-import EnquiryForm from '@/components/ui/EnquiryForm'
 
 const properties = [
   { id: 1, name: 'The Crescent Riverside', city: 'Manchester', area: 'Salford Quays', type: 'penthouse', designation: 'opv-managed', beds: 4, guests: 8, priceFrom: 850, image: 'https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=700&q=80', chips: ['River View', 'Private Terrace', 'Chef Kitchen', 'Concierge'], verified: true, description: 'Four-bedroom penthouse on the Irwell with panoramic water views.' },
@@ -35,12 +34,42 @@ const fu = (d = 0) => ({ initial: { opacity: 0, y: 28 }, whileInView: { opacity:
 export default function StaysPage() {
   const [activeType, setActiveType] = useState('All')
   const [activeCity, setActiveCity] = useState('All Cities')
+  const [selectedStay, setSelectedStay] = useState(properties[0].name)
+  const [bookingSubmitting, setBookingSubmitting] = useState(false)
+  const [bookingSent, setBookingSent] = useState(false)
 
   const filtered = properties.filter(p => {
     const typeMatch = activeType === 'All' || p.type === activeType.toLowerCase()
     const cityMatch = activeCity === 'All Cities' || p.city === activeCity
     return typeMatch && cityMatch
   })
+
+  async function submitStayBooking(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    setBookingSubmitting(true)
+    setBookingSent(false)
+    const form = event.currentTarget
+    const payload = Object.fromEntries(new FormData(form).entries())
+    const response = await fetch('/api/enquiry', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        page: 'stays',
+        service: 'stays',
+        name: payload.name,
+        email: payload.email,
+        phone: payload.phone,
+        message: `Stay booking request for ${payload.property}. Check-in: ${payload.checkIn}. Check-out: ${payload.checkOut}. Guests: ${payload.guests}. ${payload.notes || ''}`,
+        payload,
+      }),
+    })
+    setBookingSubmitting(false)
+    if (response.ok) {
+      setBookingSent(true)
+      form.reset()
+      setSelectedStay(properties[0].name)
+    }
+  }
 
   return (
     <>
@@ -65,7 +94,7 @@ export default function StaysPage() {
             </p>
             <div className="page-hero-actions">
               <a href="#properties" className="btn-primary">Browse all stays</a>
-              <Link href="/contact" className="btn-ghost-light">Send your brief</Link>
+              <a href="#stays-booking" className="btn-ghost-light">Book now</a>
             </div>
           </motion.div>
         </div>
@@ -200,8 +229,8 @@ export default function StaysPage() {
                         <span style={{ fontFamily: 'var(--body)', fontSize: '0.78rem', color: 'var(--ink-soft)', marginLeft: '0.3rem' }}>/night</span>
                       </div>
                       <div style={{ display: 'flex', gap: '0.5rem' }}>
-                        <Link href="/contact" className="btn-primary" style={{ padding: '0.48rem 0.75rem', fontSize: '0.56rem' }}>View</Link>
-                        <Link href="/contact" className="btn-ghost" style={{ padding: '0.48rem 0.75rem', fontSize: '0.56rem' }}>Request</Link>
+                        <a href="#stays-booking" onClick={() => setSelectedStay(p.name)} className="btn-primary" style={{ padding: '0.48rem 0.75rem', fontSize: '0.56rem' }}>Book now</a>
+                        <a href="#stays-booking" onClick={() => setSelectedStay(p.name)} className="btn-ghost" style={{ padding: '0.48rem 0.75rem', fontSize: '0.56rem' }}>Check dates</a>
                       </div>
                     </div>
                   </div>
@@ -320,20 +349,20 @@ export default function StaysPage() {
         </div>
       </section>
 
-      {/* 9. Enquiry form */}
-      <section style={{ background: '#FFFFFF', padding: '7rem 0', borderTop: '1px solid var(--border)' }}>
+      {/* 9. Booking form */}
+      <section id="stays-booking" style={{ background: '#FFFFFF', padding: '7rem 0', borderTop: '1px solid var(--border)' }}>
         <div style={{ maxWidth: 1360, margin: '0 auto', padding: '0 2.5rem', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6rem', alignItems: 'start' }}>
           <motion.div {...fu()}>
-            <span className="eyebrow">Enquire now</span>
+            <span className="eyebrow">Book and pay</span>
             <h2 style={{ fontFamily: 'var(--display)', fontSize: 'clamp(2rem,3.5vw,3.4rem)', fontWeight: 300, lineHeight: 1.12, color: 'var(--ink)', marginBottom: '1.5rem' }}>
               Tell us the<br /><em style={{ fontStyle: 'italic', color: 'var(--sapphire)' }}>dates.</em>
             </h2>
             <p className="body-lg" style={{ marginBottom: '2rem' }}>
-              Share your requirements and a property guardian will respond within two hours with a curated shortlist matched to your brief.
+              Choose the residence, dates and guest count. A property guardian checks availability, then sends the secure payment link for the confirmed stay.
             </p>
             {[
-              'Off-market properties presented on request',
-              'Named guardian assigned from first enquiry',
+              'Live calendar dates captured at booking request',
+              'Availability confirmed before payment is taken',
               'Single invoice covering property and services',
             ].map(b => (
               <div key={b} style={{ display: 'flex', gap: '0.8rem', alignItems: 'flex-start', marginBottom: '1rem' }}>
@@ -342,11 +371,58 @@ export default function StaysPage() {
               </div>
             ))}
           </motion.div>
-          <motion.div {...fu(0.1)}>
-            <EnquiryForm page="stays" cta="Send your brief →" />
-          </motion.div>
+          <motion.form {...fu(0.1)} onSubmit={submitStayBooking} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }} autoComplete="off">
+            <div>
+              <label className="opv-label" htmlFor="property">Residence</label>
+              <select id="property" name="property" value={selectedStay} onChange={(event) => setSelectedStay(event.target.value)} className="opv-input" style={{ cursor: 'pointer' }}>
+                {properties.map(property => (
+                  <option key={property.id} value={property.name}>{property.name} - {property.city}</option>
+                ))}
+              </select>
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+              <Field name="checkIn" label="Check-in" type="date" required />
+              <Field name="checkOut" label="Check-out" type="date" required />
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+              <Field name="guests" label="Guests" type="number" required />
+              <Select name="payment" label="Payment" options={['Pay in full', 'Deposit first', 'Invoice me']} />
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+              <Field name="name" label="Full name" required />
+              <Field name="email" label="Email address" type="email" required />
+            </div>
+            <Field name="phone" label="Phone" type="tel" />
+            <div>
+              <label className="opv-label" htmlFor="notes">Your brief</label>
+              <textarea id="notes" name="notes" rows={5} className="opv-input" placeholder="Arrival time, housekeeping, chef, car or security requirements..." style={{ resize: 'vertical' }} />
+            </div>
+            <button type="submit" className="btn-primary" disabled={bookingSubmitting} style={{ width: '100%', justifyContent: 'center', opacity: bookingSubmitting ? 0.7 : 1 }}>
+              {bookingSubmitting ? 'Checking dates...' : bookingSent ? 'Booking request sent' : 'Book and continue to payment →'}
+            </button>
+          </motion.form>
         </div>
       </section>
     </>
+  )
+}
+
+function Field({ name, label, type = 'text', required = false }: { name: string; label: string; type?: string; required?: boolean }) {
+  return (
+    <div>
+      <label className="opv-label" htmlFor={name}>{label}</label>
+      <input id={name} name={name} type={type} required={required} className="opv-input" />
+    </div>
+  )
+}
+
+function Select({ name, label, options }: { name: string; label: string; options: string[] }) {
+  return (
+    <div>
+      <label className="opv-label" htmlFor={name}>{label}</label>
+      <select id={name} name={name} className="opv-input" style={{ cursor: 'pointer' }}>
+        {options.map(option => <option key={option}>{option}</option>)}
+      </select>
+    </div>
   )
 }

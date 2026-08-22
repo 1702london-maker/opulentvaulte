@@ -34,13 +34,6 @@ const imageSet = [
   },
 ]
 
-const guidelines = [
-  ['Name', 'Use OPV for the service and Opulent Vault Limited for the operating company.'],
-  ['Positioning', 'Describe OPV as a private concierge and arrangement service, not a public booking marketplace.'],
-  ['Tone', 'Quiet, exact and discreet. Avoid exaggerated consumer-luxury language.'],
-  ['Imagery', 'Use editorial photography that shows access, place and service standards. Avoid generic icons and cartoons.'],
-]
-
 export default function PressPage() {
   return (
     <main className="editorial-page">
@@ -115,29 +108,6 @@ export default function PressPage() {
               </div>
             </article>
           ))}
-        </div>
-      </section>
-
-      <section className="editorial-section editorial-feature">
-        <div className="editorial-feature-image">
-          <Image
-            src="https://images.unsplash.com/photo-1573164713988-8665fc963095?w=1400&q=90"
-            alt="Private lounge prepared for an editorial meeting"
-            fill
-            sizes="(max-width: 900px) 100vw, 50vw"
-          />
-        </div>
-        <div className="editorial-feature-copy">
-          <span className="eyebrow">Brand guidance</span>
-          <h2>Quiet language. <em>Clear claims.</em></h2>
-          <div className="editorial-card-grid two">
-            {guidelines.map(([title, copy]) => (
-              <article key={title}>
-                <h3>{title}</h3>
-                <p>{copy}</p>
-              </article>
-            ))}
-          </div>
         </div>
       </section>
 

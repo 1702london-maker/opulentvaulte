@@ -113,7 +113,7 @@ export default function DrivePage() {
             </p>
             <div className="page-hero-actions">
               <a href="#fleet" className="btn-primary">Browse the fleet</a>
-              <a href="#booking" className="btn-ghost-light">Book a chauffeur</a>
+              <a href="#booking" className="btn-ghost-light">Book now</a>
             </div>
           </motion.div>
         </div>
@@ -195,7 +195,7 @@ export default function DrivePage() {
               </div>
             ))}
             <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginTop: '2rem' }}>
-              <a href="#booking" className="btn-primary">Book a chauffeur</a>
+              <a href="#booking" className="btn-primary">Book now</a>
               <Link href="/contact" className="btn-ghost">Corporate accounts</Link>
             </div>
           </motion.div>
@@ -241,9 +241,9 @@ export default function DrivePage() {
       <section id="booking" style={{ background: '#EAF4FB', padding: '7rem 0', borderTop: '1px solid var(--border)' }}>
         <div style={{ maxWidth: 1360, margin: '0 auto', padding: '0 2.5rem', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6rem', alignItems: 'start' }}>
           <motion.div {...fadeUp()}>
-            <span className="eyebrow">Make a booking</span>
+            <span className="eyebrow">Book and pay</span>
             <h2 className="display-md" style={{ marginBottom: '1.5rem' }}>Tell us the<br /><em>journey.</em></h2>
-            <p className="body-lg" style={{ marginBottom: '2rem' }}>Send the route, timing and vehicle preference. Dispatch will confirm the right car, driver and arrival plan.</p>
+            <p className="body-lg" style={{ marginBottom: '2rem' }}>Choose the route, date and vehicle preference. Dispatch confirms availability, then sends the secure payment link for the confirmed journey.</p>
             {['Manchester, Leeds and London covered now', 'Chauffeur, self-drive and armoured options', 'Single concierge contact from request to return'].map(item => (
               <div key={item} style={{ display: 'flex', gap: '0.8rem', alignItems: 'flex-start', marginBottom: '1rem' }}>
                 <span style={{ color: 'var(--sapphire)', fontWeight: 500 }}>✓</span><p className="body-sm" style={{ color: 'var(--ink-mid)' }}>{item}</p>
@@ -272,7 +272,7 @@ export default function DrivePage() {
               <label className="opv-label" htmlFor="notes">Special notes</label>
               <textarea id="notes" name="notes" rows={5} className="opv-input" placeholder="Flight number, waiting instructions, security notes..." style={{ resize: 'vertical' }} />
             </div>
-            <button type="submit" className="btn-primary" disabled={submitting} style={{ width: '100%', justifyContent: 'center', opacity: submitting ? 0.7 : 1 }}>{submitting ? 'Sending...' : sent ? 'Journey brief sent' : 'Send journey brief →'}</button>
+            <button type="submit" className="btn-primary" disabled={submitting} style={{ width: '100%', justifyContent: 'center', opacity: submitting ? 0.7 : 1 }}>{submitting ? 'Checking availability...' : sent ? 'Booking request sent' : 'Book and continue to payment →'}</button>
           </motion.form>
         </div>
       </section>
