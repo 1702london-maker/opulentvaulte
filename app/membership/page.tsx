@@ -31,25 +31,25 @@ const tiers = [
     key: 'sapphire',
     badge: 'Sapphire',
     flag: 'Most Popular',
-    priceLabel: 'From £250/month',
+    priceLabel: 'Application only',
     name: 'Sapphire',
     copy: 'For regular clients who use OPV across multiple services. A named guardian, preferential pricing and priority access to availability.',
     features: ['Named personal guardian - your single point of contact', 'Preferential pricing across all services (typically 8-15% reduction)', 'Priority access to new property and vehicle listings', 'Off-market properties presented before public release', '30-minute response guarantee - any channel', 'Same-day arrangement capability for all services', 'Preferred status at OPV dining partners', 'Monthly account summary', 'One consolidated monthly invoice (if preferred)'],
     excluded: ['Dedicated 24h emergency line (Diamond+)', 'Unlimited concierge requests (Diamond+)'],
-    price: 'From £250/month',
-    note: 'Annual arrangement: from £2,500. Saving of £500 vs monthly.',
+    price: 'By approved application',
+    note: 'Indicative Sapphire retainers begin from £250/month. No payment is taken online.',
     cta: ['Apply for Sapphire ->', '#apply'],
   },
   {
     key: 'diamond',
     badge: 'Diamond',
-    priceLabel: 'From £750/month',
+    priceLabel: 'Application only',
     name: 'Diamond',
     copy: 'For high-frequency clients and principals who require OPV as a constant rather than an occasional arrangement. Unlimited access, maximum priority.',
     features: ['Everything in Sapphire', 'Dedicated 24-hour direct line to guardian', 'Unlimited concierge requests - no monthly cap', 'Maximum priority on all availability', 'Proactive briefings - guardian anticipates needs without being asked', 'Security pre-briefing included on travel arrangements', 'Aviation empty leg alerts - first notification', 'Quarterly in-person review with OPV director', 'Corporate account capability - multiple user profiles', 'NDA as standard across all engagements', "White-glove property arrivals - prepared to guardian's brief, not standard checklist"],
     excluded: ['Global network access (Gold)', 'Founding member status (Gold)'],
-    price: 'From £750/month',
-    note: 'Annual: from £7,500. Priority onboarding within 24 hours.',
+    price: 'By approved application',
+    note: 'Indicative Diamond retainers begin from £750/month. Payment terms are agreed privately.',
     cta: ['Apply for Diamond ->', '#apply'],
   },
   {
@@ -234,11 +234,11 @@ export default function MembershipPage() {
         <div className="membership-container">
           <span className="eyebrow">Transparent pricing</span>
           <h2>No hidden fees. <em>No surprises.</em></h2>
-          <p className="membership-lede">OPV membership pricing is straightforward. The membership fee covers the relationship and the preferential access. Service costs are separate and itemised. You always know what you are paying before you commit.</p>
+          <p className="membership-lede">OPV membership is approved by application. Pricing is discussed privately after the brief is understood; no card details are taken on the website and service costs remain separate and itemised.</p>
           <div className="membership-pricing-grid">
             {[
-              ['Sapphire', '£250', '/month', '£2,500/year - save £500', 'Guardian assignment, preferential pricing, priority access and 30-minute response guarantee. Service costs billed separately per arrangement.', 'No joining fee. Cancel with 30 days notice.'],
-              ['Diamond', '£750', '/month', '£7,500/year - save £1,500', 'Everything in Sapphire plus 24-hour direct line, unlimited requests, proactive briefings, corporate account capability and white-glove property arrivals. Service costs billed separately.', 'Priority onboarding within 24 hours. NDA standard.'],
+              ['Sapphire', 'Application', '', 'Indicative retainer from £250/month.', 'Guardian assignment, preferential pricing, priority access and 30-minute response guarantee. Service costs billed separately per arrangement.', 'No online checkout. Membership starts only after approval and signed terms.'],
+              ['Diamond', 'Application', '', 'Indicative retainer from £750/month.', 'Everything in Sapphire plus 24-hour direct line, unlimited requests, proactive briefings, corporate account capability and white-glove property arrivals. Service costs billed separately.', 'Priority onboarding within 24 hours. NDA standard.'],
               ['Gold', 'By arrangement', '', 'Pricing agreed directly with the OPV director.', 'Everything, without limit. Bespoke pricing means the membership is structured to your actual usage - not a fixed tier you fit into.', 'Invitation only. Maximum 50 members globally.'],
             ].map(([name, price, suffix, annual, copy, note]) => <article key={name} className={name === 'Gold' ? 'gold' : name.toLowerCase()}><span>{name}</span><h3>{price}<small>{suffix}</small></h3><p>{annual}</p><p>{copy}</p><small>{note}</small></article>)}
           </div>

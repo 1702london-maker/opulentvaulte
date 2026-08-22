@@ -58,16 +58,6 @@ export default function Nav() {
 
           {/* CTA + mobile burger */}
           <div className="nav-luxury-actions">
-            <span className="nav-luxury-meta hidden xl:inline-flex">£ GBP</span>
-            <span className="nav-luxury-meta hidden xl:inline-flex">EN</span>
-            <Link href="/contact" className="nav-luxury-signin hidden lg:inline-flex">
-              Sign in
-            </Link>
-            <Link href="/contact" aria-label="Account" className="nav-luxury-user hidden lg:inline-flex">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M20 21a8 8 0 0 0-16 0M12 13a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-              </svg>
-            </Link>
             <button
               onClick={() => setOpen(o => !o)}
               className="nav-mobile-toggle"
@@ -97,7 +87,7 @@ export default function Nav() {
               </Link>
             ))}
             <Link href="/contact" className="btn-primary" style={{ alignSelf: 'flex-start', marginTop: '0.5rem' }}>
-              Sign in
+              Contact OPV
             </Link>
           </motion.div>
         )}

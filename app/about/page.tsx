@@ -27,7 +27,7 @@ const cities = [
 
 const stats = [
   ['500+', 'Curated properties'],
-  ['34', 'Countries of operation'],
+  ['3', 'Active UK cities'],
   ['12', 'Vehicles in the fleet'],
   ['200', 'Point verification standard'],
   ['3', 'Cities covered'],

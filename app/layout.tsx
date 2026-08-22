@@ -5,6 +5,7 @@ import Footer from '@/components/Footer'
 import ScrollProgress from '@/components/ScrollProgress'
 import SmoothScroll from '@/components/SmoothScroll'
 import ConciergeWidget from '@/components/ConciergeWidget'
+import CookieConsent from '@/components/CookieConsent'
 import { Analytics } from '@vercel/analytics/next'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 
@@ -41,6 +42,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main>{children}</main>
           <ConciergeWidget />
           <Footer />
+          <CookieConsent />
         </SmoothScroll>
         <Analytics />
         <SpeedInsights />

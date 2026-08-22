@@ -39,10 +39,10 @@ const contactMethods = [
 ]
 
 const socials = [
-  ['Instagram', '#', 'M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm5 5.5A4.5 4.5 0 1 0 12 16a4.5 4.5 0 0 0 0-9Zm6-.7h.01'],
-  ['Snapchat', '#', 'M12 3c2.4 0 4 1.8 4 4.3v2.1c0 .8.6 1.3 1.4 1.6l1.4.5c.5.2.5.9 0 1.1l-1.5.6c-.5.2-.8.6-.7 1.1.2 1-.5 1.5-1.5 1.3-.7-.1-1.1.2-1.5.8-.4.7-.9 1.1-1.6 1.1s-1.2-.4-1.6-1.1c-.4-.6-.8-.9-1.5-.8-1 .2-1.7-.3-1.5-1.3.1-.5-.2-.9-.7-1.1l-1.5-.6c-.5-.2-.5-.9 0-1.1l1.4-.5c.8-.3 1.4-.8 1.4-1.6V7.3C8 4.8 9.6 3 12 3Z'],
-  ['TikTok', '#', 'M15 3v10.2a4.8 4.8 0 1 1-4.8-4.8c.5 0 1 .1 1.4.2v3.1a1.8 1.8 0 1 0 1.4 1.8V3h2Zm0 0c.7 2 2.1 3.3 4 3.7v3.1c-1.5-.1-2.9-.7-4-1.6'],
-  ['Facebook', '#', 'M14 8h3V4h-3a5 5 0 0 0-5 5v3H6v4h3v6h4v-6h3l1-4h-4V9a1 1 0 0 1 1-1Z'],
+  ['Instagram', 'M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm5 5.5A4.5 4.5 0 1 0 12 16a4.5 4.5 0 0 0 0-9Zm6-.7h.01'],
+  ['Snapchat', 'M12 3c2.4 0 4 1.8 4 4.3v2.1c0 .8.6 1.3 1.4 1.6l1.4.5c.5.2.5.9 0 1.1l-1.5.6c-.5.2-.8.6-.7 1.1.2 1-.5 1.5-1.5 1.3-.7-.1-1.1.2-1.5.8-.4.7-.9 1.1-1.6 1.1s-1.2-.4-1.6-1.1c-.4-.6-.8-.9-1.5-.8-1 .2-1.7-.3-1.5-1.3.1-.5-.2-.9-.7-1.1l-1.5-.6c-.5-.2-.5-.9 0-1.1l1.4-.5c.8-.3 1.4-.8 1.4-1.6V7.3C8 4.8 9.6 3 12 3Z'],
+  ['TikTok', 'M15 3v10.2a4.8 4.8 0 1 1-4.8-4.8c.5 0 1 .1 1.4.2v3.1a1.8 1.8 0 1 0 1.4 1.8V3h2Zm0 0c.7 2 2.1 3.3 4 3.7v3.1c-1.5-.1-2.9-.7-4-1.6'],
+  ['Facebook', 'M14 8h3V4h-3a5 5 0 0 0-5 5v3H6v4h3v6h4v-6h3l1-4h-4V9a1 1 0 0 1 1-1Z'],
 ]
 
 function StrokeIcon({ path }: { path: string }) {
@@ -113,17 +113,16 @@ export default function ContactPage() {
               </div>
             ))}
             <div className="contact-hours">
-              <span>Office hours</span>
+              <span>Availability</span>
               {[
-                ['Mon-Fri', '08:00 - 22:00'],
-                ['Saturday', '09:00 - 20:00'],
-                ['Sunday', '10:00 - 18:00'],
-                ['Emergency', '24 hours'],
+                ['Concierge', '24 / 7'],
+                ['Response', 'Within 2 hours'],
+                ['Urgent clients', '10 minute callback'],
               ].map(([day, time]) => <div key={day}><small>{day}</small><strong>{time}</strong></div>)}
               <div className="contact-emergency">
-                <span>Emergency line</span>
+                <span>Direct line</span>
                 <a href={telHref}>{phone}</a>
-                <p>For existing clients with urgent requirements outside office hours.</p>
+                <p>Answered around the clock for active clients and time-sensitive briefs.</p>
               </div>
             </div>
           </aside>
@@ -138,11 +137,11 @@ export default function ContactPage() {
           <h2>Stay in the <em>world.</em></h2>
           <p>New residences, seasonal fleet additions, empty legs and private dining access - quietly announced to those who follow.</p>
           <div className="contact-social-links">
-            {socials.map(([label, href, icon]) => (
-              <a key={label} href={href}>
+            {socials.map(([label, icon]) => (
+              <span key={label} aria-label={`${label} account pending`}>
                 <StrokeIcon path={icon} />
                 <span>{label}</span>
-              </a>
+              </span>
             ))}
           </div>
         </div>
