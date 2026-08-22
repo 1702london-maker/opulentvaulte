@@ -37,7 +37,7 @@ const stickyActions = [
   ['Stays', '/stays'],
   ['Drive', '/drive'],
   ['Eat', '/eat'],
-  ['Affiliate', '/affiliates'],
+  ['Affiliate', '/affiliate/login'],
   ['Account', '/portal/login'],
   ['Fly', '/fly'],
   ['Yacht', '/yacht'],
