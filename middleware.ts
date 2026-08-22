@@ -2,10 +2,12 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 export function middleware(req: NextRequest) {
-  const isAdminApi = req.nextUrl.pathname.startsWith('/api/admin')
+  const isProtected =
+    req.nextUrl.pathname.startsWith('/api/admin') ||
+    (req.nextUrl.pathname.startsWith('/admin') && !req.nextUrl.pathname.startsWith('/admin/login'))
   const adminKey = process.env.OPV_ADMIN_API_KEY
 
-  if (isAdminApi && adminKey && req.headers.get('x-opv-admin-key') !== adminKey) {
+  if (isProtected && adminKey && req.headers.get('x-opv-admin-key') !== adminKey) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
 

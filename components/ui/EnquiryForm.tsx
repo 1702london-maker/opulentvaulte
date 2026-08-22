@@ -88,6 +88,10 @@ export default function EnquiryForm({ page, cta = 'Send enquiry' }: Props) {
         </button>
         {status === 'error' && <p className="body-sm" style={{ color: '#dc2626' }}>Something went wrong. Please try again or email us directly.</p>}
       </div>
+      <p style={{ fontSize: '0.75rem', color: 'var(--ink-soft)', marginTop: '-1.25rem' }}>
+        Your information is used only to respond to your enquiry.{' '}
+        <a href="/privacy">Privacy Policy</a>.
+      </p>
     </form>
   )
 }

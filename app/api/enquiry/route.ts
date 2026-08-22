@@ -8,6 +8,13 @@ import { sanitizeObject, sanitizeText } from '@/lib/sanitize'
 
 export const dynamic = 'force-dynamic'
 
+export async function GET() {
+  return NextResponse.json(
+    { error: 'Method not allowed' },
+    { status: 405 }
+  )
+}
+
 function firstAvailable(...values: unknown[]) {
   for (const value of values) {
     const clean = sanitizeText(value)
@@ -18,6 +25,15 @@ function firstAvailable(...values: unknown[]) {
 
 export async function POST(req: NextRequest) {
   try {
+    const origin = req.headers.get('origin')
+    const allowedOrigins = [
+      'https://opulentvault.co.uk',
+      'https://www.opulentvault.co.uk',
+    ]
+    if (!origin || !allowedOrigins.includes(origin)) {
+      return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
+    }
+
     const contentType = req.headers.get('content-type') || ''
     if (!contentType.includes('application/json')) return jsonError('Content-Type must be application/json', 415)
 
@@ -50,6 +66,19 @@ export async function POST(req: NextRequest) {
 
     if (!fullName || !email) return jsonError('Missing required fields: full_name and email')
     if (!isEmail(email)) return jsonError('Invalid email address')
+    const MAX_LENGTHS = { fullName: 120, email: 254, message: 4000, phone: 80 }
+    if (fullName.length > MAX_LENGTHS.fullName) {
+      return NextResponse.json({ error: 'Name is too long' }, { status: 400 })
+    }
+    if (email.length > MAX_LENGTHS.email) {
+      return NextResponse.json({ error: 'Email is too long' }, { status: 400 })
+    }
+    if (message && message.length > MAX_LENGTHS.message) {
+      return NextResponse.json({ error: 'Message is too long' }, { status: 400 })
+    }
+    if (phone && phone.length > MAX_LENGTHS.phone) {
+      return NextResponse.json({ error: 'Phone is too long' }, { status: 400 })
+    }
 
     const clientId = await upsertClient({
       fullName,

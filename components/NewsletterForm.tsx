@@ -24,6 +24,13 @@ export default function NewsletterForm() {
   return (
     <form className="home-newsletter-form" onSubmit={submit}>
       <input type="email" name="email" placeholder="Your email" required />
+      <label style={{ display: 'flex', gap: '0.5rem', alignItems: 'flex-start', fontSize: '0.8rem' }}>
+        <input type="checkbox" name="consent" required />
+        <span>
+          I agree to receive updates from OPV.
+          View our <a href="/privacy">Privacy Policy</a>.
+        </span>
+      </label>
       <button type="submit" disabled={loading}>{loading ? 'Joining' : sent ? 'Joined' : 'Join'}</button>
     </form>
   )

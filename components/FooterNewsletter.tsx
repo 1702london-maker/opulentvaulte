@@ -44,6 +44,13 @@ export default function FooterNewsletter() {
       <form onSubmit={submit}>
         <label htmlFor="footer-email">Your email</label>
         <input id="footer-email" type="email" required value={email} onChange={event => setEmail(event.target.value)} placeholder="your@email.com" />
+        <label style={{ display: 'flex', gap: '0.5rem', alignItems: 'flex-start', fontSize: '0.8rem' }}>
+          <input type="checkbox" name="consent" required />
+          <span>
+            I agree to receive updates from OPV.
+            View our <a href="/privacy">Privacy Policy</a>.
+          </span>
+        </label>
         <button type="submit" disabled={status === 'loading'}>{status === 'loading' ? 'Subscribing...' : 'Subscribe'}</button>
         {status === 'error' && <small>Something went wrong - email us directly.</small>}
       </form>
