@@ -1,22 +1,48 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-export function middleware(req: NextRequest) {
+const SESSION_COOKIE = 'opv_admin_session'
+const SECRET = process.env.OPV_SESSION_SECRET ?? 'change-me-in-production'
+
+async function verifyToken(token: string): Promise<boolean> {
+  try {
+    const [payload, sig] = token.split('.')
+    if (!payload || !sig) return false
+    const encoder = new TextEncoder()
+    const key = await crypto.subtle.importKey(
+      'raw',
+      encoder.encode(SECRET),
+      { name: 'HMAC', hash: 'SHA-256' },
+      false,
+      ['sign']
+    )
+    const expected = await crypto.subtle.sign('HMAC', key, encoder.encode(payload))
+    const expectedB64 = btoa(String.fromCharCode(...new Uint8Array(expected)))
+      .replace(/\+/g, '-').replace(/\//g, '_').replace(/=/g, '')
+    if (expectedB64 !== sig) return false
+    const expires = parseInt(payload, 10)
+    return Date.now() < expires
+  } catch {
+    return false
+  }
+}
+
+export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl
 
-  // Admin route protection — block /admin and /api/admin without key
-  const isProtected =
-    pathname.startsWith('/admin') || pathname.startsWith('/api/admin')
+  const isAdminUi = pathname.startsWith('/admin') && !pathname.startsWith('/admin/login')
+  const isAdminApi = pathname.startsWith('/api/admin')
 
-  if (isProtected) {
-    const adminKey = process.env.OPV_ADMIN_API_KEY
-    const providedKey = req.headers.get('x-opv-admin-key')
+  if (isAdminUi || isAdminApi) {
+    const token = req.cookies.get(SESSION_COOKIE)?.value
+    const valid = token ? await verifyToken(token) : false
 
-    if (!adminKey || providedKey !== adminKey) {
-      // UI route — redirect to home instead of JSON error
-      if (pathname.startsWith('/admin') && !pathname.startsWith('/api/admin')) {
-        return NextResponse.redirect(new URL('/', req.url))
+    if (!valid) {
+      if (isAdminApi) {
+        return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
       }
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+      const loginUrl = new URL('/admin/login', req.url)
+      loginUrl.searchParams.set('from', pathname)
+      return NextResponse.redirect(loginUrl)
     }
   }
 
@@ -30,7 +56,7 @@ export function middleware(req: NextRequest) {
       secure: true,
       sameSite: 'lax',
       path: '/',
-      maxAge: 60 * 60 * 24 * 30, // 30 days (reduced from 90)
+      maxAge: 60 * 60 * 24 * 30,
     })
   }
 
