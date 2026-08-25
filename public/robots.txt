@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://opulentvault.co.uk/sitemap.xml
