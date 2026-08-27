@@ -51,7 +51,7 @@ export default function DrivePage() {
   const load = () => {
     fetch('/api/admin/vehicles').then(r => r.json()).then(d => { setItems(d.data ?? []); setLoading(false) })
   }
-  useEffect(load, [])
+  useEffect(() => { load() }, [])
 
   const F = (k: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const val = e.target.type === 'checkbox' ? (e.target as HTMLInputElement).checked : e.target.value

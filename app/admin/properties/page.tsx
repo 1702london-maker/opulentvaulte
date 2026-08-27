@@ -43,7 +43,7 @@ export default function PropertiesPage() {
       .then(d => { setItems(d.data ?? []); setLoading(false) })
   }
 
-  useEffect(load, [])
+  useEffect(() => { load() }, [])
 
   const uploadImage = async (file: File) => {
     setUploading(true)

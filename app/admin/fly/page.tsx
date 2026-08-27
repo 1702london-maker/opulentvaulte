@@ -23,8 +23,8 @@ export default function FlyPage() {
   const [showForm, setShowForm] = useState(false)
   const [saving, setSaving] = useState(false)
 
-  const load = () => fetch('/api/admin/aircraft').then(r => r.json()).then(d => { setItems(d.data ?? []); setLoading(false) })
-  useEffect(load, [])
+  const load = () => { fetch('/api/admin/aircraft').then(r => r.json()).then(d => { setItems(d.data ?? []); setLoading(false) }) }
+  useEffect(() => { load() }, [])
 
   const F = (k: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => setForm(f => ({ ...f, [k]: e.target.value }))
 
