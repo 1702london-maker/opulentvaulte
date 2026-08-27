@@ -16,7 +16,10 @@ async function verifyToken(token: string): Promise<boolean> {
       ['sign']
     )
     const expected = await crypto.subtle.sign('HMAC', key, encoder.encode(payload))
-    const expectedB64 = btoa(String.fromCharCode(...new Uint8Array(expected)))
+    const bytes = new Uint8Array(expected)
+    let binary = ''
+    for (let i = 0; i < bytes.byteLength; i++) binary += String.fromCharCode(bytes[i])
+    const expectedB64 = btoa(binary)
       .replace(/\+/g, '-').replace(/\//g, '_').replace(/=/g, '')
     if (expectedB64 !== sig) return false
     const expires = parseInt(payload, 10)
